@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  schemaVersion: v1.0.0
+  name: node-sdk-location
+  description: Links to additional entities in the node-sdk repository.
+  annotations:
+    github.com/project-slug: Bandwidth/node-sdk
+spec:
+  targets:
+    - ./component.yaml
+    # - add more components using relative filepaths here
+    # - you may also rename/move the original component.yaml file

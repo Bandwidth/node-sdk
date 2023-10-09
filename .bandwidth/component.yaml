@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  schemaVersion: v1.0.0
+  name: node-sdk
+  description: TypeScript Node SDK for Bandwidth Voice & Messaging
+  annotations:
+    github.com/project-slug: Bandwidth/node-sdk
+  organization: BW
+  costCenter: UNKNOWN
+  platformType: 
+  buildPlatform: GitHub Actions
+spec:
+  type: Library
+  owner: github/band-swi
+  lifecycle: Prototype
+  dependsOn:
+    - resource:platform/undefined
+    - resource:cost-center/UNKNOWN
+
