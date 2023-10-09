@@ -1,0 +1,8 @@
+npmName: bandwidth-sdk
+withSeparateModelsAndApi: true
+modelPackage: models
+apiPackage: api
+withNodeImports: true
+gitHost: github.com
+gitUserId: Bandwidth
+gitRepoId: node-sdk
