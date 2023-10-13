@@ -16,14 +16,11 @@
 import type { Configuration } from '../configuration';
 import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
-// URLSearchParams not necessarily used
-// @ts-ignore
-import { URL, URLSearchParams } from 'url';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import { CodeRequest } from '../models';
 // @ts-ignore
@@ -198,7 +195,9 @@ export const MFAApiFp = function(configuration?: Configuration) {
          */
         async generateMessagingCode(accountId: string, codeRequest: CodeRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessagingCodeResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.generateMessagingCode(accountId, codeRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAApi.generateMessagingCode']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Send an MFA Code via a phone call.
@@ -210,7 +209,9 @@ export const MFAApiFp = function(configuration?: Configuration) {
          */
         async generateVoiceCode(accountId: string, codeRequest: CodeRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VoiceCodeResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.generateVoiceCode(accountId, codeRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAApi.generateVoiceCode']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Verify a previously sent MFA code.
@@ -222,7 +223,9 @@ export const MFAApiFp = function(configuration?: Configuration) {
          */
         async verifyCode(accountId: string, verifyCodeRequest: VerifyCodeRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerifyCodeResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.verifyCode(accountId, verifyCodeRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MFAApi.verifyCode']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };

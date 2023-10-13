@@ -16,14 +16,11 @@
 import type { Configuration } from '../configuration';
 import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
-// URLSearchParams not necessarily used
-// @ts-ignore
-import { URL, URLSearchParams } from 'url';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import { CallRecordingMetadata } from '../models';
 // @ts-ignore
@@ -537,7 +534,9 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          */
         async deleteCallTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCallTranscription(accountId, callId, recordingId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RecordingsApi.deleteCallTranscription']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Delete the recording information, media and transcription.  Note: After the deletion is requested and a `204` is returned, neither the recording metadata nor the actual media nor its transcription will be accessible anymore. However, the media of the specified recording is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
@@ -550,7 +549,9 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          */
         async deleteRecording(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRecording(accountId, callId, recordingId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RecordingsApi.deleteRecording']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Deletes the specified recording\'s media.
@@ -563,7 +564,9 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          */
         async deleteRecordingMedia(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRecordingMedia(accountId, callId, recordingId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RecordingsApi.deleteRecordingMedia']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Downloads the specified recording.
@@ -576,7 +579,9 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          */
         async downloadCallRecording(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.downloadCallRecording(accountId, callId, recordingId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RecordingsApi.downloadCallRecording']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Returns metadata for the specified recording.
@@ -589,7 +594,9 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          */
         async getCallRecording(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CallRecordingMetadata>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCallRecording(accountId, callId, recordingId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RecordingsApi.getCallRecording']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Downloads the specified transcription.  If the transcribed recording was multi-channel, then there will be 2 transcripts. The caller/called party transcript will be the first item while [`<PlayAudio>`](/docs/voice/bxml/playAudio) and [`<SpeakSentence>`](/docs/voice/bxml/speakSentence) transcript will be the second item. During a [`<Transfer>`](/docs/voice/bxml/transfer) the A-leg transcript will be the first item while the B-leg transcript will be the second item.
@@ -602,7 +609,9 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          */
         async getCallTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TranscriptionList>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCallTranscription(accountId, callId, recordingId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RecordingsApi.getCallTranscription']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Returns a list of metadata for the recordings associated with the specified account. The list can be filtered by the optional from, to, minStartTime, and maxStartTime arguments. The list is capped at 1000 entries and may be empty if no recordings match the specified criteria.
@@ -617,7 +626,9 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          */
         async listAccountCallRecordings(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CallRecordingMetadata>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccountCallRecordings(accountId, to, from, minStartTime, maxStartTime, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RecordingsApi.listAccountCallRecordings']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Returns a (potentially empty) list of metadata for the recordings that took place during the specified call.
@@ -629,7 +640,9 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          */
         async listCallRecordings(accountId: string, callId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CallRecordingMetadata>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCallRecordings(accountId, callId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RecordingsApi.listCallRecordings']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Generate the transcription for a specific recording. Transcription can succeed only for recordings of length greater than 500 milliseconds and less than 4 hours.
@@ -643,7 +656,9 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          */
         async transcribeCallRecording(accountId: string, callId: string, recordingId: string, transcribeRecording: TranscribeRecording, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.transcribeCallRecording(accountId, callId, recordingId, transcribeRecording, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RecordingsApi.transcribeCallRecording']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Pause or resume a recording on an active phone call.
@@ -656,7 +671,9 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          */
         async updateCallRecordingState(accountId: string, callId: string, updateCallRecording: UpdateCallRecording, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateCallRecordingState(accountId, callId, updateCallRecording, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RecordingsApi.updateCallRecordingState']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };

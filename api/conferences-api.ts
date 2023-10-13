@@ -16,14 +16,11 @@
 import type { Configuration } from '../configuration';
 import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
-// URLSearchParams not necessarily used
-// @ts-ignore
-import { URL, URLSearchParams } from 'url';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import { Conference } from '../models';
 // @ts-ignore
@@ -496,7 +493,9 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          */
         async downloadConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.downloadConferenceRecording(accountId, conferenceId, recordingId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConferencesApi.downloadConferenceRecording']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Returns information about the specified conference.
@@ -508,7 +507,9 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          */
         async getConference(accountId: string, conferenceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Conference>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConference(accountId, conferenceId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConferencesApi.getConference']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Returns information about the specified conference member.
@@ -521,7 +522,9 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          */
         async getConferenceMember(accountId: string, conferenceId: string, memberId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConferenceMember>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConferenceMember(accountId, conferenceId, memberId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConferencesApi.getConferenceMember']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Returns metadata for the specified recording.
@@ -534,7 +537,9 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          */
         async getConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConferenceRecordingMetadata>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConferenceRecording(accountId, conferenceId, recordingId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConferencesApi.getConferenceRecording']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Returns a (potentially empty) list of metadata for the recordings that took place during the specified conference.
@@ -546,7 +551,9 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          */
         async listConferenceRecordings(accountId: string, conferenceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConferenceRecordingMetadata>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listConferenceRecordings(accountId, conferenceId, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConferencesApi.listConferenceRecordings']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Returns a max of 1000 conferences, sorted by `createdTime` from oldest to newest.  **NOTE:** If the number of conferences in the account is bigger than `pageSize`, a `Link` header (with format `<{url}>; rel=\"next\"`) will be returned in the response. The url can be used to retrieve the next page of conference records.
@@ -562,7 +569,9 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          */
         async listConferences(accountId: string, name?: string, minCreatedTime?: string, maxCreatedTime?: string, pageSize?: number, pageToken?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Conference>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listConferences(accountId, name, minCreatedTime, maxCreatedTime, pageSize, pageToken, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConferencesApi.listConferences']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Update the conference state.
@@ -575,7 +584,9 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          */
         async updateConference(accountId: string, conferenceId: string, updateConference: UpdateConference, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateConference(accountId, conferenceId, updateConference, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConferencesApi.updateConference']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Update the conference BXML document.
@@ -588,7 +599,9 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          */
         async updateConferenceBxml(accountId: string, conferenceId: string, body: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateConferenceBxml(accountId, conferenceId, body, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConferencesApi.updateConferenceBxml']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Updates settings for a particular conference member.
@@ -602,7 +615,9 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          */
         async updateConferenceMember(accountId: string, conferenceId: string, memberId: string, updateConferenceMember: UpdateConferenceMember, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateConferenceMember(accountId, conferenceId, memberId, updateConferenceMember, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['ConferencesApi.updateConferenceMember']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };

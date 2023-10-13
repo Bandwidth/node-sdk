@@ -16,14 +16,11 @@
 import type { Configuration } from '../configuration';
 import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
-// URLSearchParams not necessarily used
-// @ts-ignore
-import { URL, URLSearchParams } from 'url';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
 import { CreateMessageRequestError } from '../models';
 // @ts-ignore
@@ -145,11 +142,15 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
             }
 
             if (messageStatus !== undefined) {
-                localVarQueryParameter['messageStatus'] = messageStatus;
+                for (let param of Object.keys(messageStatus)) {
+                    localVarQueryParameter[param] = messageStatus?.[param];
+                }
             }
 
             if (messageDirection !== undefined) {
-                localVarQueryParameter['messageDirection'] = messageDirection;
+                for (let param of Object.keys(messageDirection)) {
+                    localVarQueryParameter[param] = messageDirection?.[param];
+                }
             }
 
             if (carrierName !== undefined) {
@@ -157,7 +158,9 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
             }
 
             if (messageType !== undefined) {
-                localVarQueryParameter['messageType'] = messageType;
+                for (let param of Object.keys(messageType)) {
+                    localVarQueryParameter[param] = messageType?.[param];
+                }
             }
 
             if (errorCode !== undefined) {
@@ -223,7 +226,9 @@ export const MessagesApiFp = function(configuration?: Configuration) {
          */
         async createMessage(accountId: string, messageRequest: MessageRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Message>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createMessage(accountId, messageRequest, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MessagesApi.createMessage']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
          * Returns a list of messages based on query parameters.
@@ -249,7 +254,9 @@ export const MessagesApiFp = function(configuration?: Configuration) {
          */
         async listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessagesList>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, sort, pageToken, limit, limitTotalCount, options);
-            return createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['MessagesApi.listMessages']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
     }
 };
