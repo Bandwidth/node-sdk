@@ -4,7 +4,7 @@ const { Configuration } = require('../../configuration');
 const { RecordingStateEnum, CallStateEnum } = require('../../models');
 const { setupManteca, createMantecaCall, cleanupCalls, getMantecaTestStatus, sleep } = require('../callUtils');
 
-describe('recordingsApi', () => {
+describe('RecordingsApi', () => {
     jest.setTimeout(125000);
     const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
     const callsApi = new CallsApi(config);
