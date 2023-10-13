@@ -37,4 +37,43 @@ describe('PhoneNumberLookupApi', () => {
             expect(data.result[0]['E.164 Format']).toEqual(BW_NUMBER);
         });
     });
+
+    describe('HTTP Errors', () => {
+        test('400', async () => {
+            const lookupRequest = {
+                tns: ['+1invalid']
+            };
+
+            try {
+                await phoneNumberLookupApi.createLookup(BW_ACCOUNT_ID, lookupRequest);
+            } catch (e) {
+                expect(e.response.status).toEqual(400);
+            }
+        });
+
+        test('401', async () => {
+            const configBad = new Configuration({username: UNAUTHORIZED_USERNAME, password: UNAUTHORIZED_PASSWORD});
+            const phoneNumberLookupApiBad = new PhoneNumberLookupApi(configBad);
+
+            const lookupRequest = {
+                tns: [BW_NUMBER]
+            };
+
+            try {
+                await phoneNumberLookupApiBad.createLookup(BW_ACCOUNT_ID, lookupRequest);
+            } catch (e) {
+                expect(e.response.status).toEqual(401);
+            }
+        });
+
+        test('404', async () => {
+            const requestIdBad = '00000000-0000-0000-0000-000000000000';
+
+            try {
+                await phoneNumberLookupApi.getLookupStatus(BW_ACCOUNT_ID, requestIdBad);
+            } catch (e) {
+                expect(e.response.status).toEqual(404);
+            }
+        });
+    });
 });
