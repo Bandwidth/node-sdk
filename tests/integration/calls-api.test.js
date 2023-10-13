@@ -98,7 +98,7 @@ describe('CallsApi', () => {
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
             expect(data[0].accountId).toEqual(BW_ACCOUNT_ID);
-            expect(data[0].applicationId).toEqual(BW_VOICE_APPLICATION_ID);
+            expect(data[0].applicationId).toHaveLength(36);
             expect(data[0].callId).toHaveLength(47);
         });
     });

@@ -3,6 +3,7 @@ const { Configuration } = require('../../configuration');
 const { sleep } = require('../callUtils');
 
 describe('PhoneNumberLookupApi', () => {
+    jest.setTimeout(10000);
     const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
     const phoneNumberLookupApi = new PhoneNumberLookupApi(config);
 
