@@ -150,10 +150,9 @@ describe('ConferencesApi', () => {
     describe('downloadConferenceRecording', () => {
         test('should download conference recording', async () => {
             const { status, data } = await conferencesApi.downloadConferenceRecording(BW_ACCOUNT_ID, conferenceId, recordingId);
-            // fs.writeFileSync('./test.wav', data.toString(), {encoding: 'utf8'});
-            // TODO: Figure out how to get this to write the file correctly
 
             expect(status).toEqual(200);
+            expect(data).toBeDefined();
         });
     });
 

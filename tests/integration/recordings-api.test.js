@@ -102,9 +102,9 @@ describe('RecordingsApi', () => {
     describe('downloadCallRecording', () => {
         test('should download call recording', async () => {
             const { status, data } = await recordingsApi.downloadCallRecording(BW_ACCOUNT_ID, mantecaCallId, recordingId);
-            // fs.writeFileSync('./test.wav', data.toString(), {encoding: 'utf8'});
 
             expect(status).toEqual(200);
+            expect(data).toBeDefined();
         });
     });
 
