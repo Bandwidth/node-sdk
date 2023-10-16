@@ -26,7 +26,7 @@ export class Root {
      * Generate an XML element for the verb
      */
     generateXml(): XMLBuilder {
-        const xml = create({ version: 1.0, encoding: 'UTF-8' }).ele(this.name);
+        const xml = create({ version: '1.0', encoding: 'UTF-8' }).ele(this.name);
         this.nestedVerbs?.forEach((verb) => { xml.import(verb.generateXml()); });
         return xml;
     }
