@@ -17,8 +17,8 @@ export class PlayAudio extends Verb {
 
     /**
      * Creates an instance of PlayAudio
-     * @param audioUri [string] The URL of the audio to play
-     * @param attributes [PlayAudioAttributes] The attributes to add to the element
+     * @param {string} audioUri The URL of the audio to play
+     * @param {PlayAudioAttributes} attributes The attributes to add to the element
      */
     constructor(audioUri: string, attributes?: PlayAudioAttributes) {
         super('PlayAudio', audioUri, attributes);

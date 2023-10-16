@@ -23,7 +23,7 @@ export class Redirect extends Verb {
 
     /**
      * Creates an instance of Redirect
-     * @param attributes [RedirectAttributes] The attributes to add to the element
+     * @param {RedirectAttributes} attributes The attributes to add to the element
      */
     constructor(attributes?: RedirectAttributes) {
         super('Redirect', undefined, attributes);

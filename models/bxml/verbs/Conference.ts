@@ -28,8 +28,8 @@ export class Conference extends Verb {
 
     /**
      * Creates an instance of Conference
-     * @param name [string] Name of the conference
-     * @param attributes [ConferenceAttributes] The attributes to add to the element
+     * @param {string} name Name of the conference
+     * @param {ConferenceAttributes} attributes The attributes to add to the element
      */
     constructor(name: string, attributes?: ConferenceAttributes) {
         super('Conference', name, attributes);

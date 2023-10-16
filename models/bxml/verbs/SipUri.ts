@@ -27,8 +27,8 @@ export class SipUri extends Verb {
 
     /**
      * Creates an instance of SipUri
-     * @param uri [string] The sip uri to transfer to
-     * @param attributes [SipUriAttributes] The attributes to add to the element
+     * @param {string} uri The sip uri to transfer to
+     * @param {SipUriAttributes} attributes The attributes to add to the element
      */
     constructor(uri: string, attributes?: SipUriAttributes) {
         super('SipUri', uri, attributes);

@@ -27,8 +27,8 @@ export class Bridge extends Verb {
 
     /**
      * Creates an instance of Bridge
-     * @param targetCall [string] The callId of the call to be bridged
-     * @param attributes [BridgeAttributes] The attributes to add to the element
+     * @param {string} targetCall The callId of the call to be bridged
+     * @param {BridgeAttributes} attributes The attributes to add to the element
      */
     constructor(targetCall: string, attributes?: BridgeAttributes) {
         super('Bridge', targetCall, attributes);

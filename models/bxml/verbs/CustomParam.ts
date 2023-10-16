@@ -17,7 +17,7 @@ export class CustomParam extends Verb {
 
     /**
      * Creates an instance of CustomParam
-     * @param attributes [CustomParamAttributes] The attributes to add to the element
+     * @param {CustomParamAttributes} attributes The attributes to add to the element
      */
     constructor(attributes: CustomParamAttributes) {
         super('CustomParam', undefined , attributes);

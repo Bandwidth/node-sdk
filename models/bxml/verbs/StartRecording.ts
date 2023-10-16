@@ -24,7 +24,7 @@ export class StartRecording extends Verb {
 
     /**
      * Creates an instance of StartRecording
-     * @param attributes [StartRecordingAttributes] The attributes to add to the element
+     * @param {StartRecordingAttributes} attributes The attributes to add to the element
      */
     constructor(attributes?: StartRecordingAttributes) {
         super('StartRecording', undefined, attributes);

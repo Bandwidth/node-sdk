@@ -16,7 +16,7 @@ export class Ring extends Verb {
 
     /**
      * Creates an instance of Ring
-     * @param attributes [RingAttributes] The attributes to add to the element
+     * @param {RingAttributes} attributes The attributes to add to the element
      */
     constructor(attributes: RingAttributes) {
         super('Ring', undefined, attributes);

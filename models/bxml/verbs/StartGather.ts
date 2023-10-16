@@ -19,7 +19,7 @@ export class StartGather extends Verb {
 
     /**
      * Creates an instance of StartGather
-     * @param attributes [StartGatherAttributes] The attributes to add to the element
+     * @param {StartGatherAttributes} attributes The attributes to add to the element
      */
     constructor(attributes: StartGatherAttributes) {
         super('StartGather', undefined, attributes);

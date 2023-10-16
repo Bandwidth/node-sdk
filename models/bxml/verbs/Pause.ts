@@ -15,7 +15,7 @@ export class Pause extends Verb {
 
     /**
      * Creates an instance of Pause
-     * @param attributes [PauseAttributes] The attributes to add to the element
+     * @param {PauseAttributes} attributes The attributes to add to the element
      */
     constructor(attributes: PauseAttributes) {
         super('Pause', undefined, attributes);

@@ -32,7 +32,7 @@ export class Record extends Verb {
 
     /**
      * Creates an instance of Record
-     * @param attributes [RecordAttributes] The attributes to add to the element
+     * @param {RecordAttributes} attributes The attributes to add to the element
      */
     constructor(attributes?: RecordAttributes) {
         super('Record', undefined, attributes);

@@ -17,8 +17,8 @@ export class SendDtmf extends Verb {
 
     /**
      * Creates an instance of SendDtmf
-     * @param digits [string] The digits to send
-     * @param attributes [SendDtmfAttributes] The attributes to add to the element
+     * @param {string} digits The digits to send
+     * @param {SendDtmfAttributes} attributes The attributes to add to the element
      */
     constructor(digits: string, attributes?: SendDtmfAttributes) {
         super('SendDtmf', digits, attributes);

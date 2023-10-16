@@ -26,8 +26,8 @@ export class PhoneNumber extends Verb {
 
     /**
      * Creates an instance of PhoneNumber
-     * @param number [string] The phone number to transfer to
-     * @param attributes [PhoneNumberAttributes] The attributes to add to the element
+     * @param {string} number The phone number to transfer to
+     * @param {PhoneNumberAttributes} attributes The attributes to add to the element
      */
     constructor(number: string, attributes?: PhoneNumberAttributes) {
         super('PhoneNumber', number, attributes);

@@ -20,7 +20,7 @@ export class Forward extends Verb {
 
     /**
      * Creates an instance of Forward
-     * @param attributes [ForwardAttributes] The attributes to add to the element
+     * @param {ForwardAttributes} attributes The attributes to add to the element
      */
     constructor(attributes: ForwardAttributes) {
         super('Forward', undefined, attributes);
