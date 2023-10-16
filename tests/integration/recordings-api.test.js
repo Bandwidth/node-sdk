@@ -150,7 +150,7 @@ describe('RecordingsApi', () => {
 
     describe('deleteCallTranscription', () => {
         test('should delete call transcription', async () => {
-            const { status, data } = await recordingsApi.deleteCallTranscription(BW_ACCOUNT_ID, mantecaCallId, recordingId);
+            const { status } = await recordingsApi.deleteCallTranscription(BW_ACCOUNT_ID, mantecaCallId, recordingId);
 
             expect(status).toEqual(204);
         });
@@ -158,7 +158,7 @@ describe('RecordingsApi', () => {
 
     describe('deleteRecordingMedia', () => {
         test('should delete recording media', async () => {
-            const { status, data } = await recordingsApi.deleteRecordingMedia(BW_ACCOUNT_ID, mantecaCallId, recordingId);
+            const { status } = await recordingsApi.deleteRecordingMedia(BW_ACCOUNT_ID, mantecaCallId, recordingId);
 
             expect(status).toEqual(204);
         });
@@ -166,7 +166,7 @@ describe('RecordingsApi', () => {
 
     describe('deleteRecording', () => {
         test('should delete recording', async () => {
-            const { status, data } = await recordingsApi.deleteRecording(BW_ACCOUNT_ID, mantecaCallId, recordingId);
+            const { status } = await recordingsApi.deleteRecording(BW_ACCOUNT_ID, mantecaCallId, recordingId);
 
             expect(status).toEqual(204);
         });
