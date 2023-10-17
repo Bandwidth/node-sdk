@@ -142,15 +142,11 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
             }
 
             if (messageStatus !== undefined) {
-                for (let param of Object.keys(messageStatus)) {
-                    localVarQueryParameter[param] = messageStatus?.[param];
-                }
+                localVarQueryParameter['messageStatus'] = messageStatus;
             }
 
             if (messageDirection !== undefined) {
-                for (let param of Object.keys(messageDirection)) {
-                    localVarQueryParameter[param] = messageDirection?.[param];
-                }
+                localVarQueryParameter['messageDirection'] = messageDirection;
             }
 
             if (carrierName !== undefined) {
@@ -158,9 +154,7 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
             }
 
             if (messageType !== undefined) {
-                for (let param of Object.keys(messageType)) {
-                    localVarQueryParameter[param] = messageType?.[param];
-                }
+                localVarQueryParameter['messageType'] = messageType;
             }
 
             if (errorCode !== undefined) {
