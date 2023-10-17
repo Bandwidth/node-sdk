@@ -1,0 +1,71 @@
+name: Deploy Beta SDK
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  deploy-beta:
+    name: Deploy SDK to NPM
+    runs-on: ubuntu-latest
+    if: ${{ github.event.release.prerelease }}
+    env:
+      BW_ACCOUNT_ID: ${{ secrets.BW_ACCOUNT_ID }}
+      BW_USERNAME: ${{ secrets.BW_USERNAME }}
+      BW_PASSWORD: ${{ secrets.BW_PASSWORD }}
+      BW_USERNAME_FORBIDDEN: ${{ secrets.BW_USERNAME_FORBIDDEN }}
+      BW_PASSWORD_FORBIDDEN: ${{ secrets.BW_PASSWORD_FORBIDDEN }}
+      BW_VOICE_APPLICATION_ID: ${{ secrets.BW_VOICE_APPLICATION_ID }}
+      BW_MESSAGING_APPLICATION_ID: ${{ secrets.BW_MESSAGING_APPLICATION_ID }}
+      BW_NUMBER: ${{ secrets.BW_NUMBER }}
+      USER_NUMBER: ${{ secrets.USER_NUMBER }}
+      BASE_CALLBACK_URL: ${{ secrets.BASE_CALLBACK_URL }}
+      RUBY_VERSION: "3.0"
+      OPERATING_SYSTEM: "ubuntu"
+      MANTECA_ACTIVE_NUMBER: ${{ secrets.MANTECA_ACTIVE_NUMBER }}
+      MANTECA_IDLE_NUMBER: ${{ secrets.MANTECA_IDLE_NUMBER }}
+      MANTECA_BASE_URL: ${{ secrets.MANTECA_BASE_URL }}
+      MANTECA_APPLICATION_ID: ${{ secrets.MANTECA_APPLICATION_ID }}
+      BW_NUMBER_PROVIDER: ${{ secrets.BW_NUMBER_PROVIDER }}
+
+    steps:
+      - name: Set Release Version
+        run: |
+          RELEASE_VERSION=${GITHUB_REF#refs/tags/v}
+          re=[0-9]+\.[0-9]+\.[0-9]+-beta\.[0-9]+
+          if [[ $RELEASE_VERSION =~ $re ]]; then
+            echo "GEM_VERSION=$RELEASE_VERSION" >> $GITHUB_ENV
+          else
+            echo "Tag does not match expected semver regex pattern (v$re)"
+            echo $RELEASE_VERSION
+            echo 'Please update your tag to match the expected regex pattern'
+            exit 1
+          fi
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install Packages and Test
+        run: |
+          yarn
+          yarn test
+
+      - name: Publish npm Package
+        run: |
+          npm version $RELEASE_VERSION --no-git-tag-version
+          npm publish --access public --tag beta
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+      - uses: Bandwidth/build-notify-slack-action@v1.0.0
+        if: always()
+        with:
+          job-status: ${{ job.status }}
+          slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
+          slack-channel: ${{ secrets.SLACK_CHANNEL }}
