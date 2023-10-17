@@ -2,6 +2,8 @@ import { create } from 'xmlbuilder2';
 import { XMLBuilder, XMLWriterOptions } from 'xmlbuilder2/lib/interfaces';
 import { Verb } from './Verb';
 
+export const SSML_REGEX = /&lt;([a-zA-Z\/\/].*?)&gt;/g;
+
 /**
  * @export
  * @class Root
@@ -36,6 +38,6 @@ export class Root {
      * @param options XML Serialization options
      */
     toBxml(options?: XMLWriterOptions): string {
-        return this.generateXml().end(options);
+        return this.generateXml().end(options).replace(SSML_REGEX, '<$1>');
     }
 }
