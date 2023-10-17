@@ -19,12 +19,12 @@ interface StartTranscriptionAttributes {
  * Represents a StartTranscription verb
  */
 export class StartTranscription extends NestableVerb {
-    customParams: CustomParam[];
     attributes: StartTranscriptionAttributes;
 
     /**
      * Creates an instance of StartTranscription
      * @param {StartTranscriptionAttributes} attributes The attributes to add to the element
+     * @param {CustomParam[]} customParams The custom params to add to the element
      */
     constructor(attributes?: StartTranscriptionAttributes, customParams?: CustomParam[]) {
         super('StartTranscription', undefined, attributes, customParams);
@@ -35,6 +35,6 @@ export class StartTranscription extends NestableVerb {
      * @param {CustomParam} customParam The custom param to add
      */
     addCustomParam(customParam: CustomParam | CustomParam[]): void {
-        this.customParams = this.customParams.concat(customParam);
+        this.nestedVerbs = this.nestedVerbs.concat(customParam);
     }
 }

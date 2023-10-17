@@ -30,13 +30,12 @@ interface GatherAttributes {
  * Represents a Gather verb
  */
 export class Gather extends NestableVerb {
-    audioVerbs: AudioVerbs;
     attributes: GatherAttributes;
 
     /**
      * Creates an instance of Gather
-     * @param {AudioVerbs} audioVerbs The audio verbs to be played
      * @param {GatherAttributes} attributes The attributes to add to the element
+     * @param {AudioVerbs} audioVerbs The audio verbs to be played
      */
     constructor(attributes?: GatherAttributes, audioVerbs?: AudioVerbs) {
         super('Gather', undefined, attributes, audioVerbs);
@@ -55,6 +54,6 @@ export class Gather extends NestableVerb {
      * @param {AudioVerbs} audioVerb The audio verb or verbs to add
      */
     addAudioVerb(audioVerb: PlayAudio | SpeakSentence | AudioVerbs): void {
-        this.audioVerbs = this.audioVerbs.concat(audioVerb);
+        this.nestedVerbs = this.nestedVerbs.concat(audioVerb);
     }
 }

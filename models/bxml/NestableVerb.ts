@@ -23,7 +23,7 @@ export class NestableVerb extends Verb {
      */
     constructor(name: string, content?: string, attributes?: object, nestedVerbs?: Verb[]) {
         super(name, content, attributes);
-        this.nestedVerbs = nestedVerbs;
+        this.nestedVerbs = nestedVerbs || [];
     }
 
     /**
