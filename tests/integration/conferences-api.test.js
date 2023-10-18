@@ -39,22 +39,32 @@ describe('ConferencesApi', () => {
 
     describe('getConference', () => {
         test('should get a conference', async () => {
-            const { status, data } = await conferencesApi.getConference(BW_ACCOUNT_ID, conferenceId);
-    
-            expect(status).toEqual(200);
-            expect(data.id).toEqual(conferenceId);
-            expect(data.name).toEqual(mantecaTestId);
-            expect(data.tag).toEqual(mantecaTestId);
+            try {
+                const { status, data } = await conferencesApi.getConference(BW_ACCOUNT_ID, conferenceId);
+        
+                expect(status).toEqual(200);
+                expect(data.id).toEqual(conferenceId);
+                expect(data.name).toEqual(mantecaTestId);
+                expect(data.tag).toEqual(mantecaTestId);
+            } catch (e) {
+                console.log(e);
+                throw e;
+            }
         });
     });
 
     describe('getConferenceMember', () => {
         test('should get conference member', async () => {
-            const { status, data } = await conferencesApi.getConferenceMember(BW_ACCOUNT_ID, conferenceId, mantecaCallId);
-    
-            expect(status).toEqual(200);
-            expect(data.conferenceId).toEqual(conferenceId);
-            expect(data.callId).toEqual(mantecaCallId);
+            try {
+                const { status, data } = await conferencesApi.getConferenceMember(BW_ACCOUNT_ID, conferenceId, mantecaCallId);
+        
+                expect(status).toEqual(200);
+                expect(data.conferenceId).toEqual(conferenceId);
+                expect(data.callId).toEqual(mantecaCallId);
+            } catch (e) {
+                console.log(e);
+                throw e;
+            }
         });
     });
 
@@ -62,10 +72,15 @@ describe('ConferencesApi', () => {
         test('should update conference member', async () => {
             const updateConferenceMember = { mute: false }
 
-            const { status } =
-                await conferencesApi.updateConferenceMember(BW_ACCOUNT_ID, conferenceId, mantecaCallId, updateConferenceMember);
-    
-            expect(status).toEqual(204);
+            try {
+                const { status } =
+                    await conferencesApi.updateConferenceMember(BW_ACCOUNT_ID, conferenceId, mantecaCallId, updateConferenceMember);
+        
+                expect(status).toEqual(204);
+            } catch (e) {
+                console.log(e);
+                throw e;
+            }
         });
     });
 
@@ -83,10 +98,15 @@ describe('ConferencesApi', () => {
                 fallbackPassword: 'password'
             }
 
-            const { status } =
-                await conferencesApi.updateConference(BW_ACCOUNT_ID, conferenceId, updateConferenceBody);
-    
-            expect(status).toEqual(204);
+            try {
+                const { status } =
+                    await conferencesApi.updateConference(BW_ACCOUNT_ID, conferenceId, updateConferenceBody);
+        
+                expect(status).toEqual(204);
+            } catch (e) {
+                console.log(e);
+                throw e;
+            }
         });
     });
 
@@ -118,41 +138,56 @@ describe('ConferencesApi', () => {
 
     describe('listConferenceRecordings', () => {
         test('should list conference recordings', async () => {
-            const { status, data } = await conferencesApi.listConferenceRecordings(BW_ACCOUNT_ID, conferenceId);
-    
-            expect(status).toEqual(200);
-            expect(data).toBeInstanceOf(Array);
-            expect(data[0].conferenceId).toEqual(conferenceId);
-            expect(data[0].accountId).toEqual(BW_ACCOUNT_ID);
-            expect(data[0].name).toEqual(mantecaTestId);
-            expect(['partial', 'complete']).toContain(data[0].status);
-            expect(data[0].recordingId).toHaveLength(47);
-            expect(data[0].fileFormat).toEqual(FileFormatEnum.Wav);
+            try {
+                const { status, data } = await conferencesApi.listConferenceRecordings(BW_ACCOUNT_ID, conferenceId);
+        
+                expect(status).toEqual(200);
+                expect(data).toBeInstanceOf(Array);
+                expect(data[0].conferenceId).toEqual(conferenceId);
+                expect(data[0].accountId).toEqual(BW_ACCOUNT_ID);
+                expect(data[0].name).toEqual(mantecaTestId);
+                expect(['partial', 'complete']).toContain(data[0].status);
+                expect(data[0].recordingId).toHaveLength(47);
+                expect(data[0].fileFormat).toEqual(FileFormatEnum.Wav);
 
-            recordingId = data[0].recordingId;
+                recordingId = data[0].recordingId;
+            } catch (e) {
+                console.log(e);
+                throw e;
+            }
         });
     });
 
     describe('getConferenceRecording', () => {
         test('should get conference recording', async () => {
-            const { status, data } = await conferencesApi.getConferenceRecording(BW_ACCOUNT_ID, conferenceId, recordingId);
-    
-            expect(status).toEqual(200);
-            expect(data.conferenceId).toEqual(conferenceId);
-            expect(data.accountId).toEqual(BW_ACCOUNT_ID);
-            expect(data.name).toEqual(mantecaTestId);
-            expect(['partial', 'complete']).toContain(data.status);
-            expect(data.recordingId).toEqual(recordingId);
-            expect(data.fileFormat).toEqual(FileFormatEnum.Wav);
+            try {
+                const { status, data } = await conferencesApi.getConferenceRecording(BW_ACCOUNT_ID, conferenceId, recordingId);
+        
+                expect(status).toEqual(200);
+                expect(data.conferenceId).toEqual(conferenceId);
+                expect(data.accountId).toEqual(BW_ACCOUNT_ID);
+                expect(data.name).toEqual(mantecaTestId);
+                expect(['partial', 'complete']).toContain(data.status);
+                expect(data.recordingId).toEqual(recordingId);
+                expect(data.fileFormat).toEqual(FileFormatEnum.Wav);
+            } catch (e) {
+                console.log(e);
+                throw e;
+            }
         });
     });
 
     describe('downloadConferenceRecording', () => {
         test('should download conference recording', async () => {
-            const { status, data } = await conferencesApi.downloadConferenceRecording(BW_ACCOUNT_ID, conferenceId, recordingId);
-
-            expect(status).toEqual(200);
-            expect(data).toBeDefined();
+            try {
+                const { status, data } = await conferencesApi.downloadConferenceRecording(BW_ACCOUNT_ID, conferenceId, recordingId);
+    
+                expect(status).toEqual(200);
+                expect(data).toBeDefined();
+            } catch (e) {
+                console.log(e);
+                throw e;
+            }
         });
     });
 

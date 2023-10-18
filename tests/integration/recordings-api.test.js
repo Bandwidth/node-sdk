@@ -131,6 +131,7 @@ describe('RecordingsApi', () => {
                 }
             } catch (e) {
                 console.log(e);
+                throw e;
             }
 
             expect(transcriptionComplete).toBe(true);
@@ -148,6 +149,7 @@ describe('RecordingsApi', () => {
                 expect(data.transcripts[0].confidence).toBeDefined();
             } catch (e) {
                 console.log(e);
+                throw e;
             }
         });
     });
@@ -160,6 +162,7 @@ describe('RecordingsApi', () => {
                 expect(status).toEqual(204);
             } catch (e) {
                 console.log(e);
+                throw e;
             }
         });
     });
@@ -172,6 +175,7 @@ describe('RecordingsApi', () => {
                 expect(status).toEqual(204);
             } catch (e) {
                 console.log(e);
+                throw e;
             }
         });
     });
@@ -184,6 +188,7 @@ describe('RecordingsApi', () => {
                 expect(status).toEqual(204);
             } catch (e) {
                 console.log(e);
+                throw e;
             }
         });
     });
