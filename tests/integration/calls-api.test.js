@@ -9,7 +9,7 @@ describe('CallsApi', () => {
     const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
     const callsApi = new CallsApi(config);
 
-    const displayName = 'Ruby SDK';
+    const displayName = 'NodeJS SDK';
     const answerMethod = CallbackMethodEnum.Post;
     const answerUrl = `${BASE_CALLBACK_URL}/callbacks/answer`;
     const answerFallbackMethod = CallbackMethodEnum.Post;
