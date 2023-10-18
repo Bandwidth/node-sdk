@@ -16,6 +16,8 @@ module.exports = {
         'MANTECA_IDLE_NUMBER': process.env.MANTECA_IDLE_NUMBER,
         'MANTECA_ACTIVE_NUMBER': process.env.MANTECA_ACTIVE_NUMBER,
         'MANTECA_BASE_URL': process.env.MANTECA_BASE_URL,
+        'FORBIDDEN_USERNAME': process.env.BW_USERNAME_FORBIDDEN,
+        'FORBIDDEN_PASSWORD': process.env.BW_PASSWORD_FORBIDDEN,
         'UNAUTHORIZED_USERNAME': 'bad_username',
         'UNAUTHORIZED_PASSWORD': 'bad_password',
         'MAX_RETRIES': 40,

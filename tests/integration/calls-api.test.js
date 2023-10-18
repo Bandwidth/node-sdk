@@ -171,6 +171,17 @@ describe('CallsApi', () => {
             }
         });
 
+        test('403', async () => {
+            const configBad = new Configuration({username: FORBIDDEN_USERNAME, password: FORBIDDEN_PASSWORD});
+            const callsApiBad = new CallsApi(configBad);
+
+            try {
+                await callsApiBad.getCallState(BW_ACCOUNT_ID, callId);
+            } catch (e) {
+                expect(e.response.status).toEqual(403);
+            }
+        });
+
         test('404', async () => {
             try {
                 await callsApi.getCallState(BW_ACCOUNT_ID, 'does-not-exist');
