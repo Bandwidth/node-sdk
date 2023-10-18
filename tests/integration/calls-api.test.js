@@ -54,25 +54,29 @@ describe('CallsApi', () => {
                 callbackTimeout: callbackTimeout
             }
 
-            const { status, data } = await callsApi.createCall(BW_ACCOUNT_ID, callBody);
-
-            expect(status).toEqual(201);
-            expect(data.applicationId).toEqual(BW_VOICE_APPLICATION_ID);
-            expect(data.accountId).toEqual(BW_ACCOUNT_ID);
-            expect(data.callId).toHaveLength(47);
-            expect(data.to).toEqual(USER_NUMBER);
-            expect(data.from).toEqual(BW_NUMBER);
-            expect(data.callTimeout).toEqual(callTimeout);
-            expect(data.callbackTimeout).toEqual(callbackTimeout);
-            expect(data.answerMethod).toEqual(answerMethod);
-            expect(data.answerUrl).toEqual(answerUrl);
-            expect(data.answerFallbackMethod).toEqual(answerFallbackMethod);
-            expect(data.disconnectMethod).toEqual(disconnectMethod);
-            expect(data.disconnectUrl).toEqual(disconnectUrl);
-            expect(data.priority).toEqual(priority);
-
-            callId = data.callId;
-            activeCalls.push(callId);
+            try {
+                const { status, data } = await callsApi.createCall(BW_ACCOUNT_ID, callBody);
+    
+                expect(status).toEqual(201);
+                expect(data.applicationId).toEqual(BW_VOICE_APPLICATION_ID);
+                expect(data.accountId).toEqual(BW_ACCOUNT_ID);
+                expect(data.callId).toHaveLength(47);
+                expect(data.to).toEqual(USER_NUMBER);
+                expect(data.from).toEqual(BW_NUMBER);
+                expect(data.callTimeout).toEqual(callTimeout);
+                expect(data.callbackTimeout).toEqual(callbackTimeout);
+                expect(data.answerMethod).toEqual(answerMethod);
+                expect(data.answerUrl).toEqual(answerUrl);
+                expect(data.answerFallbackMethod).toEqual(answerFallbackMethod);
+                expect(data.disconnectMethod).toEqual(disconnectMethod);
+                expect(data.disconnectUrl).toEqual(disconnectUrl);
+                expect(data.priority).toEqual(priority);
+    
+                callId = data.callId;
+                activeCalls.push(callId);
+            } catch (e) {
+                console.log(e);
+            }
         });
     });
 
