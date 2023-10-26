@@ -38,7 +38,7 @@ describe('CallsApi', () => {
                 delayResult: true,
                 callbackUrl: BASE_CALLBACK_URL + '/machineDetection',
                 callbackMethod: CallbackMethodEnum.Post
-            }
+            };
 
             const callBody = {
                 applicationId: BW_VOICE_APPLICATION_ID,
@@ -52,7 +52,7 @@ describe('CallsApi', () => {
                 machineDetection: amdConfig,
                 callTimeout: callTimeout,
                 callbackTimeout: callbackTimeout
-            }
+            };
 
             const { status, data } = await callsApi.createCall(BW_ACCOUNT_ID, callBody);
 
