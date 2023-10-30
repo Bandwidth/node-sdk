@@ -13,7 +13,7 @@ jobs:
       generate: ${{ steps.compare.outputs.generate }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Combine Product Specs
         uses: Bandwidth/api-specs-combine-action@v1.0.0
@@ -72,7 +72,7 @@ jobs:
 
       - name: Setup Node
         if: steps.build.outputs.changes
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
 
       - name: Open Pull Request
         if: steps.build.outputs.changes
