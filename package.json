@@ -20,7 +20,7 @@
   "scripts": {
     "build": "tsc ",
     "prepare": "npm run build",
-    "test": "jest --coverage --detectOpenHandles"
+    "test": "jest --detectOpenHandles"
   },
   "dependencies": {
     "axios": "^0.27.2",
