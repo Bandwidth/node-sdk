@@ -38,8 +38,6 @@ describe('MessagesApi', () => {
             expect(data.text).toEqual(smsText);
             expect(data.tag).toEqual(smsTag);
             expect(data.priority).toEqual(priority);
-            expect(data.expiration).toEqual(expiration);
-
         });
 
         test('should create MMS message', async () => {

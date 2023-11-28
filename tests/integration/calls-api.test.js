@@ -9,7 +9,7 @@ describe('CallsApi', () => {
     const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
     const callsApi = new CallsApi(config);
 
-    const displayName = 'Ruby SDK';
+    const displayName = 'NodeJS SDK';
     const answerMethod = CallbackMethodEnum.Post;
     const answerUrl = `${BASE_CALLBACK_URL}/callbacks/answer`;
     const answerFallbackMethod = CallbackMethodEnum.Post;
@@ -38,7 +38,7 @@ describe('CallsApi', () => {
                 delayResult: true,
                 callbackUrl: BASE_CALLBACK_URL + '/machineDetection',
                 callbackMethod: CallbackMethodEnum.Post
-            }
+            };
 
             const callBody = {
                 applicationId: BW_VOICE_APPLICATION_ID,
@@ -52,7 +52,7 @@ describe('CallsApi', () => {
                 machineDetection: amdConfig,
                 callTimeout: callTimeout,
                 callbackTimeout: callbackTimeout
-            }
+            };
 
             const { status, data } = await callsApi.createCall(BW_ACCOUNT_ID, callBody);
 
@@ -77,7 +77,7 @@ describe('CallsApi', () => {
     });
 
     describe('getCall', () => {
-        test.skip('should return a call', async () => {
+        test('should return a call', async () => {
             await sleep(40); // wait 40s for voice API to update call status
             const { status, data } = await callsApi.getCallState(BW_ACCOUNT_ID, callId);
 
@@ -104,7 +104,7 @@ describe('CallsApi', () => {
     });
 
     describe('updateCall', () => {
-        test.skip('should update a call', async () => {
+        test('should update a call', async () => {
             const updateCallBody = {
                 state: CallStateEnum.Active,
                 redirectUrl: `${MANTECA_BASE_URL}/bxml/pause`
@@ -126,7 +126,7 @@ describe('CallsApi', () => {
     });
 
     describe('updateCallBxml', () => {
-        test.skip('should update a call with bxml', async () => {
+        test('should update a call with bxml', async () => {
             const updateBxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><SpeakSentence locale="en_US" gender="female" voice="susan">This is a test bxml response</SpeakSentence><Pause duration="3"/></Bxml>';
 
             const updateCallId = await createMantecaCall(callsApi);

@@ -86,3 +86,4 @@ export * from './verify-code-request';
 export * from './verify-code-response';
 export * from './voice-api-error';
 export * from './voice-code-response';
+export * from './bxml';

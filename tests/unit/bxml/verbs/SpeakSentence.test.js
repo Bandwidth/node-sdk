@@ -8,10 +8,10 @@ describe('SpeakSentence', () => {
         locale: 'en_US'
     };
 
-    const expected = '<SpeakSentence voice="julie" gender="female" locale="en_US"><lang xml:lang="es-MX">Hola</lang>ruby speak sentence <emphasis>SSML test</emphasis></SpeakSentence>';
+    const expected = '<SpeakSentence voice="julie" gender="female" locale="en_US"><lang xml:lang="es-MX">Hola</lang>nodejs speak sentence <emphasis>SSML test</emphasis></SpeakSentence>';
 
     test('should create a SpeakSentence Verb', () => {
-        const speakSentence = new SpeakSentence('<lang xml:lang="es-MX">Hola</lang>ruby speak sentence <emphasis>SSML test</emphasis>', attributes);
+        const speakSentence = new SpeakSentence('<lang xml:lang="es-MX">Hola</lang>nodejs speak sentence <emphasis>SSML test</emphasis>', attributes);
 
         expect(speakSentence).toBeInstanceOf(SpeakSentence);
         expect(speakSentence).toBeInstanceOf(Verb);

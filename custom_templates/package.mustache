@@ -24,7 +24,7 @@
   "scripts": {
     "build": "tsc {{#supportsES6}}&& tsc -p tsconfig.esm.json{{/supportsES6}}",
     "prepare": "npm run build",
-    "test": "jest --coverage"
+    "test": "jest --detectOpenHandles"
   },
   "dependencies": {
     "axios": "^0.27.2",

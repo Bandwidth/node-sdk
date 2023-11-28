@@ -14,7 +14,7 @@ describe('MediaApi', () => {
 
     const getHash = (data) => {
         return crypto.createHash('md5').update(data).digest('hex');
-    }
+    };
     const mediaFileMD5 = getHash(mediaFileData);
 
     describe('uploadMedia', () => {

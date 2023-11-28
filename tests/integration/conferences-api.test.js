@@ -60,7 +60,7 @@ describe('ConferencesApi', () => {
 
     describe('updateConferenceMember', () => {
         test('should update conference member', async () => {
-            const updateConferenceMember = { mute: false }
+            const updateConferenceMember = { mute: false };
 
             const { status } =
                 await conferencesApi.updateConferenceMember(BW_ACCOUNT_ID, conferenceId, mantecaCallId, updateConferenceMember);
@@ -81,7 +81,7 @@ describe('ConferencesApi', () => {
                 redirectFallback_method: RedirectMethodEnum.Post,
                 fallbackUsername: 'username',
                 fallbackPassword: 'password'
-            }
+            };
 
             const { status } =
                 await conferencesApi.updateConference(BW_ACCOUNT_ID, conferenceId, updateConferenceBody);
