@@ -66,7 +66,7 @@ jobs:
         with:
           branch-name: ${{ steps.jira.outputs.jira-key }}
           token: ${{ secrets.DX_GITHUB_TOKEN }}
-          openapi-generator-version: 7.0.0
+          openapi-generator-version: 7.1.0
           language: typescript-axios
           config: ./openapi-config.yml
 
