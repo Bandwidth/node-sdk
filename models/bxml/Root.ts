@@ -34,6 +34,18 @@ export class Root {
     }
 
     /**
+     * Add verbs to the root element
+     */
+    addVerbs(verbs: Verb[] | Verb): Root {
+        if (verbs instanceof Array) {
+            this.nestedVerbs = this.nestedVerbs ? this.nestedVerbs.concat(verbs) : verbs;
+        } else {
+            this.nestedVerbs = this.nestedVerbs ? this.nestedVerbs.concat([verbs]) : [verbs];
+        }
+        return this;
+    }
+
+    /**
      * Return BXML representation of this element
      * @param options XML Serialization options
      */
