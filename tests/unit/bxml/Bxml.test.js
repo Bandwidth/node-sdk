@@ -36,7 +36,7 @@ describe('Bxml', () => {
         expect(bxml.toBxml()).toBe(expected);
     });
 
-    test('should multiple nested verbs', () => {
+    test('should add multiple nested verbs', () => {
         const bxml = new Bxml();
         bxml.addVerbs([pauseRecording, pauseRecording]);
         const expected = '<?xml version="1.0" encoding="UTF-8"?><Bxml><PauseRecording/><PauseRecording/></Bxml>';
