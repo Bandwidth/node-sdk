@@ -23,17 +23,17 @@ export class StartStream extends NestableVerb {
     /**
      * Creates an instance of StartStream
      * @param {StartStreamAttributes} attributes The attributes to add to the element
-     * @param {StreamParam[]} streamParams The stream params to add to the element
+     * @param {StreamParam | StreamParam[]} streamParams The stream params to add to the element
      */
-    constructor(attributes?: StartStreamAttributes, streamParams?: StreamParam[]) {
+    constructor(attributes?: StartStreamAttributes, streamParams?: StreamParam | StreamParam[]) {
         super('StartStream', undefined, attributes, streamParams);
     }
 
     /**
-     * Add a stream param to the StartStream
-     * @param {StreamParam} streamParam The stream param to add
+     * Add a stream param or params to the StartStream
+     * @param {StreamParam | StreamParam[]} streamParams The stream param or params to add
      */
-    addStreamParam(streamParam: StreamParam | StreamParam[]): void {
-        this.nestedVerbs = this.nestedVerbs.concat(streamParam);
+    addStreamParams(streamParams: StreamParam | StreamParam[]): void {
+        this.nestedVerbs = this.nestedVerbs.concat(streamParams);
     }
 }

@@ -13,9 +13,9 @@ export class Bxml extends Root {
 
     /**
      * Creates an instance of Bxml
-     * @param nestedVerbs [Array<Verb>] Array of nested verbs
+     * @param nestedVerbs [Verb | Array<Verb>] Nested Verb or Array of Nested Verbs
      */
-    constructor(nestedVerbs?: Verb[]) {
+    constructor(nestedVerbs?: Verb | Verb[]) {
         super('Bxml', nestedVerbs)
     }
 }

@@ -24,17 +24,17 @@ export class StartTranscription extends NestableVerb {
     /**
      * Creates an instance of StartTranscription
      * @param {StartTranscriptionAttributes} attributes The attributes to add to the element
-     * @param {CustomParam[]} customParams The custom params to add to the element
+     * @param {CustomParam | CustomParam[]} customParams The custom params to add to the element
      */
-    constructor(attributes?: StartTranscriptionAttributes, customParams?: CustomParam[]) {
+    constructor(attributes?: StartTranscriptionAttributes, customParams?: CustomParam | CustomParam[]) {
         super('StartTranscription', undefined, attributes, customParams);
     }
 
     /**
-     * Add a custom param to the StartTranscription
-     * @param {CustomParam} customParam The custom param to add
+     * Add a custom param or params to the StartTranscription
+     * @param {CustomParam | CustomParam[]} customParams The custom param or params to add
      */
-    addCustomParam(customParam: CustomParam | CustomParam[]): void {
-        this.nestedVerbs = this.nestedVerbs.concat(customParam);
+    addCustomParams(customParams: CustomParam | CustomParam[]): void {
+        this.nestedVerbs = this.nestedVerbs.concat(customParams);
     }
 }

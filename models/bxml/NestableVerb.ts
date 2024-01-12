@@ -19,11 +19,19 @@ export class NestableVerb extends Verb {
      * @param name [string] Name of the XML element
      * @param content [string] Content of the XML element
      * @param attributes [object] Attributes of the XML element
-     * @param nestedVerbs [Array<Verb>] Array of nested verbs
+     * @param nestedVerbs [Verb | Array<Verb>] Nested Verb or Array of Nested Verbs
      */
-    constructor(name: string, content?: string, attributes?: object, nestedVerbs?: Verb[]) {
+    constructor(name: string, content?: string, attributes?: object, nestedVerbs?: Verb | Verb[]) {
         super(name, content, attributes);
-        this.nestedVerbs = nestedVerbs || [];
+        if (nestedVerbs) {
+            if (nestedVerbs instanceof Array) {
+                this.nestedVerbs = nestedVerbs;
+            } else {
+                this.nestedVerbs = [nestedVerbs];
+            }
+        } else {
+            this.nestedVerbs = [];
+        }
     }
 
     /**
