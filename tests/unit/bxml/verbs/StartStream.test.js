@@ -41,4 +41,12 @@ describe('StartStream', () => {
         startStream.addStreamParam([streamParam1, streamParam2]);
         expect(startStream.toBxml()).toBe(expectedMultiple);
     });
+
+    test('should test the addStreamParam method', () => {
+        const startStream = new StartStream(attributes);
+        const expected = '<StartStream name="initialName" tracks="inbound" destination="https://initial.com" streamEventUrl="https://initial.com" streamEventMethod="POST" username="initialUsername" password="initialPassword"><StreamParam name="streamParamName1" value="streamParamValue1"/></StartStream>';
+
+        startStream.addStreamParam(streamParam1);
+        expect(startStream.toBxml()).toBe(expected);
+    });
 });

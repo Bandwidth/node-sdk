@@ -42,4 +42,12 @@ describe('StartTranscription', () => {
         startTranscription.addCustomParam([customParam1, customParam2]);
         expect(startTranscription.toBxml()).toBe(expectedMultiple);
     });
+
+    test('should test the addCustomParam method', () => {
+        const startTranscription = new StartTranscription(attributes);
+        const expected = '<StartTranscription name="initialName" tracks="inbound" transcriptionEventUrl="https://initial.com" transcriptionEventMethod="POST" username="initialUsername" password="initialPassword" destination="https://initial.com" stabilized="true"><CustomParam name="customParamName1" value="customParamValue1"/></StartTranscription>';
+
+        startTranscription.addCustomParam(customParam1);
+        expect(startTranscription.toBxml()).toBe(expected);
+    });
 });

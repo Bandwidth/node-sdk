@@ -48,4 +48,12 @@ describe('Transfer', () => {
         transfer.addTransferRecipient([sipUri, phoneNumber]);
         expect(transfer.toBxml()).toBe(expectedMultiple);
     });
+
+    test('should test the addTransferRecipient method', () => {
+        const transfer = new Transfer(attributes);
+        const expected = '<Transfer transferCallerId="+19195551234" callTimeout="5" transferCompleteUrl="https://initial.com" transferCompleteMethod="POST" transferCompleteFallbackUrl="https://initial.com" transferCompleteFallbackMethod="POST" username="initialUsername" password="initialPassword" fallbackUsername="initialFallbackUsername" fallbackPassword="initialFallbackPassword" tag="initialTag" diversionTreatment="propagate" diversionReason="user-busy"><PhoneNumber>+19195551234</PhoneNumber></Transfer>';
+
+        transfer.addTransferRecipient(phoneNumber);
+        expect(transfer.toBxml()).toBe(expected);
+    });
 });
