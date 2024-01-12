@@ -50,10 +50,10 @@ export class Gather extends NestableVerb {
     }
 
     /**
-     * Add an audio verb to the gather
-     * @param {AudioVerbs} audioVerb The audio verb or verbs to add
+     * Add an audio verb or verbs to the gather
+     * @param {PlayAudio | SpeakSentence | AudioVerbs} audioVerbs The audio verb or verbs to add
      */
-    addAudioVerb(audioVerb: PlayAudio | SpeakSentence | AudioVerbs): void {
-        this.nestedVerbs = this.nestedVerbs.concat(audioVerb);
+    addAudioVerbs(audioVerbs: PlayAudio | SpeakSentence | AudioVerbs): void {
+        this.nestedVerbs = this.nestedVerbs.concat(audioVerbs);
     }
 }
