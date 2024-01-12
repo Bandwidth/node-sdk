@@ -50,7 +50,7 @@ describe('Gather', () => {
         expect(gather.toBxml()).toBe(expectedMultiple);
     });
 
-    test('should test the addAudioVerb method', () => {
+    test('should test the addAudioVerbs method when no verbs are initially nested', () => {
         const gather = new Gather(attributes);
         const expected = '<Gather gatherUrl="https://initial.com" gatherMethod="POST" gatherFallbackUrl="https://initial.com" gatherFallbackMethod="POST" username="initialUsername" password="initialPassword" fallbackUsername="initialFallbackUsername" fallbackPassword="initialFallbackPassword" tag="initialTag" terminatingDigits="5" maxDigits="5" interDigitTimeout="5" firstDigitTimeout="5" repeatCount="5"><PlayAudio>https://audio.url/audio1.wav</PlayAudio></Gather>';
 

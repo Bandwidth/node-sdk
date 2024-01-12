@@ -42,18 +42,18 @@ describe('Transfer', () => {
         expect(transfer).toBeInstanceOf(Verb);
         expect(transfer.toBxml()).toBe(expected);
 
-        transfer.addTransferRecipient(sipUri);
+        transfer.addTransferRecipients(sipUri);
         expect(transfer.toBxml()).toBe(expectedSingle);
 
-        transfer.addTransferRecipient([sipUri, phoneNumber]);
+        transfer.addTransferRecipients([sipUri, phoneNumber]);
         expect(transfer.toBxml()).toBe(expectedMultiple);
     });
 
-    test('should test the addTransferRecipient method', () => {
+    test('should test the addTransferRecipients method  method when no verbs are initially nested', () => {
         const transfer = new Transfer(attributes);
         const expected = '<Transfer transferCallerId="+19195551234" callTimeout="5" transferCompleteUrl="https://initial.com" transferCompleteMethod="POST" transferCompleteFallbackUrl="https://initial.com" transferCompleteFallbackMethod="POST" username="initialUsername" password="initialPassword" fallbackUsername="initialFallbackUsername" fallbackPassword="initialFallbackPassword" tag="initialTag" diversionTreatment="propagate" diversionReason="user-busy"><PhoneNumber>+19195551234</PhoneNumber></Transfer>';
 
-        transfer.addTransferRecipient(phoneNumber);
+        transfer.addTransferRecipients(phoneNumber);
         expect(transfer.toBxml()).toBe(expected);
     });
 });
