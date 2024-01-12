@@ -35,7 +35,7 @@ export class Gather extends NestableVerb {
     /**
      * Creates an instance of Gather
      * @param {GatherAttributes} attributes The attributes to add to the element
-     * @param {AudioVerbs} audioVerbs The audio verbs to be played
+     * @param {PlayAudio | SpeakSentence | AudioVerbs} audioVerbs The audio verbs to be played
      */
     constructor(attributes?: GatherAttributes, audioVerbs?: PlayAudio | SpeakSentence | AudioVerbs) {
         super('Gather', undefined, attributes, audioVerbs);
