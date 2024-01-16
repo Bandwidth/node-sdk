@@ -13,9 +13,9 @@ export class Response extends Root {
 
     /**
      * Creates an instance of Response
-     * @param nestedVerbs [Array<Verb>] Array of nested verbs
+     * @param nestedVerbs [Verb | Array<Verb>] Nested Verb or Array of Nested Verbs
      */
-    constructor(nestedVerbs?: Verb[]) {
+    constructor(nestedVerbs?: Verb | Verb[]) {
         super('Response', nestedVerbs)
     }
 }

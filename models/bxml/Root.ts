@@ -17,11 +17,19 @@ export class Root {
     /**
      * Creates an instance of Root
      * @param name [string] Name of the XML element
-     * @param nestedVerbs [Array<Verb>] Array of nested verbs
+     * @param nestedVerbs [Verb | Array<Verb>] Nested Verb or Array of Nested Verbs
      */
-    constructor(name: string, nestedVerbs?: Verb[]) {
+    constructor(name: string, nestedVerbs?: Verb | Verb[]) {
         this.name = name;
-        this.nestedVerbs = nestedVerbs;
+        if (nestedVerbs) {
+            if (nestedVerbs instanceof Array) {
+                this.nestedVerbs = nestedVerbs;
+            } else {
+                this.nestedVerbs = [nestedVerbs];
+            }
+        } else {
+            this.nestedVerbs = [];
+        }
     }
 
     /**
@@ -31,6 +39,14 @@ export class Root {
         const xml = create({ version: '1.0', encoding: 'UTF-8' }).ele(this.name);
         this.nestedVerbs?.forEach((verb) => { xml.import(verb.generateXml()); });
         return xml;
+    }
+
+    /**
+     * Add a verb or verbs to the root element
+     * @param {Verb | Verb[]} verbs The verb or verbs to add
+     */
+    addVerbs(verbs: Verb | Verb[]): void {
+        this.nestedVerbs = this.nestedVerbs.concat(verbs);
     }
 
     /**

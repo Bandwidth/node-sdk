@@ -32,17 +32,17 @@ export class Transfer extends NestableVerb {
     /**
      * Creates an instance of Transfer
      * @param {TransferAttributes} attributes The attributes to add to the element
-     * @param {NumberEntities} transferTo The number entities to transfer to
+     * @param {PhoneNumber | SipUri | NumberEntities} transferTo The number entities to transfer to
      */
-    constructor(attributes?: TransferAttributes, transferTo?: NumberEntities) {
+    constructor(attributes?: TransferAttributes, transferTo?: PhoneNumber | SipUri | NumberEntities) {
         super('Transfer', undefined, attributes, transferTo);
     }
 
     /**
-     * Add a number entity to the transfer
-     * @param {NumberEntities} recipient The number entity or entities to add
+     * Add a number entity or entities to the transfer
+     * @param {PhoneNumber | SipUri | NumberEntities} recipients The number entity or entities to add
      */
-    addTransferRecipient(recipient: PhoneNumber | SipUri | NumberEntities): void {
-        this.nestedVerbs = this.nestedVerbs.concat(recipient);
+    addTransferRecipients(recipients: PhoneNumber | SipUri | NumberEntities): void {
+        this.nestedVerbs = this.nestedVerbs.concat(recipients);
     }
 }
