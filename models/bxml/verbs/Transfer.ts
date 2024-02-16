@@ -6,6 +6,7 @@ type NumberEntities = Array<PhoneNumber | SipUri>;
 
 interface TransferAttributes {
     transferCallerId?: string;
+    transferCallerDisplayName?: string;
     callTimeout?: number;
     transferCompleteUrl?: string;
     transferCompleteMethod?: string;
