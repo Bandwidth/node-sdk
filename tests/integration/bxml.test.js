@@ -108,6 +108,7 @@ describe('BXML Integration Tests', () => {
 
         const transferAttributes = {
             transferCallerId: '+19195551234',
+            transferCallerDisplayName: 'initialDisplayName',
             callTimeout: 5,
             transferCompleteUrl: 'https://initial.com',
             transferCompleteMethod: 'POST',
