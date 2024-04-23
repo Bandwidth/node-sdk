@@ -1,6 +1,8 @@
 import { Verb } from '../Verb';
 
 interface BridgeAttributes {
+    bridgeCompleteUrl?: string;
+    bridgeCompleteMethod?: string;
     bridgeCompleteFallbackUrl?: string;
     bridgeCompleteFallbackMethod?: string;
     bridgeTargetCompleteUrl?: string;
