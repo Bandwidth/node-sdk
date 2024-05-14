@@ -129,11 +129,11 @@ export interface RecordingAvailableCallback {
      */
     'fileFormat'?: FileFormatEnum;
     /**
-     * The current status of the process. For recording, current possible values are \'processing\', \'partial\', \'complete\', \'deleted\', and \'error\'. For transcriptions, current possible values are \'none\', \'processing\', \'available\', \'error\', \'timeout\', \'file-size-too-big\', and \'file-size-too-small\'. Additional states may be added in the future, so your application must be tolerant of unknown values.
-     * @type {string}
+     * Always `1` for conference recordings; multi-channel recordings are not supported on conferences.
+     * @type {number}
      * @memberof RecordingAvailableCallback
      */
-    'channels'?: string;
+    'channels'?: number;
     /**
      * (optional) The tag specified on call creation. If no tag was specified or it was previously cleared, this field will not be present.
      * @type {string}

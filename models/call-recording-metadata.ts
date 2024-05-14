@@ -21,7 +21,7 @@ import { CallDirectionEnum } from './call-direction-enum';
 import { FileFormatEnum } from './file-format-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { TranscriptionMetadata } from './transcription-metadata';
+import { RecordingTranscriptionMetadata } from './recording-transcription-metadata';
 
 /**
  * 
@@ -133,10 +133,10 @@ export interface CallRecordingMetadata {
     'mediaUrl'?: string | null;
     /**
      * 
-     * @type {TranscriptionMetadata}
+     * @type {RecordingTranscriptionMetadata}
      * @memberof CallRecordingMetadata
      */
-    'transcription'?: TranscriptionMetadata | null;
+    'transcription'?: RecordingTranscriptionMetadata | null;
 }
 
 

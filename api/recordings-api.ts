@@ -24,9 +24,9 @@ import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, ope
 // @ts-ignore
 import { CallRecordingMetadata } from '../models';
 // @ts-ignore
-import { TranscribeRecording } from '../models';
+import { RecordingTranscriptions } from '../models';
 // @ts-ignore
-import { TranscriptionList } from '../models';
+import { TranscribeRecording } from '../models';
 // @ts-ignore
 import { UpdateCallRecording } from '../models';
 // @ts-ignore
@@ -37,52 +37,6 @@ import { VoiceApiError } from '../models';
  */
 export const RecordingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
-        /**
-         * Deletes the specified recording\'s transcription.  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
-         * @summary Delete Transcription
-         * @param {string} accountId Your Bandwidth Account ID.
-         * @param {string} callId Programmable Voice API Call ID.
-         * @param {string} recordingId Programmable Voice API Recording ID.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteCallTranscription: async (accountId: string, callId: string, recordingId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
-            // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('deleteCallTranscription', 'accountId', accountId)
-            // verify required parameter 'callId' is not null or undefined
-            assertParamExists('deleteCallTranscription', 'callId', callId)
-            // verify required parameter 'recordingId' is not null or undefined
-            assertParamExists('deleteCallTranscription', 'recordingId', recordingId)
-            const localVarPath = `/accounts/{accountId}/calls/{callId}/recordings/{recordingId}/transcription`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
-                .replace(`{${"recordingId"}}`, encodeURIComponent(String(recordingId)));
-            // use dummy base URL string because the URL constructor only accepts absolute URLs.
-            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
-            let baseOptions;
-            if (configuration) {
-                baseOptions = configuration.baseOptions;
-            }
-
-            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
-            const localVarHeaderParameter = {} as any;
-            const localVarQueryParameter = {} as any;
-
-            // authentication Basic required
-            // http basic authentication required
-            setBasicAuthToObject(localVarRequestOptions, configuration)
-
-
-    
-            setSearchParams(localVarUrlObj, localVarQueryParameter);
-            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
-            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-
-            return {
-                url: toPathString(localVarUrlObj),
-                options: localVarRequestOptions,
-            };
-        },
         /**
          * Delete the recording information, media and transcription.  Note: After the deletion is requested and a `204` is returned, neither the recording metadata nor the actual media nor its transcription will be accessible anymore. However, the media of the specified recording is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
          * @summary Delete Recording
@@ -146,6 +100,52 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'recordingId' is not null or undefined
             assertParamExists('deleteRecordingMedia', 'recordingId', recordingId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/recordings/{recordingId}/media`
+                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
+                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
+                .replace(`{${"recordingId"}}`, encodeURIComponent(String(recordingId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Basic required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Deletes the specified recording\'s transcription.  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
+         * @summary Delete Transcription
+         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} callId Programmable Voice API Call ID.
+         * @param {string} recordingId Programmable Voice API Recording ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteRecordingTranscription: async (accountId: string, callId: string, recordingId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('deleteRecordingTranscription', 'accountId', accountId)
+            // verify required parameter 'callId' is not null or undefined
+            assertParamExists('deleteRecordingTranscription', 'callId', callId)
+            // verify required parameter 'recordingId' is not null or undefined
+            assertParamExists('deleteRecordingTranscription', 'recordingId', recordingId)
+            const localVarPath = `/accounts/{accountId}/calls/{callId}/recordings/{recordingId}/transcription`
                 .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
                 .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
                 .replace(`{${"recordingId"}}`, encodeURIComponent(String(recordingId)));
@@ -268,7 +268,7 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             };
         },
         /**
-         * Downloads the specified transcription.  If the transcribed recording was multi-channel, then there will be 2 transcripts. The caller/called party transcript will be the first item while [`<PlayAudio>`](/docs/voice/bxml/playAudio) and [`<SpeakSentence>`](/docs/voice/bxml/speakSentence) transcript will be the second item. During a [`<Transfer>`](/docs/voice/bxml/transfer) the A-leg transcript will be the first item while the B-leg transcript will be the second item.
+         * Downloads the specified transcription. If the recording was multi-channel, then there will be 2 transcripts. The caller/called party transcript will be the first item while [`<PlayAudio>`](/docs/voice/bxml/playAudio) and [`<SpeakSentence>`](/docs/voice/bxml/speakSentence) transcript will be the second item. During a [`<Transfer>`](/docs/voice/bxml/transfer) the A-leg transcript will be the first item while the B-leg transcript will be the second item.
          * @summary Get Transcription
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
@@ -276,13 +276,13 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCallTranscription: async (accountId: string, callId: string, recordingId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRecordingTranscription: async (accountId: string, callId: string, recordingId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('getCallTranscription', 'accountId', accountId)
+            assertParamExists('getRecordingTranscription', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
-            assertParamExists('getCallTranscription', 'callId', callId)
+            assertParamExists('getRecordingTranscription', 'callId', callId)
             // verify required parameter 'recordingId' is not null or undefined
-            assertParamExists('getCallTranscription', 'recordingId', recordingId)
+            assertParamExists('getRecordingTranscription', 'recordingId', recordingId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/recordings/{recordingId}/transcription`
                 .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
                 .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
@@ -524,21 +524,6 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RecordingsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Deletes the specified recording\'s transcription.  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
-         * @summary Delete Transcription
-         * @param {string} accountId Your Bandwidth Account ID.
-         * @param {string} callId Programmable Voice API Call ID.
-         * @param {string} recordingId Programmable Voice API Recording ID.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        async deleteCallTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteCallTranscription(accountId, callId, recordingId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['RecordingsApi.deleteCallTranscription']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
-        },
-        /**
          * Delete the recording information, media and transcription.  Note: After the deletion is requested and a `204` is returned, neither the recording metadata nor the actual media nor its transcription will be accessible anymore. However, the media of the specified recording is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
          * @summary Delete Recording
          * @param {string} accountId Your Bandwidth Account ID.
@@ -566,6 +551,21 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRecordingMedia(accountId, callId, recordingId, options);
             const index = configuration?.serverIndex ?? 0;
             const operationBasePath = operationServerMap['RecordingsApi.deleteRecordingMedia']?.[index]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+        },
+        /**
+         * Deletes the specified recording\'s transcription.  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
+         * @summary Delete Transcription
+         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} callId Programmable Voice API Call ID.
+         * @param {string} recordingId Programmable Voice API Recording ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRecordingTranscription(accountId, callId, recordingId, options);
+            const index = configuration?.serverIndex ?? 0;
+            const operationBasePath = operationServerMap['RecordingsApi.deleteRecordingTranscription']?.[index]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -599,7 +599,7 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
-         * Downloads the specified transcription.  If the transcribed recording was multi-channel, then there will be 2 transcripts. The caller/called party transcript will be the first item while [`<PlayAudio>`](/docs/voice/bxml/playAudio) and [`<SpeakSentence>`](/docs/voice/bxml/speakSentence) transcript will be the second item. During a [`<Transfer>`](/docs/voice/bxml/transfer) the A-leg transcript will be the first item while the B-leg transcript will be the second item.
+         * Downloads the specified transcription. If the recording was multi-channel, then there will be 2 transcripts. The caller/called party transcript will be the first item while [`<PlayAudio>`](/docs/voice/bxml/playAudio) and [`<SpeakSentence>`](/docs/voice/bxml/speakSentence) transcript will be the second item. During a [`<Transfer>`](/docs/voice/bxml/transfer) the A-leg transcript will be the first item while the B-leg transcript will be the second item.
          * @summary Get Transcription
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
@@ -607,10 +607,10 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCallTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<TranscriptionList>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getCallTranscription(accountId, callId, recordingId, options);
+        async getRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecordingTranscriptions>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getRecordingTranscription(accountId, callId, recordingId, options);
             const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['RecordingsApi.getCallTranscription']?.[index]?.url;
+            const operationBasePath = operationServerMap['RecordingsApi.getRecordingTranscription']?.[index]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
         },
         /**
@@ -686,18 +686,6 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
     const localVarFp = RecordingsApiFp(configuration)
     return {
         /**
-         * Deletes the specified recording\'s transcription.  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
-         * @summary Delete Transcription
-         * @param {string} accountId Your Bandwidth Account ID.
-         * @param {string} callId Programmable Voice API Call ID.
-         * @param {string} recordingId Programmable Voice API Recording ID.
-         * @param {*} [options] Override http request option.
-         * @throws {RequiredError}
-         */
-        deleteCallTranscription(accountId: string, callId: string, recordingId: string, options?: any): AxiosPromise<void> {
-            return localVarFp.deleteCallTranscription(accountId, callId, recordingId, options).then((request) => request(axios, basePath));
-        },
-        /**
          * Delete the recording information, media and transcription.  Note: After the deletion is requested and a `204` is returned, neither the recording metadata nor the actual media nor its transcription will be accessible anymore. However, the media of the specified recording is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
          * @summary Delete Recording
          * @param {string} accountId Your Bandwidth Account ID.
@@ -720,6 +708,18 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
          */
         deleteRecordingMedia(accountId: string, callId: string, recordingId: string, options?: any): AxiosPromise<void> {
             return localVarFp.deleteRecordingMedia(accountId, callId, recordingId, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Deletes the specified recording\'s transcription.  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
+         * @summary Delete Transcription
+         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} callId Programmable Voice API Call ID.
+         * @param {string} recordingId Programmable Voice API Recording ID.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: any): AxiosPromise<void> {
+            return localVarFp.deleteRecordingTranscription(accountId, callId, recordingId, options).then((request) => request(axios, basePath));
         },
         /**
          * Downloads the specified recording.
@@ -746,7 +746,7 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
             return localVarFp.getCallRecording(accountId, callId, recordingId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Downloads the specified transcription.  If the transcribed recording was multi-channel, then there will be 2 transcripts. The caller/called party transcript will be the first item while [`<PlayAudio>`](/docs/voice/bxml/playAudio) and [`<SpeakSentence>`](/docs/voice/bxml/speakSentence) transcript will be the second item. During a [`<Transfer>`](/docs/voice/bxml/transfer) the A-leg transcript will be the first item while the B-leg transcript will be the second item.
+         * Downloads the specified transcription. If the recording was multi-channel, then there will be 2 transcripts. The caller/called party transcript will be the first item while [`<PlayAudio>`](/docs/voice/bxml/playAudio) and [`<SpeakSentence>`](/docs/voice/bxml/speakSentence) transcript will be the second item. During a [`<Transfer>`](/docs/voice/bxml/transfer) the A-leg transcript will be the first item while the B-leg transcript will be the second item.
          * @summary Get Transcription
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
@@ -754,8 +754,8 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCallTranscription(accountId: string, callId: string, recordingId: string, options?: any): AxiosPromise<TranscriptionList> {
-            return localVarFp.getCallTranscription(accountId, callId, recordingId, options).then((request) => request(axios, basePath));
+        getRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: any): AxiosPromise<RecordingTranscriptions> {
+            return localVarFp.getRecordingTranscription(accountId, callId, recordingId, options).then((request) => request(axios, basePath));
         },
         /**
          * Returns a list of metadata for the recordings associated with the specified account. The list can be filtered by the optional from, to, minStartTime, and maxStartTime arguments. The list is capped at 1000 entries and may be empty if no recordings match the specified criteria.
@@ -818,20 +818,6 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
  */
 export class RecordingsApi extends BaseAPI {
     /**
-     * Deletes the specified recording\'s transcription.  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
-     * @summary Delete Transcription
-     * @param {string} accountId Your Bandwidth Account ID.
-     * @param {string} callId Programmable Voice API Call ID.
-     * @param {string} recordingId Programmable Voice API Recording ID.
-     * @param {*} [options] Override http request option.
-     * @throws {RequiredError}
-     * @memberof RecordingsApi
-     */
-    public deleteCallTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig) {
-        return RecordingsApiFp(this.configuration).deleteCallTranscription(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
-    }
-
-    /**
      * Delete the recording information, media and transcription.  Note: After the deletion is requested and a `204` is returned, neither the recording metadata nor the actual media nor its transcription will be accessible anymore. However, the media of the specified recording is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
      * @summary Delete Recording
      * @param {string} accountId Your Bandwidth Account ID.
@@ -857,6 +843,20 @@ export class RecordingsApi extends BaseAPI {
      */
     public deleteRecordingMedia(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).deleteRecordingMedia(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Deletes the specified recording\'s transcription.  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
+     * @summary Delete Transcription
+     * @param {string} accountId Your Bandwidth Account ID.
+     * @param {string} callId Programmable Voice API Call ID.
+     * @param {string} recordingId Programmable Voice API Recording ID.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof RecordingsApi
+     */
+    public deleteRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig) {
+        return RecordingsApiFp(this.configuration).deleteRecordingTranscription(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
@@ -888,7 +888,7 @@ export class RecordingsApi extends BaseAPI {
     }
 
     /**
-     * Downloads the specified transcription.  If the transcribed recording was multi-channel, then there will be 2 transcripts. The caller/called party transcript will be the first item while [`<PlayAudio>`](/docs/voice/bxml/playAudio) and [`<SpeakSentence>`](/docs/voice/bxml/speakSentence) transcript will be the second item. During a [`<Transfer>`](/docs/voice/bxml/transfer) the A-leg transcript will be the first item while the B-leg transcript will be the second item.
+     * Downloads the specified transcription. If the recording was multi-channel, then there will be 2 transcripts. The caller/called party transcript will be the first item while [`<PlayAudio>`](/docs/voice/bxml/playAudio) and [`<SpeakSentence>`](/docs/voice/bxml/speakSentence) transcript will be the second item. During a [`<Transfer>`](/docs/voice/bxml/transfer) the A-leg transcript will be the first item while the B-leg transcript will be the second item.
      * @summary Get Transcription
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {string} callId Programmable Voice API Call ID.
@@ -897,8 +897,8 @@ export class RecordingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RecordingsApi
      */
-    public getCallTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig) {
-        return RecordingsApiFp(this.configuration).getCallTranscription(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
+    public getRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig) {
+        return RecordingsApiFp(this.configuration).getRecordingTranscription(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
