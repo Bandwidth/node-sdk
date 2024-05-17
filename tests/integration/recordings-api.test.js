@@ -137,9 +137,9 @@ describe('RecordingsApi', () => {
         });
     });
 
-    describe('getCallTranscription', () => {
-        test('should get call transcription', async () => {
-            const { status, data } = await recordingsApi.getCallTranscription(BW_ACCOUNT_ID, mantecaCallId, recordingId);
+    describe('getRecordingTranscription', () => {
+        test('should get recording transcription', async () => {
+            const { status, data } = await recordingsApi.getRecordingTranscription(BW_ACCOUNT_ID, mantecaCallId, recordingId);
 
             expect(status).toEqual(200);
             expect(data.transcripts).toBeInstanceOf(Array);
@@ -148,9 +148,9 @@ describe('RecordingsApi', () => {
         });
     });
 
-    describe('deleteCallTranscription', () => {
-        test('should delete call transcription', async () => {
-            const { status } = await recordingsApi.deleteCallTranscription(BW_ACCOUNT_ID, mantecaCallId, recordingId);
+    describe('deleteRecordingTranscription', () => {
+        test('should delete recording transcription', async () => {
+            const { status } = await recordingsApi.deleteRecordingTranscription(BW_ACCOUNT_ID, mantecaCallId, recordingId);
 
             expect(status).toEqual(204);
         });
