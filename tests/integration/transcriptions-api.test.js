@@ -49,7 +49,7 @@ describe('TranscriptionsApi', () => {
 
     describe('listCallTranscriptions', () => {
         test('should list call transcriptions', async () => {
-            await sleep(SLEEP_TIME_S);
+            await sleep(SLEEP_TIME_S * 20);
 
             const { status, data } =
                 await transcriptionsApi.listRealTimeTranscriptions(BW_ACCOUNT_ID, mantecaCallId);
