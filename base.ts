@@ -233,12 +233,6 @@ export const operationServerMap: ServerMap = {
             description: "Production",
         }
     ],
-    "RecordingsApi.deleteCallTranscription": [
-        {
-            url: "https://voice.bandwidth.com/api/v2",
-            description: "Production",
-        }
-    ],
     "RecordingsApi.deleteRecording": [
         {
             url: "https://voice.bandwidth.com/api/v2",
@@ -246,6 +240,12 @@ export const operationServerMap: ServerMap = {
         }
     ],
     "RecordingsApi.deleteRecordingMedia": [
+        {
+            url: "https://voice.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
+    "RecordingsApi.deleteRecordingTranscription": [
         {
             url: "https://voice.bandwidth.com/api/v2",
             description: "Production",
@@ -263,7 +263,7 @@ export const operationServerMap: ServerMap = {
             description: "Production",
         }
     ],
-    "RecordingsApi.getCallTranscription": [
+    "RecordingsApi.getRecordingTranscription": [
         {
             url: "https://voice.bandwidth.com/api/v2",
             description: "Production",
@@ -294,6 +294,24 @@ export const operationServerMap: ServerMap = {
         }
     ],
     "StatisticsApi.getStatistics": [
+        {
+            url: "https://voice.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
+    "TranscriptionsApi.deleteRealTimeTranscription": [
+        {
+            url: "https://voice.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
+    "TranscriptionsApi.getRealTimeTranscription": [
+        {
+            url: "https://voice.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
+    "TranscriptionsApi.listRealTimeTranscriptions": [
         {
             url: "https://voice.bandwidth.com/api/v2",
             description: "Production",

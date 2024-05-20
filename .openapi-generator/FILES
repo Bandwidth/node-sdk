@@ -9,6 +9,7 @@ api/mfaapi.ts
 api/phone-number-lookup-api.ts
 api/recordings-api.ts
 api/statistics-api.ts
+api/transcriptions-api.ts
 base.ts
 common.ts
 configuration.ts
@@ -22,6 +23,9 @@ models/call-direction-enum.ts
 models/call-recording-metadata.ts
 models/call-state-enum.ts
 models/call-state.ts
+models/call-transcription-metadata.ts
+models/call-transcription-response.ts
+models/call-transcription.ts
 models/callback-method-enum.ts
 models/code-request.ts
 models/conference-completed-callback.ts
@@ -82,6 +86,8 @@ models/priority-enum.ts
 models/recording-available-callback.ts
 models/recording-complete-callback.ts
 models/recording-state-enum.ts
+models/recording-transcription-metadata.ts
+models/recording-transcriptions.ts
 models/redirect-callback.ts
 models/redirect-method-enum.ts
 models/stir-shaken.ts
@@ -89,8 +95,6 @@ models/tag.ts
 models/tn-lookup-request-error.ts
 models/transcribe-recording.ts
 models/transcription-available-callback.ts
-models/transcription-list.ts
-models/transcription-metadata.ts
 models/transcription.ts
 models/transfer-answer-callback.ts
 models/transfer-complete-callback.ts
