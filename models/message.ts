@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { MessageDirectionEnum } from './message-direction-enum';
+import type { MessageDirectionEnum } from './message-direction-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PriorityEnum } from './priority-enum';
+import type { PriorityEnum } from './priority-enum';
 
 /**
  * 

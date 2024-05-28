@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { FileFormatEnum } from './file-format-enum';
+import type { FileFormatEnum } from './file-format-enum';
 
 /**
  * 

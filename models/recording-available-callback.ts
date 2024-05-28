@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallDirectionEnum } from './call-direction-enum';
+import type { CallDirectionEnum } from './call-direction-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { FileFormatEnum } from './file-format-enum';
+import type { FileFormatEnum } from './file-format-enum';
 
 /**
  * The Recording Available event is sent after a recording has been processed. It indicates that the recording is available for download.

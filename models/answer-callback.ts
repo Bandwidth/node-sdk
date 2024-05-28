@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallDirectionEnum } from './call-direction-enum';
+import type { CallDirectionEnum } from './call-direction-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { MachineDetectionResult } from './machine-detection-result';
+import type { MachineDetectionResult } from './machine-detection-result';
 
 /**
  * The Answer event is sent to the answerUrl specified in the createCall request when an outbound call is answered.

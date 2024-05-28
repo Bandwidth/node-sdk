@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallDirectionEnum } from './call-direction-enum';
+import type { CallDirectionEnum } from './call-direction-enum';
 
 /**
  * The DTMF event is sent for every digit detected after a <StartGather> verb is executed. You may not respond to this event with BXML.

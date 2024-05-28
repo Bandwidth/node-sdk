@@ -14,17 +14,17 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { Media } from '../models';
+import type { Media } from '../models';
 // @ts-ignore
-import { MessagingRequestError } from '../models';
+import type { MessagingRequestError } from '../models';
 /**
  * MediaApi - axios parameter creator
  * @export
@@ -39,7 +39,7 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteMedia: async (accountId: string, mediaId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteMedia: async (accountId: string, mediaId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('deleteMedia', 'accountId', accountId)
             // verify required parameter 'mediaId' is not null or undefined
@@ -81,7 +81,7 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMedia: async (accountId: string, mediaId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getMedia: async (accountId: string, mediaId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('getMedia', 'accountId', accountId)
             // verify required parameter 'mediaId' is not null or undefined
@@ -123,7 +123,7 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMedia: async (accountId: string, continuationToken?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listMedia: async (accountId: string, continuationToken?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listMedia', 'accountId', accountId)
             const localVarPath = `/users/{accountId}/media`
@@ -169,7 +169,7 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        uploadMedia: async (accountId: string, mediaId: string, body: File, contentType?: string, cacheControl?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        uploadMedia: async (accountId: string, mediaId: string, body: File, contentType?: string, cacheControl?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('uploadMedia', 'accountId', accountId)
             // verify required parameter 'mediaId' is not null or undefined
@@ -234,11 +234,11 @@ export const MediaApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteMedia(accountId: string, mediaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteMedia(accountId: string, mediaId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteMedia(accountId, mediaId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['MediaApi.deleteMedia']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MediaApi.deleteMedia']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Downloads a media file you previously uploaded.
@@ -248,11 +248,11 @@ export const MediaApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getMedia(accountId: string, mediaId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+        async getMedia(accountId: string, mediaId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getMedia(accountId, mediaId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['MediaApi.getMedia']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MediaApi.getMedia']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Gets a list of your media files. No query parameters are supported.
@@ -262,11 +262,11 @@ export const MediaApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listMedia(accountId: string, continuationToken?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Media>>> {
+        async listMedia(accountId: string, continuationToken?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Media>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listMedia(accountId, continuationToken, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['MediaApi.listMedia']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MediaApi.listMedia']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Upload a file. You may add headers to the request in order to provide some control to your media file.  If a file is uploaded with the same name as a file that already exists under this account, the previous file will be overwritten.  A list of supported media types can be found [here](https://support.bandwidth.com/hc/en-us/articles/360014128994-What-MMS-file-types-are-supported-).
@@ -279,11 +279,11 @@ export const MediaApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async uploadMedia(accountId: string, mediaId: string, body: File, contentType?: string, cacheControl?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async uploadMedia(accountId: string, mediaId: string, body: File, contentType?: string, cacheControl?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.uploadMedia(accountId, mediaId, body, contentType, cacheControl, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['MediaApi.uploadMedia']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MediaApi.uploadMedia']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -361,7 +361,7 @@ export class MediaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MediaApi
      */
-    public deleteMedia(accountId: string, mediaId: string, options?: AxiosRequestConfig) {
+    public deleteMedia(accountId: string, mediaId: string, options?: RawAxiosRequestConfig) {
         return MediaApiFp(this.configuration).deleteMedia(accountId, mediaId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -374,7 +374,7 @@ export class MediaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MediaApi
      */
-    public getMedia(accountId: string, mediaId: string, options?: AxiosRequestConfig) {
+    public getMedia(accountId: string, mediaId: string, options?: RawAxiosRequestConfig) {
         return MediaApiFp(this.configuration).getMedia(accountId, mediaId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -387,7 +387,7 @@ export class MediaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MediaApi
      */
-    public listMedia(accountId: string, continuationToken?: string, options?: AxiosRequestConfig) {
+    public listMedia(accountId: string, continuationToken?: string, options?: RawAxiosRequestConfig) {
         return MediaApiFp(this.configuration).listMedia(accountId, continuationToken, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -403,7 +403,7 @@ export class MediaApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MediaApi
      */
-    public uploadMedia(accountId: string, mediaId: string, body: File, contentType?: string, cacheControl?: string, options?: AxiosRequestConfig) {
+    public uploadMedia(accountId: string, mediaId: string, body: File, contentType?: string, cacheControl?: string, options?: RawAxiosRequestConfig) {
         return MediaApiFp(this.configuration).uploadMedia(accountId, mediaId, body, contentType, cacheControl, options).then((request) => request(this.axios, this.basePath));
     }
 }

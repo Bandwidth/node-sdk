@@ -14,29 +14,29 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { CodeRequest } from '../models';
+import type { CodeRequest } from '../models';
 // @ts-ignore
-import { MessagingCodeResponse } from '../models';
+import type { MessagingCodeResponse } from '../models';
 // @ts-ignore
-import { MfaForbiddenRequestError } from '../models';
+import type { MfaForbiddenRequestError } from '../models';
 // @ts-ignore
-import { MfaRequestError } from '../models';
+import type { MfaRequestError } from '../models';
 // @ts-ignore
-import { MfaUnauthorizedRequestError } from '../models';
+import type { MfaUnauthorizedRequestError } from '../models';
 // @ts-ignore
-import { VerifyCodeRequest } from '../models';
+import type { VerifyCodeRequest } from '../models';
 // @ts-ignore
-import { VerifyCodeResponse } from '../models';
+import type { VerifyCodeResponse } from '../models';
 // @ts-ignore
-import { VoiceCodeResponse } from '../models';
+import type { VoiceCodeResponse } from '../models';
 /**
  * MFAApi - axios parameter creator
  * @export
@@ -51,7 +51,7 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateMessagingCode: async (accountId: string, codeRequest: CodeRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        generateMessagingCode: async (accountId: string, codeRequest: CodeRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('generateMessagingCode', 'accountId', accountId)
             // verify required parameter 'codeRequest' is not null or undefined
@@ -95,7 +95,7 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateVoiceCode: async (accountId: string, codeRequest: CodeRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        generateVoiceCode: async (accountId: string, codeRequest: CodeRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('generateVoiceCode', 'accountId', accountId)
             // verify required parameter 'codeRequest' is not null or undefined
@@ -139,7 +139,7 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verifyCode: async (accountId: string, verifyCodeRequest: VerifyCodeRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        verifyCode: async (accountId: string, verifyCodeRequest: VerifyCodeRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('verifyCode', 'accountId', accountId)
             // verify required parameter 'verifyCodeRequest' is not null or undefined
@@ -193,11 +193,11 @@ export const MFAApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async generateMessagingCode(accountId: string, codeRequest: CodeRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessagingCodeResponse>> {
+        async generateMessagingCode(accountId: string, codeRequest: CodeRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessagingCodeResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.generateMessagingCode(accountId, codeRequest, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['MFAApi.generateMessagingCode']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MFAApi.generateMessagingCode']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Send an MFA Code via a phone call.
@@ -207,11 +207,11 @@ export const MFAApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async generateVoiceCode(accountId: string, codeRequest: CodeRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VoiceCodeResponse>> {
+        async generateVoiceCode(accountId: string, codeRequest: CodeRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VoiceCodeResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.generateVoiceCode(accountId, codeRequest, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['MFAApi.generateVoiceCode']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MFAApi.generateVoiceCode']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Verify a previously sent MFA code.
@@ -221,11 +221,11 @@ export const MFAApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async verifyCode(accountId: string, verifyCodeRequest: VerifyCodeRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerifyCodeResponse>> {
+        async verifyCode(accountId: string, verifyCodeRequest: VerifyCodeRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<VerifyCodeResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.verifyCode(accountId, verifyCodeRequest, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['MFAApi.verifyCode']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['MFAApi.verifyCode']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -289,7 +289,7 @@ export class MFAApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAApi
      */
-    public generateMessagingCode(accountId: string, codeRequest: CodeRequest, options?: AxiosRequestConfig) {
+    public generateMessagingCode(accountId: string, codeRequest: CodeRequest, options?: RawAxiosRequestConfig) {
         return MFAApiFp(this.configuration).generateMessagingCode(accountId, codeRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -302,7 +302,7 @@ export class MFAApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAApi
      */
-    public generateVoiceCode(accountId: string, codeRequest: CodeRequest, options?: AxiosRequestConfig) {
+    public generateVoiceCode(accountId: string, codeRequest: CodeRequest, options?: RawAxiosRequestConfig) {
         return MFAApiFp(this.configuration).generateVoiceCode(accountId, codeRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -315,7 +315,7 @@ export class MFAApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MFAApi
      */
-    public verifyCode(accountId: string, verifyCodeRequest: VerifyCodeRequest, options?: AxiosRequestConfig) {
+    public verifyCode(accountId: string, verifyCodeRequest: VerifyCodeRequest, options?: RawAxiosRequestConfig) {
         return MFAApiFp(this.configuration).verifyCode(accountId, verifyCodeRequest, options).then((request) => request(this.axios, this.basePath));
     }
 }

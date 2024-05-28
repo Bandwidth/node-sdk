@@ -14,23 +14,23 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { CallState } from '../models';
+import type { CallState } from '../models';
 // @ts-ignore
-import { CreateCall } from '../models';
+import type { CreateCall } from '../models';
 // @ts-ignore
-import { CreateCallResponse } from '../models';
+import type { CreateCallResponse } from '../models';
 // @ts-ignore
-import { UpdateCall } from '../models';
+import type { UpdateCall } from '../models';
 // @ts-ignore
-import { VoiceApiError } from '../models';
+import type { VoiceApiError } from '../models';
 /**
  * CallsApi - axios parameter creator
  * @export
@@ -45,7 +45,7 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createCall: async (accountId: string, createCall: CreateCall, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createCall: async (accountId: string, createCall: CreateCall, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('createCall', 'accountId', accountId)
             // verify required parameter 'createCall' is not null or undefined
@@ -89,7 +89,7 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCallState: async (accountId: string, callId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCallState: async (accountId: string, callId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('getCallState', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -137,7 +137,7 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCalls: async (accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, disconnectCause?: string, pageSize?: number, pageToken?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listCalls: async (accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, disconnectCause?: string, pageSize?: number, pageToken?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listCalls', 'accountId', accountId)
             const localVarPath = `/accounts/{accountId}/calls`
@@ -205,7 +205,7 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCall: async (accountId: string, callId: string, updateCall: UpdateCall, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateCall: async (accountId: string, callId: string, updateCall: UpdateCall, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('updateCall', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -253,7 +253,7 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCallBxml: async (accountId: string, callId: string, body: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateCallBxml: async (accountId: string, callId: string, body: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('updateCallBxml', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -310,11 +310,11 @@ export const CallsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createCall(accountId: string, createCall: CreateCall, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateCallResponse>> {
+        async createCall(accountId: string, createCall: CreateCall, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateCallResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createCall(accountId, createCall, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['CallsApi.createCall']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CallsApi.createCall']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Retrieve the current state of a specific call. This information is near-realtime, so it may take a few minutes for your call to be accessible using this endpoint.  **Note**: Call information is kept for 7 days after the calls are hung up. If you attempt to retrieve information for a call that is older than 7 days, you will get an HTTP 404 response.
@@ -324,11 +324,11 @@ export const CallsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCallState(accountId: string, callId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CallState>> {
+        async getCallState(accountId: string, callId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CallState>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCallState(accountId, callId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['CallsApi.getCallState']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CallsApi.getCallState']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns a max of 10000 calls, sorted by `createdTime` from oldest to newest.  **NOTE:** If the number of calls in the account is bigger than `pageSize`, a `Link` header (with format `<{url}>; rel=\"next\"`) will be returned in the response. The url can be used to retrieve the next page of call records. Also, call information is kept for 7 days after the calls are hung up. If you attempt to retrieve information for a call that is older than 7 days, you will get an empty array [] in response.
@@ -344,11 +344,11 @@ export const CallsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listCalls(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, disconnectCause?: string, pageSize?: number, pageToken?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CallState>>> {
+        async listCalls(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, disconnectCause?: string, pageSize?: number, pageToken?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CallState>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCalls(accountId, to, from, minStartTime, maxStartTime, disconnectCause, pageSize, pageToken, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['CallsApi.listCalls']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CallsApi.listCalls']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Interrupts and redirects a call to a different URL that should return a BXML document.
@@ -359,11 +359,11 @@ export const CallsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateCall(accountId: string, callId: string, updateCall: UpdateCall, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async updateCall(accountId: string, callId: string, updateCall: UpdateCall, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateCall(accountId, callId, updateCall, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['CallsApi.updateCall']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CallsApi.updateCall']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Interrupts and replaces an active call\'s BXML document.
@@ -374,11 +374,11 @@ export const CallsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateCallBxml(accountId: string, callId: string, body: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async updateCallBxml(accountId: string, callId: string, body: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateCallBxml(accountId, callId, body, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['CallsApi.updateCallBxml']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['CallsApi.updateCallBxml']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -472,7 +472,7 @@ export class CallsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CallsApi
      */
-    public createCall(accountId: string, createCall: CreateCall, options?: AxiosRequestConfig) {
+    public createCall(accountId: string, createCall: CreateCall, options?: RawAxiosRequestConfig) {
         return CallsApiFp(this.configuration).createCall(accountId, createCall, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -485,7 +485,7 @@ export class CallsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CallsApi
      */
-    public getCallState(accountId: string, callId: string, options?: AxiosRequestConfig) {
+    public getCallState(accountId: string, callId: string, options?: RawAxiosRequestConfig) {
         return CallsApiFp(this.configuration).getCallState(accountId, callId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -504,7 +504,7 @@ export class CallsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CallsApi
      */
-    public listCalls(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, disconnectCause?: string, pageSize?: number, pageToken?: string, options?: AxiosRequestConfig) {
+    public listCalls(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, disconnectCause?: string, pageSize?: number, pageToken?: string, options?: RawAxiosRequestConfig) {
         return CallsApiFp(this.configuration).listCalls(accountId, to, from, minStartTime, maxStartTime, disconnectCause, pageSize, pageToken, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -518,7 +518,7 @@ export class CallsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CallsApi
      */
-    public updateCall(accountId: string, callId: string, updateCall: UpdateCall, options?: AxiosRequestConfig) {
+    public updateCall(accountId: string, callId: string, updateCall: UpdateCall, options?: RawAxiosRequestConfig) {
         return CallsApiFp(this.configuration).updateCall(accountId, callId, updateCall, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -532,7 +532,7 @@ export class CallsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof CallsApi
      */
-    public updateCallBxml(accountId: string, callId: string, body: string, options?: AxiosRequestConfig) {
+    public updateCallBxml(accountId: string, callId: string, body: string, options?: RawAxiosRequestConfig) {
         return CallsApiFp(this.configuration).updateCallBxml(accountId, callId, body, options).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallDirectionEnum } from './call-direction-enum';
+import type { CallDirectionEnum } from './call-direction-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { Diversion } from './diversion';
+import type { Diversion } from './diversion';
 // May contain unused imports in some cases
 // @ts-ignore
-import { StirShaken } from './stir-shaken';
+import type { StirShaken } from './stir-shaken';
 
 /**
  * The Initiate event is fired when an inbound call is received for a Telephone Number on your Account. It is sent to the URL specified in the application associated with the location (sip-peer) that the called telephone number belongs to.

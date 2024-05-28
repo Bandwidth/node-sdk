@@ -14,21 +14,21 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { CreateLookupResponse } from '../models';
+import type { CreateLookupResponse } from '../models';
 // @ts-ignore
-import { LookupRequest } from '../models';
+import type { LookupRequest } from '../models';
 // @ts-ignore
-import { LookupStatus } from '../models';
+import type { LookupStatus } from '../models';
 // @ts-ignore
-import { TnLookupRequestError } from '../models';
+import type { TnLookupRequestError } from '../models';
 /**
  * PhoneNumberLookupApi - axios parameter creator
  * @export
@@ -43,7 +43,7 @@ export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: C
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createLookup: async (accountId: string, lookupRequest: LookupRequest, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createLookup: async (accountId: string, lookupRequest: LookupRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('createLookup', 'accountId', accountId)
             // verify required parameter 'lookupRequest' is not null or undefined
@@ -87,7 +87,7 @@ export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: C
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getLookupStatus: async (accountId: string, requestId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getLookupStatus: async (accountId: string, requestId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('getLookupStatus', 'accountId', accountId)
             // verify required parameter 'requestId' is not null or undefined
@@ -139,11 +139,11 @@ export const PhoneNumberLookupApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async createLookup(accountId: string, lookupRequest: LookupRequest, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateLookupResponse>> {
+        async createLookup(accountId: string, lookupRequest: LookupRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateLookupResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.createLookup(accountId, lookupRequest, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['PhoneNumberLookupApi.createLookup']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PhoneNumberLookupApi.createLookup']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Get an existing Phone Number Lookup Request.
@@ -153,11 +153,11 @@ export const PhoneNumberLookupApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getLookupStatus(accountId: string, requestId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LookupStatus>> {
+        async getLookupStatus(accountId: string, requestId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LookupStatus>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getLookupStatus(accountId, requestId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['PhoneNumberLookupApi.getLookupStatus']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PhoneNumberLookupApi.getLookupStatus']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -210,7 +210,7 @@ export class PhoneNumberLookupApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PhoneNumberLookupApi
      */
-    public createLookup(accountId: string, lookupRequest: LookupRequest, options?: AxiosRequestConfig) {
+    public createLookup(accountId: string, lookupRequest: LookupRequest, options?: RawAxiosRequestConfig) {
         return PhoneNumberLookupApiFp(this.configuration).createLookup(accountId, lookupRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -223,7 +223,7 @@ export class PhoneNumberLookupApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof PhoneNumberLookupApi
      */
-    public getLookupStatus(accountId: string, requestId: string, options?: AxiosRequestConfig) {
+    public getLookupStatus(accountId: string, requestId: string, options?: RawAxiosRequestConfig) {
         return PhoneNumberLookupApiFp(this.configuration).getLookupStatus(accountId, requestId, options).then((request) => request(this.axios, this.basePath));
     }
 }

@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ListMessageItem } from './list-message-item';
+import type { ListMessageItem } from './list-message-item';
 // May contain unused imports in some cases
 // @ts-ignore
-import { PageInfo } from './page-info';
+import type { PageInfo } from './page-info';
 
 /**
  * 

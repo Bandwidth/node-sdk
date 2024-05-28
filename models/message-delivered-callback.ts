@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { MessageDeliveredCallbackMessage } from './message-delivered-callback-message';
+import type { MessageDeliveredCallbackMessage } from './message-delivered-callback-message';
 
 /**
  * Message Delivered Callback

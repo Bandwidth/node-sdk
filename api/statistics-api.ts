@@ -14,17 +14,17 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { AccountStatistics } from '../models';
+import type { AccountStatistics } from '../models';
 // @ts-ignore
-import { VoiceApiError } from '../models';
+import type { VoiceApiError } from '../models';
 /**
  * StatisticsApi - axios parameter creator
  * @export
@@ -38,7 +38,7 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStatistics: async (accountId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getStatistics: async (accountId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('getStatistics', 'accountId', accountId)
             const localVarPath = `/accounts/{accountId}/statistics`
@@ -86,11 +86,11 @@ export const StatisticsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getStatistics(accountId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountStatistics>> {
+        async getStatistics(accountId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<AccountStatistics>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getStatistics(accountId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['StatisticsApi.getStatistics']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['StatisticsApi.getStatistics']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -130,7 +130,7 @@ export class StatisticsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof StatisticsApi
      */
-    public getStatistics(accountId: string, options?: AxiosRequestConfig) {
+    public getStatistics(accountId: string, options?: RawAxiosRequestConfig) {
         return StatisticsApiFp(this.configuration).getStatistics(accountId, options).then((request) => request(this.axios, this.basePath));
     }
 }

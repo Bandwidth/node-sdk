@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallTranscription } from './call-transcription';
+import type { CallTranscription } from './call-transcription';
 
 /**
  * 

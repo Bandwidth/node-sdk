@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ConferenceStateEnum } from './conference-state-enum';
+import type { ConferenceStateEnum } from './conference-state-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { RedirectMethodEnum } from './redirect-method-enum';
+import type { RedirectMethodEnum } from './redirect-method-enum';
 
 /**
  * 

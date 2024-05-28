@@ -14,25 +14,25 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { Conference } from '../models';
+import type { Conference } from '../models';
 // @ts-ignore
-import { ConferenceMember } from '../models';
+import type { ConferenceMember } from '../models';
 // @ts-ignore
-import { ConferenceRecordingMetadata } from '../models';
+import type { ConferenceRecordingMetadata } from '../models';
 // @ts-ignore
-import { UpdateConference } from '../models';
+import type { UpdateConference } from '../models';
 // @ts-ignore
-import { UpdateConferenceMember } from '../models';
+import type { UpdateConferenceMember } from '../models';
 // @ts-ignore
-import { VoiceApiError } from '../models';
+import type { VoiceApiError } from '../models';
 /**
  * ConferencesApi - axios parameter creator
  * @export
@@ -48,7 +48,7 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        downloadConferenceRecording: async (accountId: string, conferenceId: string, recordingId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        downloadConferenceRecording: async (accountId: string, conferenceId: string, recordingId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('downloadConferenceRecording', 'accountId', accountId)
             // verify required parameter 'conferenceId' is not null or undefined
@@ -93,7 +93,7 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConference: async (accountId: string, conferenceId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getConference: async (accountId: string, conferenceId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('getConference', 'accountId', accountId)
             // verify required parameter 'conferenceId' is not null or undefined
@@ -136,7 +136,7 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConferenceMember: async (accountId: string, conferenceId: string, memberId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getConferenceMember: async (accountId: string, conferenceId: string, memberId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('getConferenceMember', 'accountId', accountId)
             // verify required parameter 'conferenceId' is not null or undefined
@@ -182,7 +182,7 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConferenceRecording: async (accountId: string, conferenceId: string, recordingId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getConferenceRecording: async (accountId: string, conferenceId: string, recordingId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('getConferenceRecording', 'accountId', accountId)
             // verify required parameter 'conferenceId' is not null or undefined
@@ -227,7 +227,7 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConferenceRecordings: async (accountId: string, conferenceId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listConferenceRecordings: async (accountId: string, conferenceId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listConferenceRecordings', 'accountId', accountId)
             // verify required parameter 'conferenceId' is not null or undefined
@@ -273,7 +273,7 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConferences: async (accountId: string, name?: string, minCreatedTime?: string, maxCreatedTime?: string, pageSize?: number, pageToken?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listConferences: async (accountId: string, name?: string, minCreatedTime?: string, maxCreatedTime?: string, pageSize?: number, pageToken?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listConferences', 'accountId', accountId)
             const localVarPath = `/accounts/{accountId}/conferences`
@@ -333,7 +333,7 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateConference: async (accountId: string, conferenceId: string, updateConference: UpdateConference, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateConference: async (accountId: string, conferenceId: string, updateConference: UpdateConference, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('updateConference', 'accountId', accountId)
             // verify required parameter 'conferenceId' is not null or undefined
@@ -381,7 +381,7 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateConferenceBxml: async (accountId: string, conferenceId: string, body: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateConferenceBxml: async (accountId: string, conferenceId: string, body: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('updateConferenceBxml', 'accountId', accountId)
             // verify required parameter 'conferenceId' is not null or undefined
@@ -430,7 +430,7 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateConferenceMember: async (accountId: string, conferenceId: string, memberId: string, updateConferenceMember: UpdateConferenceMember, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateConferenceMember: async (accountId: string, conferenceId: string, memberId: string, updateConferenceMember: UpdateConferenceMember, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('updateConferenceMember', 'accountId', accountId)
             // verify required parameter 'conferenceId' is not null or undefined
@@ -491,11 +491,11 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async downloadConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+        async downloadConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.downloadConferenceRecording(accountId, conferenceId, recordingId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['ConferencesApi.downloadConferenceRecording']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ConferencesApi.downloadConferenceRecording']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns information about the specified conference.
@@ -505,11 +505,11 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getConference(accountId: string, conferenceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Conference>> {
+        async getConference(accountId: string, conferenceId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Conference>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConference(accountId, conferenceId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['ConferencesApi.getConference']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ConferencesApi.getConference']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns information about the specified conference member.
@@ -520,11 +520,11 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getConferenceMember(accountId: string, conferenceId: string, memberId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConferenceMember>> {
+        async getConferenceMember(accountId: string, conferenceId: string, memberId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConferenceMember>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConferenceMember(accountId, conferenceId, memberId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['ConferencesApi.getConferenceMember']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ConferencesApi.getConferenceMember']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns metadata for the specified recording.
@@ -535,11 +535,11 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConferenceRecordingMetadata>> {
+        async getConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<ConferenceRecordingMetadata>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getConferenceRecording(accountId, conferenceId, recordingId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['ConferencesApi.getConferenceRecording']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ConferencesApi.getConferenceRecording']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns a (potentially empty) list of metadata for the recordings that took place during the specified conference.
@@ -549,11 +549,11 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listConferenceRecordings(accountId: string, conferenceId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConferenceRecordingMetadata>>> {
+        async listConferenceRecordings(accountId: string, conferenceId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<ConferenceRecordingMetadata>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listConferenceRecordings(accountId, conferenceId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['ConferencesApi.listConferenceRecordings']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ConferencesApi.listConferenceRecordings']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns a max of 1000 conferences, sorted by `createdTime` from oldest to newest.  **NOTE:** If the number of conferences in the account is bigger than `pageSize`, a `Link` header (with format `<{url}>; rel=\"next\"`) will be returned in the response. The url can be used to retrieve the next page of conference records.
@@ -567,11 +567,11 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listConferences(accountId: string, name?: string, minCreatedTime?: string, maxCreatedTime?: string, pageSize?: number, pageToken?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Conference>>> {
+        async listConferences(accountId: string, name?: string, minCreatedTime?: string, maxCreatedTime?: string, pageSize?: number, pageToken?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<Conference>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listConferences(accountId, name, minCreatedTime, maxCreatedTime, pageSize, pageToken, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['ConferencesApi.listConferences']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ConferencesApi.listConferences']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Update the conference state.
@@ -582,11 +582,11 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateConference(accountId: string, conferenceId: string, updateConference: UpdateConference, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async updateConference(accountId: string, conferenceId: string, updateConference: UpdateConference, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateConference(accountId, conferenceId, updateConference, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['ConferencesApi.updateConference']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ConferencesApi.updateConference']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Update the conference BXML document.
@@ -597,11 +597,11 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateConferenceBxml(accountId: string, conferenceId: string, body: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async updateConferenceBxml(accountId: string, conferenceId: string, body: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateConferenceBxml(accountId, conferenceId, body, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['ConferencesApi.updateConferenceBxml']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ConferencesApi.updateConferenceBxml']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Updates settings for a particular conference member.
@@ -613,11 +613,11 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateConferenceMember(accountId: string, conferenceId: string, memberId: string, updateConferenceMember: UpdateConferenceMember, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async updateConferenceMember(accountId: string, conferenceId: string, memberId: string, updateConferenceMember: UpdateConferenceMember, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateConferenceMember(accountId, conferenceId, memberId, updateConferenceMember, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['ConferencesApi.updateConferenceMember']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['ConferencesApi.updateConferenceMember']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -759,7 +759,7 @@ export class ConferencesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConferencesApi
      */
-    public downloadConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: AxiosRequestConfig) {
+    public downloadConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).downloadConferenceRecording(accountId, conferenceId, recordingId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -772,7 +772,7 @@ export class ConferencesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConferencesApi
      */
-    public getConference(accountId: string, conferenceId: string, options?: AxiosRequestConfig) {
+    public getConference(accountId: string, conferenceId: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).getConference(accountId, conferenceId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -786,7 +786,7 @@ export class ConferencesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConferencesApi
      */
-    public getConferenceMember(accountId: string, conferenceId: string, memberId: string, options?: AxiosRequestConfig) {
+    public getConferenceMember(accountId: string, conferenceId: string, memberId: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).getConferenceMember(accountId, conferenceId, memberId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -800,7 +800,7 @@ export class ConferencesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConferencesApi
      */
-    public getConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: AxiosRequestConfig) {
+    public getConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).getConferenceRecording(accountId, conferenceId, recordingId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -813,7 +813,7 @@ export class ConferencesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConferencesApi
      */
-    public listConferenceRecordings(accountId: string, conferenceId: string, options?: AxiosRequestConfig) {
+    public listConferenceRecordings(accountId: string, conferenceId: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).listConferenceRecordings(accountId, conferenceId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -830,7 +830,7 @@ export class ConferencesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConferencesApi
      */
-    public listConferences(accountId: string, name?: string, minCreatedTime?: string, maxCreatedTime?: string, pageSize?: number, pageToken?: string, options?: AxiosRequestConfig) {
+    public listConferences(accountId: string, name?: string, minCreatedTime?: string, maxCreatedTime?: string, pageSize?: number, pageToken?: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).listConferences(accountId, name, minCreatedTime, maxCreatedTime, pageSize, pageToken, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -844,7 +844,7 @@ export class ConferencesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConferencesApi
      */
-    public updateConference(accountId: string, conferenceId: string, updateConference: UpdateConference, options?: AxiosRequestConfig) {
+    public updateConference(accountId: string, conferenceId: string, updateConference: UpdateConference, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).updateConference(accountId, conferenceId, updateConference, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -858,7 +858,7 @@ export class ConferencesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConferencesApi
      */
-    public updateConferenceBxml(accountId: string, conferenceId: string, body: string, options?: AxiosRequestConfig) {
+    public updateConferenceBxml(accountId: string, conferenceId: string, body: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).updateConferenceBxml(accountId, conferenceId, body, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -873,7 +873,7 @@ export class ConferencesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof ConferencesApi
      */
-    public updateConferenceMember(accountId: string, conferenceId: string, memberId: string, updateConferenceMember: UpdateConferenceMember, options?: AxiosRequestConfig) {
+    public updateConferenceMember(accountId: string, conferenceId: string, memberId: string, updateConferenceMember: UpdateConferenceMember, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).updateConferenceMember(accountId, conferenceId, memberId, updateConferenceMember, options).then((request) => request(this.axios, this.basePath));
     }
 }
