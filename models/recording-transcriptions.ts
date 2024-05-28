@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { Transcription } from './transcription';
+import type { Transcription } from './transcription';
 
 /**
  * 

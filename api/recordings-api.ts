@@ -14,23 +14,23 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { CallRecordingMetadata } from '../models';
+import type { CallRecordingMetadata } from '../models';
 // @ts-ignore
-import { RecordingTranscriptions } from '../models';
+import type { RecordingTranscriptions } from '../models';
 // @ts-ignore
-import { TranscribeRecording } from '../models';
+import type { TranscribeRecording } from '../models';
 // @ts-ignore
-import { UpdateCallRecording } from '../models';
+import type { UpdateCallRecording } from '../models';
 // @ts-ignore
-import { VoiceApiError } from '../models';
+import type { VoiceApiError } from '../models';
 /**
  * RecordingsApi - axios parameter creator
  * @export
@@ -46,7 +46,7 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteRecording: async (accountId: string, callId: string, recordingId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteRecording: async (accountId: string, callId: string, recordingId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('deleteRecording', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -92,7 +92,7 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteRecordingMedia: async (accountId: string, callId: string, recordingId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteRecordingMedia: async (accountId: string, callId: string, recordingId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('deleteRecordingMedia', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -138,7 +138,7 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteRecordingTranscription: async (accountId: string, callId: string, recordingId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteRecordingTranscription: async (accountId: string, callId: string, recordingId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('deleteRecordingTranscription', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -184,7 +184,7 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        downloadCallRecording: async (accountId: string, callId: string, recordingId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        downloadCallRecording: async (accountId: string, callId: string, recordingId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('downloadCallRecording', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -230,7 +230,7 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCallRecording: async (accountId: string, callId: string, recordingId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getCallRecording: async (accountId: string, callId: string, recordingId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('getCallRecording', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -276,7 +276,7 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRecordingTranscription: async (accountId: string, callId: string, recordingId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRecordingTranscription: async (accountId: string, callId: string, recordingId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('getRecordingTranscription', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -324,7 +324,7 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAccountCallRecordings: async (accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listAccountCallRecordings: async (accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listAccountCallRecordings', 'accountId', accountId)
             const localVarPath = `/accounts/{accountId}/recordings`
@@ -379,7 +379,7 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCallRecordings: async (accountId: string, callId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listCallRecordings: async (accountId: string, callId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listCallRecordings', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -423,7 +423,7 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        transcribeCallRecording: async (accountId: string, callId: string, recordingId: string, transcribeRecording: TranscribeRecording, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        transcribeCallRecording: async (accountId: string, callId: string, recordingId: string, transcribeRecording: TranscribeRecording, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('transcribeCallRecording', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -474,7 +474,7 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCallRecordingState: async (accountId: string, callId: string, updateCallRecording: UpdateCallRecording, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        updateCallRecordingState: async (accountId: string, callId: string, updateCallRecording: UpdateCallRecording, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('updateCallRecordingState', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -532,11 +532,11 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteRecording(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteRecording(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRecording(accountId, callId, recordingId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['RecordingsApi.deleteRecording']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RecordingsApi.deleteRecording']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Deletes the specified recording\'s media.
@@ -547,11 +547,11 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteRecordingMedia(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteRecordingMedia(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRecordingMedia(accountId, callId, recordingId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['RecordingsApi.deleteRecordingMedia']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RecordingsApi.deleteRecordingMedia']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Deletes the specified recording\'s transcription.  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
@@ -562,11 +562,11 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRecordingTranscription(accountId, callId, recordingId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['RecordingsApi.deleteRecordingTranscription']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RecordingsApi.deleteRecordingTranscription']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Downloads the specified recording.
@@ -577,11 +577,11 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async downloadCallRecording(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
+        async downloadCallRecording(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<File>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.downloadCallRecording(accountId, callId, recordingId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['RecordingsApi.downloadCallRecording']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RecordingsApi.downloadCallRecording']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns metadata for the specified recording.
@@ -592,11 +592,11 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getCallRecording(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CallRecordingMetadata>> {
+        async getCallRecording(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CallRecordingMetadata>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getCallRecording(accountId, callId, recordingId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['RecordingsApi.getCallRecording']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RecordingsApi.getCallRecording']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Downloads the specified transcription. If the recording was multi-channel, then there will be 2 transcripts. The caller/called party transcript will be the first item while [`<PlayAudio>`](/docs/voice/bxml/playAudio) and [`<SpeakSentence>`](/docs/voice/bxml/speakSentence) transcript will be the second item. During a [`<Transfer>`](/docs/voice/bxml/transfer) the A-leg transcript will be the first item while the B-leg transcript will be the second item.
@@ -607,11 +607,11 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecordingTranscriptions>> {
+        async getRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<RecordingTranscriptions>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRecordingTranscription(accountId, callId, recordingId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['RecordingsApi.getRecordingTranscription']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RecordingsApi.getRecordingTranscription']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns a list of metadata for the recordings associated with the specified account. The list can be filtered by the optional from, to, minStartTime, and maxStartTime arguments. The list is capped at 1000 entries and may be empty if no recordings match the specified criteria.
@@ -624,11 +624,11 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listAccountCallRecordings(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CallRecordingMetadata>>> {
+        async listAccountCallRecordings(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CallRecordingMetadata>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listAccountCallRecordings(accountId, to, from, minStartTime, maxStartTime, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['RecordingsApi.listAccountCallRecordings']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RecordingsApi.listAccountCallRecordings']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Returns a (potentially empty) list of metadata for the recordings that took place during the specified call.
@@ -638,11 +638,11 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listCallRecordings(accountId: string, callId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CallRecordingMetadata>>> {
+        async listCallRecordings(accountId: string, callId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CallRecordingMetadata>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listCallRecordings(accountId, callId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['RecordingsApi.listCallRecordings']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RecordingsApi.listCallRecordings']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Generate the transcription for a specific recording. Transcription can succeed only for recordings of length greater than 500 milliseconds and less than 4 hours.
@@ -654,11 +654,11 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async transcribeCallRecording(accountId: string, callId: string, recordingId: string, transcribeRecording: TranscribeRecording, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async transcribeCallRecording(accountId: string, callId: string, recordingId: string, transcribeRecording: TranscribeRecording, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.transcribeCallRecording(accountId, callId, recordingId, transcribeRecording, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['RecordingsApi.transcribeCallRecording']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RecordingsApi.transcribeCallRecording']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Pause or resume a recording on an active phone call.
@@ -669,11 +669,11 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async updateCallRecordingState(accountId: string, callId: string, updateCallRecording: UpdateCallRecording, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async updateCallRecordingState(accountId: string, callId: string, updateCallRecording: UpdateCallRecording, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.updateCallRecordingState(accountId, callId, updateCallRecording, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['RecordingsApi.updateCallRecordingState']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['RecordingsApi.updateCallRecordingState']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -827,7 +827,7 @@ export class RecordingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RecordingsApi
      */
-    public deleteRecording(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig) {
+    public deleteRecording(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).deleteRecording(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -841,7 +841,7 @@ export class RecordingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RecordingsApi
      */
-    public deleteRecordingMedia(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig) {
+    public deleteRecordingMedia(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).deleteRecordingMedia(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -855,7 +855,7 @@ export class RecordingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RecordingsApi
      */
-    public deleteRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig) {
+    public deleteRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).deleteRecordingTranscription(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -869,7 +869,7 @@ export class RecordingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RecordingsApi
      */
-    public downloadCallRecording(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig) {
+    public downloadCallRecording(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).downloadCallRecording(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -883,7 +883,7 @@ export class RecordingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RecordingsApi
      */
-    public getCallRecording(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig) {
+    public getCallRecording(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).getCallRecording(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -897,7 +897,7 @@ export class RecordingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RecordingsApi
      */
-    public getRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: AxiosRequestConfig) {
+    public getRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).getRecordingTranscription(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -913,7 +913,7 @@ export class RecordingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RecordingsApi
      */
-    public listAccountCallRecordings(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, options?: AxiosRequestConfig) {
+    public listAccountCallRecordings(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).listAccountCallRecordings(accountId, to, from, minStartTime, maxStartTime, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -926,7 +926,7 @@ export class RecordingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RecordingsApi
      */
-    public listCallRecordings(accountId: string, callId: string, options?: AxiosRequestConfig) {
+    public listCallRecordings(accountId: string, callId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).listCallRecordings(accountId, callId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -941,7 +941,7 @@ export class RecordingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RecordingsApi
      */
-    public transcribeCallRecording(accountId: string, callId: string, recordingId: string, transcribeRecording: TranscribeRecording, options?: AxiosRequestConfig) {
+    public transcribeCallRecording(accountId: string, callId: string, recordingId: string, transcribeRecording: TranscribeRecording, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).transcribeCallRecording(accountId, callId, recordingId, transcribeRecording, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -955,7 +955,7 @@ export class RecordingsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof RecordingsApi
      */
-    public updateCallRecordingState(accountId: string, callId: string, updateCallRecording: UpdateCallRecording, options?: AxiosRequestConfig) {
+    public updateCallRecordingState(accountId: string, callId: string, updateCallRecording: UpdateCallRecording, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).updateCallRecordingState(accountId, callId, updateCallRecording, options).then((request) => request(this.axios, this.basePath));
     }
 }

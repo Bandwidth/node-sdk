@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallDirectionEnum } from './call-direction-enum';
+import type { CallDirectionEnum } from './call-direction-enum';
 
 /**
  * The Redirect event is fired when a <Redirect> verb is executed. Its purpose is to get the next set of verbs from the calling application.

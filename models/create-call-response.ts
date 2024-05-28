@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallbackMethodEnum } from './callback-method-enum';
+import type { CallbackMethodEnum } from './callback-method-enum';
 
 /**
  * 

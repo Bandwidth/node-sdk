@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { PriorityEnum } from './priority-enum';
+import type { PriorityEnum } from './priority-enum';
 
 /**
  * 

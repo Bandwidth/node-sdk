@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { FileFormatEnum } from './file-format-enum';
+import type { FileFormatEnum } from './file-format-enum';
 
 /**
  * The Conference Recording Available event is sent after a conference recording has been processed. It indicates that the recording is available for download.

@@ -14,19 +14,19 @@
 
 
 import type { Configuration } from '../configuration';
-import type { AxiosPromise, AxiosInstance, AxiosRequestConfig } from 'axios';
+import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
 import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
 // @ts-ignore
-import { BASE_PATH, COLLECTION_FORMATS, RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
+import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import { CallTranscriptionMetadata } from '../models';
+import type { CallTranscriptionMetadata } from '../models';
 // @ts-ignore
-import { CallTranscriptionResponse } from '../models';
+import type { CallTranscriptionResponse } from '../models';
 // @ts-ignore
-import { VoiceApiError } from '../models';
+import type { VoiceApiError } from '../models';
 /**
  * TranscriptionsApi - axios parameter creator
  * @export
@@ -42,7 +42,7 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteRealTimeTranscription: async (accountId: string, callId: string, transcriptionId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        deleteRealTimeTranscription: async (accountId: string, callId: string, transcriptionId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('deleteRealTimeTranscription', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -88,7 +88,7 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRealTimeTranscription: async (accountId: string, callId: string, transcriptionId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        getRealTimeTranscription: async (accountId: string, callId: string, transcriptionId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('getRealTimeTranscription', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -133,7 +133,7 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRealTimeTranscriptions: async (accountId: string, callId: string, options: AxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listRealTimeTranscriptions: async (accountId: string, callId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listRealTimeTranscriptions', 'accountId', accountId)
             // verify required parameter 'callId' is not null or undefined
@@ -186,11 +186,11 @@ export const TranscriptionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async deleteRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+        async deleteRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.deleteRealTimeTranscription(accountId, callId, transcriptionId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['TranscriptionsApi.deleteRealTimeTranscription']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TranscriptionsApi.deleteRealTimeTranscription']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Retrieve the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
@@ -201,11 +201,11 @@ export const TranscriptionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async getRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CallTranscriptionResponse>> {
+        async getRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CallTranscriptionResponse>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.getRealTimeTranscription(accountId, callId, transcriptionId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['TranscriptionsApi.getRealTimeTranscription']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TranscriptionsApi.getRealTimeTranscription']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
          * Enumerates the transcriptions created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
@@ -215,11 +215,11 @@ export const TranscriptionsApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listRealTimeTranscriptions(accountId: string, callId: string, options?: AxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CallTranscriptionMetadata>>> {
+        async listRealTimeTranscriptions(accountId: string, callId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<Array<CallTranscriptionMetadata>>> {
             const localVarAxiosArgs = await localVarAxiosParamCreator.listRealTimeTranscriptions(accountId, callId, options);
-            const index = configuration?.serverIndex ?? 0;
-            const operationBasePath = operationServerMap['TranscriptionsApi.listRealTimeTranscriptions']?.[index]?.url;
-            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, operationBasePath || basePath);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TranscriptionsApi.listRealTimeTranscriptions']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
 };
@@ -286,7 +286,7 @@ export class TranscriptionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TranscriptionsApi
      */
-    public deleteRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: AxiosRequestConfig) {
+    public deleteRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: RawAxiosRequestConfig) {
         return TranscriptionsApiFp(this.configuration).deleteRealTimeTranscription(accountId, callId, transcriptionId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -300,7 +300,7 @@ export class TranscriptionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TranscriptionsApi
      */
-    public getRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: AxiosRequestConfig) {
+    public getRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: RawAxiosRequestConfig) {
         return TranscriptionsApiFp(this.configuration).getRealTimeTranscription(accountId, callId, transcriptionId, options).then((request) => request(this.axios, this.basePath));
     }
 
@@ -313,7 +313,7 @@ export class TranscriptionsApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof TranscriptionsApi
      */
-    public listRealTimeTranscriptions(accountId: string, callId: string, options?: AxiosRequestConfig) {
+    public listRealTimeTranscriptions(accountId: string, callId: string, options?: RawAxiosRequestConfig) {
         return TranscriptionsApiFp(this.configuration).listRealTimeTranscriptions(accountId, callId, options).then((request) => request(this.axios, this.basePath));
     }
 }

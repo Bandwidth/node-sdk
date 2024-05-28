@@ -15,13 +15,13 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { ListMessageDirectionEnum } from './list-message-direction-enum';
+import type { ListMessageDirectionEnum } from './list-message-direction-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { MessageStatusEnum } from './message-status-enum';
+import type { MessageStatusEnum } from './message-status-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { MessageTypeEnum } from './message-type-enum';
+import type { MessageTypeEnum } from './message-type-enum';
 
 /**
  * 

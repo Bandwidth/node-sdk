@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallbackMethodEnum } from './callback-method-enum';
+import type { CallbackMethodEnum } from './callback-method-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { MachineDetectionConfiguration } from './machine-detection-configuration';
+import type { MachineDetectionConfiguration } from './machine-detection-configuration';
 
 /**
  * 

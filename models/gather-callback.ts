@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallDirectionEnum } from './call-direction-enum';
+import type { CallDirectionEnum } from './call-direction-enum';
 
 /**
  * The gather event is sent after a <Gather> verb is executed. Its purpose is to report the gathered digits to the calling application.

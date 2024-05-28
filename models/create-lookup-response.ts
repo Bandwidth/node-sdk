@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { LookupStatusEnum } from './lookup-status-enum';
+import type { LookupStatusEnum } from './lookup-status-enum';
 
 /**
  * The request has been accepted for processing but not yet finished and in a terminal state (COMPLETE, PARTIAL_COMPLETE, or FAILED).

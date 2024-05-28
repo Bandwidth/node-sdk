@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { FieldError } from './field-error';
+import type { FieldError } from './field-error';
 
 /**
  * 

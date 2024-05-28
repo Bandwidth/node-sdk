@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallStateEnum } from './call-state-enum';
+import type { CallStateEnum } from './call-state-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { RedirectMethodEnum } from './redirect-method-enum';
+import type { RedirectMethodEnum } from './redirect-method-enum';
 
 /**
  * 

@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallbackMethodEnum } from './callback-method-enum';
+import type { CallbackMethodEnum } from './callback-method-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { ConferenceMember } from './conference-member';
+import type { ConferenceMember } from './conference-member';
 
 /**
  * 

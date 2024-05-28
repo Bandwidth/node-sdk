@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { RecordingStateEnum } from './recording-state-enum';
+import type { RecordingStateEnum } from './recording-state-enum';
 
 /**
  * 

@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { MessageSendingCallbackMessage } from './message-sending-callback-message';
+import type { MessageSendingCallbackMessage } from './message-sending-callback-message';
 
 /**
  * Message Sending Callback

@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallbackMethodEnum } from './callback-method-enum';
+import type { CallbackMethodEnum } from './callback-method-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { MachineDetectionModeEnum } from './machine-detection-mode-enum';
+import type { MachineDetectionModeEnum } from './machine-detection-mode-enum';
 
 /**
  * The machine detection request used to perform <a href=\'/docs/voice/guides/machineDetection\'>machine detection</a> on the call.

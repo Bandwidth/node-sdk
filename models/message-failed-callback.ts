@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { MessageFailedCallbackMessage } from './message-failed-callback-message';
+import type { MessageFailedCallbackMessage } from './message-failed-callback-message';
 
 /**
  * Message Failed Callback

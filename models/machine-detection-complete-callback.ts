@@ -15,10 +15,10 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import { CallDirectionEnum } from './call-direction-enum';
+import type { CallDirectionEnum } from './call-direction-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import { MachineDetectionResult } from './machine-detection-result';
+import type { MachineDetectionResult } from './machine-detection-result';
 
 /**
  * This event is sent to the url informed when requesting a machine detection operation. It contains the machine detection operation result, which can be: human, answering-machine, silence, timeout, error. This event is not sent when sync answering machine detection mode is chosen.
