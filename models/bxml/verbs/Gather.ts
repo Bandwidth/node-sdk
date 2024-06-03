@@ -20,7 +20,7 @@ interface GatherAttributes {
     maxDigits?: number;
     interDigitTimeout?: number;
     firstDigitTimeout?: number;
-    repeat_count?: number;
+    repeatCount?: number;
 }
 
 /**
