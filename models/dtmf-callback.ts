@@ -48,7 +48,7 @@ export interface DtmfCallback {
      */
     'applicationId'?: string;
     /**
-     * The provided identifier of the caller: can be a phone number in E.164 format (e.g. +15555555555) or one of Private, Restricted, Unavailable, or Anonymous.
+     * The provided identifier of the caller. Must be a phone number in E.164 format (e.g. +15555555555).
      * @type {string}
      * @memberof DtmfCallback
      */
@@ -108,7 +108,7 @@ export interface DtmfCallback {
      */
     'parentCallId'?: string;
     /**
-     * The phone number used as the from field of the B-leg call, in E.164 format (e.g. +15555555555) or one of Restricted, Anonymous, Private, or Unavailable.
+     * The phone number used as the from field of the B-leg call, in E.164 format (e.g. +15555555555).
      * @type {string}
      * @memberof DtmfCallback
      */
