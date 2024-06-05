@@ -1,5 +1,5 @@
-const { Verb } = require('../../../models/bxml/Verb');
-const { NestableVerb } = require('../../../models/bxml/NestableVerb');
+import { Verb } from '../../../models/bxml/Verb';
+import { NestableVerb } from '../../../models/bxml/NestableVerb';
 
 describe('NestableVerb', () => {
     test('should create a nestable verb', () => {

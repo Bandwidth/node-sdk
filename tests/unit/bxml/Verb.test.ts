@@ -1,4 +1,4 @@
-const { Verb } = require('../../../models/bxml/Verb');
+import { Verb } from '../../../models/bxml/Verb';
 
 describe('Verb', () => {
     test('should create a verb', () => {

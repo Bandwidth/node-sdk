@@ -1,6 +1,6 @@
-const { Bxml } = require('../../../models/bxml/Bxml');
-const { PauseRecording } = require('../../../models/bxml/verbs/PauseRecording');
-const { Root } = require('../../../models/bxml/Root');
+import { Bxml } from '../../../models/bxml/Bxml';
+import { PauseRecording } from '../../../models/bxml/verbs/PauseRecording';
+import { Root } from '../../../models/bxml/Root';
 
 describe('Bxml', () => {
     const pauseRecording = new PauseRecording();
