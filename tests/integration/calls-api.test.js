@@ -44,6 +44,7 @@ describe('CallsApi', () => {
                 applicationId: BW_VOICE_APPLICATION_ID,
                 to: USER_NUMBER,
                 from: BW_NUMBER,
+                privacy: false,
                 displayName: displayName,
                 answerUrl: answerUrl,
                 answerMethod: answerMethod,
