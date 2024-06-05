@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface ForwardAttributes {
+export interface ForwardAttributes {
     to: string;
     from?: string;
     callTimeout?: number;

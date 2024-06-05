@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface RingAttributes {
+export interface RingAttributes {
     duration?: number;
     answerCall?: boolean;
 }

@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface BridgeAttributes {
+export interface BridgeAttributes {
     bridgeCompleteUrl?: string;
     bridgeCompleteMethod?: string;
     bridgeCompleteFallbackUrl?: string;

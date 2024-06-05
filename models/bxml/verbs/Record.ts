@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface RecordAttributes {
+export interface RecordAttributes {
     recordCompleteUrl?: string;
     recordCompleteMethod?: string;
     recordCompleteFallbackUrl?: string;

@@ -2,7 +2,7 @@ import { Verb } from '../Verb';
 import { XMLWriterOptions } from 'xmlbuilder2/lib/interfaces';
 import { SSML_REGEX } from '../Root';
 
-interface SpeakSentenceAttributes {
+export interface SpeakSentenceAttributes {
     voice?: string;
     gender?: string;
     locale?: string;

@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface ConferenceAttributes {
+export interface ConferenceAttributes {
     mute?: boolean;
     hold?: boolean;
     callIdsToCoach?: string;

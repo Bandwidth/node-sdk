@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface SipUriAttributes {
+export interface SipUriAttributes {
     uui?: string;
     transferAnswerUrl?: string;
     transferAnswerMethod?: string;

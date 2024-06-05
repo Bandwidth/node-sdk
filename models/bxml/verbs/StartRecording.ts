@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface StartRecordingAttributes {
+export interface StartRecordingAttributes {
     recordingAvailableUrl?: string;
     recordingAvailableMethod?: string;
     transcribe?: boolean;

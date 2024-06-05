@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface SendDtmfAttributes {
+export interface SendDtmfAttributes {
     toneDuration?: number;
     toneInterval?: number;
 }

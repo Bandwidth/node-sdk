@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface StopStreamAttributes {
+export interface StopStreamAttributes {
     name: string;
 }
 

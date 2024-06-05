@@ -1,7 +1,7 @@
 import { NestableVerb } from '../NestableVerb';
 import { StreamParam } from './StreamParam';
 
-interface StartStreamAttributes {
+export interface StartStreamAttributes {
     name?: string;
     tracks?: string;
     destination?: string;

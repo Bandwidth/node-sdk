@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface PhoneNumberAttributes {
+export interface PhoneNumberAttributes {
     transferAnswerUrl?: string;
     transferAnswerMethod?: string;
     transferAnswerFallbackUrl?: string;

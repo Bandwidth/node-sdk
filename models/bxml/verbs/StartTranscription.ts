@@ -1,7 +1,7 @@
 import { NestableVerb } from '../NestableVerb';
 import { CustomParam } from './CustomParam';
 
-interface StartTranscriptionAttributes {
+export interface StartTranscriptionAttributes {
     name?: string;
     tracks?: string;
     transcriptionEventUrl?: string;

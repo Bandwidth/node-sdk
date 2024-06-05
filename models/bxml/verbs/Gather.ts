@@ -6,7 +6,7 @@ import { XMLWriterOptions } from 'xmlbuilder2/lib/interfaces';
 
 type AudioVerbs = Array<PlayAudio | SpeakSentence>;
 
-interface GatherAttributes {
+export interface GatherAttributes {
     gatherUrl?: string;
     gatherMethod?: string;
     gatherFallbackUrl?: string;
