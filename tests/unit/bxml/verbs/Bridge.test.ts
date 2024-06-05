@@ -1,4 +1,4 @@
-const { Verb } = require('../../../../models/bxml/Verb');
+import { Verb } from '../../../../models/bxml/Verb';
 const { Bridge } = require('../../../../models/bxml/verbs/Bridge');
 
 describe('Bridge', () => {
