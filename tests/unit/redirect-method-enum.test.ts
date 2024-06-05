@@ -1,4 +1,4 @@
-const { RedirectMethodEnum } = require('../../models/redirect-method-enum');
+import { RedirectMethodEnum } from '../../models/redirect-method-enum';
 
 describe('RedirectMethodEnum', () => {
     test('should define the expected values', () => {

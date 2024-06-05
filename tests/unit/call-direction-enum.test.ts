@@ -1,4 +1,4 @@
-const { CallDirectionEnum } = require('../../models/call-direction-enum');
+import { CallDirectionEnum } from '../../models/call-direction-enum';
 
 describe('CallDirectionEnum', () => {
     test('should define the expected values', () => {

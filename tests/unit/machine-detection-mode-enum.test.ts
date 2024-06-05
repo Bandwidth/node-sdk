@@ -1,4 +1,4 @@
-const { MachineDetectionModeEnum } = require('../../models/machine-detection-mode-enum');
+import { MachineDetectionModeEnum } from '../../models/machine-detection-mode-enum';
 
 describe('MachineDetectionModeEnum', () => {
     test('should define the expected values', () => {

@@ -1,4 +1,4 @@
-const { CallStateEnum } = require('../../models/call-state-enum');
+import { CallStateEnum } from '../../models/call-state-enum';
 
 describe('CallStateEnum', () => {
     test('should define the expected values', () => {

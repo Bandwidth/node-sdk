@@ -1,4 +1,4 @@
-const { FileFormatEnum } = require('../../models/file-format-enum');
+import { FileFormatEnum } from '../../models/file-format-enum';
 
 describe('FileFormatEnum', () => {
     test('should define the expected values', () => {

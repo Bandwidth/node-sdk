@@ -1,4 +1,4 @@
-const { MessageTypeEnum } = require('../../models/message-type-enum');
+import { MessageTypeEnum } from '../../models/message-type-enum';
 
 describe('MessageTypeEnum', () => {
     test('should define the expected values', () => {

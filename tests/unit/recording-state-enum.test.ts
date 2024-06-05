@@ -1,4 +1,4 @@
-const { RecordingStateEnum } = require('../../models/recording-state-enum');
+import { RecordingStateEnum } from '../../models/recording-state-enum';
 
 describe('RecordingStateEnum', () => {
     test('should define the expected values', () => {

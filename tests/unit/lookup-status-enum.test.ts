@@ -1,4 +1,4 @@
-const { LookupStatusEnum } = require('../../models/lookup-status-enum');
+import { LookupStatusEnum } from '../../models/lookup-status-enum';
 
 describe('LookupStatusEnum', () => {
     test('should define the expected values', () => {

@@ -1,4 +1,4 @@
-const { PriorityEnum } = require('../../models/priority-enum');
+import { PriorityEnum } from '../../models/priority-enum';
 
 describe('PriorityEnum', () => {
     test('should define the expected values', () => {

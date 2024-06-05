@@ -1,4 +1,4 @@
-const { MessageDirectionEnum } = require('../../models/message-direction-enum');
+import { MessageDirectionEnum } from '../../models/message-direction-enum';
 
 describe('MessageDirectionEnum', () => {
     test('should define the expected values', () => {

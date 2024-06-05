@@ -1,4 +1,4 @@
-const { CallbackMethodEnum } = require('../../models/callback-method-enum');
+import { CallbackMethodEnum } from '../../models/callback-method-enum';
 
 describe('CallbackMethodEnum', () => {
     test('should define the expected values', () => {

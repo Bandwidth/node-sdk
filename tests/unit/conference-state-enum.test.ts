@@ -1,4 +1,4 @@
-const { ConferenceStateEnum } = require('../../models/conference-state-enum');
+import { ConferenceStateEnum } from '../../models/conference-state-enum';
 
 describe('ConferenceStateEnum', () => {
     test('should define the expected values', () => {

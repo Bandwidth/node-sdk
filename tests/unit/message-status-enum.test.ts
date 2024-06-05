@@ -1,4 +1,4 @@
-const { MessageStatusEnum } = require('../../models/message-status-enum');
+import { MessageStatusEnum } from '../../models/message-status-enum';
 
 describe('MessageStatusEnum', () => {
     test('should define the expected values', () => {
