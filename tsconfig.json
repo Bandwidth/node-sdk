@@ -4,6 +4,7 @@
     "target": "ES5",
     "module": "commonjs",
     "noImplicitAny": true,
+    "moduleDetection": "force",
     "outDir": "dist",
     "rootDir": ".",
     "lib": [
