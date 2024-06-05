@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { Ring } = require('../../../../models/bxml/verbs/Ring');
+import { Verb } from '../../../../models/bxml/Verb';
+import { Ring } from '../../../../models/bxml/verbs/Ring';
 
 describe('Ring', () => {
     const attributes = {

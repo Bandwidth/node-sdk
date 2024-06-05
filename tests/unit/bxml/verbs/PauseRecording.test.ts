@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { PauseRecording } = require('../../../../models/bxml/verbs/PauseRecording');
+import { Verb } from '../../../../models/bxml/Verb';
+import { PauseRecording } from '../../../../models/bxml/verbs/PauseRecording';
 
 describe('PauseRecording', () => {
     const expected = '<PauseRecording/>';

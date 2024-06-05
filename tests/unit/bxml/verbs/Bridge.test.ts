@@ -1,5 +1,5 @@
 import { Verb } from '../../../../models/bxml/Verb';
-const { Bridge } = require('../../../../models/bxml/verbs/Bridge');
+import { Bridge } from '../../../../models/bxml/verbs/Bridge';
 
 describe('Bridge', () => {
     const attributes = {

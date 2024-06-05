@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { StopTranscription } = require('../../../../models/bxml/verbs/StopTranscription');
+import { Verb } from '../../../../models/bxml/Verb';
+import { StopTranscription } from '../../../../models/bxml/verbs/StopTranscription';
 
 describe('StopTranscription', () => {
     const attributes = {

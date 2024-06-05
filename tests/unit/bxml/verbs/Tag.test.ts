@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { Tag } = require('../../../../models/bxml/verbs/Tag');
+import { Verb } from '../../../../models/bxml/Verb';
+import { Tag } from '../../../../models/bxml/verbs/Tag';
 
 describe('Tag', () => {
     const expected = '<Tag>testTag</Tag>';

@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { PlayAudio } = require('../../../../models/bxml/verbs/PlayAudio');
+import { Verb } from '../../../../models/bxml/Verb';
+import { PlayAudio } from '../../../../models/bxml/verbs/PlayAudio';
 
 describe('PlayAudio', () => {
     const attributes = {

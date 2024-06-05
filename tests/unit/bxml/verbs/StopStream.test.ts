@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { StopStream } = require('../../../../models/bxml/verbs/StopStream');
+import { Verb } from '../../../../models/bxml/Verb';
+import { StopStream } from '../../../../models/bxml/verbs/StopStream';
 
 describe('StopStream', () => {
     const attributes = {

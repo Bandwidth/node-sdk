@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { PhoneNumber } = require('../../../../models/bxml/verbs/PhoneNumber');
+import { Verb } from '../../../../models/bxml/Verb';
+import { PhoneNumber } from '../../../../models/bxml/verbs/PhoneNumber';
 
 describe('PhoneNumber', () => {
     const attributes = {

@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { SpeakSentence } = require('../../../../models/bxml/verbs/SpeakSentence');
+import { Verb } from '../../../../models/bxml/Verb';
+import { SpeakSentence } from '../../../../models/bxml/verbs/SpeakSentence';
 
 describe('SpeakSentence', () => {
     const attributes = {

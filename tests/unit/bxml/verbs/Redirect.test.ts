@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { Redirect } = require('../../../../models/bxml/verbs/Redirect');
+import { Verb } from '../../../../models/bxml/Verb';
+import { Redirect } from '../../../../models/bxml/verbs/Redirect';
 
 describe('Redirect', () => {
     const attributes = {

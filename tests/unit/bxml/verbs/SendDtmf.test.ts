@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { SendDtmf } = require('../../../../models/bxml/verbs/SendDtmf');
+import { Verb } from '../../../../models/bxml/Verb';
+import { SendDtmf } from '../../../../models/bxml/verbs/SendDtmf';
 
 describe('SendDtmf', () => {
     const attributes = {

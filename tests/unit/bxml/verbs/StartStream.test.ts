@@ -1,6 +1,6 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { StartStream } = require('../../../../models/bxml/verbs/StartStream');
-const { StreamParam } = require('../../../../models/bxml/verbs/StreamParam');
+import { Verb } from '../../../../models/bxml/Verb';
+import { StartStream } from '../../../../models/bxml/verbs/StartStream';
+import { StreamParam } from '../../../../models/bxml/verbs/StreamParam';
 
 describe('StartStream', () => {
     const attributes = {

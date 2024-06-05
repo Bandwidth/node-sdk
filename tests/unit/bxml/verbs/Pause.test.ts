@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { Pause } = require('../../../../models/bxml/verbs/Pause');
+import { Verb } from '../../../../models/bxml/Verb';
+import { Pause } from '../../../../models/bxml/verbs/Pause';
 
 describe('Pause', () => {
     const attributes = {

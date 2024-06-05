@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { StartGather } = require('../../../../models/bxml/verbs/StartGather');
+import { Verb } from '../../../../models/bxml/Verb';
+import { StartGather } from '../../../../models/bxml/verbs/StartGather';
 
 describe('CustomParam', () => {
     const attributes = {

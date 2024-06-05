@@ -1,6 +1,6 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { StartTranscription } = require('../../../../models/bxml/verbs/StartTranscription');
-const { CustomParam } = require('../../../../models/bxml/verbs/CustomParam');
+import { Verb } from '../../../../models/bxml/Verb';
+import { StartTranscription } from '../../../../models/bxml/verbs/StartTranscription';
+import { CustomParam } from '../../../../models/bxml/verbs/CustomParam';
 
 describe('StartTranscription', () => {
     const attributes = {

@@ -1,7 +1,7 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { Gather } = require('../../../../models/bxml/verbs/Gather');
-const { PlayAudio } = require('../../../../models/bxml/verbs/PlayAudio');
-const { SpeakSentence } = require('../../../../models/bxml/verbs/SpeakSentence');
+import { Verb } from '../../../../models/bxml/Verb';
+import { Gather } from '../../../../models/bxml/verbs/Gather';
+import { PlayAudio } from '../../../../models/bxml/verbs/PlayAudio';
+import { SpeakSentence } from '../../../../models/bxml/verbs/SpeakSentence';
 
 describe('Gather', () => {
     const attributes = {

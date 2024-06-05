@@ -1,7 +1,7 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { PhoneNumber } = require('../../../../models/bxml/verbs/PhoneNumber');
-const { SipUri } = require('../../../../models/bxml/verbs/SipUri');
-const { Transfer } = require('../../../../models/bxml/verbs/Transfer');
+import { Verb } from '../../../../models/bxml/Verb';
+import { PhoneNumber } from '../../../../models/bxml/verbs/PhoneNumber';
+import { SipUri } from '../../../../models/bxml/verbs/SipUri';
+import { Transfer } from '../../../../models/bxml/verbs/Transfer';
 
 describe('Transfer', () => {
     const attributes = {

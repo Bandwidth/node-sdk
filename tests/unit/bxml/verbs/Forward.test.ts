@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { Forward } = require('../../../../models/bxml/verbs/Forward');
+import { Verb } from '../../../../models/bxml/Verb';
+import { Forward } from '../../../../models/bxml/verbs/Forward';
 
 describe('Forward', () => {
     const attributes = {

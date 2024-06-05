@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { CustomParam } = require('../../../../models/bxml/verbs/CustomParam');
+import { Verb } from '../../../../models/bxml/Verb';
+import { CustomParam } from '../../../../models/bxml/verbs/CustomParam';
 
 describe('CustomParam', () => {
     const attributes = {

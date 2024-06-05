@@ -1,5 +1,5 @@
-const { Verb } = require('../../../../models/bxml/Verb');
-const { SipUri } = require('../../../../models/bxml/verbs/SipUri');
+import { Verb } from '../../../../models/bxml/Verb';
+import { SipUri } from '../../../../models/bxml/verbs/SipUri';
 
 describe('SipUri', () => {
     const attributes = {
