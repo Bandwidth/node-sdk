@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { Ring } from '../../../../models/bxml/verbs/Ring';
+import { Ring, RingAttributes } from '../../../../models/bxml/verbs/Ring';
 
 describe('Ring', () => {
-    const attributes = {
+    const attributes: RingAttributes = {
         duration: 5.1,
         answerCall: true
     };

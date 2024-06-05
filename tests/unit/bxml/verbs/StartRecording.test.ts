@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { StartRecording } from '../../../../models/bxml/verbs/StartRecording';
+import { StartRecording, StartRecordingAttributes } from '../../../../models/bxml/verbs/StartRecording';
 
 describe('StartRecording', () => {
-    const attributes = {
+    const attributes: StartRecordingAttributes = {
         recordingAvailableUrl: 'https://initial.com',
         recordingAvailableMethod: 'POST',
         transcribe: true,

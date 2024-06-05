@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { Record } from '../../../../models/bxml/verbs/Record';
+import { Record, RecordAttributes } from '../../../../models/bxml/verbs/Record';
 
 describe('Record', () => {
-    const attributes = {
+    const attributes: RecordAttributes = {
         recordCompleteUrl: 'https://initial.com',
         recordCompleteMethod: 'POST',
         recordCompleteFallbackUrl: 'https://initial.com',

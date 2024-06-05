@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { StreamParam } from '../../../../models/bxml/verbs/StreamParam';
+import { StreamParam, StreamParamAttributes } from '../../../../models/bxml/verbs/StreamParam';
 
 describe('StreamParam', () => {
-    const attributes = {
+    const attributes: StreamParamAttributes = {
         name: 'initialName',
         value: 'initialValue'
     };

@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { CustomParam } from '../../../../models/bxml/verbs/CustomParam';
+import { CustomParam, CustomParamAttributes } from '../../../../models/bxml/verbs/CustomParam';
 
 describe('CustomParam', () => {
-    const attributes = {
+    const attributes: CustomParamAttributes = {
         name: 'initialName',
         value: 'initialValue'
     };

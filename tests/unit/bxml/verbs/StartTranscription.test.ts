@@ -1,9 +1,9 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { StartTranscription } from '../../../../models/bxml/verbs/StartTranscription';
+import { StartTranscription, StartTranscriptionAttributes } from '../../../../models/bxml/verbs/StartTranscription';
 import { CustomParam } from '../../../../models/bxml/verbs/CustomParam';
 
 describe('StartTranscription', () => {
-    const attributes = {
+    const attributes: StartTranscriptionAttributes = {
         name: 'initialName',
         tracks: 'inbound',
         transcriptionEventUrl: 'https://initial.com',

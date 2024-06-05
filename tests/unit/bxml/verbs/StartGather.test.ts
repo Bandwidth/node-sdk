@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { StartGather } from '../../../../models/bxml/verbs/StartGather';
+import { StartGather, StartGatherAttributes } from '../../../../models/bxml/verbs/StartGather';
 
 describe('CustomParam', () => {
-    const attributes = {
+    const attributes: StartGatherAttributes = {
         dtmfUrl: 'https://initial.com',
         dtmfMethod: 'POST',
         username: 'initialUsername',

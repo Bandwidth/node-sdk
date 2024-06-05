@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { StopStream } from '../../../../models/bxml/verbs/StopStream';
+import { StopStream, StopStreamAttributes } from '../../../../models/bxml/verbs/StopStream';
 
 describe('StopStream', () => {
-    const attributes = {
+    const attributes: StopStreamAttributes = {
         name: 'initialName'
     };
 

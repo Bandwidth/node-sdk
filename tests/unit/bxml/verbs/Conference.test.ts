@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { Conference } from '../../../../models/bxml/verbs/Conference';
+import { Conference, ConferenceAttributes } from '../../../../models/bxml/verbs/Conference';
 
 describe('Conference', () => {
-    const attributes = {
+    const attributes: ConferenceAttributes = {
         mute: true,
         hold: true,
         callIdsToCoach: 'initial',

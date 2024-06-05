@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { PhoneNumber } from '../../../../models/bxml/verbs/PhoneNumber';
+import { PhoneNumber, PhoneNumberAttributes } from '../../../../models/bxml/verbs/PhoneNumber';
 
 describe('PhoneNumber', () => {
-    const attributes = {
+    const attributes: PhoneNumberAttributes = {
         transferAnswerUrl: 'https://initial.com',
         transferAnswerMethod: 'POST',
         transferAnswerFallbackUrl: 'https://initial.com',

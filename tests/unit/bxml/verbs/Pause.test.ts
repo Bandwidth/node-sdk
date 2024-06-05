@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { Pause } from '../../../../models/bxml/verbs/Pause';
+import { Pause, PauseAttributes } from '../../../../models/bxml/verbs/Pause';
 
 describe('Pause', () => {
-    const attributes = {
+    const attributes: PauseAttributes = {
         duration: 5
     };
 

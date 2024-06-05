@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { Redirect } from '../../../../models/bxml/verbs/Redirect';
+import { Redirect, RedirectAttributes } from '../../../../models/bxml/verbs/Redirect';
 
 describe('Redirect', () => {
-    const attributes = {
+    const attributes: RedirectAttributes = {
         redirectUrl: 'https://initial.com',
         redirectMethod: 'POST',
         redirectFallbackUrl: 'https://initial.com',

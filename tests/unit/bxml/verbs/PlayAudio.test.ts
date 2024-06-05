@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { PlayAudio } from '../../../../models/bxml/verbs/PlayAudio';
+import { PlayAudio, PlayAudioAttributes } from '../../../../models/bxml/verbs/PlayAudio';
 
 describe('PlayAudio', () => {
-    const attributes = {
+    const attributes: PlayAudioAttributes = {
         username: 'initialUsername',
         password: 'initialPassword'
     };

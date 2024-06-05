@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { SipUri } from '../../../../models/bxml/verbs/SipUri';
+import { SipUri, SipUriAttributes } from '../../../../models/bxml/verbs/SipUri';
 
 describe('SipUri', () => {
-    const attributes = {
+    const attributes: SipUriAttributes = {
         uui: 'abc123',
         transferAnswerUrl: 'https://initial.com',
         transferAnswerMethod: 'POST',

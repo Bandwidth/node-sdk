@@ -1,10 +1,10 @@
 import { Verb } from '../../../../models/bxml/Verb';
 import { PhoneNumber } from '../../../../models/bxml/verbs/PhoneNumber';
 import { SipUri } from '../../../../models/bxml/verbs/SipUri';
-import { Transfer } from '../../../../models/bxml/verbs/Transfer';
+import { Transfer, TransferAttributes } from '../../../../models/bxml/verbs/Transfer';
 
 describe('Transfer', () => {
-    const attributes = {
+    const attributes: TransferAttributes = {
         transferCallerId: '+19195551234',
         transferCallerDisplayName: 'initialDisplayName',
         callTimeout: 5,

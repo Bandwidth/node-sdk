@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { Forward } from '../../../../models/bxml/verbs/Forward';
+import { Forward, ForwardAttributes} from '../../../../models/bxml/verbs/Forward';
 
 describe('Forward', () => {
-    const attributes = {
+    const attributes: ForwardAttributes = {
         to: '+19195551234',
         from: '+19195554321',
         callTimeout: 5,

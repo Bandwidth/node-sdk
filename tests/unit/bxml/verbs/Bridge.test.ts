@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { Bridge } from '../../../../models/bxml/verbs/Bridge';
+import { Bridge, BridgeAttributes } from '../../../../models/bxml/verbs/Bridge';
 
 describe('Bridge', () => {
-    const attributes = {
+    const attributes: BridgeAttributes = {
         bridgeCompleteUrl: 'https://initial.com',
         bridgeCompleteMethod: 'POST',
         bridgeCompleteFallbackUrl: 'https://initial.com',

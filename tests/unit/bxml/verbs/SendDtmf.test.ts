@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { SendDtmf } from '../../../../models/bxml/verbs/SendDtmf';
+import { SendDtmf, SendDtmfAttributes } from '../../../../models/bxml/verbs/SendDtmf';
 
 describe('SendDtmf', () => {
-    const attributes = {
+    const attributes: SendDtmfAttributes = {
         toneDuration: 5,
         toneInterval: 5
     };

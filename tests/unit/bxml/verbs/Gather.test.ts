@@ -1,10 +1,10 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { Gather } from '../../../../models/bxml/verbs/Gather';
+import { Gather, GatherAttributes } from '../../../../models/bxml/verbs/Gather';
 import { PlayAudio } from '../../../../models/bxml/verbs/PlayAudio';
 import { SpeakSentence } from '../../../../models/bxml/verbs/SpeakSentence';
 
 describe('Gather', () => {
-    const attributes = {
+    const attributes: GatherAttributes = {
         gatherUrl: 'https://initial.com',
         gatherMethod: 'POST',
         gatherFallbackUrl: 'https://initial.com',

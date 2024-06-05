@@ -1,8 +1,8 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { SpeakSentence } from '../../../../models/bxml/verbs/SpeakSentence';
+import { SpeakSentence, SpeakSentenceAttributes } from '../../../../models/bxml/verbs/SpeakSentence';
 
 describe('SpeakSentence', () => {
-    const attributes = {
+    const attributes: SpeakSentenceAttributes = {
         voice: 'julie',
         gender: 'female',
         locale: 'en_US'

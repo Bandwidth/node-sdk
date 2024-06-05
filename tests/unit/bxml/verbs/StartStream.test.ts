@@ -1,9 +1,9 @@
 import { Verb } from '../../../../models/bxml/Verb';
-import { StartStream } from '../../../../models/bxml/verbs/StartStream';
+import { StartStream, StartStreamAttributes } from '../../../../models/bxml/verbs/StartStream';
 import { StreamParam } from '../../../../models/bxml/verbs/StreamParam';
 
 describe('StartStream', () => {
-    const attributes = {
+    const attributes: StartStreamAttributes = {
         name: 'initialName',
         tracks: 'inbound',
         destination: 'https://initial.com',
