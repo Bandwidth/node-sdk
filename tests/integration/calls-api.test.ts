@@ -51,6 +51,7 @@ describe('CallsApi', () => {
                 applicationId: globalThis.BW_VOICE_APPLICATION_ID,
                 to: globalThis.USER_NUMBER,
                 from: globalThis.BW_NUMBER,
+                privacy: false,
                 displayName: displayName,
                 answerUrl: answerUrl,
                 answerMethod: answerMethod,

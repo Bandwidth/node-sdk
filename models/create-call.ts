@@ -33,13 +33,19 @@ export interface CreateCall {
      */
     'to': string;
     /**
-     * A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+15555551212`, or be one of the following strings: `Restricted`, `Anonymous`, `Private`, or `Unavailable`).
+     * A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+15555551212`) even if `privacy` is set to true.
      * @type {string}
      * @memberof CreateCall
      */
     'from': string;
     /**
-     * The caller display name to use when the call is created.  May not exceed 256 characters nor contain control characters such as new lines.
+     * Hide the calling number. The `displayName` field can be used to customize the displayed name.
+     * @type {boolean}
+     * @memberof CreateCall
+     */
+    'privacy'?: boolean | null;
+    /**
+     * The caller display name to use when the call is created.  May not exceed 256 characters nor contain control characters such as new lines. If `privacy` is true, only the following values are valid: `Restricted`, `Anonymous`, `Private`, or `Unavailable`.
      * @type {string}
      * @memberof CreateCall
      */
