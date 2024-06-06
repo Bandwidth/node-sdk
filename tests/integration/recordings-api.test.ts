@@ -82,7 +82,7 @@ describe('RecordingsApi', () => {
             expect(data[0].recordingId).toHaveLength(47);
             expect(['partial', 'complete']).toContain(data[0].status);
 
-            recordingId = data[0].recordingId ?? '';
+            recordingId = data[0].recordingId!;
         });
     });
     
@@ -143,10 +143,8 @@ describe('RecordingsApi', () => {
 
             expect(status).toEqual(200);
             expect(data.transcripts).toBeInstanceOf(Array);
-            if (data.transcripts) {
-                expect(data.transcripts[0].text).toBeDefined();
-                expect(data.transcripts[0].confidence).toBeDefined();
-            }
+            expect(data.transcripts![0].text).toBeDefined();
+            expect(data.transcripts![0].confidence).toBeDefined();
         });
     });
 

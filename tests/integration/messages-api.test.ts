@@ -71,12 +71,10 @@ describe('MessagesApi', () => {
             
             expect(status).toEqual(200);
             expect(data.messages).toBeInstanceOf(Array);
-            if (data.messages) {
-                expect(data.messages[0].accountId).toEqual(globalThis.BW_ACCOUNT_ID);
-                expect(data.messages[0].messageId).toHaveLength(29);
-                expect(data.messages[0].sourceTn).toEqual(globalThis.BW_NUMBER);
-                expect(data.messages[0].messageDirection).toEqual(listMessageDirection);
-            }
+            expect(data.messages![0].accountId).toEqual(globalThis.BW_ACCOUNT_ID);
+            expect(data.messages![0].messageId).toHaveLength(29);
+            expect(data.messages![0].sourceTn).toEqual(globalThis.BW_NUMBER);
+            expect(data.messages![0].messageDirection).toEqual(listMessageDirection);
         });
     });
 

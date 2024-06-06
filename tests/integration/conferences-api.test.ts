@@ -32,7 +32,7 @@ describe('ConferencesApi', () => {
             expect(data).toBeInstanceOf(Array);
             expect(data[0].id).toHaveLength(50);
 
-            conferenceId = data[0].id ?? '';
+            conferenceId = data[0].id!;
         });
     });
 
@@ -128,7 +128,7 @@ describe('ConferencesApi', () => {
             expect(data[0].recordingId).toHaveLength(47);
             expect(data[0].fileFormat).toEqual(FileFormatEnum.Wav);
 
-            recordingId = data[0].recordingId ?? '';
+            recordingId = data[0].recordingId!;
         });
     });
 
