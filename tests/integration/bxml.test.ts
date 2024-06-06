@@ -1,15 +1,34 @@
-const { CallsApi } = require('../../api/calls-api');
-const { Configuration } = require('../../configuration');
-const { Bxml, CallStateEnum } = require('../../models');
-const { createMantecaCall, sleep, cleanupCalls } = require('../callUtils');
+// @ts-nocheck
+import { CallsApi } from '../../api';
+import { Configuration } from '../../configuration';
+import { Bxml, CallStateEnum } from '../../models';
+import {
+    BridgeAttributes,
+    ConferenceAttributes,
+    ForwardAttributes,
+    GatherAttributes,
+    RecordAttributes,
+    RedirectAttributes,
+    RingAttributes,
+    SendDtmfAttributes,
+    SpeakSentenceAttributes,
+    StartGatherAttributes,
+    StartRecordingAttributes,
+    StartStreamAttributes,
+    StartTranscriptionAttributes,
+    StopStreamAttributes,
+    StopTranscriptionAttributes,
+    TransferAttributes
+} from '../../models/bxml/verbs';
+import { sleep, createMantecaCall, cleanupCalls } from '../callUtils';
 
 describe('BXML Integration Tests', () => {
     jest.setTimeout(20000);
-
-    const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
+    
+    const config = new Configuration({username: globalThis.BW_USERNAME, password: globalThis.BW_PASSWORD});
     const callsApi = new CallsApi(config);
-    let activeCalls = [];
-
+    let activeCalls: string[] = [];
+    
     afterAll(async () => {
         await cleanupCalls(activeCalls, callsApi);
     });
@@ -18,9 +37,9 @@ describe('BXML Integration Tests', () => {
         const updateCallId = await createMantecaCall(callsApi);
         const bridgeCallId = await createMantecaCall(callsApi);
         activeCalls.push(updateCallId, bridgeCallId);
-        await sleep(SLEEP_TIME_S);
+        await sleep(globalThis.SLEEP_TIME_S);
 
-        const conferenceAttributes = {
+        const conferenceAttributes: ConferenceAttributes = {
             mute: true,
             hold: true,
             callIdsToCoach: updateCallId,
@@ -36,7 +55,7 @@ describe('BXML Integration Tests', () => {
             callbackTimeout: 1.1
         };
 
-        const gatherAttributes = {
+        const gatherAttributes: GatherAttributes = {
             gatherUrl: 'https://initial.com',
             gatherMethod: 'POST',
             gatherFallbackUrl: 'https://initial.com',
@@ -53,13 +72,13 @@ describe('BXML Integration Tests', () => {
             repeatCount: 1
         };
 
-        const speakSentenceAttributes = {
+        const speakSentenceAttributes: SpeakSentenceAttributes = {
             voice: 'julie',
             gender: 'female',
             locale: 'en_US'
         };
 
-        const recordAttributes = {
+        const recordAttributes: RecordAttributes = {
             recordCompleteUrl: 'https://initial.com',
             recordCompleteMethod: 'POST',
             recordCompleteFallbackUrl: 'https://initial.com',
@@ -80,17 +99,17 @@ describe('BXML Integration Tests', () => {
             fileFormat: 'wav'
         };
 
-        const sendDtmfAttributes = {
+        const sendDtmfAttributes: SendDtmfAttributes = {
             toneDuration: 50,
             toneInterval: 50
         };
 
-        const ringAttributes = {
+        const ringAttributes: RingAttributes = {
             duration: 5.1,
             answerCall: true
         };
 
-        const bridgeAttributes = {
+        const bridgeAttributes: BridgeAttributes = {
             bridgeCompleteUrl: 'https://initial.com',
             bridgeCompleteMethod: 'POST',
             bridgeCompleteFallbackUrl: 'https://initial.com',
@@ -106,7 +125,7 @@ describe('BXML Integration Tests', () => {
             tag: 'initialTag'
         };
 
-        const transferAttributes = {
+        const transferAttributes: TransferAttributes = {
             transferCallerId: '+19195551234',
             transferCallerDisplayName: 'initialDisplayName',
             callTimeout: 5,
@@ -143,21 +162,21 @@ describe('BXML Integration Tests', () => {
         const bxml = new Bxml.Response([tag, conference, speakSentence, gather, sendDtmf, nestedGather, pause, record, playAudio, sendDtmf, ring, bridge, transfer, hangup]);
 
         const { status: updateStatus } =
-            await callsApi.updateCallBxml(BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
+            await callsApi.updateCallBxml(globalThis.BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
         expect(updateStatus).toEqual(204);
-        await sleep(SLEEP_TIME_S);
+        await sleep(globalThis.SLEEP_TIME_S);
 
         const { status: completeStatus } =
-            await callsApi.updateCall(BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
+            await callsApi.updateCall(globalThis.BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
         expect(completeStatus).toEqual(200);
     });
 
     test('test start and stop verbs', async () => {
         const updateCallId = await createMantecaCall(callsApi);
         activeCalls.push(updateCallId);
-        await sleep(SLEEP_TIME_S);
+        await sleep(globalThis.SLEEP_TIME_S);
 
-        const startGatherAttributes = {
+        const startGatherAttributes: StartGatherAttributes = {
             dtmfUrl: 'https://initial.com',
             dtmfMethod: 'POST',
             username: 'initialUsername',
@@ -165,7 +184,7 @@ describe('BXML Integration Tests', () => {
             tag: 'initialTag'
         };
 
-        const startRecordingAttributes = {
+        const startRecordingAttributes: StartRecordingAttributes = {
             recordingAvailableUrl: 'https://initial.com',
             recordingAvailableMethod: 'POST',
             transcribe: true,
@@ -178,7 +197,7 @@ describe('BXML Integration Tests', () => {
             multiChannel: true
         };
 
-        const startStreamAttributes = {
+        const startStreamAttributes: StartStreamAttributes = {
             name: 'initialName',
             tracks: 'inbound',
             destination: 'wss://initial.com',
@@ -188,7 +207,7 @@ describe('BXML Integration Tests', () => {
             password: 'initialPassword'
         };
 
-        const startTranscriptionAttributes = {
+        const startTranscriptionAttributes: StartTranscriptionAttributes = {
             name: 'initialName',
             tracks: 'inbound',
             transcriptionEventUrl: 'https://initial.com',
@@ -199,11 +218,11 @@ describe('BXML Integration Tests', () => {
             stabilized: true
         };
 
-        const stopStreamAttributes = {
+        const stopStreamAttributes: StopStreamAttributes = {
             name: 'initialName'
         };
 
-        const stopTranscriptionAttributes = {
+        const stopTranscriptionAttributes: StopTranscriptionAttributes = {
             name: 'initialName'
         };
     
@@ -224,21 +243,21 @@ describe('BXML Integration Tests', () => {
         const bxml = new Bxml.Bxml([startGather, stopGather, startRecording, pauseRecording, resumeRecording, stopRecording, startStream, stopStream, startTranscription, stopTranscription]);
         
         const { status: updateStatus } =
-            await callsApi.updateCallBxml(BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
+            await callsApi.updateCallBxml(globalThis.BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
         expect(updateStatus).toEqual(204);
-        await sleep(SLEEP_TIME_S);
+        await sleep(globalThis.SLEEP_TIME_S);
 
         const { status: completeStatus } =
-            await callsApi.updateCall(BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
+            await callsApi.updateCall(globalThis.BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
         expect(completeStatus).toEqual(200);
     });
 
     test('test forward', async () => {
         const updateCallId = await createMantecaCall(callsApi);
         activeCalls.push(updateCallId);
-        await sleep(SLEEP_TIME_S);
+        await sleep(globalThis.SLEEP_TIME_S);
 
-        const forwardAttributes = {
+        const forwardAttributes: ForwardAttributes = {
             to: '+19195551234',
             from: '+19195554321',
             callTimeout: 5,
@@ -252,12 +271,12 @@ describe('BXML Integration Tests', () => {
         const bxml = new Bxml.Response([forward]);
 
         const { status: updateStatus } =
-            await callsApi.updateCallBxml(BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
+            await callsApi.updateCallBxml(globalThis.BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
         expect(updateStatus).toEqual(204);
-        await sleep(SLEEP_TIME_S);
+        await sleep(globalThis.SLEEP_TIME_S);
 
         const { status: completeStatus } =
-            await callsApi.updateCall(BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
+            await callsApi.updateCall(globalThis.BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
         expect(completeStatus).toEqual(200);
 
     });
@@ -265,9 +284,9 @@ describe('BXML Integration Tests', () => {
     test('test redirect', async () => {
         const updateCallId = await createMantecaCall(callsApi);
         activeCalls.push(updateCallId);
-        await sleep(SLEEP_TIME_S);
+        await sleep(globalThis.SLEEP_TIME_S);
 
-        const redirectAttributes = {
+        const redirectAttributes: RedirectAttributes = {
             redirectUrl: 'https://initial.com',
             redirectMethod: 'POST',
             redirectFallbackUrl: 'https://initial.com',
@@ -284,12 +303,12 @@ describe('BXML Integration Tests', () => {
         const bxml = new Bxml.Response([redirect]);
 
         const { status: updateStatus } =
-            await callsApi.updateCallBxml(BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
+            await callsApi.updateCallBxml(globalThis.BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
         expect(updateStatus).toEqual(204);
-        await sleep(SLEEP_TIME_S);
+        await sleep(globalThis.SLEEP_TIME_S);
 
         const { status: completeStatus } =
-            await callsApi.updateCall(BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
+            await callsApi.updateCall(globalThis.BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
         expect(completeStatus).toEqual(200);
     });
 });
