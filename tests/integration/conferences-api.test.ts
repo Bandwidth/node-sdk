@@ -3,7 +3,6 @@ import { CallsApi, ConferencesApi } from "../../api";
 import { Configuration } from "../../configuration";
 import { ConferenceStateEnum, RedirectMethodEnum, FileFormatEnum, UpdateConference } from "../../models";
 import { setupManteca, createMantecaCall, cleanupCalls, getMantecaTestStatus, sleep } from "../callUtils";
-const fs = require('fs');
 
 describe('ConferencesApi', () => {
     jest.setTimeout(125000);
