@@ -1,8 +1,8 @@
 //@ts-nocheck
-import { CallsApi, ConferencesApi } from "../../api";
-import { Configuration } from "../../configuration";
-import { ConferenceStateEnum, RedirectMethodEnum, FileFormatEnum, UpdateConference } from "../../models";
-import { setupManteca, createMantecaCall, cleanupCalls, getMantecaTestStatus, sleep } from "../callUtils";
+import { CallsApi, ConferencesApi } from '../../api';
+import { Configuration } from '../../configuration';
+import { ConferenceStateEnum, RedirectMethodEnum, FileFormatEnum, UpdateConference } from '../../models';
+import { setupManteca, createMantecaCall, cleanupCalls, getMantecaTestStatus, sleep } from '../callUtils';
 
 describe('ConferencesApi', () => {
     jest.setTimeout(125000);
