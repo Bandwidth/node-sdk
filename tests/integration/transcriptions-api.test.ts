@@ -1,4 +1,4 @@
-
+//@ts-nocheck
 import { CallsApi, TranscriptionsApi } from "../../api";
 import { Configuration } from "../../configuration";
 import { CallStateEnum } from "../../models";
