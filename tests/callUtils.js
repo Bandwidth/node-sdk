@@ -52,7 +52,7 @@ const cleanupCalls = async (calls, callsApi) => {
         for (let i = calls.length - 1; i >= 0; i--) {
             if (await callEnded(calls[i], callsApi)) { calls.splice(i, 1); }
         }
-        sleep(SLEEP_TIME_S);
+        await sleep(SLEEP_TIME_S);
         attempts += 1;
     }
 
