@@ -1,8 +1,10 @@
-const { MFAApi } = require('../../api/mfaapi');
-const { Configuration } = require('../../configuration');
+//@ts-nocheck
+import { MFAApi } from '../../api';
+import { Configuration } from '../../configuration';
+import { CodeRequest, VerifyCodeRequest } from '../../models';
 
 describe('MFAApi', () => {
-    const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
+    const config = new Configuration({username: globalThis.BW_USERNAME, password: globalThis.BW_PASSWORD});
     const mfaApi = new MFAApi(config);
 
     const message = 'Your temporary {NAME} {SCOPE} code is {CODE}';
@@ -10,15 +12,15 @@ describe('MFAApi', () => {
 
     describe('generateMessagingCode', () => {
         test('should generate messaging code', async () => {
-            const codeRequest = {
-                to: USER_NUMBER,
-                from: BW_NUMBER,
-                applicationId: BW_MESSAGING_APPLICATION_ID,
+            const codeRequest: CodeRequest = {
+                to: globalThis.USER_NUMBER,
+                from: globalThis.BW_NUMBER,
+                applicationId: globalThis.BW_MESSAGING_APPLICATION_ID,
                 message: message,
                 digits: digits
             };
 
-            const { status, data } = await mfaApi.generateMessagingCode(BW_ACCOUNT_ID, codeRequest);
+            const { status, data } = await mfaApi.generateMessagingCode(globalThis.BW_ACCOUNT_ID, codeRequest);
 
             expect(status).toEqual(200);
             expect(data.messageId).toHaveLength(29);
@@ -27,15 +29,15 @@ describe('MFAApi', () => {
 
     describe('generateVoiceCode', () => {
         test('should generate voice code', async () => {
-            const codeRequest = {
-                to: USER_NUMBER,
-                from: BW_NUMBER,
-                applicationId: BW_VOICE_APPLICATION_ID,
+            const codeRequest: CodeRequest = {
+                to: globalThis.USER_NUMBER,
+                from: globalThis.BW_NUMBER,
+                applicationId: globalThis.BW_VOICE_APPLICATION_ID,
                 message: message,
                 digits: digits
             };
 
-            const { status, data } = await mfaApi.generateVoiceCode(BW_ACCOUNT_ID, codeRequest);
+            const { status, data } = await mfaApi.generateVoiceCode(globalThis.BW_ACCOUNT_ID, codeRequest);
 
             expect(status).toEqual(200);
             expect(data.callId).toHaveLength(47);
@@ -44,14 +46,14 @@ describe('MFAApi', () => {
 
     describe('verifyCode', () => {
         test('should verify code', async () => {
-            const verifyRequest = {
+            const verifyRequest: VerifyCodeRequest = {
                 to: `+1000${Math.floor(Math.random() * 10000000)}`,
                 scope: '2FA',
                 expirationTimeInMinutes: 3,
                 code: '12345'
             };
 
-            const { status, data } = await mfaApi.verifyCode(BW_ACCOUNT_ID, verifyRequest);
+            const { status, data } = await mfaApi.verifyCode(globalThis.BW_ACCOUNT_ID, verifyRequest);
 
             expect(status).toEqual(200);
             expect(data.valid).toEqual(false);
@@ -60,35 +62,35 @@ describe('MFAApi', () => {
 
     describe('HTTP Errors', () => {
         test('400', async () => {
-            const codeRequest = {
-                to: USER_NUMBER,
-                from: BW_NUMBER,
+            const codeRequest: CodeRequest = {
+                to: globalThis.USER_NUMBER,
+                from: globalThis.BW_NUMBER,
                 applicationId: 'not-an-app-id',
                 message: message,
                 digits: digits
             };
 
             try {
-                await mfaApi.generateMessagingCode(BW_ACCOUNT_ID, codeRequest);
+                await mfaApi.generateMessagingCode(globalThis.BW_ACCOUNT_ID, codeRequest);
             } catch (e) {
                 expect(e.response.status).toEqual(400);
             }
         });
 
         test('403', async () => {
-            const configBad = new Configuration({username: UNAUTHORIZED_USERNAME, password: UNAUTHORIZED_PASSWORD});
+            const configBad = new Configuration({username: globalThis.UNAUTHORIZED_USERNAME, password: globalThis.UNAUTHORIZED_PASSWORD});
             const mfaApiBad = new MFAApi(configBad);
 
-            const codeRequest = {
-                to: USER_NUMBER,
-                from: BW_NUMBER,
-                applicationId: BW_MESSAGING_APPLICATION_ID,
+            const codeRequest: CodeRequest = {
+                to: globalThis.USER_NUMBER,
+                from: globalThis.BW_NUMBER,
+                applicationId: globalThis.BW_MESSAGING_APPLICATION_ID,
                 message: message,
                 digits: digits
             };
 
             try {
-                await mfaApiBad.generateMessagingCode(BW_ACCOUNT_ID, codeRequest);
+                await mfaApiBad.generateMessagingCode(globalThis.BW_ACCOUNT_ID, codeRequest);
             } catch (e) {
                 expect(e.response.status).toEqual(403);
             }

@@ -1,17 +1,19 @@
-const { PhoneNumberLookupApi } = require('../../api/phone-number-lookup-api');
-const { Configuration } = require('../../configuration');
-const { sleep } = require('../callUtils');
+//@ts-nocheck
+import { PhoneNumberLookupApi } from "../../api";
+import { Configuration } from "../../configuration";
+import { LookupRequest } from "../../models";
+import { sleep } from "../callUtils";
 
 describe('PhoneNumberLookupApi', () => {
     jest.setTimeout(10000);
     const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
     const phoneNumberLookupApi = new PhoneNumberLookupApi(config);
 
-    let lookupRequestId;
+    let lookupRequestId: string;
 
     describe('createLookup', () => {
         test('should lookup phone number', async () => {
-            const lookupRequest = {
+            const lookupRequest: LookupRequest = {
                 tns: [BW_NUMBER]
             };
 
@@ -41,7 +43,7 @@ describe('PhoneNumberLookupApi', () => {
 
     describe('HTTP Errors', () => {
         test('400', async () => {
-            const lookupRequest = {
+            const lookupRequest: LookupRequest = {
                 tns: ['+1invalid']
             };
 
@@ -56,7 +58,7 @@ describe('PhoneNumberLookupApi', () => {
             const configBad = new Configuration({username: UNAUTHORIZED_USERNAME, password: UNAUTHORIZED_PASSWORD});
             const phoneNumberLookupApiBad = new PhoneNumberLookupApi(configBad);
 
-            const lookupRequest = {
+            const lookupRequest: LookupRequest = {
                 tns: [BW_NUMBER]
             };
 
