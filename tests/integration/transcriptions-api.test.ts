@@ -47,7 +47,7 @@ describe('TranscriptionsApi', () => {
         });
     });
 
-    describe('listCallTranscriptions', () => {
+    describe('listRealTimeTranscriptions', () => {
         test('should list call transcriptions', async () => {
             await sleep(globalThis.SLEEP_TIME_S * 20);
 
@@ -61,7 +61,7 @@ describe('TranscriptionsApi', () => {
         });
     });
 
-    describe('getCallTranscription', () => {
+    describe('getRealTimeTranscription', () => {
         test('should get call transcription', async () => {
             const { status, data } =
                 await transcriptionsApi.getRealTimeTranscription(globalThis.BW_ACCOUNT_ID, mantecaCallId, transcriptionId);
@@ -75,7 +75,7 @@ describe('TranscriptionsApi', () => {
         });
     });
 
-    describe('deleteCallTranscription', () => {
+    describe('deleteRealTimeTranscription', () => {
         test('should delete call transcription', async () => {
             const { status } =
                 await transcriptionsApi.deleteRealTimeTranscription(globalThis.BW_ACCOUNT_ID, mantecaCallId, transcriptionId);
