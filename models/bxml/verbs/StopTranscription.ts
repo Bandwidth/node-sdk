@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface StopTranscriptionAttributes {
+export interface StopTranscriptionAttributes {
     name: string;
 }
 

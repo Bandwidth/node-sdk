@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface StreamParamAttributes {
+export interface StreamParamAttributes {
     name: string;
     value: string;
 }

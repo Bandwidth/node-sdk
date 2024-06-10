@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface PlayAudioAttributes {
+export interface PlayAudioAttributes {
     username?: string;
     password?: string;
 }

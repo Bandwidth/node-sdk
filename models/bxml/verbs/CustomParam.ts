@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface CustomParamAttributes {
+export interface CustomParamAttributes {
     name: string;
     value: string;
 }

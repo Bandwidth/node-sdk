@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface StartGatherAttributes {
+export interface StartGatherAttributes {
     dtmfUrl: string;
     dtmfMethod?: string;
     username?: string;

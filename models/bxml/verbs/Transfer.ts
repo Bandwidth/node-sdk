@@ -4,7 +4,7 @@ import { SipUri } from './SipUri';
 
 type NumberEntities = Array<PhoneNumber | SipUri>;
 
-interface TransferAttributes {
+export interface TransferAttributes {
     transferCallerId?: string;
     transferCallerDisplayName?: string;
     callTimeout?: number;

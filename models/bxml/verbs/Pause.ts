@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface PauseAttributes {
+export interface PauseAttributes {
     duration?: number;
 }
 

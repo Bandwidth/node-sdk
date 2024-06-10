@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 
-interface RedirectAttributes {
+export interface RedirectAttributes {
     redirectUrl: string;
     redirectMethod?: string;
     redirectFallbackUrl?: string;
