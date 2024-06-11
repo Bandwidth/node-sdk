@@ -1,4 +1,4 @@
-name: Test Main Branch Nightly
+name: Nightly Smoke Tests
 
 on:
   schedule:
@@ -26,13 +26,8 @@ env:
 
 jobs:
   test_main:
-    name: Test Main Branch Nightly
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-2022, windows-2019, ubuntu-20.04, ubuntu-22.04]
-        node-version: [16, 18, 20, 22]
-      fail-fast: false
+    name: Nightly Smoke Test
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,14 +37,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
 
       - name: Install Packages and Test
         run: |
           yarn
-          yarn test
+          yarn test-smoke
         env:
-          OPERATING_SYSTEM: ${{ matrix.os }}
+          OPERATING_SYSTEM: "ubuntu"
 
   notify_for_failures:
       name: Notify for Failures

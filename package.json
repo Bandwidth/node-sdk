@@ -20,6 +20,8 @@
   "scripts": {
     "build": "tsc ",
     "prepare": "npm run build",
+    "test-unit": "jest --coverage --detectOpenHandles --testPathPattern=tests/unit",
+    "test-smoke": "jest --coverage --detectOpenHandles --testPathPattern=tests/smoke",
     "test": "jest --coverage --detectOpenHandles"
   },
   "dependencies": {
