@@ -51,8 +51,8 @@ jobs:
 
       - name: Install Packages and Test
         run: |
-          npm i
-          npm test
+          yarn
+          yarn test-unit
 
       - name: Publish npm Package
         run: |

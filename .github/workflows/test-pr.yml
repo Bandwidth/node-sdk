@@ -46,6 +46,6 @@ jobs:
       - name: Install Packages and Test
         run: |
           yarn
-          yarn test
+          yarn test-unit
         env:
           OPERATING_SYSTEM: ${{ matrix.os }}

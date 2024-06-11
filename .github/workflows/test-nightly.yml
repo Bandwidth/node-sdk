@@ -1,4 +1,4 @@
-name: Test Main Branch Nightly
+name: Nightly Smoke Tests
 
 on:
   schedule:
@@ -26,7 +26,7 @@ env:
 
 jobs:
   test_main:
-    name: Test Main Branch Nightly
+    name: Nightly Smoke Test
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -47,7 +47,7 @@ jobs:
       - name: Install Packages and Test
         run: |
           yarn
-          yarn test
+          yarn test-smoke
         env:
           OPERATING_SYSTEM: ${{ matrix.os }}
 
