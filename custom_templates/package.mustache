@@ -24,6 +24,8 @@
   "scripts": {
     "build": "tsc {{#supportsES6}}&& tsc -p tsconfig.esm.json{{/supportsES6}}",
     "prepare": "npm run build",
+    "test-unit": "jest --coverage --detectOpenHandles --testPathPattern=tests/unit",
+    "test-smoke": "jest --coverage --detectOpenHandles --testPathPattern=tests/smoke",
     "test": "jest --coverage --detectOpenHandles"
   },
   "dependencies": {
