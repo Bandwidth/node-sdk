@@ -5,8 +5,8 @@ import { CallStateEnum, CallTranscriptionDetectedLanguageEnum, CallTranscription
 
 describe('TranscriptionsApi', () => {
     const config = new Configuration({
-        username: globalThis.BW_USERNAME,
-        password: globalThis.BW_PASSWORD,
+        username: BW_USERNAME,
+        password: BW_PASSWORD,
         basePath: 'http://127.0.0.1:4010'
     });
     const transcriptionsApi = new TranscriptionsApi(config);
@@ -17,7 +17,7 @@ describe('TranscriptionsApi', () => {
     describe('listRealTimeTranscriptions', () => {
         test('should list call transcriptions', async () => {
             const { status, data } =
-                await transcriptionsApi.listRealTimeTranscriptions(globalThis.BW_ACCOUNT_ID, callId);
+                await transcriptionsApi.listRealTimeTranscriptions(BW_ACCOUNT_ID, callId);
             
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
@@ -29,7 +29,7 @@ describe('TranscriptionsApi', () => {
     describe('getRealTimeTranscription', () => {
         test('should get call transcription', async () => {
             const { status, data } =
-                await transcriptionsApi.getRealTimeTranscription(globalThis.BW_ACCOUNT_ID, callId, transcriptionId);
+                await transcriptionsApi.getRealTimeTranscription(BW_ACCOUNT_ID, callId, transcriptionId);
             
             expect(status).toEqual(200);
             expect(data.accountId).toHaveLength(7);
@@ -50,7 +50,7 @@ describe('TranscriptionsApi', () => {
     describe('deleteRealTimeTranscription', () => {
         test('should delete call transcription', async () => {
             const { status } =
-                await transcriptionsApi.deleteRealTimeTranscription(globalThis.BW_ACCOUNT_ID, callId, transcriptionId);
+                await transcriptionsApi.deleteRealTimeTranscription(BW_ACCOUNT_ID, callId, transcriptionId);
             expect(status).toEqual(204); // This is a bug in the API, it should return 204. VAPI-1863 should fix this.
         });
     });

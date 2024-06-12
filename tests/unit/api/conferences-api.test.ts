@@ -11,8 +11,8 @@ import {
 
 describe('ConferencesApi', () => {
     const config = new Configuration({
-        username: globalThis.BW_USERNAME,
-        password: globalThis.BW_PASSWORD,
+        username: BW_USERNAME,
+        password: BW_PASSWORD,
         basePath: 'http://127.0.0.1:4010'
     });
     const conferencesApi = new ConferencesApi(config);
@@ -23,7 +23,7 @@ describe('ConferencesApi', () => {
     
     describe('listConferences', () => {
         test('should list conferences', async () => {
-            const { status, data } = await conferencesApi.listConferences(globalThis.BW_ACCOUNT_ID, conferenceId);
+            const { status, data } = await conferencesApi.listConferences(BW_ACCOUNT_ID, conferenceId);
 
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
@@ -39,7 +39,7 @@ describe('ConferencesApi', () => {
 
     describe('getConference', () => {
         test('should get a conference', async () => {
-            const { status, data } = await conferencesApi.getConference(globalThis.BW_ACCOUNT_ID, conferenceId);
+            const { status, data } = await conferencesApi.getConference(BW_ACCOUNT_ID, conferenceId);
     
             expect(status).toEqual(200);
             expect(data.id).toHaveLength(50);
@@ -54,7 +54,7 @@ describe('ConferencesApi', () => {
 
     describe('getConferenceMember', () => {
         test('should get conference member', async () => {
-            const { status, data } = await conferencesApi.getConferenceMember(globalThis.BW_ACCOUNT_ID, conferenceId, callId);
+            const { status, data } = await conferencesApi.getConferenceMember(BW_ACCOUNT_ID, conferenceId, callId);
     
             expect(status).toEqual(200);
             expect(data.callId).toHaveLength(47);
@@ -71,7 +71,7 @@ describe('ConferencesApi', () => {
             const updateConferenceMember = { mute: false };
 
             const { status } =
-                await conferencesApi.updateConferenceMember(globalThis.BW_ACCOUNT_ID, conferenceId, callId, updateConferenceMember);
+                await conferencesApi.updateConferenceMember(BW_ACCOUNT_ID, conferenceId, callId, updateConferenceMember);
     
             expect(status).toEqual(204);
         });
@@ -81,18 +81,18 @@ describe('ConferencesApi', () => {
         test('should update conference', async () => {
             const updateConferenceBody: UpdateConference = {
                 status: ConferenceStateEnum.Active,
-                redirectUrl: `${globalThis.MANTECA_BASE_URL}/bxml/pause`,
+                redirectUrl: `${MANTECA_BASE_URL}/bxml/pause`,
                 redirectMethod: RedirectMethodEnum.Post,
                 username: 'username',
                 password: 'password',
-                redirectFallbackUrl: `${globalThis.MANTECA_BASE_URL}/bxml/pause`,
+                redirectFallbackUrl: `${MANTECA_BASE_URL}/bxml/pause`,
                 redirectFallbackMethod: RedirectMethodEnum.Post,
                 fallbackUsername: 'username',
                 fallbackPassword: 'password'
             };
 
             const { status } =
-                await conferencesApi.updateConference(globalThis.BW_ACCOUNT_ID, conferenceId, updateConferenceBody);
+                await conferencesApi.updateConference(BW_ACCOUNT_ID, conferenceId, updateConferenceBody);
     
             expect(status).toEqual(204);
         });
@@ -103,7 +103,7 @@ describe('ConferencesApi', () => {
             const updateBxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><StartRecording/><SpeakSentence locale="en_US" gender="female" voice="susan">This should be a conference recording.</SpeakSentence><StopRecording/></Bxml>';
 
             const { status } =
-                await conferencesApi.updateConferenceBxml(globalThis.BW_ACCOUNT_ID, conferenceId, updateBxml);
+                await conferencesApi.updateConferenceBxml(BW_ACCOUNT_ID, conferenceId, updateBxml);
     
             expect(status).toEqual(204);
         });
@@ -111,7 +111,7 @@ describe('ConferencesApi', () => {
 
     describe('listConferenceRecordings', () => {
         test('should list conference recordings', async () => {
-            const { status, data } = await conferencesApi.listConferenceRecordings(globalThis.BW_ACCOUNT_ID, conferenceId);
+            const { status, data } = await conferencesApi.listConferenceRecordings(BW_ACCOUNT_ID, conferenceId);
     
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
@@ -131,7 +131,7 @@ describe('ConferencesApi', () => {
 
     describe('getConferenceRecording', () => {
         test('should get conference recording', async () => {
-            const { status, data } = await conferencesApi.getConferenceRecording(globalThis.BW_ACCOUNT_ID, conferenceId, recordingId);
+            const { status, data } = await conferencesApi.getConferenceRecording(BW_ACCOUNT_ID, conferenceId, recordingId);
     
             expect(status).toEqual(200);
             expect(data.accountId).toHaveLength(7);
@@ -150,7 +150,7 @@ describe('ConferencesApi', () => {
 
     describe('downloadConferenceRecording', () => {
         test('should download conference recording', async () => {
-            const { status, data } = await conferencesApi.downloadConferenceRecording(globalThis.BW_ACCOUNT_ID, conferenceId, recordingId);
+            const { status, data } = await conferencesApi.downloadConferenceRecording(BW_ACCOUNT_ID, conferenceId, recordingId);
 
             expect(status).toEqual(200);
             expect(data).toBeDefined();

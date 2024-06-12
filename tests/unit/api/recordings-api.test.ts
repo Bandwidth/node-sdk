@@ -5,8 +5,8 @@ import { CallDirectionEnum, FileFormatEnum, RecordingStateEnum } from "../../../
 
 describe('RecordingsApi', () => {
     const config = new Configuration({
-        username: globalThis.BW_USERNAME,
-        password: globalThis.BW_PASSWORD,
+        username: BW_USERNAME,
+        password: BW_PASSWORD,
         basePath: 'http://127.0.0.1:4010'
     });
     const recordingsApi = new RecordingsApi(config);
@@ -19,14 +19,14 @@ describe('RecordingsApi', () => {
             const pauseRecording = { state: RecordingStateEnum.Paused };
 
             const { status } =
-                await recordingsApi.updateCallRecordingState(globalThis.BW_ACCOUNT_ID, callId, pauseRecording);
+                await recordingsApi.updateCallRecordingState(BW_ACCOUNT_ID, callId, pauseRecording);
             expect(status).toEqual(200);
         });
     });
 
     describe('listAccountCallRecordings', () => {
         test('should list account call recordings', async () => {
-            const { status, data } = await recordingsApi.listAccountCallRecordings(globalThis.BW_ACCOUNT_ID);
+            const { status, data } = await recordingsApi.listAccountCallRecordings(BW_ACCOUNT_ID);
 
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
@@ -57,7 +57,7 @@ describe('RecordingsApi', () => {
 
     describe('listCallRecordings', () => {
         test('should list call recordings', async () => {
-            const { status, data } = await recordingsApi.listCallRecordings(globalThis.BW_ACCOUNT_ID, callId);
+            const { status, data } = await recordingsApi.listCallRecordings(BW_ACCOUNT_ID, callId);
 
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
@@ -88,7 +88,7 @@ describe('RecordingsApi', () => {
     
     describe('getCallRecording', () => {
         test('should get call recording', async () => {
-            const { status, data } = await recordingsApi.getCallRecording(globalThis.BW_ACCOUNT_ID, callId, recordingId);
+            const { status, data } = await recordingsApi.getCallRecording(BW_ACCOUNT_ID, callId, recordingId);
 
             expect(status).toEqual(200);
             expect(data.applicationId).toHaveLength(36);
@@ -118,7 +118,7 @@ describe('RecordingsApi', () => {
 
     describe('downloadCallRecording', () => {
         test('should download call recording', async () => {
-            const { status, data } = await recordingsApi.downloadCallRecording(globalThis.BW_ACCOUNT_ID, callId, recordingId);
+            const { status, data } = await recordingsApi.downloadCallRecording(BW_ACCOUNT_ID, callId, recordingId);
 
             expect(status).toEqual(200);
             expect(data).toBeDefined();
@@ -128,11 +128,11 @@ describe('RecordingsApi', () => {
     describe('transcribeCallRecording', () => {
         test('should create a transcription request', async () => {
             const transcribeRecording = {
-                callbackUrl: `${globalThis.MANTECA_BASE_URL}/transcriptions`,
+                callbackUrl: `${MANTECA_BASE_URL}/transcriptions`,
                 tag: callId
             };
             const { status } =
-                await recordingsApi.transcribeCallRecording(globalThis.BW_ACCOUNT_ID, callId, recordingId, transcribeRecording);
+                await recordingsApi.transcribeCallRecording(BW_ACCOUNT_ID, callId, recordingId, transcribeRecording);
 
             expect(status).toEqual(204);
         });
@@ -140,7 +140,7 @@ describe('RecordingsApi', () => {
 
     describe('getRecordingTranscription', () => {
         test('should get recording transcription', async () => {
-            const { status, data } = await recordingsApi.getRecordingTranscription(globalThis.BW_ACCOUNT_ID, callId, recordingId);
+            const { status, data } = await recordingsApi.getRecordingTranscription(BW_ACCOUNT_ID, callId, recordingId);
 
             expect(status).toEqual(200);
             expect(data.transcripts).toBeInstanceOf(Array);
@@ -151,7 +151,7 @@ describe('RecordingsApi', () => {
 
     describe('deleteRecordingTranscription', () => {
         test('should delete recording transcription', async () => {
-            const { status } = await recordingsApi.deleteRecordingTranscription(globalThis.BW_ACCOUNT_ID, callId, recordingId);
+            const { status } = await recordingsApi.deleteRecordingTranscription(BW_ACCOUNT_ID, callId, recordingId);
 
             expect(status).toEqual(204);
         });
@@ -159,7 +159,7 @@ describe('RecordingsApi', () => {
 
     describe('deleteRecordingMedia', () => {
         test('should delete recording media', async () => {
-            const { status } = await recordingsApi.deleteRecordingMedia(globalThis.BW_ACCOUNT_ID, callId, recordingId);
+            const { status } = await recordingsApi.deleteRecordingMedia(BW_ACCOUNT_ID, callId, recordingId);
 
             expect(status).toEqual(204);
         });
@@ -167,7 +167,7 @@ describe('RecordingsApi', () => {
 
     describe('deleteRecording', () => {
         test('should delete recording', async () => {
-            const { status } = await recordingsApi.deleteRecording(globalThis.BW_ACCOUNT_ID, callId, recordingId);
+            const { status } = await recordingsApi.deleteRecording(BW_ACCOUNT_ID, callId, recordingId);
 
             expect(status).toEqual(204);
         });

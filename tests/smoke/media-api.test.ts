@@ -5,7 +5,7 @@ import { BinaryLike, createHash, randomUUID } from 'crypto';
 import * as fs from 'fs';
 
 describe('MediaApi', () => {
-    const config = new Configuration({ username: globalThis.BW_USERNAME, password: globalThis.BW_PASSWORD });
+    const config = new Configuration({ username: BW_USERNAME, password: BW_PASSWORD });
     const mediaApi = new MediaApi(config);
 
     const binaryMediaData = '123456';
@@ -20,13 +20,13 @@ describe('MediaApi', () => {
 
     describe('uploadMedia', () => {
         test('should upload binary media', async () => {
-            const { status } = await mediaApi.uploadMedia(globalThis.BW_ACCOUNT_ID, binaryMediaName, binaryMediaData);
+            const { status } = await mediaApi.uploadMedia(BW_ACCOUNT_ID, binaryMediaName, binaryMediaData);
 
             expect(status).toEqual(204);
         });
 
         test('should upload media file', async () => {
-            const { status } = await mediaApi.uploadMedia(globalThis.BW_ACCOUNT_ID, mediaFileName, mediaFileData);
+            const { status } = await mediaApi.uploadMedia(BW_ACCOUNT_ID, mediaFileName, mediaFileData);
 
             expect(status).toEqual(204);
         });
@@ -34,7 +34,7 @@ describe('MediaApi', () => {
 
     describe('listMedia', () => {
         test('should list media', async () => {
-            const { status, data } = await mediaApi.listMedia(globalThis.BW_ACCOUNT_ID);
+            const { status, data } = await mediaApi.listMedia(BW_ACCOUNT_ID);
 
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
@@ -45,14 +45,14 @@ describe('MediaApi', () => {
 
     describe('getMedia', () => {
         test('should get binary media', async () => {
-            const { status, data } = await mediaApi.getMedia(globalThis.BW_ACCOUNT_ID, binaryMediaName);
+            const { status, data } = await mediaApi.getMedia(BW_ACCOUNT_ID, binaryMediaName);
 
             expect(status).toEqual(200);
             expect(data.toString()).toEqual(binaryMediaData);
         });
 
         test('should get media file', async () => {
-            const { status, data } = await mediaApi.getMedia(globalThis.BW_ACCOUNT_ID, mediaFileName);
+            const { status, data } = await mediaApi.getMedia(BW_ACCOUNT_ID, mediaFileName);
             // fs.writeFile('./tests/fixtures/test.jpeg', Buffer.from(data), (err) => {
             //     if (err) throw err;
             // });
@@ -65,13 +65,13 @@ describe('MediaApi', () => {
 
     describe('deleteMedia', () => {
         test('should delete binary media', async () => {
-            const { status } = await mediaApi.deleteMedia(globalThis.BW_ACCOUNT_ID, binaryMediaName);
+            const { status } = await mediaApi.deleteMedia(BW_ACCOUNT_ID, binaryMediaName);
 
             expect(status).toEqual(204);
         });
 
         test('should delete media file', async () => {
-            const { status } = await mediaApi.deleteMedia(globalThis.BW_ACCOUNT_ID, mediaFileName);
+            const { status } = await mediaApi.deleteMedia(BW_ACCOUNT_ID, mediaFileName);
 
             expect(status).toEqual(204);
         });
@@ -80,7 +80,7 @@ describe('MediaApi', () => {
     describe('HTTP Errors', () => {
         test('404', async () => {
             try{
-                await mediaApi.getMedia(globalThis.BW_ACCOUNT_ID, 'does-not-exist');
+                await mediaApi.getMedia(BW_ACCOUNT_ID, 'does-not-exist');
             } catch (e) {
                 expect(e.response.status).toEqual(404);
             }

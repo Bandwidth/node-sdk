@@ -5,8 +5,8 @@ import { ListMessageDirectionEnum, MessageDirectionEnum, MessageRequest, Message
 
 describe('MessagesApi', () => {
     const config = new Configuration({
-        username: globalThis.BW_USERNAME,
-        password: globalThis.BW_PASSWORD,
+        username: BW_USERNAME,
+        password: BW_PASSWORD,
         basePath: 'http://127.0.0.1:4010'
     });
     const messagesApi = new MessagesApi(config);
@@ -24,16 +24,16 @@ describe('MessagesApi', () => {
     describe('createMessage', () => {
         test('should create a message', async () => {
             const messageRequest: MessageRequest = {
-                to: new Set([globalThis.USER_NUMBER]),
-                from: globalThis.BW_NUMBER,
+                to: new Set([USER_NUMBER]),
+                from: BW_NUMBER,
                 text: smsText,
-                applicationId: globalThis.BW_MESSAGING_APPLICATION_ID,
+                applicationId: BW_MESSAGING_APPLICATION_ID,
                 tag: smsTag,
                 priority: priority,
                 expiration: expiration
             };
 
-            const { status, data } = await messagesApi.createMessage(globalThis.BW_ACCOUNT_ID, messageRequest);
+            const { status, data } = await messagesApi.createMessage(BW_ACCOUNT_ID, messageRequest);
             
             expect(status).toEqual(202);
             expect(data.id).toHaveLength(29);
@@ -57,7 +57,7 @@ describe('MessagesApi', () => {
     describe('listMessages', () => {
         test('should list messages', async () => {
             const { status, data } =
-                await messagesApi.listMessages(globalThis.BW_ACCOUNT_ID);
+                await messagesApi.listMessages(BW_ACCOUNT_ID);
 
             expect(status).toEqual(200);
             expect(data.totalCount).toBeInteger();
@@ -99,7 +99,7 @@ describe('MessagesApi', () => {
     describe('HTTP Errors', () => {
         test('400', async () => {
             try {
-                await messagesApi.createMessage(globalThis.BW_ACCOUNT_ID, {});
+                await messagesApi.createMessage(BW_ACCOUNT_ID, {});
             } catch (e) {
                 expect(e.response.status).toEqual(400);
             }
@@ -110,7 +110,7 @@ describe('MessagesApi', () => {
             const unauthorizedMessagesApi = new MessagesApi(unauthorizedConfig);
             
             try {
-                await unauthorizedMessagesApi.listMessages(globalThis.BW_ACCOUNT_ID);
+                await unauthorizedMessagesApi.listMessages(BW_ACCOUNT_ID);
             } catch (e) {
                 expect(e.response.status).toEqual(401);
             }

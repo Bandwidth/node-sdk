@@ -4,7 +4,7 @@ import { Configuration } from '../../configuration';
 import { ListMessageDirectionEnum, MessageRequest, PriorityEnum } from '../../models';
 
 describe('MessagesApi', () => {
-    const config = new Configuration({username: globalThis.BW_USERNAME, password: globalThis.BW_PASSWORD});
+    const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
     const messagesApi = new MessagesApi(config);
 
     const mmsText = 'nodejs sdk test MMS';
@@ -20,22 +20,22 @@ describe('MessagesApi', () => {
     describe('createMessage', () => {
         test('should create SMS message', async () => {
             const messageRequest: MessageRequest = {
-                to: new Set([globalThis.USER_NUMBER]),
-                from: globalThis.BW_NUMBER,
+                to: new Set([USER_NUMBER]),
+                from: BW_NUMBER,
                 text: smsText,
-                applicationId: globalThis.BW_MESSAGING_APPLICATION_ID,
+                applicationId: BW_MESSAGING_APPLICATION_ID,
                 tag: smsTag,
                 priority: priority,
                 expiration: expiration
             };
 
-            const { status, data } = await messagesApi.createMessage(globalThis.BW_ACCOUNT_ID, messageRequest);
+            const { status, data } = await messagesApi.createMessage(BW_ACCOUNT_ID, messageRequest);
             
             expect(status).toEqual(202);
             expect(data.id).toHaveLength(29);
-            expect(data.owner).toEqual(globalThis.BW_NUMBER);
-            expect(data.to).toEqual([globalThis.USER_NUMBER]);
-            expect(data.from).toEqual(globalThis.BW_NUMBER);
+            expect(data.owner).toEqual(BW_NUMBER);
+            expect(data.to).toEqual([USER_NUMBER]);
+            expect(data.from).toEqual(BW_NUMBER);
             expect(data.text).toEqual(smsText);
             expect(data.tag).toEqual(smsTag);
             expect(data.priority).toEqual(priority);
@@ -43,21 +43,21 @@ describe('MessagesApi', () => {
 
         test('should create MMS message', async () => {
             const messageRequest: MessageRequest = {
-                to: new Set([globalThis.USER_NUMBER]),
-                from: globalThis.BW_NUMBER,
+                to: new Set([USER_NUMBER]),
+                from: BW_NUMBER,
                 text: mmsText,
-                applicationId: globalThis.BW_MESSAGING_APPLICATION_ID,
+                applicationId: BW_MESSAGING_APPLICATION_ID,
                 tag: mmsTag,
                 media: [mediaUrl]
             };
 
-            const { status, data } = await messagesApi.createMessage(globalThis.BW_ACCOUNT_ID, messageRequest);
+            const { status, data } = await messagesApi.createMessage(BW_ACCOUNT_ID, messageRequest);
 
             expect(status).toEqual(202);
             expect(data.id).toHaveLength(29);
-            expect(data.owner).toEqual(globalThis.BW_NUMBER);
-            expect(data.to).toEqual([globalThis.USER_NUMBER]);
-            expect(data.from).toEqual(globalThis.BW_NUMBER);
+            expect(data.owner).toEqual(BW_NUMBER);
+            expect(data.to).toEqual([USER_NUMBER]);
+            expect(data.from).toEqual(BW_NUMBER);
             expect(data.text).toEqual(mmsText);
             expect(data.tag).toEqual(mmsTag);
             expect(data.media).toEqual([mediaUrl]);
@@ -67,13 +67,13 @@ describe('MessagesApi', () => {
     describe('listMessages', () => {
         test('should list messages', async () => {
             const { status, data } =
-                await messagesApi.listMessages(globalThis.BW_ACCOUNT_ID, undefined, globalThis.BW_NUMBER, undefined, undefined, listMessageDirection);
+                await messagesApi.listMessages(BW_ACCOUNT_ID, undefined, BW_NUMBER, undefined, undefined, listMessageDirection);
             
             expect(status).toEqual(200);
             expect(data.messages).toBeInstanceOf(Array);
-            expect(data.messages![0].accountId).toEqual(globalThis.BW_ACCOUNT_ID);
+            expect(data.messages![0].accountId).toEqual(BW_ACCOUNT_ID);
             expect(data.messages![0].messageId).toHaveLength(29);
-            expect(data.messages![0].sourceTn).toEqual(globalThis.BW_NUMBER);
+            expect(data.messages![0].sourceTn).toEqual(BW_NUMBER);
             expect(data.messages![0].messageDirection).toEqual(listMessageDirection);
         });
     });
@@ -81,32 +81,32 @@ describe('MessagesApi', () => {
     describe('HTTP Errors', () => {
         test('400', async () => {
             const messageRequest: MessageRequest = {
-                applicationId: globalThis.BW_MESSAGING_APPLICATION_ID,
+                applicationId: BW_MESSAGING_APPLICATION_ID,
                 to: new Set(['+1invalid']),
-                from: globalThis.BW_NUMBER,
+                from: BW_NUMBER,
                 text: smsText
             };
 
             try {
-                await messagesApi.createMessage(globalThis.BW_ACCOUNT_ID, messageRequest);
+                await messagesApi.createMessage(BW_ACCOUNT_ID, messageRequest);
             } catch (e) {
                 expect(e.response.status).toEqual(400);
             }
         });
 
         test('401', async () => {
-            const configBad = new Configuration({username: globalThis.UNAUTHORIZED_USERNAME, password: globalThis.UNAUTHORIZED_PASSWORD});
+            const configBad = new Configuration({username: UNAUTHORIZED_USERNAME, password: UNAUTHORIZED_PASSWORD});
             const messagesApiBad = new MessagesApi(configBad);
 
             const messageRequest: MessageRequest = {
-                applicationId: globalThis.BW_MESSAGING_APPLICATION_ID,
-                to: new Set([globalThis.USER_NUMBER]),
-                from: globalThis.BW_NUMBER,
+                applicationId: BW_MESSAGING_APPLICATION_ID,
+                to: new Set([USER_NUMBER]),
+                from: BW_NUMBER,
                 text: smsText
             };
 
             try {
-                await messagesApiBad.createMessage(globalThis.BW_ACCOUNT_ID, messageRequest);
+                await messagesApiBad.createMessage(BW_ACCOUNT_ID, messageRequest);
             } catch (e) {
                 expect(e.response.status).toEqual(401);
             }

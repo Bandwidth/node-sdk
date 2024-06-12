@@ -12,8 +12,8 @@ import {
 
 describe('CallsApi', () => {
     const config = new Configuration({
-        username: globalThis.BW_USERNAME,
-        password: globalThis.BW_PASSWORD,
+        username: BW_USERNAME,
+        password: BW_PASSWORD,
         basePath: 'http://127.0.0.1:4010'
     });
     const callsApi = new CallsApi(config);
@@ -21,9 +21,9 @@ describe('CallsApi', () => {
     const callId = 'c-1234';
     const displayName = 'NodeJS SDK';
     const answerMethod = CallbackMethodEnum.Post;
-    const answerUrl = `${globalThis.BASE_CALLBACK_URL}/callbacks/answer`;
+    const answerUrl = `${BASE_CALLBACK_URL}/callbacks/answer`;
     const disconnectMethod = CallbackMethodEnum.Get;
-    const disconnectUrl = `${globalThis.BASE_CALLBACK_URL}/callbacks/disconnect`;
+    const disconnectUrl = `${BASE_CALLBACK_URL}/callbacks/disconnect`;
     const callTimeout = 30.0;
     const callbackTimeout = 15.0;
 
@@ -36,14 +36,14 @@ describe('CallsApi', () => {
                 speechThreshold: 5.0,
                 speechEndThreshold: 5.0,
                 delayResult: true,
-                callbackUrl: globalThis.BASE_CALLBACK_URL + '/machineDetection',
+                callbackUrl: BASE_CALLBACK_URL + '/machineDetection',
                 callbackMethod: CallbackMethodEnum.Post
             };
 
             const callBody: CreateCall = {
-                applicationId: globalThis.BW_VOICE_APPLICATION_ID,
-                to: globalThis.USER_NUMBER,
-                from: globalThis.BW_NUMBER,
+                applicationId: BW_VOICE_APPLICATION_ID,
+                to: USER_NUMBER,
+                from: BW_NUMBER,
                 privacy: false,
                 displayName: displayName,
                 answerUrl: answerUrl,
@@ -55,7 +55,7 @@ describe('CallsApi', () => {
                 callbackTimeout: callbackTimeout
             };
 
-            const { status, data } = await callsApi.createCall(globalThis.BW_ACCOUNT_ID, callBody);
+            const { status, data } = await callsApi.createCall(BW_ACCOUNT_ID, callBody);
 
             expect(status).toEqual(201);
             expect(data.applicationId).toHaveLength(36);
@@ -84,7 +84,7 @@ describe('CallsApi', () => {
 
     describe('getCall', () => {
         test('should return a call', async () => {
-            const { status, data } = await callsApi.getCallState(globalThis.BW_ACCOUNT_ID, callId);
+            const { status, data } = await callsApi.getCallState(BW_ACCOUNT_ID, callId);
 
             expect(status).toEqual(200);
             expect(data.applicationId).toHaveLength(36);
@@ -110,7 +110,7 @@ describe('CallsApi', () => {
     
     describe('listCalls', () => {
         test('should return an array of calls', async () => {
-            const { status, data } = await callsApi.listCalls(globalThis.BW_ACCOUNT_ID);
+            const { status, data } = await callsApi.listCalls(BW_ACCOUNT_ID);
 
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
@@ -139,10 +139,10 @@ describe('CallsApi', () => {
         test('should update a call', async () => {
             const updateCallBody: UpdateCall = {
                 state: CallStateEnum.Active,
-                redirectUrl: `${globalThis.MANTECA_BASE_URL}/bxml/pause`
+                redirectUrl: `${MANTECA_BASE_URL}/bxml/pause`
             };
 
-            const { status } = await callsApi.updateCall(globalThis.BW_ACCOUNT_ID, callId, updateCallBody);
+            const { status } = await callsApi.updateCall(BW_ACCOUNT_ID, callId, updateCallBody);
             expect(status).toEqual(200);
         });
     });
@@ -151,7 +151,7 @@ describe('CallsApi', () => {
         test('should update a call with bxml', async () => {
             const updateBxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><SpeakSentence locale="en_US" gender="female" voice="susan">This is a test bxml response</SpeakSentence><Pause duration="3"/></Bxml>';
 
-            const { status } = await callsApi.updateCallBxml(globalThis.BW_ACCOUNT_ID, callId, updateBxml);
+            const { status } = await callsApi.updateCallBxml(BW_ACCOUNT_ID, callId, updateBxml);
             expect(status).toEqual(204);
         });
     });
@@ -159,7 +159,7 @@ describe('CallsApi', () => {
     describe('HTTP Errors', () => {
         test('400', async () => {
             try {
-                await callsApi.createCall(globalThis.BW_ACCOUNT_ID, {});
+                await callsApi.createCall(BW_ACCOUNT_ID, {});
             } catch (e) {
                 expect(e.response.status).toEqual(400);
             }
@@ -170,7 +170,7 @@ describe('CallsApi', () => {
             const unauthorizedCallsApi = new CallsApi(unauthorizedConfig);
             
             try {
-                await unauthorizedCallsApi.getCallState(globalThis.BW_ACCOUNT_ID, callId);
+                await unauthorizedCallsApi.getCallState(BW_ACCOUNT_ID, callId);
             } catch (e) {
                 expect(e.response.status).toEqual(401);
             }

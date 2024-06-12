@@ -5,8 +5,8 @@ import { LookupRequest, LookupStatusEnum } from "../../../models";
 
 describe('PhoneNumberLookupApi', () => {
     const config = new Configuration({
-        username: globalThis.BW_USERNAME,
-        password: globalThis.BW_PASSWORD,
+        username: BW_USERNAME,
+        password: BW_PASSWORD,
         basePath: 'http://127.0.0.1:4010'
     });
     const phoneNumberLookupApi = new PhoneNumberLookupApi(config);
@@ -16,10 +16,10 @@ describe('PhoneNumberLookupApi', () => {
     describe('createLookup', () => {
         test('should lookup phone number', async () => {
             const lookupRequest: LookupRequest = {
-                tns: [globalThis.BW_NUMBER]
+                tns: [BW_NUMBER]
             };
 
-            const { status, data } = await phoneNumberLookupApi.createLookup(globalThis.BW_ACCOUNT_ID, lookupRequest);
+            const { status, data } = await phoneNumberLookupApi.createLookup(BW_ACCOUNT_ID, lookupRequest);
 
             expect(status).toEqual(202);
             expect(data.requestId).toHaveLength(36);
@@ -35,7 +35,7 @@ describe('PhoneNumberLookupApi', () => {
     describe('getLookupStatus', () => {
         test('should get lookup status', async () => {
             const { status, data } = await phoneNumberLookupApi.getLookupStatus(
-                globalThis.BW_ACCOUNT_ID,
+                BW_ACCOUNT_ID,
                 lookupRequestId,
                 { headers: { Prefer: 'example=lookupMultipleNumbersPartialCompleteExample' } }
             );
@@ -77,7 +77,7 @@ describe('PhoneNumberLookupApi', () => {
     describe('HTTP Errors', () => {
         test('400', async () => {
             try {
-                await phoneNumberLookupApi.createLookup(globalThis.BW_ACCOUNT_ID, {});
+                await phoneNumberLookupApi.createLookup(BW_ACCOUNT_ID, {});
             } catch (e) {
                 expect(e.response.status).toEqual(400);
             }
@@ -87,7 +87,7 @@ describe('PhoneNumberLookupApi', () => {
             const unauthorizedConfig = new Configuration({ basePath: 'http://127.0.0.1:4010' });
             const unauthorizedPhoneNumberLookupApi = new PhoneNumberLookupApi(unauthorizedConfig);
             try {
-                await unauthorizedPhoneNumberLookupApi.getLookupStatus(globalThis.BW_ACCOUNT_ID, lookupRequestId);
+                await unauthorizedPhoneNumberLookupApi.getLookupStatus(BW_ACCOUNT_ID, lookupRequestId);
             } catch (e) {
                 expect(e.response.status).toEqual(401);
             }

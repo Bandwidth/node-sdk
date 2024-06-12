@@ -4,8 +4,8 @@ import { Configuration } from '../../../configuration';
 
 describe('MediaApi', () => {
     const config = new Configuration({
-        username: globalThis.BW_USERNAME,
-        password: globalThis.BW_PASSWORD,
+        username: BW_USERNAME,
+        password: BW_PASSWORD,
         basePath: 'http://127.0.0.1:4010'
     });
     const mediaApi = new MediaApi(config);
@@ -16,7 +16,7 @@ describe('MediaApi', () => {
     describe('uploadMedia', () => {
         test('should upload binary media', async () => {
             const { status } = await mediaApi.uploadMedia(
-                globalThis.BW_ACCOUNT_ID,
+                BW_ACCOUNT_ID,
                 binaryMediaName,
                 binaryMediaData,
                 undefined,
@@ -30,7 +30,7 @@ describe('MediaApi', () => {
 
     describe('listMedia', () => {
         test('should list media', async () => {
-            const { status, data } = await mediaApi.listMedia(globalThis.BW_ACCOUNT_ID);
+            const { status, data } = await mediaApi.listMedia(BW_ACCOUNT_ID);
 
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
@@ -42,7 +42,7 @@ describe('MediaApi', () => {
 
     describe('getMedia', () => {
         test('should get binary media', async () => {
-            const { status, data } = await mediaApi.getMedia(globalThis.BW_ACCOUNT_ID, binaryMediaName);
+            const { status, data } = await mediaApi.getMedia(BW_ACCOUNT_ID, binaryMediaName);
 
             expect(status).toEqual(200);
             expect(data).toBeDefined();
@@ -51,7 +51,7 @@ describe('MediaApi', () => {
 
     describe('deleteMedia', () => {
         test('should delete binary media', async () => {
-            const { status } = await mediaApi.deleteMedia(globalThis.BW_ACCOUNT_ID, binaryMediaName);
+            const { status } = await mediaApi.deleteMedia(BW_ACCOUNT_ID, binaryMediaName);
 
             expect(status).toEqual(204);
         });
