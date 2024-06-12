@@ -84,7 +84,7 @@ describe('CallsApi', () => {
         });
     });
 
-    describe('getCall', () => {
+    describe('getCallState', () => {
         test('should return a call', async () => {
             await sleep(40); // wait 40s for voice API to update call status
             const { status, data } = await callsApi.getCallState(globalThis.BW_ACCOUNT_ID, callId);
@@ -99,7 +99,7 @@ describe('CallsApi', () => {
         });
     });
     
-    describe('getCalls', () => {
+    describe('listCalls', () => {
         test('should return an array of calls', async () => {
             const { status, data } = await callsApi.listCalls(globalThis.BW_ACCOUNT_ID);
 
