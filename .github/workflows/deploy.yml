@@ -49,13 +49,10 @@ jobs:
           node-version: 18
           registry-url: "https://registry.npmjs.org"
 
-      - name: Install Prism
-        run: |
-          yarn global add @stoplight/prism-cli
-
       - name: Install Packages and Test
         run: |
           yarn
+          yarn global add @stoplight/prism-cli
           prism mock ./bandwidth.yml
           yarn test-unit
 
