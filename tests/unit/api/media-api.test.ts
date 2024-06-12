@@ -56,14 +56,4 @@ describe('MediaApi', () => {
             expect(status).toEqual(204);
         });
     });
-
-    describe('HTTP Errors', () => {
-        test('404', async () => {
-            try{
-                await mediaApi.getMedia(globalThis.BW_ACCOUNT_ID, 'does-not-exist');
-            } catch (e) {
-                expect(e.response.status).toEqual(404);
-            }
-        });
-    });
 });

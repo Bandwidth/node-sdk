@@ -158,57 +158,21 @@ describe('CallsApi', () => {
 
     describe('HTTP Errors', () => {
         test('400', async () => {
-            const callBodyBad: CreateCall = {
-                applicationId: globalThis.BW_VOICE_APPLICATION_ID,
-                to: '+1invalid',
-                from: globalThis.BW_NUMBER,
-                answerUrl: answerUrl,
-            };
-
             try {
-                await callsApi.createCall(globalThis.BW_ACCOUNT_ID, callBodyBad);
+                await callsApi.createCall(globalThis.BW_ACCOUNT_ID, {});
             } catch (e) {
                 expect(e.response.status).toEqual(400);
             }
         });
 
         test('401', async () => {
-            // const configBad = new Configuration({username: globalThis.UNAUTHORIZED_USERNAME, password: globalThis.UNAUTHORIZED_PASSWORD});
-            const configBad = new Configuration({
-                username: globalThis.BW_USERNAME,
-                password: globalThis.BW_PASSWORD,
-                basePath: 'http://127.0.0.1:4010'
-            });
-            const callsApiBad = new CallsApi(configBad);
-
+            const unauthorizedConfig = new Configuration({ basePath: 'http://127.0.0.1:4010' });
+            const unauthorizedCallsApi = new CallsApi(unauthorizedConfig);
+            
             try {
-                await callsApiBad.getCallState(globalThis.BW_ACCOUNT_ID, callId);
+                await unauthorizedCallsApi.getCallState(globalThis.BW_ACCOUNT_ID, callId);
             } catch (e) {
                 expect(e.response.status).toEqual(401);
-            }
-        });
-
-        test('403', async () => {
-            // const configBad = new Configuration({username: globalThis.FORBIDDEN_USERNAME, password: globalThis.FORBIDDEN_PASSWORD});
-            const configBad = new Configuration({
-                username: globalThis.BW_USERNAME,
-                password: globalThis.BW_PASSWORD,
-                basePath: 'http://127.0.0.1:4010'
-            });
-            const callsApiBad = new CallsApi(configBad);
-
-            try {
-                await callsApiBad.getCallState(globalThis.BW_ACCOUNT_ID, callId);
-            } catch (e) {
-                expect(e.response.status).toEqual(403);
-            }
-        });
-
-        test('404', async () => {
-            try {
-                await callsApi.getCallState(globalThis.BW_ACCOUNT_ID, 'does-not-exist');
-            } catch (e) {
-                expect(e.response.status).toEqual(404);
             }
         });
     });

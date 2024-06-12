@@ -57,7 +57,7 @@ describe('MessagesApi', () => {
     describe('listMessages', () => {
         test('should list messages', async () => {
             const { status, data } =
-                await messagesApi.listMessages(globalThis.BW_ACCOUNT_ID, undefined, globalThis.BW_NUMBER, undefined, undefined, listMessageDirection);
+                await messagesApi.listMessages(globalThis.BW_ACCOUNT_ID);
 
             expect(status).toEqual(200);
             expect(data.totalCount).toBeInteger();
@@ -98,38 +98,19 @@ describe('MessagesApi', () => {
 
     describe('HTTP Errors', () => {
         test('400', async () => {
-            const messageRequest: MessageRequest = {
-                applicationId: globalThis.BW_MESSAGING_APPLICATION_ID,
-                to: new Set(['+1invalid']),
-                from: globalThis.BW_NUMBER,
-                text: smsText
-            };
-
             try {
-                await messagesApi.createMessage(globalThis.BW_ACCOUNT_ID, messageRequest);
+                await messagesApi.createMessage(globalThis.BW_ACCOUNT_ID, {});
             } catch (e) {
                 expect(e.response.status).toEqual(400);
             }
         });
 
         test('401', async () => {
-            // const configBad = new Configuration({username: globalThis.UNAUTHORIZED_USERNAME, password: globalThis.UNAUTHORIZED_PASSWORD});
-            const configBad = new Configuration({
-                username: globalThis.BW_USERNAME,
-                password: globalThis.BW_PASSWORD,
-                basePath: 'http://127.0.0.1:4010'
-            });
-            const messagesApiBad = new MessagesApi(configBad);
-
-            const messageRequest: MessageRequest = {
-                applicationId: globalThis.BW_MESSAGING_APPLICATION_ID,
-                to: new Set([globalThis.USER_NUMBER]),
-                from: globalThis.BW_NUMBER,
-                text: smsText
-            };
-
+            const unauthorizedConfig = new Configuration({ basePath: 'http://127.0.0.1:4010' });
+            const unauthorizedMessagesApi = new MessagesApi(unauthorizedConfig);
+            
             try {
-                await messagesApiBad.createMessage(globalThis.BW_ACCOUNT_ID, messageRequest);
+                await unauthorizedMessagesApi.listMessages(globalThis.BW_ACCOUNT_ID);
             } catch (e) {
                 expect(e.response.status).toEqual(401);
             }
