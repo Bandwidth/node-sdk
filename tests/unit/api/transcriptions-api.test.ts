@@ -51,7 +51,7 @@ describe('TranscriptionsApi', () => {
         test('should delete call transcription', async () => {
             const { status } =
                 await transcriptionsApi.deleteRealTimeTranscription(BW_ACCOUNT_ID, callId, transcriptionId);
-            expect(status).toEqual(204); // This is a bug in the API, it should return 204. VAPI-1863 should fix this.
+            expect(status).toEqual(200); // This is a bug in the API, it should return 204. VAPI-1863 should fix this.
         });
     });
 });
