@@ -50,3 +50,4 @@ jobs:
           prism mock ./bandwidth.yml & yarn test-unit
         env:
           OPERATING_SYSTEM: ${{ matrix.os }}
+        shell: bash

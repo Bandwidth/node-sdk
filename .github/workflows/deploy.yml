@@ -54,6 +54,7 @@ jobs:
           yarn
           yarn global add @stoplight/prism-cli
           prism mock ./bandwidth.yml & yarn test-unit
+        shell: bash
 
       - name: Publish npm Package
         run: |
