@@ -28,7 +28,7 @@ describe('PhoneNumberLookupApi', () => {
                 LookupStatusEnum.PartialComplete
             ]);
 
-            lookupRequestId = data.requestId;
+            lookupRequestId = data.requestId!;
             await sleep(1);
         });
     });
@@ -46,8 +46,8 @@ describe('PhoneNumberLookupApi', () => {
                 LookupStatusEnum.PartialComplete
             ]);
             expect(data.result).toBeInstanceOf(Array);
-            expect(data.result[0]['Response Code']).toBePositive();
-            expect(data.result[0]['E.164 Format']).toEqual(BW_NUMBER);
+            expect(data.result![0]['Response Code']).toBeInteger();
+            expect(data.result![0]['E.164 Format']).toEqual(BW_NUMBER);
         });
     });
 
