@@ -43,10 +43,10 @@ describe('MessagesApi', () => {
             expect(data.segmentCount).toBeInteger();
             expect(data.direction).toBeOneOf([MessageDirectionEnum.In, MessageDirectionEnum.Out])
             expect(data.to).toBeInstanceOf(Array);
-            expect(data.to[0]).toHaveLength(12);
+            expect(data.to![0]).toHaveLength(12);
             expect(data.from).toHaveLength(12);
             expect(data.media).toBeInstanceOf(Array);
-            expect(data.media[0]).toStartWith('http');
+            expect(data.media![0]).toStartWith('http');
             expect(data.text).toBeString();
             expect(data.tag).toBeString();
             expect(data.priority).toBeOneOf([PriorityEnum.Default, PriorityEnum.High]);
@@ -67,11 +67,11 @@ describe('MessagesApi', () => {
             expect(data.pageInfo!.prevPageToken).toBeString();
             expect(data.pageInfo!.nextPageToken).toBeString();
             expect(data.messages).toBeInstanceOf(Array);
-            expect(data.messages[0].messageId).toHaveLength(29);
-            expect(data.messages[0].accountId).toHaveLength(7);
-            expect(data.messages[0].sourceTn).toHaveLength(12);
-            expect(data.messages[0].destinationTn).toHaveLength(12);
-            expect(data.messages[0].messageStatus).toBeOneOf([
+            expect(data.messages![0].messageId).toHaveLength(29);
+            expect(data.messages![0].accountId).toHaveLength(7);
+            expect(data.messages![0].sourceTn).toHaveLength(12);
+            expect(data.messages![0].destinationTn).toHaveLength(12);
+            expect(data.messages![0].messageStatus).toBeOneOf([
                 MessageStatusEnum.Received,
                 MessageStatusEnum.Queued,
                 MessageStatusEnum.Sending,
@@ -81,18 +81,18 @@ describe('MessagesApi', () => {
                 MessageStatusEnum.Accepted,
                 MessageStatusEnum.Undelivered,
             ]);
-            expect(data.messages[0].messageDirection).toBeOneOf([ListMessageDirectionEnum.Inbound, MessageDirectionEnum.Outbound]);
-            expect(data.messages[0].messageType).toBeOneOf([MessageTypeEnum.Sms, MessageTypeEnum.Mms]);
-            expect(data.messages[0].segmentCount).toBeInteger();
-            expect(data.messages[0].errorCode).toBePositive();
-            expect(data.messages[0].receiveTime).toBeDateString();
-            expect(data.messages[0].carrierName).toBeString();
-            expect(data.messages[0].messageSize).toBeInteger();
-            expect(data.messages[0].messageLength).toBeInteger();
-            expect(data.messages[0].attachmentCount).toBeInteger();
-            expect(data.messages[0].recipientCount).toBeInteger();
-            expect(data.messages[0].campaignClass).toBeString();
-            expect(data.messages[0].campaignId).toBeString();
+            expect(data.messages![0].messageDirection).toBeOneOf([ListMessageDirectionEnum.Inbound, MessageDirectionEnum.Outbound]);
+            expect(data.messages![0].messageType).toBeOneOf([MessageTypeEnum.Sms, MessageTypeEnum.Mms]);
+            expect(data.messages![0].segmentCount).toBeInteger();
+            expect(data.messages![0].errorCode).toBePositive();
+            expect(data.messages![0].receiveTime).toBeDateString();
+            expect(data.messages![0].carrierName).toBeString();
+            expect(data.messages![0].messageSize).toBeInteger();
+            expect(data.messages![0].messageLength).toBeInteger();
+            expect(data.messages![0].attachmentCount).toBeInteger();
+            expect(data.messages![0].recipientCount).toBeInteger();
+            expect(data.messages![0].campaignClass).toBeString();
+            expect(data.messages![0].campaignId).toBeString();
         });
     });
 
