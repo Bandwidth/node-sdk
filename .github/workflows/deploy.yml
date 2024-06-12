@@ -52,7 +52,7 @@ jobs:
       - name: Install Packages and Test
         run: |
           yarn
-          yarn global add @stoplight/prism-cli
+          npm install -g @stoplight/prism-cli
           prism mock ./bandwidth.yml & yarn test-unit
         shell: bash
 
