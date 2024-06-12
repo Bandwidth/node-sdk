@@ -80,7 +80,7 @@ describe('RecordingsApi', () => {
             expect(data[0].accountId).toEqual(globalThis.BW_ACCOUNT_ID);
             expect(data[0].callId).toEqual(mantecaCallId);
             expect(data[0].recordingId).toHaveLength(47);
-            expect(['partial', 'complete']).toContain(data[0].status);
+            expect(data[0].status).toBeOneOf(['partial', 'complete']);
 
             recordingId = data[0].recordingId!;
         });
@@ -95,7 +95,7 @@ describe('RecordingsApi', () => {
             expect(data.accountId).toEqual(globalThis.BW_ACCOUNT_ID);
             expect(data.callId).toEqual(mantecaCallId);
             expect(data.recordingId).toEqual(recordingId);
-            expect(['partial', 'complete']).toContain(data.status);
+            expect(data.status).toBeOneOf(['partial', 'complete']);
         });
     });
 
@@ -143,8 +143,8 @@ describe('RecordingsApi', () => {
 
             expect(status).toEqual(200);
             expect(data.transcripts).toBeInstanceOf(Array);
-            expect(data.transcripts![0].text).toBeDefined();
-            expect(data.transcripts![0].confidence).toBeDefined();
+            expect(data.transcripts![0].text).toBeString();
+            expect(data.transcripts![0].confidence).toBeNumber();
         });
     });
 

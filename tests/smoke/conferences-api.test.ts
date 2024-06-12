@@ -124,7 +124,7 @@ describe('ConferencesApi', () => {
             expect(data[0].conferenceId).toEqual(conferenceId);
             expect(data[0].accountId).toEqual(globalThis.BW_ACCOUNT_ID);
             expect(data[0].name).toEqual(mantecaTestId);
-            expect(['partial', 'complete']).toContain(data[0].status);
+            expect(data[0].status).toBeOneOf(['partial', 'complete']);
             expect(data[0].recordingId).toHaveLength(47);
             expect(data[0].fileFormat).toEqual(FileFormatEnum.Wav);
 
@@ -140,7 +140,7 @@ describe('ConferencesApi', () => {
             expect(data.conferenceId).toEqual(conferenceId);
             expect(data.accountId).toEqual(globalThis.BW_ACCOUNT_ID);
             expect(data.name).toEqual(mantecaTestId);
-            expect(['partial', 'complete']).toContain(data.status);
+            expect(data.status).toBeOneOf(['partial', 'complete']);
             expect(data.recordingId).toEqual(recordingId);
             expect(data.fileFormat).toEqual(FileFormatEnum.Wav);
         });

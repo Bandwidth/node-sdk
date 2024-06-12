@@ -55,8 +55,8 @@ describe('TranscriptionsApi', () => {
                 await transcriptionsApi.listRealTimeTranscriptions(globalThis.BW_ACCOUNT_ID, mantecaCallId);
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
-            expect(typeof data[0].transcriptionId).toBe('string');
-            expect(typeof data[0].transcriptionUrl).toBe('string');
+            expect(data[0].transcriptionId).toBeString();
+            expect(data[0].transcriptionUrl).toBeString();
             transcriptionId = data[0].transcriptionId!;
         });
     });
@@ -71,7 +71,7 @@ describe('TranscriptionsApi', () => {
             expect(data.transcriptionId).toEqual(transcriptionId);
             expect(data.tracks).toBeInstanceOf(Array);
             expect(data.tracks![0].track).toEqual('inbound');
-            expect(typeof data.tracks![0].confidence).toBe('number');
+            expect(data.tracks![0].confidence).toBeNumber();
         });
     });
 

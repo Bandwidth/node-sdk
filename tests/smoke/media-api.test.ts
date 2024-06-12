@@ -38,8 +38,8 @@ describe('MediaApi', () => {
 
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
-            expect(data[0].content).toBeDefined();
-            expect(data[0].contentLength).toBeGreaterThan(0);
+            expect(data[0].content).toBeString();
+            expect(data[0].contentLength).toBePositive();
         });
     });
 

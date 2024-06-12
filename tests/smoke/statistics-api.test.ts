@@ -11,7 +11,7 @@ describe('StatisticsApi', () => {
             const { status, data } = await statisticsApi.getStatistics(globalThis.BW_ACCOUNT_ID);
 
             expect(status).toEqual(200);
-            expect(data.currentCallQueueSize).toBeDefined();
+            expect(data.currentCallQueueSize).toBeNumber();
             expect(data.maxCallQueueSize).toEqual(7500);
         });
     });

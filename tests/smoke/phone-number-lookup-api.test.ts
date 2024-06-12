@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { PhoneNumberLookupApi } from "../../api";
 import { Configuration } from "../../configuration";
-import { LookupRequest } from "../../models";
+import { LookupRequest, LookupStatusEnum } from "../../models";
 import { sleep } from "../callUtils";
 
 describe('PhoneNumberLookupApi', () => {
@@ -21,7 +21,12 @@ describe('PhoneNumberLookupApi', () => {
 
             expect(status).toEqual(202);
             expect(data.requestId).toHaveLength(36);
-            expect(data.status).toBeDefined();
+            expect(data.status).toBeOneOf([
+                LookupStatusEnum.Complete,
+                LookupStatusEnum.InProgress,
+                LookupStatusEnum.Failed,
+                LookupStatusEnum.PartialComplete
+            ]);
 
             lookupRequestId = data.requestId;
             await sleep(1);
@@ -34,9 +39,14 @@ describe('PhoneNumberLookupApi', () => {
 
             expect(status).toEqual(200);
             expect(data.requestId).toEqual(lookupRequestId);
-            expect(data.status).toBeDefined();
+            expect(data.status).toBeOneOf([
+                LookupStatusEnum.Complete,
+                LookupStatusEnum.InProgress,
+                LookupStatusEnum.Failed,
+                LookupStatusEnum.PartialComplete
+            ]);
             expect(data.result).toBeInstanceOf(Array);
-            expect(data.result[0]['Response Code']).toBeDefined();
+            expect(data.result[0]['Response Code']).toBePositive();
             expect(data.result[0]['E.164 Format']).toEqual(BW_NUMBER);
         });
     });
