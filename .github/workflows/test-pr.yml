@@ -43,9 +43,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Install Prism
+        run: |
+          yarn global add @stoplight/prism-cli
+
       - name: Install Packages and Test
         run: |
           yarn
+          prism mock ./bandwidth.yml
           yarn test-unit
         env:
           OPERATING_SYSTEM: ${{ matrix.os }}
