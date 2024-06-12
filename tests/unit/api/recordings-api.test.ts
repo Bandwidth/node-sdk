@@ -48,10 +48,10 @@ describe('RecordingsApi', () => {
             expect(data[0].status).toBeString();
             expect(data[0].mediaUrl).toStartWith('http');
             expect(data[0].transcription).toContainAllKeys(['id', 'status', 'completedTime', 'url']);
-            expect(data[0].transcription.id).toHaveLength(38);
-            expect(data[0].transcription.status).toBeString();
-            expect(data[0].transcription.completedTime).toBeDateString();
-            expect(data[0].transcription.url).toStartWith('http');
+            expect(data[0].transcription!.id).toHaveLength(38);
+            expect(data[0].transcription!.status).toBeString();
+            expect(data[0].transcription!.completedTime).toBeDateString();
+            expect(data[0].transcription!.url).toStartWith('http');
         });
     });
 
@@ -79,10 +79,10 @@ describe('RecordingsApi', () => {
             expect(data[0].status).toBeString();
             expect(data[0].mediaUrl).toStartWith('http');
             expect(data[0].transcription).toContainAllKeys(['id', 'status', 'completedTime', 'url']);
-            expect(data[0].transcription.id).toHaveLength(38);
-            expect(data[0].transcription.status).toBeString();
-            expect(data[0].transcription.completedTime).toBeDateString();
-            expect(data[0].transcription.url).toStartWith('http');
+            expect(data[0].transcription!.id).toHaveLength(38);
+            expect(data[0].transcription!.status).toBeString();
+            expect(data[0].transcription!.completedTime).toBeDateString();
+            expect(data[0].transcription!.url).toStartWith('http');
         });
     });
     
@@ -109,10 +109,10 @@ describe('RecordingsApi', () => {
             expect(data.status).toBeString();
             expect(data.mediaUrl).toStartWith('http');
             expect(data.transcription).toContainAllKeys(['id', 'status', 'completedTime', 'url']);
-            expect(data.transcription.id).toHaveLength(38);
-            expect(data.transcription.status).toBeString();
-            expect(data.transcription.completedTime).toBeDateString();
-            expect(data.transcription.url).toStartWith('http');
+            expect(data.transcription!.id).toHaveLength(38);
+            expect(data.transcription!.status).toBeString();
+            expect(data.transcription!.completedTime).toBeDateString();
+            expect(data.transcription!.url).toStartWith('http');
         });
     });
 

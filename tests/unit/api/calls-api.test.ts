@@ -162,6 +162,7 @@ describe('CallsApi', () => {
                 applicationId: globalThis.BW_VOICE_APPLICATION_ID,
                 to: '+1invalid',
                 from: globalThis.BW_NUMBER,
+                answerUrl: answerUrl,
             };
 
             try {
@@ -172,7 +173,12 @@ describe('CallsApi', () => {
         });
 
         test('401', async () => {
-            const configBad = new Configuration({username: globalThis.UNAUTHORIZED_USERNAME, password: globalThis.UNAUTHORIZED_PASSWORD});
+            // const configBad = new Configuration({username: globalThis.UNAUTHORIZED_USERNAME, password: globalThis.UNAUTHORIZED_PASSWORD});
+            const configBad = new Configuration({
+                username: globalThis.BW_USERNAME,
+                password: globalThis.BW_PASSWORD,
+                basePath: 'http://127.0.0.1:4010'
+            });
             const callsApiBad = new CallsApi(configBad);
 
             try {
@@ -183,7 +189,12 @@ describe('CallsApi', () => {
         });
 
         test('403', async () => {
-            const configBad = new Configuration({username: globalThis.FORBIDDEN_USERNAME, password: globalThis.FORBIDDEN_PASSWORD});
+            // const configBad = new Configuration({username: globalThis.FORBIDDEN_USERNAME, password: globalThis.FORBIDDEN_PASSWORD});
+            const configBad = new Configuration({
+                username: globalThis.BW_USERNAME,
+                password: globalThis.BW_PASSWORD,
+                basePath: 'http://127.0.0.1:4010'
+            });
             const callsApiBad = new CallsApi(configBad);
 
             try {
