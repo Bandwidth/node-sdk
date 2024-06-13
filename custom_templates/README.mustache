@@ -1,6 +1,6 @@
 ## {{npmName}}
 
-[![Tests](https://github.com/Bandwidth/node-sdk/actions/workflows/test-nightly.yml/badge.svg)](https://github.com/Bandwidth/node-sdk/actions/workflows/test-nightly.yml)
+[![Tests](https://github.com/Bandwidth/node-sdk/actions/workflows/deploy.yml/badge.svg)](https://github.com/Bandwidth/node-sdk/actions/workflows/deploy.yml)
 
 ### Test Matrix
 | **OS** | **Node** |
@@ -14,6 +14,23 @@
 ```
 npm install {{npmName}}
 ```
+
+
+#### To Run Unit Tests Locally
+
+1. Install Prism
+```bash
+npm install -g @stoplight/prism-cli
+```
+2. Start Prism Mock Server with the OpenAPI Spec
+```bash
+prism mock bandwidth.yml
+```
+3. Run Tests
+```bash
+npm run test-unit
+```
+
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 
