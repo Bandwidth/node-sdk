@@ -1,19 +1,36 @@
 ## bandwidth-sdk
 
-[![Tests](https://github.com/Bandwidth/node-sdk/actions/workflows/test-nightly.yml/badge.svg)](https://github.com/Bandwidth/node-sdk/actions/workflows/test-nightly.yml)
+[![Deploy](https://github.com/Bandwidth/node-sdk/actions/workflows/deploy.yml/badge.svg)](https://github.com/Bandwidth/node-sdk/actions/workflows/deploy.yml)
 
 ### Test Matrix
 | **OS** | **Node** |
 |:---:|:---:|
-| Windows 2019 | 16, 18, 20, 22 |
-| Windows 2022 | 16, 18, 20, 22 |
-| Ubuntu 20.04 | 16, 18, 20, 22 |
-| Ubuntu 22.04 | 16, 18, 20, 22 |
+| Windows 2019 | 18, 20, 22 |
+| Windows 2022 | 18, 20, 22 |
+| Ubuntu 20.04 | 18, 20, 22 |
+| Ubuntu 22.04 | 18, 20, 22 |
 
 #### Available on NPM
 ```
 npm install bandwidth-sdk
 ```
+
+
+#### To Run Unit Tests Locally
+
+1. Install Prism
+```bash
+npm install -g @stoplight/prism-cli
+```
+2. Start Prism Mock Server with the OpenAPI Spec
+```bash
+prism mock bandwidth.yml
+```
+3. Run Tests
+```bash
+npm run test-unit
+```
+
 
 This generator creates TypeScript/JavaScript client that utilizes [axios](https://github.com/axios/axios). The generated Node module can be used in the following environments:
 

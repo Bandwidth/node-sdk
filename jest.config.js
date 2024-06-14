@@ -2,6 +2,7 @@
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'node',
+    setupFilesAfterEnv: ["jest-extended/all"],
     globals: {
         'BW_USERNAME': process.env.BW_USERNAME,
         'BW_PASSWORD': process.env.BW_PASSWORD,

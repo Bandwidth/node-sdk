@@ -25,7 +25,7 @@ import { sleep, createMantecaCall, cleanupCalls } from '../callUtils';
 describe('BXML Integration Tests', () => {
     jest.setTimeout(20000);
     
-    const config = new Configuration({username: globalThis.BW_USERNAME, password: globalThis.BW_PASSWORD});
+    const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
     const callsApi = new CallsApi(config);
     let activeCalls: string[] = [];
     
@@ -37,7 +37,7 @@ describe('BXML Integration Tests', () => {
         const updateCallId = await createMantecaCall(callsApi);
         const bridgeCallId = await createMantecaCall(callsApi);
         activeCalls.push(updateCallId, bridgeCallId);
-        await sleep(globalThis.SLEEP_TIME_S);
+        await sleep(SLEEP_TIME_S);
 
         const conferenceAttributes: ConferenceAttributes = {
             mute: true,
@@ -162,19 +162,19 @@ describe('BXML Integration Tests', () => {
         const bxml = new Bxml.Response([tag, conference, speakSentence, gather, sendDtmf, nestedGather, pause, record, playAudio, sendDtmf, ring, bridge, transfer, hangup]);
 
         const { status: updateStatus } =
-            await callsApi.updateCallBxml(globalThis.BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
+            await callsApi.updateCallBxml(BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
         expect(updateStatus).toEqual(204);
-        await sleep(globalThis.SLEEP_TIME_S);
+        await sleep(SLEEP_TIME_S);
 
         const { status: completeStatus } =
-            await callsApi.updateCall(globalThis.BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
+            await callsApi.updateCall(BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
         expect(completeStatus).toEqual(200);
     });
 
     test('test start and stop verbs', async () => {
         const updateCallId = await createMantecaCall(callsApi);
         activeCalls.push(updateCallId);
-        await sleep(globalThis.SLEEP_TIME_S);
+        await sleep(SLEEP_TIME_S);
 
         const startGatherAttributes: StartGatherAttributes = {
             dtmfUrl: 'https://initial.com',
@@ -243,19 +243,19 @@ describe('BXML Integration Tests', () => {
         const bxml = new Bxml.Bxml([startGather, stopGather, startRecording, pauseRecording, resumeRecording, stopRecording, startStream, stopStream, startTranscription, stopTranscription]);
         
         const { status: updateStatus } =
-            await callsApi.updateCallBxml(globalThis.BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
+            await callsApi.updateCallBxml(BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
         expect(updateStatus).toEqual(204);
-        await sleep(globalThis.SLEEP_TIME_S);
+        await sleep(SLEEP_TIME_S);
 
         const { status: completeStatus } =
-            await callsApi.updateCall(globalThis.BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
+            await callsApi.updateCall(BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
         expect(completeStatus).toEqual(200);
     });
 
     test('test forward', async () => {
         const updateCallId = await createMantecaCall(callsApi);
         activeCalls.push(updateCallId);
-        await sleep(globalThis.SLEEP_TIME_S);
+        await sleep(SLEEP_TIME_S);
 
         const forwardAttributes: ForwardAttributes = {
             to: '+19195551234',
@@ -271,12 +271,12 @@ describe('BXML Integration Tests', () => {
         const bxml = new Bxml.Response([forward]);
 
         const { status: updateStatus } =
-            await callsApi.updateCallBxml(globalThis.BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
+            await callsApi.updateCallBxml(BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
         expect(updateStatus).toEqual(204);
-        await sleep(globalThis.SLEEP_TIME_S);
+        await sleep(SLEEP_TIME_S);
 
         const { status: completeStatus } =
-            await callsApi.updateCall(globalThis.BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
+            await callsApi.updateCall(BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
         expect(completeStatus).toEqual(200);
 
     });
@@ -284,7 +284,7 @@ describe('BXML Integration Tests', () => {
     test('test redirect', async () => {
         const updateCallId = await createMantecaCall(callsApi);
         activeCalls.push(updateCallId);
-        await sleep(globalThis.SLEEP_TIME_S);
+        await sleep(SLEEP_TIME_S);
 
         const redirectAttributes: RedirectAttributes = {
             redirectUrl: 'https://initial.com',
@@ -303,12 +303,12 @@ describe('BXML Integration Tests', () => {
         const bxml = new Bxml.Response([redirect]);
 
         const { status: updateStatus } =
-            await callsApi.updateCallBxml(globalThis.BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
+            await callsApi.updateCallBxml(BW_ACCOUNT_ID, updateCallId, bxml.toBxml());
         expect(updateStatus).toEqual(204);
-        await sleep(globalThis.SLEEP_TIME_S);
+        await sleep(SLEEP_TIME_S);
 
         const { status: completeStatus } =
-            await callsApi.updateCall(globalThis.BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
+            await callsApi.updateCall(BW_ACCOUNT_ID, updateCallId, { state: CallStateEnum.Completed });
         expect(completeStatus).toEqual(200);
     });
 });

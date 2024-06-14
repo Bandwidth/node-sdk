@@ -1,38 +1,39 @@
 //@ts-nocheck
-import { CallsApi, ConferencesApi } from '../../api';
-import { Configuration } from '../../configuration';
-import { ConferenceStateEnum, RedirectMethodEnum, FileFormatEnum, UpdateConference } from '../../models';
-import { setupManteca, createMantecaCall, cleanupCalls, getMantecaTestStatus, sleep } from '../callUtils';
+import { ConferencesApi } from '../../../api';
+import { Configuration } from '../../../configuration';
+import {
+    ConferenceStateEnum,
+    RedirectMethodEnum,
+    FileFormatEnum,
+    UpdateConference,
+    CallbackMethodEnum
+} from '../../../models';
 
 describe('ConferencesApi', () => {
-    jest.setTimeout(125000);
-    const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
-    const callsApi = new CallsApi(config);
+    const config = new Configuration({
+        username: BW_USERNAME,
+        password: BW_PASSWORD,
+        basePath: 'http://127.0.0.1:4010'
+    });
     const conferencesApi = new ConferencesApi(config);
 
-    let conferenceId: string, recordingId: string, mantecaTestId: string, mantecaCallId: string;
-    let activeCalls: string[] = [];
-
-    beforeAll(async () => {
-        mantecaTestId = await setupManteca('conference');
-        mantecaCallId = await createMantecaCall(callsApi, mantecaTestId, '/bxml/joinConferencePause');
-        activeCalls.push(mantecaCallId);
-    });
-
-    afterAll(async () => {
-        await cleanupCalls(activeCalls, callsApi);
-    });
-
+    const callId = 'c-1234';
+    const conferenceId = 'c-4321';
+    const recordingId = 'r-1234';
+    
     describe('listConferences', () => {
         test('should list conferences', async () => {
-            await sleep(SLEEP_TIME_S);
-            const { status, data } = await conferencesApi.listConferences(BW_ACCOUNT_ID, mantecaTestId);
+            const { status, data } = await conferencesApi.listConferences(BW_ACCOUNT_ID, conferenceId);
 
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
             expect(data[0].id).toHaveLength(50);
-
-            conferenceId = data[0].id!;
+            expect(data[0].name).toBeString();
+            expect(data[0].createdTime).toBeDateString();
+            expect(data[0].completedTime).toBeDateString();
+            expect(data[0].conferenceEventUrl).toStartWith('http');
+            expect(data[0].conferenceEventMethod).toBeOneOf([CallbackMethodEnum.Post, CallbackMethodEnum.Get]);
+            expect(data[0].tag).toBeString();
         });
     });
 
@@ -41,19 +42,27 @@ describe('ConferencesApi', () => {
             const { status, data } = await conferencesApi.getConference(BW_ACCOUNT_ID, conferenceId);
     
             expect(status).toEqual(200);
-            expect(data.id).toEqual(conferenceId);
-            expect(data.name).toEqual(mantecaTestId);
-            expect(data.tag).toEqual(mantecaTestId);
+            expect(data.id).toHaveLength(50);
+            expect(data.name).toBeString();
+            expect(data.createdTime).toBeDateString();
+            expect(data.completedTime).toBeDateString();
+            expect(data.conferenceEventUrl).toStartWith('http');
+            expect(data.conferenceEventMethod).toBeOneOf([CallbackMethodEnum.Post, CallbackMethodEnum.Get]);
+            expect(data.tag).toBeString();
         });
     });
 
     describe('getConferenceMember', () => {
         test('should get conference member', async () => {
-            const { status, data } = await conferencesApi.getConferenceMember(BW_ACCOUNT_ID, conferenceId, mantecaCallId);
+            const { status, data } = await conferencesApi.getConferenceMember(BW_ACCOUNT_ID, conferenceId, callId);
     
             expect(status).toEqual(200);
-            expect(data.conferenceId).toEqual(conferenceId);
-            expect(data.callId).toEqual(mantecaCallId);
+            expect(data.callId).toHaveLength(47);
+            expect(data.conferenceId).toHaveLength(50);
+            expect(data.memberUrl).toStartWith('http');
+            expect(data.mute).toBeBoolean();
+            expect(data.hold).toBeBoolean();
+            expect(data.callIdsToCoach).toBeArray();
         });
     });
 
@@ -62,7 +71,7 @@ describe('ConferencesApi', () => {
             const updateConferenceMember = { mute: false };
 
             const { status } =
-                await conferencesApi.updateConferenceMember(BW_ACCOUNT_ID, conferenceId, mantecaCallId, updateConferenceMember);
+                await conferencesApi.updateConferenceMember(BW_ACCOUNT_ID, conferenceId, callId, updateConferenceMember);
     
             expect(status).toEqual(204);
         });
@@ -97,21 +106,6 @@ describe('ConferencesApi', () => {
                 await conferencesApi.updateConferenceBxml(BW_ACCOUNT_ID, conferenceId, updateBxml);
     
             expect(status).toEqual(204);
-
-            let retries = 0;
-            let recordingComplete = false;
-            try {
-                while (!recordingComplete && retries < MAX_RETRIES) {
-                    const { callRecorded } = await getMantecaTestStatus(mantecaTestId);
-                    recordingComplete = callRecorded;
-                    retries++;
-                    await sleep(SLEEP_TIME_S);
-                }
-            } catch (e) {
-                console.log(e);
-            }
-
-            expect(recordingComplete).toBe(true);
         });
     });
 
@@ -121,14 +115,17 @@ describe('ConferencesApi', () => {
     
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
-            expect(data[0].conferenceId).toEqual(conferenceId);
-            expect(data[0].accountId).toEqual(BW_ACCOUNT_ID);
-            expect(data[0].name).toEqual(mantecaTestId);
-            expect(data[0].status).toBeOneOf(['partial', 'complete']);
+            expect(data[0].accountId).toHaveLength(7);
+            expect(data[0].conferenceId).toHaveLength(50);
+            expect(data[0].name).toBeString();
             expect(data[0].recordingId).toHaveLength(47);
-            expect(data[0].fileFormat).toEqual(FileFormatEnum.Wav);
-
-            recordingId = data[0].recordingId!;
+            expect(data[0].duration).toStartWith('PT');
+            expect(data[0].channels).toBeNumber();
+            expect(data[0].startTime).toBeDateString();
+            expect(data[0].endTime).toBeDateString();
+            expect(data[0].fileFormat).toBeOneOf([FileFormatEnum.Wav, FileFormatEnum.Mp3]);
+            expect(data[0].status).toBeString();
+            expect(data[0].mediaUrl).toStartWith('http');
         });
     });
 
@@ -137,12 +134,17 @@ describe('ConferencesApi', () => {
             const { status, data } = await conferencesApi.getConferenceRecording(BW_ACCOUNT_ID, conferenceId, recordingId);
     
             expect(status).toEqual(200);
-            expect(data.conferenceId).toEqual(conferenceId);
-            expect(data.accountId).toEqual(BW_ACCOUNT_ID);
-            expect(data.name).toEqual(mantecaTestId);
-            expect(data.status).toBeOneOf(['partial', 'complete']);
-            expect(data.recordingId).toEqual(recordingId);
-            expect(data.fileFormat).toEqual(FileFormatEnum.Wav);
+            expect(data.accountId).toHaveLength(7);
+            expect(data.conferenceId).toHaveLength(50);
+            expect(data.name).toBeString();
+            expect(data.recordingId).toHaveLength(47);
+            expect(data.duration).toStartWith('PT');
+            expect(data.channels).toBeNumber();
+            expect(data.startTime).toBeDateString();
+            expect(data.endTime).toBeDateString();
+            expect(data.fileFormat).toBeOneOf([FileFormatEnum.Wav, FileFormatEnum.Mp3]);
+            expect(data.status).toBeString();
+            expect(data.mediaUrl).toStartWith('http');
         });
     });
 

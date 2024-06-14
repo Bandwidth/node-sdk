@@ -11,12 +11,12 @@ export const sleep = (s) => {
 
 export const setupManteca = async (type: string) => {
     const mantecaBody = {
-        os: globalThis.OPERATING_SYSTEM,
+        os: OPERATING_SYSTEM,
         language: 'nodejs',
         type: type
     };
 
-    const mantecaTestUrl = `${globalThis.MANTECA_BASE_URL}/tests`;
+    const mantecaTestUrl = `${MANTECA_BASE_URL}/tests`;
     const mantecaHeader: AxiosRequestConfig = { headers: {'Content-Type': 'application/json' } };
 
     try {
@@ -29,19 +29,19 @@ export const setupManteca = async (type: string) => {
 
 export const createMantecaCall = async (callsApi: CallsApi, tag = 'nodejs', answerPath = '/bxml/pause') => {
     const mantecaCallBody = {
-        applicationId: globalThis.MANTECA_APPLICATION_ID,
-        to: globalThis.MANTECA_IDLE_NUMBER,
-        from: globalThis.MANTECA_ACTIVE_NUMBER,
-        answerUrl: `${globalThis.MANTECA_BASE_URL}${answerPath}`,
+        applicationId: MANTECA_APPLICATION_ID,
+        to: MANTECA_IDLE_NUMBER,
+        from: MANTECA_ACTIVE_NUMBER,
+        answerUrl: `${MANTECA_BASE_URL}${answerPath}`,
         tag: tag
     };
     
-    const { data } = await callsApi.createCall(globalThis.BW_ACCOUNT_ID, mantecaCallBody);
+    const { data } = await callsApi.createCall(BW_ACCOUNT_ID, mantecaCallBody);
     return data.callId;
 };
 
 export const getMantecaTestStatus = async (testId: string) => {
-    const mantecaStatusUrl = `${globalThis.MANTECA_BASE_URL}/tests/${testId}`;
+    const mantecaStatusUrl = `${MANTECA_BASE_URL}/tests/${testId}`;
     const { data } = await axios.get(mantecaStatusUrl);
     return data;
 };
@@ -53,7 +53,7 @@ export const cleanupCalls = async (calls: string[], callsApi: CallsApi) => {
         for (let i = calls.length - 1; i >= 0; i--) {
             if (await callEnded(calls[i], callsApi)) { calls.splice(i, 1); }
         }
-        await sleep(globalThis.SLEEP_TIME_S);
+        await sleep(SLEEP_TIME_S);
         attempts += 1;
     }
 
@@ -65,10 +65,10 @@ export const cleanupCalls = async (calls: string[], callsApi: CallsApi) => {
 
 const callEnded = async (callId: string, callsApi: CallsApi) => {
     try {
-        const { data } = await callsApi.getCallState(globalThis.BW_ACCOUNT_ID, callId);
+        const { data } = await callsApi.getCallState(BW_ACCOUNT_ID, callId);
         if (data.state != 'disconnected') {
             try {
-                callsApi.updateCall(globalThis.BW_ACCOUNT_ID, callId, { state: 'completed' });
+                callsApi.updateCall(BW_ACCOUNT_ID, callId, { state: 'completed' });
                 return true;
             } catch { return false; }
         } else { return true; }

@@ -34,7 +34,7 @@ import type { VoiceApiError } from '../models';
 export const TranscriptionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Delete the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
+         * Delete the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).  Note: After the deletion is requested and a `200` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
          * @summary Delete a specific transcription
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
@@ -178,7 +178,7 @@ export const TranscriptionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TranscriptionsApiAxiosParamCreator(configuration)
     return {
         /**
-         * Delete the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
+         * Delete the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).  Note: After the deletion is requested and a `200` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
          * @summary Delete a specific transcription
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
@@ -232,7 +232,7 @@ export const TranscriptionsApiFactory = function (configuration?: Configuration,
     const localVarFp = TranscriptionsApiFp(configuration)
     return {
         /**
-         * Delete the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
+         * Delete the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).  Note: After the deletion is requested and a `200` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
          * @summary Delete a specific transcription
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
@@ -277,7 +277,7 @@ export const TranscriptionsApiFactory = function (configuration?: Configuration,
  */
 export class TranscriptionsApi extends BaseAPI {
     /**
-     * Delete the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).  Note: After the deletion is requested and a `204` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
+     * Delete the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).  Note: After the deletion is requested and a `200` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
      * @summary Delete a specific transcription
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {string} callId Programmable Voice API Call ID.

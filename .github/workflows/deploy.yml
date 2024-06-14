@@ -46,13 +46,15 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: 22
           registry-url: "https://registry.npmjs.org"
 
       - name: Install Packages and Test
         run: |
           yarn
-          yarn test-unit
+          npm install -g @stoplight/prism-cli
+          prism mock ./bandwidth.yml & yarn test-unit
+        shell: bash
 
       - name: Publish npm Package
         run: |

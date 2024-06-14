@@ -18,5 +18,6 @@
     "dist",
     "tests",
     "node_modules"
-  ]
+  ],
+  "include": ["global.d.ts"]
 }

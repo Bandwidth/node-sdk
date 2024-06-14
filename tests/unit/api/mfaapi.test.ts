@@ -1,10 +1,14 @@
 //@ts-nocheck
-import { MFAApi } from '../../api';
-import { Configuration } from '../../configuration';
-import { CodeRequest, VerifyCodeRequest } from '../../models';
+import { MFAApi } from '../../../api';
+import { Configuration } from '../../../configuration';
+import { CodeRequest, VerifyCodeRequest } from '../../../models';
 
 describe('MFAApi', () => {
-    const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
+    const config = new Configuration({
+        username: BW_USERNAME,
+        password: BW_PASSWORD,
+        basePath: 'http://127.0.0.1:4010'
+    });
     const mfaApi = new MFAApi(config);
 
     const message = 'Your temporary {NAME} {SCOPE} code is {CODE}';
@@ -56,43 +60,16 @@ describe('MFAApi', () => {
             const { status, data } = await mfaApi.verifyCode(BW_ACCOUNT_ID, verifyRequest);
 
             expect(status).toEqual(200);
-            expect(data.valid).toEqual(false);
+            expect(data.valid).toBeBoolean();
         });
     });
 
     describe('HTTP Errors', () => {
         test('400', async () => {
-            const codeRequest: CodeRequest = {
-                to: USER_NUMBER,
-                from: BW_NUMBER,
-                applicationId: 'not-an-app-id',
-                message: message,
-                digits: digits
-            };
-
             try {
-                await mfaApi.generateMessagingCode(BW_ACCOUNT_ID, codeRequest);
+                await mfaApi.generateMessagingCode(BW_ACCOUNT_ID, {});
             } catch (e) {
                 expect(e.response.status).toEqual(400);
-            }
-        });
-
-        test('403', async () => {
-            const configBad = new Configuration({username: UNAUTHORIZED_USERNAME, password: UNAUTHORIZED_PASSWORD});
-            const mfaApiBad = new MFAApi(configBad);
-
-            const codeRequest: CodeRequest = {
-                to: USER_NUMBER,
-                from: BW_NUMBER,
-                applicationId: BW_MESSAGING_APPLICATION_ID,
-                message: message,
-                digits: digits
-            };
-
-            try {
-                await mfaApiBad.generateMessagingCode(BW_ACCOUNT_ID, codeRequest);
-            } catch (e) {
-                expect(e.response.status).toEqual(403);
             }
         });
     });
