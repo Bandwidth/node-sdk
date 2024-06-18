@@ -3265,7 +3265,7 @@ components:
         accountId:
           type: string
           description: The user account associated with the call.
-          example: '920012'
+          example: '9900000'
         callId:
           type: string
           description: The call id associated with the event.
