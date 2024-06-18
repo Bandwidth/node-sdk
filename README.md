@@ -1,6 +1,6 @@
 ## bandwidth-sdk
 
-[![Deploy](https://github.com/Bandwidth/node-sdk/actions/workflows/deploy.yml/badge.svg)](https://github.com/Bandwidth/node-sdk/actions/workflows/deploy.yml)
+[![Tests](https://github.com/Bandwidth/node-sdk/actions/workflows/deploy.yml/badge.svg)](https://github.com/Bandwidth/node-sdk/actions/workflows/deploy.yml)
 
 ### Test Matrix
 | **OS** | **Node** |
