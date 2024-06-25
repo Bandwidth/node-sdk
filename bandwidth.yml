@@ -3265,7 +3265,7 @@ components:
         accountId:
           type: string
           description: The user account associated with the call.
-          example: '9900000'
+          example: '920012'
         callId:
           type: string
           description: The call id associated with the event.
@@ -3301,7 +3301,7 @@ components:
             - outbound
           description: Which `track` this transcription is derived from.
           example: inbound
-        text:
+        transcript:
           type: string
           description: The transcription itself.
           example: Hello World! This is an example.

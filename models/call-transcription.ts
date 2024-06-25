@@ -37,7 +37,7 @@ export interface CallTranscription {
      * @type {string}
      * @memberof CallTranscription
      */
-    'text'?: string;
+    'transcript'?: string;
     /**
      * How confident the transcription engine was in transcribing the associated audio (from `0` to `1`).
      * @type {number}
