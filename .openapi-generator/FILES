@@ -23,8 +23,10 @@ models/call-direction-enum.ts
 models/call-recording-metadata.ts
 models/call-state-enum.ts
 models/call-state.ts
+models/call-transcription-detected-language-enum.ts
 models/call-transcription-metadata.ts
 models/call-transcription-response.ts
+models/call-transcription-track-enum.ts
 models/call-transcription.ts
 models/callback-method-enum.ts
 models/code-request.ts
