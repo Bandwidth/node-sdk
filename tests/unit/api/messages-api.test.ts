@@ -1,7 +1,14 @@
 //@ts-nocheck
 import { MessagesApi } from '../../../api';
 import { Configuration } from '../../../configuration';
-import { ListMessageDirectionEnum, MessageDirectionEnum, MessageRequest, MessageStatusEnum, MessageTypeEnum, PriorityEnum } from '../../../models';
+import {
+    ListMessageDirectionEnum,
+    MessageDirectionEnum,
+    MessageRequest,
+    MessageStatusEnum,
+    MessageTypeEnum,
+    PriorityEnum
+} from '../../../models';
 
 describe('MessagesApi', () => {
     const config = new Configuration({
@@ -11,13 +18,9 @@ describe('MessagesApi', () => {
     });
     const messagesApi = new MessagesApi(config);
 
-    const mmsText = 'nodejs sdk test MMS';
     const smsText = 'nodejs sdk test SMS';
-    const mmsTag = 'nodejs sdk test MMS tag';
     const smsTag = 'nodejs sdk test SMS tag';
-    const mediaUrl = 'https://cdn2.thecatapi.com/images/MTY3ODk4Mg.jpg';
     const priority = PriorityEnum.High;
-    const listMessageDirection = ListMessageDirectionEnum.Outbound;
     const expirationTime = Date.now() + 1000 * 60 * 60 * 24 + 60;
     const expiration = new Date(expirationTime).toISOString();
 
