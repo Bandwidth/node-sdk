@@ -1,7 +1,7 @@
 //@ts-nocheck
-import { CallsApi, TranscriptionsApi } from "../../../api";
+import { TranscriptionsApi } from "../../../api";
 import { Configuration } from "../../../configuration";
-import { CallStateEnum, CallTranscriptionDetectedLanguageEnum, CallTranscriptionTrackEnum } from "../../../models";
+import { CallTranscriptionDetectedLanguageEnum, CallTranscriptionTrackEnum } from "../../../models";
 
 describe('TranscriptionsApi', () => {
     const config = new Configuration({
@@ -41,8 +41,11 @@ describe('TranscriptionsApi', () => {
                 CallTranscriptionDetectedLanguageEnum.EsUs,
                 CallTranscriptionDetectedLanguageEnum.FrFr
             ]);
-            expect(data.tracks![0].track).toBeOneOf([CallTranscriptionTrackEnum.Inbound, CallTranscriptionTrackEnum.Outbound])
-            expect(data.tracks![0].text).toBeString();
+            expect(data.tracks![0].track).toBeOneOf([
+                CallTranscriptionTrackEnum.Inbound,
+                CallTranscriptionTrackEnum.Outbound
+            ]);
+            expect(data.tracks![0].transcript).toBeString();
             expect(data.tracks![0].confidence).toBeNumber();
         });
     });
