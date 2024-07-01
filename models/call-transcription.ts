@@ -13,6 +13,12 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { CallTranscriptionDetectedLanguageEnum } from './call-transcription-detected-language-enum';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { CallTranscriptionTrackEnum } from './call-transcription-track-enum';
 
 /**
  * 
@@ -21,14 +27,14 @@
  */
 export interface CallTranscription {
     /**
-     * The detected language for this transcription.
-     * @type {string}
+     * 
+     * @type {CallTranscriptionDetectedLanguageEnum}
      * @memberof CallTranscription
      */
     'detectedLanguage'?: CallTranscriptionDetectedLanguageEnum;
     /**
-     * Which `track` this transcription is derived from.
-     * @type {string}
+     * 
+     * @type {CallTranscriptionTrackEnum}
      * @memberof CallTranscription
      */
     'track'?: CallTranscriptionTrackEnum;
@@ -37,7 +43,7 @@ export interface CallTranscription {
      * @type {string}
      * @memberof CallTranscription
      */
-    'text'?: string;
+    'transcript'?: string;
     /**
      * How confident the transcription engine was in transcribing the associated audio (from `0` to `1`).
      * @type {number}
@@ -46,18 +52,5 @@ export interface CallTranscription {
     'confidence'?: number;
 }
 
-export const CallTranscriptionDetectedLanguageEnum = {
-    EnUs: 'en-US',
-    EsUs: 'es-US',
-    FrFr: 'fr-FR'
-} as const;
-
-export type CallTranscriptionDetectedLanguageEnum = typeof CallTranscriptionDetectedLanguageEnum[keyof typeof CallTranscriptionDetectedLanguageEnum];
-export const CallTranscriptionTrackEnum = {
-    Inbound: 'inbound',
-    Outbound: 'outbound'
-} as const;
-
-export type CallTranscriptionTrackEnum = typeof CallTranscriptionTrackEnum[keyof typeof CallTranscriptionTrackEnum];
 
 

@@ -1,8 +1,11 @@
-name: Nightly Smoke Tests
+name: Smoke Tests
 
 on:
   schedule:
     - cron: "0 4 * * *"
+  pull_request:
+    paths:
+      - "tests/smoke/**"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
@@ -26,7 +29,7 @@ env:
 
 jobs:
   test_main:
-    name: Nightly Smoke Test
+    name: Smoke Test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
