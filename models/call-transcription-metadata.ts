@@ -27,6 +27,12 @@ export interface CallTranscriptionMetadata {
      */
     'transcriptionId'?: string;
     /**
+     * The programmable voice API transcription name. This name could be provided by the user when creating the transcription.
+     * @type {string}
+     * @memberof CallTranscriptionMetadata
+     */
+    'transcriptionName'?: string;
+    /**
      * A URL that may be used to retrieve the transcription itself. This points to the [Get Call Transcription](/apis/voice/#operation/getCallTranscription) endpoint.
      * @type {string}
      * @memberof CallTranscriptionMetadata
