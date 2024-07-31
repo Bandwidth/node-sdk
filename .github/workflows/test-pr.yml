@@ -46,7 +46,8 @@ jobs:
       - name: Install Packages and Test
         run: |
           yarn
-          npm install -g @stoplight/prism-cli
+          npm install -g @stoplight/prism-cli@5.8.1
+          prism --version
           prism mock ./bandwidth.yml & yarn test-unit
         env:
           OPERATING_SYSTEM: ${{ matrix.os }}
