@@ -49,7 +49,6 @@ describe('TranscriptionsApi', () => {
 
     describe('listRealTimeTranscriptions', () => {
         test('should list call transcriptions', async () => {
-            console.log(mantecaCallId);
             await sleep(SLEEP_TIME_S * 20);
 
             const { status, data } =
