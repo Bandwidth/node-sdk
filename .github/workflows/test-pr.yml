@@ -31,7 +31,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [windows-2022, windows-2019, ubuntu-20.04, ubuntu-22.04]
+        os: [windows-2022, windows-2019, ubuntu-20.04, ubuntu-22.04, macos-14]
         node-version: [18, 20, 22]
       fail-fast: false
     steps:
@@ -45,6 +45,7 @@ jobs:
 
       - name: Install Packages and Test
         run: |
+          node -v
           yarn
           npm install -g @stoplight/prism-cli@5.8.1
           prism --version
