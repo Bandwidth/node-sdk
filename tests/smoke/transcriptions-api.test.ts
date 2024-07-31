@@ -49,6 +49,7 @@ describe('TranscriptionsApi', () => {
 
     describe('listRealTimeTranscriptions', () => {
         test('should list call transcriptions', async () => {
+            console.log(mantecaCallId);
             await sleep(SLEEP_TIME_S * 20);
 
             const { status, data } =
@@ -57,6 +58,7 @@ describe('TranscriptionsApi', () => {
             expect(data).toBeInstanceOf(Array);
             expect(data[0].transcriptionId).toBeString();
             expect(data[0].transcriptionUrl).toBeString();
+            expect(data[0].transcriptionName).toBeString();
             transcriptionId = data[0].transcriptionId!;
         });
     });

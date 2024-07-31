@@ -23,6 +23,7 @@ describe('TranscriptionsApi', () => {
             expect(data).toBeInstanceOf(Array);
             expect(data[0].transcriptionId).toBeString();
             expect(data[0].transcriptionUrl).toBeString();
+            expect(data[0].transcriptionName).toBeString();
         });
     });
 
