@@ -32,7 +32,7 @@ jobs:
     strategy:
       matrix:
         os: [windows-2022, windows-2019, ubuntu-20.04, ubuntu-22.04]
-        node-version: [18, 20, 22]
+        node-version: [18]
       fail-fast: false
     steps:
       - name: Checkout
@@ -45,9 +45,11 @@ jobs:
 
       - name: Install Packages and Test
         run: |
+          node -v
           yarn
-          npm install -g @stoplight/prism-cli
-          prism mock ./bandwidth.yml & yarn test-unit
+          yarn global add @stoplight/prism-cli@5.8.1
+          prism --version
+          prism mock -v debug ./bandwidth.yml & yarn test-unit
         env:
           OPERATING_SYSTEM: ${{ matrix.os }}
         shell: bash

@@ -22,7 +22,7 @@ npm install bandwidth-sdk
 ```bash
 npm install -g @stoplight/prism-cli
 ```
-2. Start Prism Mock Server with the OpenAPI Spec
+2. Start Prism Mock Server with the OpenAPI Spec abc
 ```bash
 prism mock bandwidth.yml
 ```
