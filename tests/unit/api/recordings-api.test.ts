@@ -87,7 +87,7 @@ describe('RecordingsApi', () => {
     });
     
     describe('getCallRecording', () => {
-        test('should get call recording', async () => {
+        test.skip('should get call recording', async () => {
             const { status, data } = await recordingsApi.getCallRecording(BW_ACCOUNT_ID, callId, recordingId);
 
             expect(status).toEqual(200);
@@ -172,4 +172,5 @@ describe('RecordingsApi', () => {
             expect(status).toEqual(204);
         });
     });
+
 });

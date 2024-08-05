@@ -84,7 +84,7 @@ describe('MessagesApi', () => {
                 MessageStatusEnum.Accepted,
                 MessageStatusEnum.Undelivered,
             ]);
-            expect(data.messages![0].messageDirection).toBeOneOf([ListMessageDirectionEnum.Inbound, MessageDirectionEnum.Outbound]);
+            expect(data.messages![0].messageDirection).toBeOneOf([ListMessageDirectionEnum.Inbound, ListMessageDirectionEnum.Outbound]);
             expect(data.messages![0].messageType).toBeOneOf([MessageTypeEnum.Sms, MessageTypeEnum.Mms]);
             expect(data.messages![0].segmentCount).toBeInteger();
             expect(data.messages![0].errorCode).toBePositive();
