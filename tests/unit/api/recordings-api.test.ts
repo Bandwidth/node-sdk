@@ -52,6 +52,7 @@ describe('RecordingsApi', () => {
             expect(data[0].transcription!.status).toBeString();
             expect(data[0].transcription!.completedTime).toBeDateString();
             expect(data[0].transcription!.url).toStartWith('http');
+            expect(data[0].recordingName).toBeString();
         });
     });
 
@@ -83,6 +84,7 @@ describe('RecordingsApi', () => {
             expect(data[0].transcription!.status).toBeString();
             expect(data[0].transcription!.completedTime).toBeDateString();
             expect(data[0].transcription!.url).toStartWith('http');
+            expect(data[0].recordingName).toBeString();
         });
     });
     
@@ -113,6 +115,7 @@ describe('RecordingsApi', () => {
             expect(data.transcription!.status).toBeString();
             expect(data.transcription!.completedTime).toBeDateString();
             expect(data.transcription!.url).toStartWith('http');
+            expect(data.recordingName).toBeString();
         });
     });
 

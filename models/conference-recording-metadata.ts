@@ -89,6 +89,12 @@ export interface ConferenceRecordingMetadata {
      * @memberof ConferenceRecordingMetadata
      */
     'mediaUrl'?: string | null;
+    /**
+     * A name to identify this recording.
+     * @type {string}
+     * @memberof ConferenceRecordingMetadata
+     */
+    'recordingName'?: string;
 }
 
 
