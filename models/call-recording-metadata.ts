@@ -137,6 +137,12 @@ export interface CallRecordingMetadata {
      * @memberof CallRecordingMetadata
      */
     'transcription'?: RecordingTranscriptionMetadata | null;
+    /**
+     * A name to identify this recording.
+     * @type {string}
+     * @memberof CallRecordingMetadata
+     */
+    'recordingName'?: string;
 }
 
 
