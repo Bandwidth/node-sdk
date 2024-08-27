@@ -37,6 +37,8 @@ import type { MessageTypeEnum } from '../models';
 import type { MessagesList } from '../models';
 // @ts-ignore
 import type { MessagingRequestError } from '../models';
+// @ts-ignore
+import type { Region } from '../models';
 /**
  * MessagesApi - axios parameter creator
  * @export
@@ -106,10 +108,11 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {string} [pageToken] A base64 encoded value used for pagination of results.
          * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000.
          * @param {boolean} [limitTotalCount] When set to true, the response\&#39;s totalCount field will have a maximum value of 10,000. When set to false, or excluded, this will give an accurate totalCount of all messages that match the provided filters. If you are experiencing latency, try using this parameter to limit your results.
+         * @param {Region} [region] The region to search in. One of US or EU.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMessages: async (accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listMessages: async (accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, region?: Region, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listMessages', 'accountId', accountId)
             const localVarPath = `/users/{accountId}/messages`
@@ -189,6 +192,10 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
                 localVarQueryParameter['limitTotalCount'] = limitTotalCount;
             }
 
+            if (region !== undefined) {
+                localVarQueryParameter['region'] = region;
+            }
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -243,11 +250,12 @@ export const MessagesApiFp = function(configuration?: Configuration) {
          * @param {string} [pageToken] A base64 encoded value used for pagination of results.
          * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000.
          * @param {boolean} [limitTotalCount] When set to true, the response\&#39;s totalCount field will have a maximum value of 10,000. When set to false, or excluded, this will give an accurate totalCount of all messages that match the provided filters. If you are experiencing latency, try using this parameter to limit your results.
+         * @param {Region} [region] The region to search in. One of US or EU.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessagesList>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, sort, pageToken, limit, limitTotalCount, options);
+        async listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, region?: Region, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessagesList>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, sort, pageToken, limit, limitTotalCount, region, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MessagesApi.listMessages']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -292,11 +300,12 @@ export const MessagesApiFactory = function (configuration?: Configuration, baseP
          * @param {string} [pageToken] A base64 encoded value used for pagination of results.
          * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000.
          * @param {boolean} [limitTotalCount] When set to true, the response\&#39;s totalCount field will have a maximum value of 10,000. When set to false, or excluded, this will give an accurate totalCount of all messages that match the provided filters. If you are experiencing latency, try using this parameter to limit your results.
+         * @param {Region} [region] The region to search in. One of US or EU.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: any): AxiosPromise<MessagesList> {
-            return localVarFp.listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, sort, pageToken, limit, limitTotalCount, options).then((request) => request(axios, basePath));
+        listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, region?: Region, options?: any): AxiosPromise<MessagesList> {
+            return localVarFp.listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, sort, pageToken, limit, limitTotalCount, region, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -340,12 +349,13 @@ export class MessagesApi extends BaseAPI {
      * @param {string} [pageToken] A base64 encoded value used for pagination of results.
      * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000.
      * @param {boolean} [limitTotalCount] When set to true, the response\&#39;s totalCount field will have a maximum value of 10,000. When set to false, or excluded, this will give an accurate totalCount of all messages that match the provided filters. If you are experiencing latency, try using this parameter to limit your results.
+     * @param {Region} [region] The region to search in. One of US or EU.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MessagesApi
      */
-    public listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: RawAxiosRequestConfig) {
-        return MessagesApiFp(this.configuration).listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, sort, pageToken, limit, limitTotalCount, options).then((request) => request(this.axios, this.basePath));
+    public listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, region?: Region, options?: RawAxiosRequestConfig) {
+        return MessagesApiFp(this.configuration).listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, sort, pageToken, limit, limitTotalCount, region, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

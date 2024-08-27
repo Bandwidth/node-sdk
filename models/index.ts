@@ -74,6 +74,7 @@ export * from './recording-transcription-metadata';
 export * from './recording-transcriptions';
 export * from './redirect-callback';
 export * from './redirect-method-enum';
+export * from './region';
 export * from './stir-shaken';
 export * from './tag';
 export * from './tn-lookup-request-error';

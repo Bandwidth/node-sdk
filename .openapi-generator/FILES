@@ -92,6 +92,7 @@ models/recording-transcription-metadata.ts
 models/recording-transcriptions.ts
 models/redirect-callback.ts
 models/redirect-method-enum.ts
+models/region.ts
 models/stir-shaken.ts
 models/tag.ts
 models/tn-lookup-request-error.ts
