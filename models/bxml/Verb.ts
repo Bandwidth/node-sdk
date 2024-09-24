@@ -8,8 +8,8 @@ import { XMLBuilder, XMLWriterOptions } from 'xmlbuilder2/lib/interfaces';
  */
 export class Verb {
     name: string;
-    content: string;
-    attributes: object;
+    content: string | undefined;
+    attributes: object | undefined;
 
     /**
      * Creates an instance of Verb
@@ -19,15 +19,16 @@ export class Verb {
      */
     constructor(name: string, content?: string, attributes?: object) {
         this.name = name;
-        this.attributes = attributes;
         this.content = content;
+        this.attributes = attributes;
     }
 
     /**
      * Generate an XML element for the verb
      */
     generateXml(): XMLBuilder {
-        const xml = create().ele(this.name, this.attributes).txt(this.content);
+        const xml = create().ele(this.name, this.attributes);
+        if (this.content) { xml.txt(this.content); }
         return xml;
     }
 
