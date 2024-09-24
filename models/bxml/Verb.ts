@@ -19,8 +19,8 @@ export class Verb {
      */
     constructor(name: string, content?: string, attributes?: object) {
         this.name = name;
-        this.attributes = attributes;
-        this.content = content;
+        this.content = content ?? '';
+        this.attributes = attributes ?? {};
     }
 
     /**
