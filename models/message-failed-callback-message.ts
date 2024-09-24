@@ -97,7 +97,7 @@ export interface MessageFailedCallbackMessage {
      * @type {PriorityEnum}
      * @memberof MessageFailedCallbackMessage
      */
-    'priority': PriorityEnum;
+    'priority'?: PriorityEnum;
 }
 
 
