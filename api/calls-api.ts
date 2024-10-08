@@ -201,7 +201,7 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
          * @summary Update Call
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
-         * @param {UpdateCall} updateCall JSON object containing information to redirect an existing call to a new BXML document
+         * @param {UpdateCall} updateCall JSON or BXML object containing information to redirect an existing call to a new BXML document
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -355,7 +355,7 @@ export const CallsApiFp = function(configuration?: Configuration) {
          * @summary Update Call
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
-         * @param {UpdateCall} updateCall JSON object containing information to redirect an existing call to a new BXML document
+         * @param {UpdateCall} updateCall JSON or BXML object containing information to redirect an existing call to a new BXML document
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -434,7 +434,7 @@ export const CallsApiFactory = function (configuration?: Configuration, basePath
          * @summary Update Call
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
-         * @param {UpdateCall} updateCall JSON object containing information to redirect an existing call to a new BXML document
+         * @param {UpdateCall} updateCall JSON or BXML object containing information to redirect an existing call to a new BXML document
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -513,7 +513,7 @@ export class CallsApi extends BaseAPI {
      * @summary Update Call
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {string} callId Programmable Voice API Call ID.
-     * @param {UpdateCall} updateCall JSON object containing information to redirect an existing call to a new BXML document
+     * @param {UpdateCall} updateCall JSON or BXML object containing information to redirect an existing call to a new BXML document
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof CallsApi
