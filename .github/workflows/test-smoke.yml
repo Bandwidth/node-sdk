@@ -6,6 +6,7 @@ on:
   pull_request:
     paths:
       - "tests/smoke/**"
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
@@ -53,6 +54,8 @@ jobs:
       if: failure()
       runs-on: ubuntu-latest
       steps:
+        - name: Setup tmate session
+          uses: mxschmitt/action-tmate@v3
         - name: Notify Slack of Failures
           uses: Bandwidth/build-notify-slack-action@v2.0.0
           with:
