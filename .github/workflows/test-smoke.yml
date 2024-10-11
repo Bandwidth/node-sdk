@@ -32,6 +32,8 @@ jobs:
   test_main:
     name: Smoke Test
     runs-on: ubuntu-latest
+    env:
+      TEST: ${{ secrets.SLACK_BOT_TOKEN }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -40,6 +42,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3
 
       - name: Install Packages and Test
         run: |
@@ -53,11 +57,7 @@ jobs:
       needs: [test_main]
       if: failure()
       runs-on: ubuntu-latest
-      env:
-        TEST: ${{ secrets.SLACK_BOT_TOKEN }}
       steps:
-        - name: Setup tmate session
-          uses: mxschmitt/action-tmate@v3
         - name: Notify Slack of Failures
           uses: Bandwidth/build-notify-slack-action@v2.0.0
           with:
