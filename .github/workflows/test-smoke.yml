@@ -6,7 +6,7 @@ on:
   pull_request:
     paths:
       - "tests/smoke/**"
-  workflow_dispatch:
+      - ".github/workflows/test-smoke.yml"
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref }}
@@ -53,6 +53,8 @@ jobs:
       needs: [test_main]
       if: failure()
       runs-on: ubuntu-latest
+      env:
+        TEST: ${{ secrets.SLACK_BOT_TOKEN }}
       steps:
         - name: Setup tmate session
           uses: mxschmitt/action-tmate@v3
