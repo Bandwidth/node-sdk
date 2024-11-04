@@ -62,7 +62,7 @@ describe('MediaApi', () => {
         });
 
         test('should get media file', async () => {
-            const { status, data } = await mediaApi.getMedia(BW_ACCOUNT_ID, mediaFileName);
+            const { status, data } = await mediaApi.getMedia(BW_ACCOUNT_ID, mediaFileName, { responseType: 'arraybuffer' });
             // fs.writeFile('./tests/fixtures/test.jpeg', Buffer.from(data), (err) => {
             //     if (err) throw err;
             // });
