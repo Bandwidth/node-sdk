@@ -245,7 +245,7 @@ export const MFAApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateMessagingCode(accountId: string, codeRequest: CodeRequest, options?: any): AxiosPromise<MessagingCodeResponse> {
+        generateMessagingCode(accountId: string, codeRequest: CodeRequest, options?: RawAxiosRequestConfig): AxiosPromise<MessagingCodeResponse> {
             return localVarFp.generateMessagingCode(accountId, codeRequest, options).then((request) => request(axios, basePath));
         },
         /**
@@ -256,7 +256,7 @@ export const MFAApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        generateVoiceCode(accountId: string, codeRequest: CodeRequest, options?: any): AxiosPromise<VoiceCodeResponse> {
+        generateVoiceCode(accountId: string, codeRequest: CodeRequest, options?: RawAxiosRequestConfig): AxiosPromise<VoiceCodeResponse> {
             return localVarFp.generateVoiceCode(accountId, codeRequest, options).then((request) => request(axios, basePath));
         },
         /**
@@ -267,7 +267,7 @@ export const MFAApiFactory = function (configuration?: Configuration, basePath?:
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        verifyCode(accountId: string, verifyCodeRequest: VerifyCodeRequest, options?: any): AxiosPromise<VerifyCodeResponse> {
+        verifyCode(accountId: string, verifyCodeRequest: VerifyCodeRequest, options?: RawAxiosRequestConfig): AxiosPromise<VerifyCodeResponse> {
             return localVarFp.verifyCode(accountId, verifyCodeRequest, options).then((request) => request(axios, basePath));
         },
     };

@@ -638,7 +638,7 @@ export const ConferencesApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        downloadConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: any): AxiosPromise<File> {
+        downloadConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: RawAxiosRequestConfig): AxiosPromise<File> {
             return localVarFp.downloadConferenceRecording(accountId, conferenceId, recordingId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -649,7 +649,7 @@ export const ConferencesApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConference(accountId: string, conferenceId: string, options?: any): AxiosPromise<Conference> {
+        getConference(accountId: string, conferenceId: string, options?: RawAxiosRequestConfig): AxiosPromise<Conference> {
             return localVarFp.getConference(accountId, conferenceId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -661,7 +661,7 @@ export const ConferencesApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConferenceMember(accountId: string, conferenceId: string, memberId: string, options?: any): AxiosPromise<ConferenceMember> {
+        getConferenceMember(accountId: string, conferenceId: string, memberId: string, options?: RawAxiosRequestConfig): AxiosPromise<ConferenceMember> {
             return localVarFp.getConferenceMember(accountId, conferenceId, memberId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -673,7 +673,7 @@ export const ConferencesApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: any): AxiosPromise<ConferenceRecordingMetadata> {
+        getConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: RawAxiosRequestConfig): AxiosPromise<ConferenceRecordingMetadata> {
             return localVarFp.getConferenceRecording(accountId, conferenceId, recordingId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -684,7 +684,7 @@ export const ConferencesApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConferenceRecordings(accountId: string, conferenceId: string, options?: any): AxiosPromise<Array<ConferenceRecordingMetadata>> {
+        listConferenceRecordings(accountId: string, conferenceId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<ConferenceRecordingMetadata>> {
             return localVarFp.listConferenceRecordings(accountId, conferenceId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -699,7 +699,7 @@ export const ConferencesApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listConferences(accountId: string, name?: string, minCreatedTime?: string, maxCreatedTime?: string, pageSize?: number, pageToken?: string, options?: any): AxiosPromise<Array<Conference>> {
+        listConferences(accountId: string, name?: string, minCreatedTime?: string, maxCreatedTime?: string, pageSize?: number, pageToken?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Conference>> {
             return localVarFp.listConferences(accountId, name, minCreatedTime, maxCreatedTime, pageSize, pageToken, options).then((request) => request(axios, basePath));
         },
         /**
@@ -711,7 +711,7 @@ export const ConferencesApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateConference(accountId: string, conferenceId: string, updateConference: UpdateConference, options?: any): AxiosPromise<void> {
+        updateConference(accountId: string, conferenceId: string, updateConference: UpdateConference, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.updateConference(accountId, conferenceId, updateConference, options).then((request) => request(axios, basePath));
         },
         /**
@@ -723,7 +723,7 @@ export const ConferencesApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateConferenceBxml(accountId: string, conferenceId: string, body: string, options?: any): AxiosPromise<void> {
+        updateConferenceBxml(accountId: string, conferenceId: string, body: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.updateConferenceBxml(accountId, conferenceId, body, options).then((request) => request(axios, basePath));
         },
         /**
@@ -736,7 +736,7 @@ export const ConferencesApiFactory = function (configuration?: Configuration, ba
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateConferenceMember(accountId: string, conferenceId: string, memberId: string, updateConferenceMember: UpdateConferenceMember, options?: any): AxiosPromise<void> {
+        updateConferenceMember(accountId: string, conferenceId: string, memberId: string, updateConferenceMember: UpdateConferenceMember, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.updateConferenceMember(accountId, conferenceId, memberId, updateConferenceMember, options).then((request) => request(axios, basePath));
         },
     };

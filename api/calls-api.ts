@@ -398,7 +398,7 @@ export const CallsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createCall(accountId: string, createCall: CreateCall, options?: any): AxiosPromise<CreateCallResponse> {
+        createCall(accountId: string, createCall: CreateCall, options?: RawAxiosRequestConfig): AxiosPromise<CreateCallResponse> {
             return localVarFp.createCall(accountId, createCall, options).then((request) => request(axios, basePath));
         },
         /**
@@ -409,7 +409,7 @@ export const CallsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCallState(accountId: string, callId: string, options?: any): AxiosPromise<CallState> {
+        getCallState(accountId: string, callId: string, options?: RawAxiosRequestConfig): AxiosPromise<CallState> {
             return localVarFp.getCallState(accountId, callId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -426,7 +426,7 @@ export const CallsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCalls(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, disconnectCause?: string, pageSize?: number, pageToken?: string, options?: any): AxiosPromise<Array<CallState>> {
+        listCalls(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, disconnectCause?: string, pageSize?: number, pageToken?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<CallState>> {
             return localVarFp.listCalls(accountId, to, from, minStartTime, maxStartTime, disconnectCause, pageSize, pageToken, options).then((request) => request(axios, basePath));
         },
         /**
@@ -438,7 +438,7 @@ export const CallsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCall(accountId: string, callId: string, updateCall: UpdateCall, options?: any): AxiosPromise<void> {
+        updateCall(accountId: string, callId: string, updateCall: UpdateCall, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.updateCall(accountId, callId, updateCall, options).then((request) => request(axios, basePath));
         },
         /**
@@ -450,7 +450,7 @@ export const CallsApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCallBxml(accountId: string, callId: string, body: string, options?: any): AxiosPromise<void> {
+        updateCallBxml(accountId: string, callId: string, body: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.updateCallBxml(accountId, callId, body, options).then((request) => request(axios, basePath));
         },
     };

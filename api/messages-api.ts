@@ -270,7 +270,7 @@ export const MessagesApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createMessage(accountId: string, messageRequest: MessageRequest, options?: any): AxiosPromise<Message> {
+        createMessage(accountId: string, messageRequest: MessageRequest, options?: RawAxiosRequestConfig): AxiosPromise<Message> {
             return localVarFp.createMessage(accountId, messageRequest, options).then((request) => request(axios, basePath));
         },
         /**
@@ -295,7 +295,7 @@ export const MessagesApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: any): AxiosPromise<MessagesList> {
+        listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<MessagesList> {
             return localVarFp.listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, sort, pageToken, limit, limitTotalCount, options).then((request) => request(axios, basePath));
         },
     };
