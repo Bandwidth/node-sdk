@@ -240,7 +240,7 @@ export const TranscriptionsApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: any): AxiosPromise<void> {
+        deleteRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteRealTimeTranscription(accountId, callId, transcriptionId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -252,7 +252,7 @@ export const TranscriptionsApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: any): AxiosPromise<CallTranscriptionResponse> {
+        getRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: RawAxiosRequestConfig): AxiosPromise<CallTranscriptionResponse> {
             return localVarFp.getRealTimeTranscription(accountId, callId, transcriptionId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -263,7 +263,7 @@ export const TranscriptionsApiFactory = function (configuration?: Configuration,
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listRealTimeTranscriptions(accountId: string, callId: string, options?: any): AxiosPromise<Array<CallTranscriptionMetadata>> {
+        listRealTimeTranscriptions(accountId: string, callId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<CallTranscriptionMetadata>> {
             return localVarFp.listRealTimeTranscriptions(accountId, callId, options).then((request) => request(axios, basePath));
         },
     };

@@ -694,7 +694,7 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteRecording(accountId: string, callId: string, recordingId: string, options?: any): AxiosPromise<void> {
+        deleteRecording(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteRecording(accountId, callId, recordingId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -706,7 +706,7 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteRecordingMedia(accountId: string, callId: string, recordingId: string, options?: any): AxiosPromise<void> {
+        deleteRecordingMedia(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteRecordingMedia(accountId, callId, recordingId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -718,7 +718,7 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: any): AxiosPromise<void> {
+        deleteRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteRecordingTranscription(accountId, callId, recordingId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -730,7 +730,7 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        downloadCallRecording(accountId: string, callId: string, recordingId: string, options?: any): AxiosPromise<File> {
+        downloadCallRecording(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig): AxiosPromise<File> {
             return localVarFp.downloadCallRecording(accountId, callId, recordingId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -742,7 +742,7 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getCallRecording(accountId: string, callId: string, recordingId: string, options?: any): AxiosPromise<CallRecordingMetadata> {
+        getCallRecording(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig): AxiosPromise<CallRecordingMetadata> {
             return localVarFp.getCallRecording(accountId, callId, recordingId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -754,7 +754,7 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: any): AxiosPromise<RecordingTranscriptions> {
+        getRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig): AxiosPromise<RecordingTranscriptions> {
             return localVarFp.getRecordingTranscription(accountId, callId, recordingId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -768,7 +768,7 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listAccountCallRecordings(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, options?: any): AxiosPromise<Array<CallRecordingMetadata>> {
+        listAccountCallRecordings(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<CallRecordingMetadata>> {
             return localVarFp.listAccountCallRecordings(accountId, to, from, minStartTime, maxStartTime, options).then((request) => request(axios, basePath));
         },
         /**
@@ -779,7 +779,7 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listCallRecordings(accountId: string, callId: string, options?: any): AxiosPromise<Array<CallRecordingMetadata>> {
+        listCallRecordings(accountId: string, callId: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<CallRecordingMetadata>> {
             return localVarFp.listCallRecordings(accountId, callId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -792,7 +792,7 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        transcribeCallRecording(accountId: string, callId: string, recordingId: string, transcribeRecording: TranscribeRecording, options?: any): AxiosPromise<void> {
+        transcribeCallRecording(accountId: string, callId: string, recordingId: string, transcribeRecording: TranscribeRecording, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.transcribeCallRecording(accountId, callId, recordingId, transcribeRecording, options).then((request) => request(axios, basePath));
         },
         /**
@@ -804,7 +804,7 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        updateCallRecordingState(accountId: string, callId: string, updateCallRecording: UpdateCallRecording, options?: any): AxiosPromise<void> {
+        updateCallRecordingState(accountId: string, callId: string, updateCallRecording: UpdateCallRecording, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.updateCallRecordingState(accountId, callId, updateCallRecording, options).then((request) => request(axios, basePath));
         },
     };

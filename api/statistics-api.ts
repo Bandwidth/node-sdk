@@ -109,7 +109,7 @@ export const StatisticsApiFactory = function (configuration?: Configuration, bas
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getStatistics(accountId: string, options?: any): AxiosPromise<AccountStatistics> {
+        getStatistics(accountId: string, options?: RawAxiosRequestConfig): AxiosPromise<AccountStatistics> {
             return localVarFp.getStatistics(accountId, options).then((request) => request(axios, basePath));
         },
     };

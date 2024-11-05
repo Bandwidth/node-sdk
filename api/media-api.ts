@@ -143,12 +143,11 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+
+    
             if (continuationToken != null) {
                 localVarHeaderParameter['Continuation-Token'] = String(continuationToken);
             }
-
-
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -194,18 +193,16 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
-            if (contentType != null) {
-                localVarHeaderParameter['Content-Type'] = String(contentType);
-            }
-
-            if (cacheControl != null) {
-                localVarHeaderParameter['Cache-Control'] = String(cacheControl);
-            }
-
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
+            if (contentType != null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+            if (cacheControl != null) {
+                localVarHeaderParameter['Cache-Control'] = String(cacheControl);
+            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -303,7 +300,7 @@ export const MediaApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        deleteMedia(accountId: string, mediaId: string, options?: any): AxiosPromise<void> {
+        deleteMedia(accountId: string, mediaId: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.deleteMedia(accountId, mediaId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -314,7 +311,7 @@ export const MediaApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getMedia(accountId: string, mediaId: string, options?: any): AxiosPromise<File> {
+        getMedia(accountId: string, mediaId: string, options?: RawAxiosRequestConfig): AxiosPromise<File> {
             return localVarFp.getMedia(accountId, mediaId, options).then((request) => request(axios, basePath));
         },
         /**
@@ -325,7 +322,7 @@ export const MediaApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMedia(accountId: string, continuationToken?: string, options?: any): AxiosPromise<Array<Media>> {
+        listMedia(accountId: string, continuationToken?: string, options?: RawAxiosRequestConfig): AxiosPromise<Array<Media>> {
             return localVarFp.listMedia(accountId, continuationToken, options).then((request) => request(axios, basePath));
         },
         /**
@@ -339,7 +336,7 @@ export const MediaApiFactory = function (configuration?: Configuration, basePath
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        uploadMedia(accountId: string, mediaId: string, body: File, contentType?: string, cacheControl?: string, options?: any): AxiosPromise<void> {
+        uploadMedia(accountId: string, mediaId: string, body: File, contentType?: string, cacheControl?: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
             return localVarFp.uploadMedia(accountId, mediaId, body, contentType, cacheControl, options).then((request) => request(axios, basePath));
         },
     };

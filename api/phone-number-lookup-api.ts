@@ -177,7 +177,7 @@ export const PhoneNumberLookupApiFactory = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        createLookup(accountId: string, lookupRequest: LookupRequest, options?: any): AxiosPromise<CreateLookupResponse> {
+        createLookup(accountId: string, lookupRequest: LookupRequest, options?: RawAxiosRequestConfig): AxiosPromise<CreateLookupResponse> {
             return localVarFp.createLookup(accountId, lookupRequest, options).then((request) => request(axios, basePath));
         },
         /**
@@ -188,7 +188,7 @@ export const PhoneNumberLookupApiFactory = function (configuration?: Configurati
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        getLookupStatus(accountId: string, requestId: string, options?: any): AxiosPromise<LookupStatus> {
+        getLookupStatus(accountId: string, requestId: string, options?: RawAxiosRequestConfig): AxiosPromise<LookupStatus> {
             return localVarFp.getLookupStatus(accountId, requestId, options).then((request) => request(axios, basePath));
         },
     };

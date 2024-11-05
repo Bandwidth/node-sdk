@@ -10,8 +10,8 @@ describe('MediaApi', () => {
 
     const binaryMediaData = '123456';
     const mediaFileData = fs.readFileSync('./tests/fixtures/nodejs_cat.jpeg');
-    const binaryMediaName = `nodejs_binary_media${randomUUID()}`;
-    const mediaFileName = `nodejs_media_file${randomUUID()}`;
+    const binaryMediaName = `nodejs_binary_media${randomUUID()}.txt`;
+    const mediaFileName = `nodejs_media_file${randomUUID()}.jpeg`;
 
     const getHash = (data: BinaryLike) => {
         return createHash('md5').update(data).digest('hex');
@@ -20,13 +20,23 @@ describe('MediaApi', () => {
 
     describe('uploadMedia', () => {
         test('should upload binary media', async () => {
-            const { status } = await mediaApi.uploadMedia(BW_ACCOUNT_ID, binaryMediaName, binaryMediaData);
+            const { status } = await mediaApi.uploadMedia(
+                BW_ACCOUNT_ID,
+                binaryMediaName,
+                binaryMediaData,
+                'text/plain'
+            );
 
             expect(status).toEqual(204);
         });
 
         test('should upload media file', async () => {
-            const { status } = await mediaApi.uploadMedia(BW_ACCOUNT_ID, mediaFileName, mediaFileData);
+            const { status } = await mediaApi.uploadMedia(
+                BW_ACCOUNT_ID,
+                mediaFileName,
+                mediaFileData,
+                'image/jpeg'
+            );
 
             expect(status).toEqual(204);
         });
@@ -52,7 +62,7 @@ describe('MediaApi', () => {
         });
 
         test('should get media file', async () => {
-            const { status, data } = await mediaApi.getMedia(BW_ACCOUNT_ID, mediaFileName);
+            const { status, data } = await mediaApi.getMedia(BW_ACCOUNT_ID, mediaFileName, { responseType: 'arraybuffer' });
             // fs.writeFile('./tests/fixtures/test.jpeg', Buffer.from(data), (err) => {
             //     if (err) throw err;
             // });
