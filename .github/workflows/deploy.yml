@@ -4,6 +4,7 @@ on:
   release:
     types:
       - published
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -49,23 +50,31 @@ jobs:
           node-version: 22
           registry-url: "https://registry.npmjs.org"
 
+      - name: Generate SDK with Updated Version
+        uses: Bandwidth/generate-sdk-action@v4.0.0
+        with:
+          openapi-generator-version: 7.9.0
+          language: typescript-axios
+          additional-properties: --additional-properties=npmVersion=$PACKAGE_VERSION
+
       - name: Install Packages and Test
         run: |
+          cat package.json
           yarn
           npm install -g @stoplight/prism-cli
           prism mock ./bandwidth.yml & yarn test-unit
         shell: bash
 
-      - name: Publish npm Package
-        run: |
-          npm version $PACKAGE_VERSION --no-git-tag-version
-          npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      # - name: Publish npm Package
+      #   run: |
+      #     npm version $PACKAGE_VERSION --no-git-tag-version
+      #     npm publish --access public
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-      - uses: Bandwidth/build-notify-slack-action@v2.0.0
-        if: always()
-        with:
-          job-status: ${{ job.status }}
-          slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
-          slack-channel: ${{ secrets.SLACK_CHANNEL }}
+      # - uses: Bandwidth/build-notify-slack-action@v2.0.0
+      #   if: always()
+      #   with:
+      #     job-status: ${{ job.status }}
+      #     slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
+      #     slack-channel: ${{ secrets.SLACK_CHANNEL }}
