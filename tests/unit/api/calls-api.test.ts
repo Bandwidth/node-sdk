@@ -14,7 +14,7 @@ describe('CallsApi', () => {
     const config = new Configuration({
         username: BW_USERNAME,
         password: BW_PASSWORD,
-        basePath: 'https://7235edb724fcd6354723b9d89367dc50.m.pipedream.net'
+        basePath: 'http://127.0.0.1:4010'
     });
     const callsApi = new CallsApi(config);
 
