@@ -65,16 +65,16 @@ jobs:
           prism mock ./bandwidth.yml & yarn test-unit
         shell: bash
 
-      # - name: Publish npm Package
-      #   run: |
-      #     npm version $PACKAGE_VERSION --no-git-tag-version
-      #     npm publish --access public
-      #   env:
-      #     NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - name: Publish npm Package
+        run: |
+          npm version $PACKAGE_VERSION --no-git-tag-version
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
-      # - uses: Bandwidth/build-notify-slack-action@v2.0.0
-      #   if: always()
-      #   with:
-      #     job-status: ${{ job.status }}
-      #     slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
-      #     slack-channel: ${{ secrets.SLACK_CHANNEL }}
+      - uses: Bandwidth/build-notify-slack-action@v2.0.0
+        if: always()
+        with:
+          job-status: ${{ job.status }}
+          slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
+          slack-channel: ${{ secrets.SLACK_CHANNEL }}
