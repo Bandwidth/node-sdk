@@ -49,6 +49,13 @@ jobs:
           node-version: 22
           registry-url: "https://registry.npmjs.org"
 
+      - name: Generate SDK with Updated Version
+        uses: Bandwidth/generate-sdk-action@v4.0.0
+        with:
+          openapi-generator-version: 7.9.0
+          language: typescript-axios
+          additional-properties: --additional-properties=npmVersion=$PACKAGE_VERSION
+
       - name: Install Packages and Test
         run: |
           yarn
