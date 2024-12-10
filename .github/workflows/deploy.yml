@@ -65,6 +65,7 @@ jobs:
 
       - name: Publish npm Package
         run: |
+          npm version $PACKAGE_VERSION --allow-same-version
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
