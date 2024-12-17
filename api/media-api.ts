@@ -143,11 +143,12 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
-
-    
             if (continuationToken != null) {
                 localVarHeaderParameter['Continuation-Token'] = String(continuationToken);
             }
+
+
+    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -193,16 +194,18 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            if (contentType != null) {
+                localVarHeaderParameter['Content-Type'] = String(contentType);
+            }
+
+            if (cacheControl != null) {
+                localVarHeaderParameter['Cache-Control'] = String(cacheControl);
+            }
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
 
-            if (contentType != null) {
-                localVarHeaderParameter['Content-Type'] = String(contentType);
-            }
-            if (cacheControl != null) {
-                localVarHeaderParameter['Cache-Control'] = String(cacheControl);
-            }
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
