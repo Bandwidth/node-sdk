@@ -51,7 +51,7 @@ export interface CreateCall {
      */
     'displayName'?: string | null;
     /**
-     * A comma-separated list of \'User-To-User\' headers to be sent in the INVITE when calling a SIP URI. Each value must end with an \'encoding\' parameter as described in <a href=\'https://tools.ietf.org/html/rfc7433\'>RFC 7433</a>. Only \'jwt\' and \'base64\' encodings are allowed. The entire value cannot exceed 350 characters, including parameters and separators.
+     * A comma-separated list of \'User-To-User\' headers to be sent in the INVITE when calling a SIP URI. Each value must end with an \'encoding\' parameter as described in <a href=\'https://tools.ietf.org/html/rfc7433\'>RFC 7433</a>. Only \'jwt\', \'base64\' and \'hex\' encodings are allowed. The entire value cannot exceed 350 characters, including parameters and separators.
      * @type {string}
      * @memberof CreateCall
      */
