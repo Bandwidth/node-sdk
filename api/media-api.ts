@@ -164,7 +164,7 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
          * @param {string} mediaId Media ID to retrieve.
          * @param {File} body 
          * @param {string} [contentType] The media type of the entity-body.
-         * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain. 
+         * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -272,7 +272,7 @@ export const MediaApiFp = function(configuration?: Configuration) {
          * @param {string} mediaId Media ID to retrieve.
          * @param {File} body 
          * @param {string} [contentType] The media type of the entity-body.
-         * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain. 
+         * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -332,7 +332,7 @@ export const MediaApiFactory = function (configuration?: Configuration, basePath
          * @param {string} mediaId Media ID to retrieve.
          * @param {File} body 
          * @param {string} [contentType] The media type of the entity-body.
-         * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain. 
+         * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -395,7 +395,7 @@ export class MediaApi extends BaseAPI {
      * @param {string} mediaId Media ID to retrieve.
      * @param {File} body 
      * @param {string} [contentType] The media type of the entity-body.
-     * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain. 
+     * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      * @memberof MediaApi

@@ -91,20 +91,20 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
          * Returns a list of messages based on query parameters.
          * @summary List Messages
          * @param {string} accountId Your Bandwidth Account ID.
-         * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter. 
-         * @param {string} [sourceTn] The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;). 
-         * @param {string} [destinationTn] The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;). 
-         * @param {MessageStatusEnum} [messageStatus] The status of the message. One of RECEIVED QUEUED SENDING SENT FAILED DELIVERED ACCEPTED UNDELIVERED. 
+         * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter.
+         * @param {string} [sourceTn] The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
+         * @param {string} [destinationTn] The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
+         * @param {MessageStatusEnum} [messageStatus] The status of the message. One of RECEIVED QUEUED SENDING SENT FAILED DELIVERED ACCEPTED UNDELIVERED.
          * @param {ListMessageDirectionEnum} [messageDirection] The direction of the message. One of INBOUND OUTBOUND.
-         * @param {string} [carrierName] The name of the carrier used for this message. Possible values include but are not limited to Verizon and TMobile. Special characters need to be encoded using URL encoding (i.e. AT&amp;T should be passed as AT%26T). 
+         * @param {string} [carrierName] The name of the carrier used for this message. Possible values include but are not limited to Verizon and TMobile. Special characters need to be encoded using URL encoding (i.e. AT&amp;T should be passed as AT%26T).
          * @param {MessageTypeEnum} [messageType] The type of message. Either sms or mms.
          * @param {number} [errorCode] The error code of the message.
-         * @param {string} [fromDateTime] The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. 
-         * @param {string} [toDateTime] The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. 
+         * @param {string} [fromDateTime] The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
+         * @param {string} [toDateTime] The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
          * @param {string} [campaignId] The campaign ID of the message.
          * @param {string} [sort] The field and direction to sort by combined with a colon. Direction is either asc or desc.
          * @param {string} [pageToken] A base64 encoded value used for pagination of results.
-         * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000. 
+         * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000.
          * @param {boolean} [limitTotalCount] When set to true, the response\&#39;s totalCount field will have a maximum value of 10,000. When set to false, or excluded, this will give an accurate totalCount of all messages that match the provided filters. If you are experiencing latency, try using this parameter to limit your results.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -228,20 +228,20 @@ export const MessagesApiFp = function(configuration?: Configuration) {
          * Returns a list of messages based on query parameters.
          * @summary List Messages
          * @param {string} accountId Your Bandwidth Account ID.
-         * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter. 
-         * @param {string} [sourceTn] The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;). 
-         * @param {string} [destinationTn] The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;). 
-         * @param {MessageStatusEnum} [messageStatus] The status of the message. One of RECEIVED QUEUED SENDING SENT FAILED DELIVERED ACCEPTED UNDELIVERED. 
+         * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter.
+         * @param {string} [sourceTn] The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
+         * @param {string} [destinationTn] The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
+         * @param {MessageStatusEnum} [messageStatus] The status of the message. One of RECEIVED QUEUED SENDING SENT FAILED DELIVERED ACCEPTED UNDELIVERED.
          * @param {ListMessageDirectionEnum} [messageDirection] The direction of the message. One of INBOUND OUTBOUND.
-         * @param {string} [carrierName] The name of the carrier used for this message. Possible values include but are not limited to Verizon and TMobile. Special characters need to be encoded using URL encoding (i.e. AT&amp;T should be passed as AT%26T). 
+         * @param {string} [carrierName] The name of the carrier used for this message. Possible values include but are not limited to Verizon and TMobile. Special characters need to be encoded using URL encoding (i.e. AT&amp;T should be passed as AT%26T).
          * @param {MessageTypeEnum} [messageType] The type of message. Either sms or mms.
          * @param {number} [errorCode] The error code of the message.
-         * @param {string} [fromDateTime] The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. 
-         * @param {string} [toDateTime] The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. 
+         * @param {string} [fromDateTime] The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
+         * @param {string} [toDateTime] The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
          * @param {string} [campaignId] The campaign ID of the message.
          * @param {string} [sort] The field and direction to sort by combined with a colon. Direction is either asc or desc.
          * @param {string} [pageToken] A base64 encoded value used for pagination of results.
-         * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000. 
+         * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000.
          * @param {boolean} [limitTotalCount] When set to true, the response\&#39;s totalCount field will have a maximum value of 10,000. When set to false, or excluded, this will give an accurate totalCount of all messages that match the provided filters. If you are experiencing latency, try using this parameter to limit your results.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -277,20 +277,20 @@ export const MessagesApiFactory = function (configuration?: Configuration, baseP
          * Returns a list of messages based on query parameters.
          * @summary List Messages
          * @param {string} accountId Your Bandwidth Account ID.
-         * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter. 
-         * @param {string} [sourceTn] The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;). 
-         * @param {string} [destinationTn] The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;). 
-         * @param {MessageStatusEnum} [messageStatus] The status of the message. One of RECEIVED QUEUED SENDING SENT FAILED DELIVERED ACCEPTED UNDELIVERED. 
+         * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter.
+         * @param {string} [sourceTn] The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
+         * @param {string} [destinationTn] The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
+         * @param {MessageStatusEnum} [messageStatus] The status of the message. One of RECEIVED QUEUED SENDING SENT FAILED DELIVERED ACCEPTED UNDELIVERED.
          * @param {ListMessageDirectionEnum} [messageDirection] The direction of the message. One of INBOUND OUTBOUND.
-         * @param {string} [carrierName] The name of the carrier used for this message. Possible values include but are not limited to Verizon and TMobile. Special characters need to be encoded using URL encoding (i.e. AT&amp;T should be passed as AT%26T). 
+         * @param {string} [carrierName] The name of the carrier used for this message. Possible values include but are not limited to Verizon and TMobile. Special characters need to be encoded using URL encoding (i.e. AT&amp;T should be passed as AT%26T).
          * @param {MessageTypeEnum} [messageType] The type of message. Either sms or mms.
          * @param {number} [errorCode] The error code of the message.
-         * @param {string} [fromDateTime] The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. 
-         * @param {string} [toDateTime] The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. 
+         * @param {string} [fromDateTime] The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
+         * @param {string} [toDateTime] The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
          * @param {string} [campaignId] The campaign ID of the message.
          * @param {string} [sort] The field and direction to sort by combined with a colon. Direction is either asc or desc.
          * @param {string} [pageToken] A base64 encoded value used for pagination of results.
-         * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000. 
+         * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000.
          * @param {boolean} [limitTotalCount] When set to true, the response\&#39;s totalCount field will have a maximum value of 10,000. When set to false, or excluded, this will give an accurate totalCount of all messages that match the provided filters. If you are experiencing latency, try using this parameter to limit your results.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -325,20 +325,20 @@ export class MessagesApi extends BaseAPI {
      * Returns a list of messages based on query parameters.
      * @summary List Messages
      * @param {string} accountId Your Bandwidth Account ID.
-     * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter. 
-     * @param {string} [sourceTn] The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;). 
-     * @param {string} [destinationTn] The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;). 
-     * @param {MessageStatusEnum} [messageStatus] The status of the message. One of RECEIVED QUEUED SENDING SENT FAILED DELIVERED ACCEPTED UNDELIVERED. 
+     * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter.
+     * @param {string} [sourceTn] The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
+     * @param {string} [destinationTn] The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
+     * @param {MessageStatusEnum} [messageStatus] The status of the message. One of RECEIVED QUEUED SENDING SENT FAILED DELIVERED ACCEPTED UNDELIVERED.
      * @param {ListMessageDirectionEnum} [messageDirection] The direction of the message. One of INBOUND OUTBOUND.
-     * @param {string} [carrierName] The name of the carrier used for this message. Possible values include but are not limited to Verizon and TMobile. Special characters need to be encoded using URL encoding (i.e. AT&amp;T should be passed as AT%26T). 
+     * @param {string} [carrierName] The name of the carrier used for this message. Possible values include but are not limited to Verizon and TMobile. Special characters need to be encoded using URL encoding (i.e. AT&amp;T should be passed as AT%26T).
      * @param {MessageTypeEnum} [messageType] The type of message. Either sms or mms.
      * @param {number} [errorCode] The error code of the message.
-     * @param {string} [fromDateTime] The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. 
-     * @param {string} [toDateTime] The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. 
+     * @param {string} [fromDateTime] The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
+     * @param {string} [toDateTime] The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
      * @param {string} [campaignId] The campaign ID of the message.
      * @param {string} [sort] The field and direction to sort by combined with a colon. Direction is either asc or desc.
      * @param {string} [pageToken] A base64 encoded value used for pagination of results.
-     * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000. 
+     * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000.
      * @param {boolean} [limitTotalCount] When set to true, the response\&#39;s totalCount field will have a maximum value of 10,000. When set to false, or excluded, this will give an accurate totalCount of all messages that match the provided filters. If you are experiencing latency, try using this parameter to limit your results.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
