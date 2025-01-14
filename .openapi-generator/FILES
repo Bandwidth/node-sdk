@@ -29,6 +29,7 @@ models/call-transcription-response.ts
 models/call-transcription-track-enum.ts
 models/call-transcription.ts
 models/callback-method-enum.ts
+models/callback-type-enum.ts
 models/code-request.ts
 models/conference-completed-callback.ts
 models/conference-created-callback.ts
@@ -51,8 +52,6 @@ models/dtmf-callback.ts
 models/field-error.ts
 models/file-format-enum.ts
 models/gather-callback.ts
-models/inbound-message-callback-message.ts
-models/inbound-message-callback.ts
 models/index.ts
 models/initiate-callback.ts
 models/list-message-direction-enum.ts
@@ -66,14 +65,10 @@ models/machine-detection-configuration.ts
 models/machine-detection-mode-enum.ts
 models/machine-detection-result.ts
 models/media.ts
-models/message-delivered-callback-message.ts
-models/message-delivered-callback.ts
+models/message-callback-message.ts
+models/message-callback.ts
 models/message-direction-enum.ts
-models/message-failed-callback-message.ts
-models/message-failed-callback.ts
 models/message-request.ts
-models/message-sending-callback-message.ts
-models/message-sending-callback.ts
 models/message-status-enum.ts
 models/message-type-enum.ts
 models/message.ts
