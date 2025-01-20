@@ -21,81 +21,81 @@ import type { MessageDirectionEnum } from './message-direction-enum';
 import type { PriorityEnum } from './priority-enum';
 
 /**
- * Inbound Message Callback Message Schema
+ * Message payload schema within a MessageCallback
  * @export
- * @interface InboundMessageCallbackMessage
+ * @interface MessageCallbackMessage
  */
-export interface InboundMessageCallbackMessage {
+export interface MessageCallbackMessage {
     /**
      * 
      * @type {string}
-     * @memberof InboundMessageCallbackMessage
+     * @memberof MessageCallbackMessage
      */
     'id': string;
     /**
      * 
      * @type {string}
-     * @memberof InboundMessageCallbackMessage
+     * @memberof MessageCallbackMessage
      */
     'owner': string;
     /**
      * 
      * @type {string}
-     * @memberof InboundMessageCallbackMessage
+     * @memberof MessageCallbackMessage
      */
     'applicationId': string;
     /**
      * 
      * @type {string}
-     * @memberof InboundMessageCallbackMessage
+     * @memberof MessageCallbackMessage
      */
     'time': string;
     /**
      * 
      * @type {number}
-     * @memberof InboundMessageCallbackMessage
+     * @memberof MessageCallbackMessage
      */
     'segmentCount': number;
     /**
      * 
      * @type {MessageDirectionEnum}
-     * @memberof InboundMessageCallbackMessage
+     * @memberof MessageCallbackMessage
      */
     'direction': MessageDirectionEnum;
     /**
      * 
      * @type {Set<string>}
-     * @memberof InboundMessageCallbackMessage
+     * @memberof MessageCallbackMessage
      */
     'to': Set<string>;
     /**
      * 
      * @type {string}
-     * @memberof InboundMessageCallbackMessage
+     * @memberof MessageCallbackMessage
      */
     'from': string;
     /**
      * 
      * @type {string}
-     * @memberof InboundMessageCallbackMessage
+     * @memberof MessageCallbackMessage
      */
     'text': string;
     /**
      * 
      * @type {string}
-     * @memberof InboundMessageCallbackMessage
+     * @memberof MessageCallbackMessage
      */
     'tag'?: string;
     /**
-     * 
+     * Optional media, applicable only for mms
      * @type {Array<string>}
-     * @memberof InboundMessageCallbackMessage
+     * @memberof MessageCallbackMessage
      */
-    'media'?: Array<string>;
+    'media'?: Array<string> | null;
     /**
      * 
      * @type {PriorityEnum}
-     * @memberof InboundMessageCallbackMessage
+     * @memberof MessageCallbackMessage
      */
     'priority'?: PriorityEnum;
 }
