@@ -74,11 +74,3 @@ const callEnded = async (callId: string, callsApi: CallsApi) => {
         } else { return true; }
     } catch { return false; }
 }
-
-// module.exports = {
-//     sleep,
-//     setupManteca,
-//     createMantecaCall,
-//     getMantecaTestStatus,
-//     cleanupCalls
-// };
