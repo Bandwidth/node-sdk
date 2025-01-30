@@ -69,7 +69,7 @@ jobs:
       - name: Install Packages and Test
         run: |
           yarn
-          yarn test-smoke-up
+          yarn test-smoke
         env:
           OPERATING_SYSTEM: "ubuntu"
 
