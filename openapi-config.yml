@@ -1,5 +1,4 @@
 npmName: bandwidth-sdk
-npmVersion: 1.0.0-dev
 withSeparateModelsAndApi: true
 modelPackage: models
 apiPackage: api
