@@ -3,12 +3,12 @@
 [![Deploy](https://github.com/Bandwidth/node-sdk/actions/workflows/deploy.yml/badge.svg)](https://github.com/Bandwidth/node-sdk/actions/workflows/deploy.yml)
 
 ### Test Matrix
-| **OS** | **Node** |
-|:---:|:---:|
+|    **OS**    | **Node** |
+|:------------:|:---:|
 | Windows 2019 | 18, 20, 22 |
 | Windows 2022 | 18, 20, 22 |
-| Ubuntu 20.04 | 18, 20, 22 |
 | Ubuntu 22.04 | 18, 20, 22 |
+| Ubuntu 24.04 | 18, 20, 22 |
 
 #### Available on NPM
 ```
