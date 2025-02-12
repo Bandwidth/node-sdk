@@ -32,7 +32,7 @@ describe('ConferencesApi', () => {
             expect(data[0].createdTime).toBeDateString();
             expect(data[0].completedTime).toBeDateString();
             expect(data[0].conferenceEventUrl).toStartWith('http');
-            expect(data[0].conferenceEventMethod).toBeOneOf([CallbackMethodEnum.Post, CallbackMethodEnum.Get]);
+            expect(data[0].conferenceEventMethod).toBeOneOf(Object.values(CallbackMethodEnum));
             expect(data[0].tag).toBeString();
         });
     });
@@ -47,7 +47,7 @@ describe('ConferencesApi', () => {
             expect(data.createdTime).toBeDateString();
             expect(data.completedTime).toBeDateString();
             expect(data.conferenceEventUrl).toStartWith('http');
-            expect(data.conferenceEventMethod).toBeOneOf([CallbackMethodEnum.Post, CallbackMethodEnum.Get]);
+            expect(data.conferenceEventMethod).toBeOneOf(Object.values(CallbackMethodEnum));
             expect(data.tag).toBeString();
         });
     });
@@ -123,7 +123,7 @@ describe('ConferencesApi', () => {
             expect(data[0].channels).toBeNumber();
             expect(data[0].startTime).toBeDateString();
             expect(data[0].endTime).toBeDateString();
-            expect(data[0].fileFormat).toBeOneOf([FileFormatEnum.Wav, FileFormatEnum.Mp3]);
+            expect(data[0].fileFormat).toBeOneOf(Object.values(FileFormatEnum));
             expect(data[0].status).toBeString();
             expect(data[0].mediaUrl).toStartWith('http');
         });
@@ -142,7 +142,7 @@ describe('ConferencesApi', () => {
             expect(data.channels).toBeNumber();
             expect(data.startTime).toBeDateString();
             expect(data.endTime).toBeDateString();
-            expect(data.fileFormat).toBeOneOf([FileFormatEnum.Wav, FileFormatEnum.Mp3]);
+            expect(data.fileFormat).toBeOneOf(Object.values(FileFormatEnum));
             expect(data.status).toBeString();
             expect(data.mediaUrl).toStartWith('http');
         });
