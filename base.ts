@@ -299,6 +299,54 @@ export const operationServerMap: ServerMap = {
             description: "Production",
         }
     ],
+    "TollFreeVerificationApi.createWebhookSubscription": [
+        {
+            url: "https://api.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
+    "TollFreeVerificationApi.deleteWebhookSubscription": [
+        {
+            url: "https://api.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
+    "TollFreeVerificationApi.getTollFreeVerificationStatus": [
+        {
+            url: "https://api.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
+    "TollFreeVerificationApi.listTollFreeUseCases": [
+        {
+            url: "https://api.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
+    "TollFreeVerificationApi.listWebhookSubscriptions": [
+        {
+            url: "https://api.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
+    "TollFreeVerificationApi.requestTollFreeVerification": [
+        {
+            url: "https://api.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
+    "TollFreeVerificationApi.updateTollFreeVerificationRequest": [
+        {
+            url: "https://api.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
+    "TollFreeVerificationApi.updateWebhookSubscription": [
+        {
+            url: "https://api.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
     "TranscriptionsApi.deleteRealTimeTranscription": [
         {
             url: "https://voice.bandwidth.com/api/v2",

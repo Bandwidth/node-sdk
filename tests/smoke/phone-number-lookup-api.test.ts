@@ -21,12 +21,7 @@ describe('PhoneNumberLookupApi', () => {
 
             expect(status).toEqual(202);
             expect(data.requestId).toHaveLength(36);
-            expect(data.status).toBeOneOf([
-                LookupStatusEnum.Complete,
-                LookupStatusEnum.InProgress,
-                LookupStatusEnum.Failed,
-                LookupStatusEnum.PartialComplete
-            ]);
+            expect(data.status).toBeOneOf(Object.values(LookupStatusEnum));
 
             lookupRequestId = data.requestId!;
             await sleep(1);
@@ -39,12 +34,7 @@ describe('PhoneNumberLookupApi', () => {
 
             expect(status).toEqual(200);
             expect(data.requestId).toEqual(lookupRequestId);
-            expect(data.status).toBeOneOf([
-                LookupStatusEnum.Complete,
-                LookupStatusEnum.InProgress,
-                LookupStatusEnum.Failed,
-                LookupStatusEnum.PartialComplete
-            ]);
+            expect(data.status).toBeOneOf(Object.values(LookupStatusEnum));
             expect(data.result).toBeInstanceOf(Array);
             expect(data.result![0]['Response Code']).toBeInteger();
             expect(data.result![0]['E.164 Format']).toEqual(BW_NUMBER);

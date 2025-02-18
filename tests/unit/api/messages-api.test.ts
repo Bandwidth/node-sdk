@@ -44,7 +44,7 @@ describe('MessagesApi', () => {
             expect(data.applicationId).toHaveLength(36);
             expect(data.time).toBeDateString();
             expect(data.segmentCount).toBeInteger();
-            expect(data.direction).toBeOneOf([MessageDirectionEnum.In, MessageDirectionEnum.Out])
+            expect(data.direction).toBeOneOf(Object.values(MessageDirectionEnum));
             expect(data.to).toBeInstanceOf(Array);
             expect(data.to![0]).toHaveLength(12);
             expect(data.from).toHaveLength(12);
@@ -52,7 +52,7 @@ describe('MessagesApi', () => {
             expect(data.media![0]).toStartWith('http');
             expect(data.text).toBeString();
             expect(data.tag).toBeString();
-            expect(data.priority).toBeOneOf([PriorityEnum.Default, PriorityEnum.High]);
+            expect(data.priority).toBeOneOf(Object.values(PriorityEnum));
             expect(data.expiration).toBeDateString();
         });
     });
@@ -74,18 +74,9 @@ describe('MessagesApi', () => {
             expect(data.messages![0].accountId).toHaveLength(7);
             expect(data.messages![0].sourceTn).toHaveLength(12);
             expect(data.messages![0].destinationTn).toHaveLength(12);
-            expect(data.messages![0].messageStatus).toBeOneOf([
-                MessageStatusEnum.Received,
-                MessageStatusEnum.Queued,
-                MessageStatusEnum.Sending,
-                MessageStatusEnum.Sent,
-                MessageStatusEnum.Failed,
-                MessageStatusEnum.Delivered,
-                MessageStatusEnum.Accepted,
-                MessageStatusEnum.Undelivered,
-            ]);
-            expect(data.messages![0].messageDirection).toBeOneOf([ListMessageDirectionEnum.Inbound, ListMessageDirectionEnum.Outbound]);
-            expect(data.messages![0].messageType).toBeOneOf([MessageTypeEnum.Sms, MessageTypeEnum.Mms]);
+            expect(data.messages![0].messageStatus).toBeOneOf(Object.values(MessageStatusEnum));
+            expect(data.messages![0].messageDirection).toBeOneOf(Object.values(ListMessageDirectionEnum));
+            expect(data.messages![0].messageType).toBeOneOf(Object.values(MessageTypeEnum));
             expect(data.messages![0].segmentCount).toBeInteger();
             expect(data.messages![0].errorCode).toBePositive();
             expect(data.messages![0].receiveTime).toBeDateString();

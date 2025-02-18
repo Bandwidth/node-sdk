@@ -68,11 +68,11 @@ describe('CallsApi', () => {
             expect(data.callTimeout).toBePositive();
             expect(data.callbackTimeout).toBePositive();
             expect(data.tag).toBeString();
-            expect(data.answerMethod).toBeOneOf([CallbackMethodEnum.Post, CallbackMethodEnum.Get]);
+            expect(data.answerMethod).toBeOneOf(Object.values(CallbackMethodEnum));
             expect(data.answerUrl).toStartWith('http');
-            expect(data.answerFallbackMethod).toBeOneOf([CallbackMethodEnum.Post, CallbackMethodEnum.Get]);
+            expect(data.answerFallbackMethod).toBeOneOf(Object.values(CallbackMethodEnum));
             expect(data.answerFallbackUrl).toStartWith('http');
-            expect(data.disconnectMethod).toBeOneOf([CallbackMethodEnum.Post, CallbackMethodEnum.Get]);
+            expect(data.disconnectMethod).toBeOneOf(Object.values(CallbackMethodEnum));
             expect(data.disconnectUrl).toStartWith('http');
             expect(data.username).toBeString();
             expect(data.password).toBeString();
@@ -93,7 +93,7 @@ describe('CallsApi', () => {
             expect(data.parentCallId).toHaveLength(47);
             expect(data.to).toHaveLength(12);
             expect(data.from).toHaveLength(12);
-            expect(data.direction).toBeOneOf([CallDirectionEnum.Inbound, CallDirectionEnum.Outbound]);
+            expect(data.direction).toBeOneOf(Object.values(CallDirectionEnum));
             expect(data.state).toBeString();
             expect(data.stirShaken).toBeObject();
             expect(data.identity).toBeString();
@@ -120,7 +120,7 @@ describe('CallsApi', () => {
             expect(data[0].parentCallId).toHaveLength(47);
             expect(data[0].to).toHaveLength(12);
             expect(data[0].from).toHaveLength(12);
-            expect(data[0].direction).toBeOneOf([CallDirectionEnum.Inbound, CallDirectionEnum.Outbound]);
+            expect(data[0].direction).toBeOneOf(Object.values(CallDirectionEnum));
             expect(data[0].state).toBeString();
             expect(data[0].stirShaken).toBeObject();
             expect(data[0].identity).toBeString();

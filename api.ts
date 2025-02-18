@@ -22,5 +22,6 @@ export * from './api/messages-api';
 export * from './api/phone-number-lookup-api';
 export * from './api/recordings-api';
 export * from './api/statistics-api';
+export * from './api/toll-free-verification-api';
 export * from './api/transcriptions-api';
 
