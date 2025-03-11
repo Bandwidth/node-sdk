@@ -101,6 +101,12 @@ export interface InitiateCallback {
      * @memberof InitiateCallback
      */
     'stirShaken'?: StirShaken;
+    /**
+     * The value of the `User-To-User` header to send within the initial `INVITE`. Must include the encoding parameter as specified in RFC 7433. Only `base64`, `jwt` and `hex` encoding are currently allowed. This value, including the encoding specifier, may not exceed 256 characters.
+     * @type {string}
+     * @memberof InitiateCallback
+     */
+    'uui'?: string;
 }
 
 
