@@ -3,6 +3,7 @@ import { StreamParam } from './StreamParam';
 
 export interface StartStreamAttributes {
     name?: string;
+    mode?: string;
     tracks?: string;
     destination?: string;
     streamEventUrl?: string;
