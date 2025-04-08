@@ -19,6 +19,7 @@ export * from './api/conferences-api';
 export * from './api/mfaapi';
 export * from './api/media-api';
 export * from './api/messages-api';
+export * from './api/multi-channel-api';
 export * from './api/phone-number-lookup-api';
 export * from './api/recordings-api';
 export * from './api/statistics-api';

@@ -15,17 +15,18 @@
 
 
 /**
- * The priority specified by the user.
+ * The channel of the multi-channel message.
  * @export
  * @enum {string}
  */
 
-export const PriorityEnum = {
-    Default: 'default',
-    High: 'high'
+export const MultiChannelMessageChannelEnum = {
+    Rbm: 'RBM',
+    Sms: 'SMS',
+    Mms: 'MMS'
 } as const;
 
-export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];
+export type MultiChannelMessageChannelEnum = typeof MultiChannelMessageChannelEnum[keyof typeof MultiChannelMessageChannelEnum];
 
 
 

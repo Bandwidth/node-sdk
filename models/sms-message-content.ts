@@ -15,17 +15,16 @@
 
 
 /**
- * The priority specified by the user.
+ * 
  * @export
- * @enum {string}
+ * @interface SmsMessageContent
  */
-
-export const PriorityEnum = {
-    Default: 'default',
-    High: 'high'
-} as const;
-
-export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];
-
-
+export interface SmsMessageContent {
+    /**
+     * The contents of the text message. Must be 2048 characters or less.
+     * @type {string}
+     * @memberof SmsMessageContent
+     */
+    'text': string;
+}
 

@@ -15,17 +15,17 @@
 
 
 /**
- * The priority specified by the user.
+ * 
  * @export
  * @enum {string}
  */
 
-export const PriorityEnum = {
-    Default: 'default',
-    High: 'high'
+export const CardWidthEnum = {
+    Small: 'SMALL',
+    Medium: 'MEDIUM'
 } as const;
 
-export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];
+export type CardWidthEnum = typeof CardWidthEnum[keyof typeof CardWidthEnum];
 
 
 

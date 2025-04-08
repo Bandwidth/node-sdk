@@ -15,17 +15,17 @@
 
 
 /**
- * The priority specified by the user.
+ * The alignment of the thumbnail image in the card. Only applicable if the card using horizontal orientation.
  * @export
  * @enum {string}
  */
 
-export const PriorityEnum = {
-    Default: 'default',
-    High: 'high'
+export const ThumbnailAlignmentEnum = {
+    Left: 'LEFT',
+    Right: 'RIGHT'
 } as const;
 
-export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];
+export type ThumbnailAlignmentEnum = typeof ThumbnailAlignmentEnum[keyof typeof ThumbnailAlignmentEnum];
 
 
 
