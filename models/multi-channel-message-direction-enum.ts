@@ -15,17 +15,17 @@
 
 
 /**
- * The priority specified by the user.
+ * 
  * @export
  * @enum {string}
  */
 
-export const PriorityEnum = {
-    Default: 'default',
-    High: 'high'
+export const MultiChannelMessageDirectionEnum = {
+    Inbound: 'INBOUND',
+    Outbound: 'OUTBOUND'
 } as const;
 
-export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];
+export type MultiChannelMessageDirectionEnum = typeof MultiChannelMessageDirectionEnum[keyof typeof MultiChannelMessageDirectionEnum];
 
 
 

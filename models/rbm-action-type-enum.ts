@@ -15,17 +15,21 @@
 
 
 /**
- * The priority specified by the user.
+ * 
  * @export
  * @enum {string}
  */
 
-export const PriorityEnum = {
-    Default: 'default',
-    High: 'high'
+export const RbmActionTypeEnum = {
+    Reply: 'REPLY',
+    DialPhone: 'DIAL_PHONE',
+    ShowLocation: 'SHOW_LOCATION',
+    CreateCalendarEvent: 'CREATE_CALENDAR_EVENT',
+    OpenUrl: 'OPEN_URL',
+    RequestLocation: 'REQUEST_LOCATION'
 } as const;
 
-export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];
+export type RbmActionTypeEnum = typeof RbmActionTypeEnum[keyof typeof RbmActionTypeEnum];
 
 
 

@@ -15,17 +15,17 @@
 
 
 /**
- * The priority specified by the user.
+ * 
  * @export
  * @enum {string}
  */
 
-export const PriorityEnum = {
-    Default: 'default',
-    High: 'high'
+export const StandaloneCardOrientationEnum = {
+    Horizontal: 'HORIZONTAL',
+    Vertical: 'VERTICAL'
 } as const;
 
-export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];
+export type StandaloneCardOrientationEnum = typeof StandaloneCardOrientationEnum[keyof typeof StandaloneCardOrientationEnum];
 
 
 

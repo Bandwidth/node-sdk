@@ -15,17 +15,18 @@
 
 
 /**
- * The priority specified by the user.
+ * The height of the media.
  * @export
  * @enum {string}
  */
 
-export const PriorityEnum = {
-    Default: 'default',
-    High: 'high'
+export const RbmMediaHeightEnum = {
+    Short: 'SHORT',
+    Medium: 'MEDIUM',
+    Tall: 'TALL'
 } as const;
 
-export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];
+export type RbmMediaHeightEnum = typeof RbmMediaHeightEnum[keyof typeof RbmMediaHeightEnum];
 
 
 
