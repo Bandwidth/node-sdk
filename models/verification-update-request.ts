@@ -83,5 +83,23 @@ export interface VerificationUpdateRequest {
      * @memberof VerificationUpdateRequest
      */
     'isvReseller'?: string | null;
+    /**
+     * The Toll-Free Verification request privacy policy URL. (Not Available Until 5/28/2025)
+     * @type {string}
+     * @memberof VerificationUpdateRequest
+     */
+    'privacyPolicyUrl'?: string;
+    /**
+     * The Toll-Free Verification request terms and conditions policy URL. (Not Available Until 5/28/2025)
+     * @type {string}
+     * @memberof VerificationUpdateRequest
+     */
+    'termsAndConditionsUrl'?: string;
+    /**
+     * The company \'Doing Business As\'. (Not Available Until 5/28/2025)
+     * @type {string}
+     * @memberof VerificationUpdateRequest
+     */
+    'businessDBA'?: string;
 }
 

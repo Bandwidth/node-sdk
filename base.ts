@@ -221,6 +221,12 @@ export const operationServerMap: ServerMap = {
             description: "Production",
         }
     ],
+    "MultiChannelApi.createMultiChannelMessage": [
+        {
+            url: "https://messaging.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
     "PhoneNumberLookupApi.createLookup": [
         {
             url: "https://numbers.bandwidth.com/api/v1",

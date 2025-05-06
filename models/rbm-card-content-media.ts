@@ -13,19 +13,17 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RbmMediaHeightEnum } from './rbm-media-height-enum';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RbmMessageContentFile } from './rbm-message-content-file';
 
 /**
- * The priority specified by the user.
+ * @type RbmCardContentMedia
  * @export
- * @enum {string}
  */
-
-export const PriorityEnum = {
-    Default: 'default',
-    High: 'high'
-} as const;
-
-export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];
-
+export type RbmCardContentMedia = RbmMessageContentFile;
 
 

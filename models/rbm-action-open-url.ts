@@ -13,19 +13,17 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RbmActionBase } from './rbm-action-base';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 
 /**
- * The priority specified by the user.
+ * @type RbmActionOpenUrl
  * @export
- * @enum {string}
  */
-
-export const PriorityEnum = {
-    Default: 'default',
-    High: 'high'
-} as const;
-
-export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];
-
+export type RbmActionOpenUrl = RbmActionBase;
 
 
