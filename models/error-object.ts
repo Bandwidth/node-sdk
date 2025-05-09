@@ -15,17 +15,22 @@
 
 
 /**
- * The priority specified by the user.
+ * 
  * @export
- * @enum {string}
+ * @interface ErrorObject
  */
-
-export const PriorityEnum = {
-    Default: 'default',
-    High: 'high'
-} as const;
-
-export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];
-
-
+export interface ErrorObject {
+    /**
+     * 
+     * @type {string}
+     * @memberof ErrorObject
+     */
+    'code'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof ErrorObject
+     */
+    'message'?: string;
+}
 

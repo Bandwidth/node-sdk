@@ -15,17 +15,22 @@
 
 
 /**
- * The priority specified by the user.
+ * 
  * @export
- * @enum {string}
+ * @interface Link
  */
-
-export const PriorityEnum = {
-    Default: 'default',
-    High: 'high'
-} as const;
-
-export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];
-
-
+export interface Link {
+    /**
+     * 
+     * @type {string}
+     * @memberof Link
+     */
+    'rel'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Link
+     */
+    'href'?: string;
+}
 
