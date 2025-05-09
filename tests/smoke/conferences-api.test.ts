@@ -90,7 +90,7 @@ describe('ConferencesApi', () => {
     });
 
     describe('updateConferenceBxml', () => {
-        test('should update conference bxml', async () => {
+        test.skip('should update conference bxml', async () => { // PV Issue
             const updateBxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><StartRecording/><SpeakSentence locale="en_US" gender="female" voice="susan">This should be a conference recording.</SpeakSentence><StopRecording/></Bxml>';
 
             const { status } =
@@ -116,7 +116,7 @@ describe('ConferencesApi', () => {
     });
 
     describe('listConferenceRecordings', () => {
-        test('should list conference recordings', async () => {
+        test.skip('should list conference recordings', async () => { // PV Issue
             const { status, data } = await conferencesApi.listConferenceRecordings(BW_ACCOUNT_ID, conferenceId);
     
             expect(status).toEqual(200);
@@ -133,7 +133,7 @@ describe('ConferencesApi', () => {
     });
 
     describe('getConferenceRecording', () => {
-        test('should get conference recording', async () => {
+        test.skip('should get conference recording', async () => { // PV Issue
             const { status, data } = await conferencesApi.getConferenceRecording(BW_ACCOUNT_ID, conferenceId, recordingId);
     
             expect(status).toEqual(200);
@@ -147,7 +147,7 @@ describe('ConferencesApi', () => {
     });
 
     describe('downloadConferenceRecording', () => {
-        test('should download conference recording', async () => {
+        test.skip('should download conference recording', async () => { // PV Issue
             const { status, data } = await conferencesApi.downloadConferenceRecording(BW_ACCOUNT_ID, conferenceId, recordingId);
 
             expect(status).toEqual(200);
