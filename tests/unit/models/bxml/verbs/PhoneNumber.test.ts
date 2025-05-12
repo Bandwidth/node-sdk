@@ -13,10 +13,11 @@ describe('PhoneNumber', () => {
         password: 'initialPassword',
         fallbackUsername: 'initialFallbackUsername',
         fallbackPassword: 'initialFallbackPassword',
-        tag: 'initialTag'
+        tag: 'initialTag',
+        uui: 'initialUUI'
     };
 
-    const expected = '<PhoneNumber transferAnswerUrl="https://initial.com" transferAnswerMethod="POST" transferAnswerFallbackUrl="https://initial.com" transferAnswerFallbackMethod="POST" transferDisconnectUrl="https://initial.com" transferDisconnectMethod="POST" username="initialUsername" password="initialPassword" fallbackUsername="initialFallbackUsername" fallbackPassword="initialFallbackPassword" tag="initialTag">+19195551234</PhoneNumber>';
+    const expected = '<PhoneNumber transferAnswerUrl="https://initial.com" transferAnswerMethod="POST" transferAnswerFallbackUrl="https://initial.com" transferAnswerFallbackMethod="POST" transferDisconnectUrl="https://initial.com" transferDisconnectMethod="POST" username="initialUsername" password="initialPassword" fallbackUsername="initialFallbackUsername" fallbackPassword="initialFallbackPassword" tag="initialTag" uui="initialUUI">+19195551234</PhoneNumber>';
 
     test('should create a PhoneNumber Verb', () => {
         const phoneNumber = new PhoneNumber('+19195551234', attributes);
