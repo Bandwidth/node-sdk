@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **description** | **string** | A detailed description of the event described by the callback. | [default to undefined]
 **message** | [**MessageCallbackMessage**](MessageCallbackMessage.md) |  | [default to undefined]
 **errorCode** | **number** | Optional error code, applicable only when type is &#x60;message-failed&#x60;. | [optional] [default to undefined]
+**carrierName** | **string** | The name of the Authorized Message Provider (AMP) that handled this message. In the US, this is the carrier that the message was sent to. | [optional] [default to undefined]
 
 ## Example
 
@@ -25,6 +26,7 @@ const instance: MessageCallback = {
     description,
     message,
     errorCode,
+    carrierName,
 };
 ```
 

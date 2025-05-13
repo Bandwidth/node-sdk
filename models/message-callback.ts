@@ -62,6 +62,12 @@ export interface MessageCallback {
      * @memberof MessageCallback
      */
     'errorCode'?: number | null;
+    /**
+     * The name of the Authorized Message Provider (AMP) that handled this message. In the US, this is the carrier that the message was sent to.
+     * @type {string}
+     * @memberof MessageCallback
+     */
+    'carrierName'?: string | null;
 }
 
 
