@@ -21,10 +21,10 @@
  */
 
 export const CallbackTypeEnum = {
-    MessageReceived: 'message-received',
-    MessageSending: 'message-sending',
-    MessageDelivered: 'message-delivered',
-    MessageFailed: 'message-failed'
+    Received: 'message-received',
+    Sending: 'message-sending',
+    Delivered: 'message-delivered',
+    Failed: 'message-failed'
 } as const;
 
 export type CallbackTypeEnum = typeof CallbackTypeEnum[keyof typeof CallbackTypeEnum];
