@@ -12,6 +12,7 @@ export interface PhoneNumberAttributes {
     fallbackUsername?: string;
     fallbackPassword?: string;
     tag?: string;
+    uui?: string;
 }
 
 /**
