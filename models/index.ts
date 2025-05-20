@@ -2,6 +2,7 @@ export * from './account-statistics';
 export * from './additional-denial-reason';
 export * from './address';
 export * from './answer-callback';
+export * from './blocked-webhook';
 export * from './bridge-complete-callback';
 export * from './bridge-target-complete-callback';
 export * from './call-direction-enum';

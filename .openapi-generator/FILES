@@ -19,6 +19,7 @@ docs/AccountStatistics.md
 docs/AdditionalDenialReason.md
 docs/Address.md
 docs/AnswerCallback.md
+docs/BlockedWebhook.md
 docs/BridgeCompleteCallback.md
 docs/BridgeTargetCompleteCallback.md
 docs/CallDirectionEnum.md
@@ -176,6 +177,7 @@ models/account-statistics.ts
 models/additional-denial-reason.ts
 models/address.ts
 models/answer-callback.ts
+models/blocked-webhook.ts
 models/bridge-complete-callback.ts
 models/bridge-target-complete-callback.ts
 models/call-direction-enum.ts

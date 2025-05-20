@@ -106,6 +106,6 @@ export interface VerificationRequest {
      * @type {string}
      * @memberof VerificationRequest
      */
-    'businessDBA'?: string;
+    'businessDba'?: string;
 }
 
