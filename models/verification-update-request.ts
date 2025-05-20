@@ -100,6 +100,6 @@ export interface VerificationUpdateRequest {
      * @type {string}
      * @memberof VerificationUpdateRequest
      */
-    'businessDBA'?: string;
+    'businessDba'?: string;
 }
 

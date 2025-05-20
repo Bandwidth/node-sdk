@@ -100,6 +100,6 @@ export interface TfvSubmissionInfo {
      * @type {string}
      * @memberof TfvSubmissionInfo
      */
-    'businessDBA'?: string;
+    'businessDba'?: string;
 }
 
