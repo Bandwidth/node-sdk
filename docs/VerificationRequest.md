@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **isvReseller** | **string** | ISV name. | [optional] [default to undefined]
 **privacyPolicyUrl** | **string** | The Toll-Free Verification request privacy policy URL. (Not Available Until 5/28/2025) | [optional] [default to undefined]
 **termsAndConditionsUrl** | **string** | The Toll-Free Verification request terms and conditions policy URL. (Not Available Until 5/28/2025) | [optional] [default to undefined]
-**businessDBA** | **string** | The company \&#39;Doing Business As\&#39;. (Not Available Until 5/28/2025) | [optional] [default to undefined]
+**businessDba** | **string** | The company \&#39;Doing Business As\&#39;. (Not Available Until 5/28/2025) | [optional] [default to undefined]
 
 ## Example
 
@@ -37,7 +37,7 @@ const instance: VerificationRequest = {
     isvReseller,
     privacyPolicyUrl,
     termsAndConditionsUrl,
-    businessDBA,
+    businessDba,
 };
 ```
 
