@@ -84,19 +84,19 @@ export interface TfvSubmissionInfo {
      */
     'isvReseller'?: string | null;
     /**
-     * The Toll-Free Verification request privacy policy URL. (Not Available Until 5/28/2025)
+     * The Toll-Free Verification request privacy policy URL.
      * @type {string}
      * @memberof TfvSubmissionInfo
      */
     'privacyPolicyUrl'?: string;
     /**
-     * The Toll-Free Verification request terms and conditions policy URL. (Not Available Until 5/28/2025)
+     * The Toll-Free Verification request terms and conditions policy URL.
      * @type {string}
      * @memberof TfvSubmissionInfo
      */
     'termsAndConditionsUrl'?: string;
     /**
-     * The company \'Doing Business As\'. (Not Available Until 5/28/2025)
+     * The company \'Doing Business As\'.
      * @type {string}
      * @memberof TfvSubmissionInfo
      */

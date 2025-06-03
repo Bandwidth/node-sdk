@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **phoneNumber** | **string** | Toll-free telephone number in E.164 format. | [optional] [default to undefined]
 **resubmitAllowed** | **boolean** | Whether a Toll-Free Verification request qualifies for resubmission via PUT. | [optional] [default to undefined]
 **status** | **string** |  | [optional] [default to 'UNVERIFIED']
-**blocked** | **boolean** | Whether a Toll-Free Verification is blocked. This attribute will only be defined when the number is blocked. (Not Available Until 5/28/2025) | [optional] [default to undefined]
-**blockedReason** | **string** | The reason why the Toll-Free Verification is blocked. This attribute will only be defined when the number is blocked. (Not Available Until 5/28/2025) | [optional] [default to undefined]
+**blocked** | **boolean** | Whether a Toll-Free Verification is blocked. This attribute will only be defined when the number is blocked. | [optional] [default to undefined]
+**blockedReason** | **string** | The reason why the Toll-Free Verification is blocked. This attribute will only be defined when the number is blocked. | [optional] [default to undefined]
 
 ## Example
 
