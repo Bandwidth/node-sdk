@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **createdDateTime** | **string** | Date and time the verification request was created. | [optional] [default to undefined]
 **modifiedDateTime** | **string** | Date and time the verification request was last modified. | [optional] [default to undefined]
 **submission** | [**TfvSubmissionInfo**](TfvSubmissionInfo.md) |  | [optional] [default to undefined]
-**blocked** | **boolean** | Whether a Toll-Free Verification is blocked. This attribute will only be defined when the number is blocked. (Not Available Until 5/28/2025) | [optional] [default to undefined]
-**blockedReason** | **string** | The reason why the Toll-Free Verification is blocked. This attribute will only be defined when the number is blocked. (Not Available Until 5/28/2025) | [optional] [default to undefined]
+**blocked** | **boolean** | Whether a Toll-Free Verification is blocked. This attribute will only be defined when the number is blocked. | [optional] [default to undefined]
+**blockedReason** | **string** | The reason why the Toll-Free Verification is blocked. This attribute will only be defined when the number is blocked. | [optional] [default to undefined]
 
 ## Example
 
