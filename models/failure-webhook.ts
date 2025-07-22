@@ -43,7 +43,7 @@ export interface FailureWebhook {
      * @type {string}
      * @memberof FailureWebhook
      */
-    'errorDescription'?: string;
+    'errorMessage'?: string;
     /**
      * Details of the errors that were encountered when processing the request.
      * @type {Array<string>}
