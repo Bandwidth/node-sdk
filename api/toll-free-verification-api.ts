@@ -86,6 +86,48 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             };
         },
         /**
+         * Delete a toll-free verification submission for a toll-free number.
+         * @summary Delete a Toll-Free Verification Submission
+         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteVerificationRequest: async (accountId: string, phoneNumber: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('deleteVerificationRequest', 'accountId', accountId)
+            // verify required parameter 'phoneNumber' is not null or undefined
+            assertParamExists('deleteVerificationRequest', 'phoneNumber', phoneNumber)
+            const localVarPath = `/accounts/{accountId}/phoneNumbers/{phoneNumber}/tollFreeVerification`
+                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
+                .replace(`{${"phoneNumber"}}`, encodeURIComponent(String(phoneNumber)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'DELETE', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Basic required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+
+    
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
          * Delete a webhook subscription by ID.
          * @summary Delete Webhook Subscription
          * @param {string} accountId Your Bandwidth Account ID.
@@ -406,6 +448,20 @@ export const TollFreeVerificationApiFp = function(configuration?: Configuration)
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
+         * Delete a toll-free verification submission for a toll-free number.
+         * @summary Delete a Toll-Free Verification Submission
+         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async deleteVerificationRequest(accountId: string, phoneNumber: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<void>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.deleteVerificationRequest(accountId, phoneNumber, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['TollFreeVerificationApi.deleteVerificationRequest']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
          * Delete a webhook subscription by ID.
          * @summary Delete Webhook Subscription
          * @param {string} accountId Your Bandwidth Account ID.
@@ -524,6 +580,17 @@ export const TollFreeVerificationApiFactory = function (configuration?: Configur
             return localVarFp.createWebhookSubscription(accountId, webhookSubscriptionRequestSchema, options).then((request) => request(axios, basePath));
         },
         /**
+         * Delete a toll-free verification submission for a toll-free number.
+         * @summary Delete a Toll-Free Verification Submission
+         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        deleteVerificationRequest(accountId: string, phoneNumber: string, options?: RawAxiosRequestConfig): AxiosPromise<void> {
+            return localVarFp.deleteVerificationRequest(accountId, phoneNumber, options).then((request) => request(axios, basePath));
+        },
+        /**
          * Delete a webhook subscription by ID.
          * @summary Delete Webhook Subscription
          * @param {string} accountId Your Bandwidth Account ID.
@@ -620,6 +687,19 @@ export class TollFreeVerificationApi extends BaseAPI {
      */
     public createWebhookSubscription(accountId: string, webhookSubscriptionRequestSchema: WebhookSubscriptionRequestSchema, options?: RawAxiosRequestConfig) {
         return TollFreeVerificationApiFp(this.configuration).createWebhookSubscription(accountId, webhookSubscriptionRequestSchema, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Delete a toll-free verification submission for a toll-free number.
+     * @summary Delete a Toll-Free Verification Submission
+     * @param {string} accountId Your Bandwidth Account ID.
+     * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     * @memberof TollFreeVerificationApi
+     */
+    public deleteVerificationRequest(accountId: string, phoneNumber: string, options?: RawAxiosRequestConfig) {
+        return TollFreeVerificationApiFp(this.configuration).deleteVerificationRequest(accountId, phoneNumber, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**

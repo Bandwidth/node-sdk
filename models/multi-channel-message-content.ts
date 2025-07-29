@@ -15,31 +15,25 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ErrorSource } from './error-source';
+import type { RbmMessageContentFile } from './rbm-message-content-file';
 
 /**
- * 
+ * The structure of the content field of a multichannel message.
  * @export
- * @interface ErrorObject
+ * @interface MultiChannelMessageContent
  */
-export interface ErrorObject {
-    /**
-     * A concise summary of the error used for categorization.
-     * @type {string}
-     * @memberof ErrorObject
-     */
-    'type': string;
-    /**
-     * A detailed explanation of the error.
-     * @type {string}
-     * @memberof ErrorObject
-     */
-    'description': string;
+export interface MultiChannelMessageContent {
     /**
      * 
-     * @type {ErrorSource}
-     * @memberof ErrorObject
+     * @type {string}
+     * @memberof MultiChannelMessageContent
      */
-    'source': ErrorSource;
+    'text'?: string;
+    /**
+     * 
+     * @type {RbmMessageContentFile}
+     * @memberof MultiChannelMessageContent
+     */
+    'media'?: RbmMessageContentFile;
 }
 

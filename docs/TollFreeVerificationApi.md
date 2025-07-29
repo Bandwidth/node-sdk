@@ -5,6 +5,7 @@ All URIs are relative to *http://localhost*
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
 |[**createWebhookSubscription**](#createwebhooksubscription) | **POST** /accounts/{accountId}/tollFreeVerification/webhooks/subscriptions | Create Webhook Subscription|
+|[**deleteVerificationRequest**](#deleteverificationrequest) | **DELETE** /accounts/{accountId}/phoneNumbers/{phoneNumber}/tollFreeVerification | Delete a Toll-Free Verification Submission|
 |[**deleteWebhookSubscription**](#deletewebhooksubscription) | **DELETE** /accounts/{accountId}/tollFreeVerification/webhooks/subscriptions/{id} | Delete Webhook Subscription|
 |[**getTollFreeVerificationStatus**](#gettollfreeverificationstatus) | **GET** /accounts/{accountId}/phoneNumbers/{phoneNumber}/tollFreeVerification | Get Toll-Free Verification Status|
 |[**listTollFreeUseCases**](#listtollfreeusecases) | **GET** /tollFreeVerification/useCases | List Toll-Free Use Cases|
@@ -65,6 +66,68 @@ const { status, data } = await apiInstance.createWebhookSubscription(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**201** | Created |  -  |
+|**400** | Bad Request |  -  |
+|**401** | Unauthorized |  -  |
+|**403** | Forbidden |  -  |
+|**404** | Cannot find the requested resource. |  -  |
+|**405** | Method Not Allowed |  -  |
+|**429** | Too Many Requests |  -  |
+|**500** | Internal Server Error |  -  |
+|**503** | Service Unavailable |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **deleteVerificationRequest**
+> deleteVerificationRequest()
+
+Delete a toll-free verification submission for a toll-free number.
+
+### Example
+
+```typescript
+import {
+    TollFreeVerificationApi,
+    Configuration
+} from 'bandwidth-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new TollFreeVerificationApi(configuration);
+
+let accountId: string; //Your Bandwidth Account ID. (default to undefined)
+let phoneNumber: string; //Valid Toll-Free telephone number in E.164 format. (default to undefined)
+
+const { status, data } = await apiInstance.deleteVerificationRequest(
+    accountId,
+    phoneNumber
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **accountId** | [**string**] | Your Bandwidth Account ID. | defaults to undefined|
+| **phoneNumber** | [**string**] | Valid Toll-Free telephone number in E.164 format. | defaults to undefined|
+
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[Basic](../README.md#Basic)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**204** | No Content |  -  |
 |**400** | Bad Request |  -  |
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |

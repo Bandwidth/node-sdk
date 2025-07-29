@@ -21,6 +21,9 @@ import type { CardWidthEnum } from './card-width-enum';
 import type { MmsMessageContent } from './mms-message-content';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { MmsMessageContentFile } from './mms-message-content-file';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { MultiChannelAction } from './multi-channel-action';
 // May contain unused imports in some cases
 // @ts-ignore

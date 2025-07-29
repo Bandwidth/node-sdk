@@ -13,35 +13,24 @@
  */
 
 
-// May contain unused imports in some cases
-// @ts-ignore
-import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 
 /**
  * 
  * @export
- * @interface RbmActionBase
+ * @interface RbmSuggestionResponse
  */
-export interface RbmActionBase {
+export interface RbmSuggestionResponse {
     /**
-     * 
-     * @type {RbmActionTypeEnum}
-     * @memberof RbmActionBase
-     */
-    'type': RbmActionTypeEnum;
-    /**
-     * Displayed text for user to click
+     * The text associated with the suggestion response.
      * @type {string}
-     * @memberof RbmActionBase
+     * @memberof RbmSuggestionResponse
      */
-    'text': string;
+    'text'?: string;
     /**
      * Base64 payload the customer receives when the reply is clicked.
      * @type {string}
-     * @memberof RbmActionBase
+     * @memberof RbmSuggestionResponse
      */
-    'postbackData': string;
+    'postbackData'?: string;
 }
-
-
 

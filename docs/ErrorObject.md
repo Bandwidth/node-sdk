@@ -5,8 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **string** |  | [optional] [default to undefined]
-**message** | **string** |  | [optional] [default to undefined]
+**type** | **string** | A concise summary of the error used for categorization. | [default to undefined]
+**description** | **string** | A detailed explanation of the error. | [default to undefined]
+**source** | [**ErrorSource**](ErrorSource.md) |  | [default to undefined]
 
 ## Example
 
@@ -14,8 +15,9 @@ Name | Type | Description | Notes
 import { ErrorObject } from 'bandwidth-sdk';
 
 const instance: ErrorObject = {
-    code,
-    message,
+    type,
+    description,
+    source,
 };
 ```
 

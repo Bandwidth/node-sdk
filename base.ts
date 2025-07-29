@@ -311,6 +311,12 @@ export const operationServerMap: ServerMap = {
             description: "Production",
         }
     ],
+    "TollFreeVerificationApi.deleteVerificationRequest": [
+        {
+            url: "https://api.bandwidth.com/api/v2",
+            description: "Production",
+        }
+    ],
     "TollFreeVerificationApi.deleteWebhookSubscription": [
         {
             url: "https://api.bandwidth.com/api/v2",
