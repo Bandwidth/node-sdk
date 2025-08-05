@@ -13,6 +13,9 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { MmsMessageContentFile } from './mms-message-content-file';
 
 /**
  * 
@@ -27,10 +30,10 @@ export interface MmsMessageContent {
      */
     'text'?: string;
     /**
-     * A list of URLs to include as media attachments as part of the message. Each URL can be at most 4096 characters.
-     * @type {Array<string>}
+     * 
+     * @type {Array<MmsMessageContentFile>}
      * @memberof MmsMessageContent
      */
-    'media'?: Array<string>;
+    'media'?: Array<MmsMessageContentFile>;
 }
 

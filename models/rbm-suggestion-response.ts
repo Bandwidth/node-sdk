@@ -17,20 +17,20 @@
 /**
  * 
  * @export
- * @interface Tag
+ * @interface RbmSuggestionResponse
  */
-export interface Tag {
+export interface RbmSuggestionResponse {
     /**
-     * 
+     * The text associated with the suggestion response.
      * @type {string}
-     * @memberof Tag
+     * @memberof RbmSuggestionResponse
      */
-    'key'?: string;
+    'text'?: string;
     /**
-     * 
+     * Base64 payload the customer receives when the reply is clicked.
      * @type {string}
-     * @memberof Tag
+     * @memberof RbmSuggestionResponse
      */
-    'value'?: string;
+    'postbackData'?: string;
 }
 

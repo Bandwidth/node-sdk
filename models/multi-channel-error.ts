@@ -19,32 +19,29 @@ import type { ErrorObject } from './error-object';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { Link } from './link';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { MultiChannelMessageResponseData } from './multi-channel-message-response-data';
 
 /**
  * 
  * @export
- * @interface CreateMultiChannelMessageResponse
+ * @interface MultiChannelError
  */
-export interface CreateMultiChannelMessageResponse {
+export interface MultiChannelError {
     /**
      * 
      * @type {Array<Link>}
-     * @memberof CreateMultiChannelMessageResponse
+     * @memberof MultiChannelError
      */
     'links'?: Array<Link>;
     /**
      * 
-     * @type {MultiChannelMessageResponseData}
-     * @memberof CreateMultiChannelMessageResponse
+     * @type {object}
+     * @memberof MultiChannelError
      */
-    'data'?: MultiChannelMessageResponseData;
+    'data'?: object | null;
     /**
      * 
      * @type {Array<ErrorObject>}
-     * @memberof CreateMultiChannelMessageResponse
+     * @memberof MultiChannelError
      */
     'errors'?: Array<ErrorObject>;
 }

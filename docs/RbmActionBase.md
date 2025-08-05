@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**RbmActionTypeEnum**](RbmActionTypeEnum.md) |  | [default to undefined]
 **text** | **string** | Displayed text for user to click | [default to undefined]
-**postBackData** | **string** | Base64 payload the customer receives when the reply is clicked. | [default to undefined]
+**postbackData** | **string** | Base64 payload the customer receives when the reply is clicked. | [default to undefined]
 
 ## Example
 
@@ -17,7 +17,7 @@ import { RbmActionBase } from 'bandwidth-sdk';
 const instance: RbmActionBase = {
     type,
     text,
-    postBackData,
+    postbackData,
 };
 ```
 

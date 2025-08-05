@@ -22,11 +22,9 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import type { CreateMessageRequestError } from '../models';
-// @ts-ignore
 import type { CreateMultiChannelMessageResponse } from '../models';
 // @ts-ignore
-import type { MessagingRequestError } from '../models';
+import type { MultiChannelError } from '../models';
 // @ts-ignore
 import type { MultiChannelMessageRequest } from '../models';
 /**

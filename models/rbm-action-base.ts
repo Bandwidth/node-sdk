@@ -40,7 +40,7 @@ export interface RbmActionBase {
      * @type {string}
      * @memberof RbmActionBase
      */
-    'postBackData': string;
+    'postbackData': string;
 }
 
 

@@ -24,7 +24,7 @@ import type { PriorityEnum } from './priority-enum';
  */
 export interface MessageRequest {
     /**
-     * The ID of the Application your from number is associated with in the Bandwidth Phone Number Dashboard.
+     * The ID of the Application your from number or senderId is associated with in the Bandwidth Phone Number Dashboard.
      * @type {string}
      * @memberof MessageRequest
      */

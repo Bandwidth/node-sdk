@@ -72,7 +72,7 @@ export interface ListMessageItem {
      */
     'messageType'?: MessageTypeEnum;
     /**
-     * The number of segments the message was sent as.
+     * The number of segments the user\'s message is broken into before sending over carrier networks.
      * @type {number}
      * @memberof ListMessageItem
      */

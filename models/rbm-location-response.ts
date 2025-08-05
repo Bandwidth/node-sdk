@@ -17,17 +17,20 @@
 /**
  * 
  * @export
- * @enum {string}
+ * @interface RbmLocationResponse
  */
-
-export const MultiChannelStatusEnum = {
-    Queued: 'QUEUED',
-    Sending: 'SENDING',
-    Delivered: 'DELIVERED',
-    Failed: 'FAILED'
-} as const;
-
-export type MultiChannelStatusEnum = typeof MultiChannelStatusEnum[keyof typeof MultiChannelStatusEnum];
-
-
+export interface RbmLocationResponse {
+    /**
+     * The latitude of the client\'s location.
+     * @type {number}
+     * @memberof RbmLocationResponse
+     */
+    'latitude'?: number;
+    /**
+     * The longitude of the client\'s location.
+     * @type {number}
+     * @memberof RbmLocationResponse
+     */
+    'longitude'?: number;
+}
 

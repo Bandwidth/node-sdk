@@ -59,6 +59,13 @@ describe('TollFreeVerificationApi', () => {
         });
     });
 
+    describe('deleteVerificationRequest', () => {
+        test('should delete toll-free verification request', async () => {
+            const { status } = await tfvApi.deleteVerificationRequest(BW_ACCOUNT_ID, '+18005551234');
+            expect(status).toEqual(204);
+        });
+    });
+
     describe('listTollFreeUseCases', () => {
         test('should list toll-free use cases', async () => {
             const { status, data } = await tfvApi.listTollFreeUseCases();
