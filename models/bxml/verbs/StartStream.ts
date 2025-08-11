@@ -6,6 +6,8 @@ export interface StartStreamAttributes {
     mode?: string;
     tracks?: string;
     destination?: string;
+    destinationUsername?: string;
+    destinationPassword?: string;
     streamEventUrl?: string;
     streamEventMethod?: string;
     username?: string;
