@@ -111,6 +111,7 @@ docs/OptInWorkflow.md
 docs/PageInfo.md
 docs/PhoneNumberLookupApi.md
 docs/PriorityEnum.md
+docs/ProductTypeEnum.md
 docs/RbmActionBase.md
 docs/RbmActionDial.md
 docs/RbmActionOpenUrl.md
@@ -269,6 +270,7 @@ models/multi-channel-message-response-data.ts
 models/opt-in-workflow.ts
 models/page-info.ts
 models/priority-enum.ts
+models/product-type-enum.ts
 models/rbm-action-base.ts
 models/rbm-action-dial.ts
 models/rbm-action-open-url.ts

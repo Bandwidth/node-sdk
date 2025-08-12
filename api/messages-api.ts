@@ -37,6 +37,8 @@ import type { MessageTypeEnum } from '../models';
 import type { MessagesList } from '../models';
 // @ts-ignore
 import type { MessagingRequestError } from '../models';
+// @ts-ignore
+import type { ProductTypeEnum } from '../models';
 /**
  * MessagesApi - axios parameter creator
  * @export
@@ -102,6 +104,16 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {string} [fromDateTime] The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
          * @param {string} [toDateTime] The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
          * @param {string} [campaignId] The campaign ID of the message.
+         * @param {number} [fromBwLatency] The minimum Bandwidth latency of the message in seconds. Only available for accounts with the Advanced Quality Metrics feature enabled.
+         * @param {boolean} [bwQueued] A boolean value indicating whether the message is queued in the Bandwidth network.
+         * @param {ProductTypeEnum} [product] Messaging product associated with the message.
+         * @param {string} [location] Location Id associated with the message.
+         * @param {string} [callingNumberCountryA3] Calling number country in A3 format.
+         * @param {string} [calledNumberCountryA3] Called number country in A3 format.
+         * @param {number} [fromSegmentCount] Segment count (start range).
+         * @param {number} [toSegmentCount] Segment count (end range).
+         * @param {number} [fromMessageSize] Message size (start range).
+         * @param {number} [toMessageSize] Message size (end range).
          * @param {string} [sort] The field and direction to sort by combined with a colon. Direction is either asc or desc.
          * @param {string} [pageToken] A base64 encoded value used for pagination of results.
          * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000.
@@ -109,7 +121,7 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMessages: async (accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        listMessages: async (accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, fromBwLatency?: number, bwQueued?: boolean, product?: ProductTypeEnum, location?: string, callingNumberCountryA3?: string, calledNumberCountryA3?: string, fromSegmentCount?: number, toSegmentCount?: number, fromMessageSize?: number, toMessageSize?: number, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listMessages', 'accountId', accountId)
             const localVarPath = `/users/{accountId}/messages`
@@ -171,6 +183,46 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
 
             if (campaignId !== undefined) {
                 localVarQueryParameter['campaignId'] = campaignId;
+            }
+
+            if (fromBwLatency !== undefined) {
+                localVarQueryParameter['fromBwLatency'] = fromBwLatency;
+            }
+
+            if (bwQueued !== undefined) {
+                localVarQueryParameter['bwQueued'] = bwQueued;
+            }
+
+            if (product !== undefined) {
+                localVarQueryParameter['product'] = product;
+            }
+
+            if (location !== undefined) {
+                localVarQueryParameter['location'] = location;
+            }
+
+            if (callingNumberCountryA3 !== undefined) {
+                localVarQueryParameter['callingNumberCountryA3'] = callingNumberCountryA3;
+            }
+
+            if (calledNumberCountryA3 !== undefined) {
+                localVarQueryParameter['calledNumberCountryA3'] = calledNumberCountryA3;
+            }
+
+            if (fromSegmentCount !== undefined) {
+                localVarQueryParameter['fromSegmentCount'] = fromSegmentCount;
+            }
+
+            if (toSegmentCount !== undefined) {
+                localVarQueryParameter['toSegmentCount'] = toSegmentCount;
+            }
+
+            if (fromMessageSize !== undefined) {
+                localVarQueryParameter['fromMessageSize'] = fromMessageSize;
+            }
+
+            if (toMessageSize !== undefined) {
+                localVarQueryParameter['toMessageSize'] = toMessageSize;
             }
 
             if (sort !== undefined) {
@@ -239,6 +291,16 @@ export const MessagesApiFp = function(configuration?: Configuration) {
          * @param {string} [fromDateTime] The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
          * @param {string} [toDateTime] The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
          * @param {string} [campaignId] The campaign ID of the message.
+         * @param {number} [fromBwLatency] The minimum Bandwidth latency of the message in seconds. Only available for accounts with the Advanced Quality Metrics feature enabled.
+         * @param {boolean} [bwQueued] A boolean value indicating whether the message is queued in the Bandwidth network.
+         * @param {ProductTypeEnum} [product] Messaging product associated with the message.
+         * @param {string} [location] Location Id associated with the message.
+         * @param {string} [callingNumberCountryA3] Calling number country in A3 format.
+         * @param {string} [calledNumberCountryA3] Called number country in A3 format.
+         * @param {number} [fromSegmentCount] Segment count (start range).
+         * @param {number} [toSegmentCount] Segment count (end range).
+         * @param {number} [fromMessageSize] Message size (start range).
+         * @param {number} [toMessageSize] Message size (end range).
          * @param {string} [sort] The field and direction to sort by combined with a colon. Direction is either asc or desc.
          * @param {string} [pageToken] A base64 encoded value used for pagination of results.
          * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000.
@@ -246,8 +308,8 @@ export const MessagesApiFp = function(configuration?: Configuration) {
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        async listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessagesList>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, sort, pageToken, limit, limitTotalCount, options);
+        async listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, fromBwLatency?: number, bwQueued?: boolean, product?: ProductTypeEnum, location?: string, callingNumberCountryA3?: string, calledNumberCountryA3?: string, fromSegmentCount?: number, toSegmentCount?: number, fromMessageSize?: number, toMessageSize?: number, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<MessagesList>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, fromBwLatency, bwQueued, product, location, callingNumberCountryA3, calledNumberCountryA3, fromSegmentCount, toSegmentCount, fromMessageSize, toMessageSize, sort, pageToken, limit, limitTotalCount, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
             const localVarOperationServerBasePath = operationServerMap['MessagesApi.listMessages']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
@@ -288,6 +350,16 @@ export const MessagesApiFactory = function (configuration?: Configuration, baseP
          * @param {string} [fromDateTime] The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
          * @param {string} [toDateTime] The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
          * @param {string} [campaignId] The campaign ID of the message.
+         * @param {number} [fromBwLatency] The minimum Bandwidth latency of the message in seconds. Only available for accounts with the Advanced Quality Metrics feature enabled.
+         * @param {boolean} [bwQueued] A boolean value indicating whether the message is queued in the Bandwidth network.
+         * @param {ProductTypeEnum} [product] Messaging product associated with the message.
+         * @param {string} [location] Location Id associated with the message.
+         * @param {string} [callingNumberCountryA3] Calling number country in A3 format.
+         * @param {string} [calledNumberCountryA3] Called number country in A3 format.
+         * @param {number} [fromSegmentCount] Segment count (start range).
+         * @param {number} [toSegmentCount] Segment count (end range).
+         * @param {number} [fromMessageSize] Message size (start range).
+         * @param {number} [toMessageSize] Message size (end range).
          * @param {string} [sort] The field and direction to sort by combined with a colon. Direction is either asc or desc.
          * @param {string} [pageToken] A base64 encoded value used for pagination of results.
          * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000.
@@ -295,8 +367,8 @@ export const MessagesApiFactory = function (configuration?: Configuration, baseP
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
-        listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<MessagesList> {
-            return localVarFp.listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, sort, pageToken, limit, limitTotalCount, options).then((request) => request(axios, basePath));
+        listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, fromBwLatency?: number, bwQueued?: boolean, product?: ProductTypeEnum, location?: string, callingNumberCountryA3?: string, calledNumberCountryA3?: string, fromSegmentCount?: number, toSegmentCount?: number, fromMessageSize?: number, toMessageSize?: number, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: RawAxiosRequestConfig): AxiosPromise<MessagesList> {
+            return localVarFp.listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, fromBwLatency, bwQueued, product, location, callingNumberCountryA3, calledNumberCountryA3, fromSegmentCount, toSegmentCount, fromMessageSize, toMessageSize, sort, pageToken, limit, limitTotalCount, options).then((request) => request(axios, basePath));
         },
     };
 };
@@ -336,6 +408,16 @@ export class MessagesApi extends BaseAPI {
      * @param {string} [fromDateTime] The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
      * @param {string} [toDateTime] The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days.
      * @param {string} [campaignId] The campaign ID of the message.
+     * @param {number} [fromBwLatency] The minimum Bandwidth latency of the message in seconds. Only available for accounts with the Advanced Quality Metrics feature enabled.
+     * @param {boolean} [bwQueued] A boolean value indicating whether the message is queued in the Bandwidth network.
+     * @param {ProductTypeEnum} [product] Messaging product associated with the message.
+     * @param {string} [location] Location Id associated with the message.
+     * @param {string} [callingNumberCountryA3] Calling number country in A3 format.
+     * @param {string} [calledNumberCountryA3] Called number country in A3 format.
+     * @param {number} [fromSegmentCount] Segment count (start range).
+     * @param {number} [toSegmentCount] Segment count (end range).
+     * @param {number} [fromMessageSize] Message size (start range).
+     * @param {number} [toMessageSize] Message size (end range).
      * @param {string} [sort] The field and direction to sort by combined with a colon. Direction is either asc or desc.
      * @param {string} [pageToken] A base64 encoded value used for pagination of results.
      * @param {number} [limit] The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000.
@@ -344,8 +426,8 @@ export class MessagesApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof MessagesApi
      */
-    public listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: RawAxiosRequestConfig) {
-        return MessagesApiFp(this.configuration).listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, sort, pageToken, limit, limitTotalCount, options).then((request) => request(this.axios, this.basePath));
+    public listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, fromBwLatency?: number, bwQueued?: boolean, product?: ProductTypeEnum, location?: string, callingNumberCountryA3?: string, calledNumberCountryA3?: string, fromSegmentCount?: number, toSegmentCount?: number, fromMessageSize?: number, toMessageSize?: number, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: RawAxiosRequestConfig) {
+        return MessagesApiFp(this.configuration).listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, fromBwLatency, bwQueued, product, location, callingNumberCountryA3, calledNumberCountryA3, fromSegmentCount, toSegmentCount, fromMessageSize, toMessageSize, sort, pageToken, limit, limitTotalCount, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

@@ -22,7 +22,8 @@
 
 export const MessageTypeEnum = {
     Sms: 'sms',
-    Mms: 'mms'
+    Mms: 'mms',
+    Rcs: 'rcs'
 } as const;
 
 export type MessageTypeEnum = typeof MessageTypeEnum[keyof typeof MessageTypeEnum];

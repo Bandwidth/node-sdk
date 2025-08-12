@@ -87,6 +87,7 @@ export * from './multi-channel-message-response-data-channel-list-inner';
 export * from './opt-in-workflow';
 export * from './page-info';
 export * from './priority-enum';
+export * from './product-type-enum';
 export * from './rbm-action-base';
 export * from './rbm-action-dial';
 export * from './rbm-action-open-url';

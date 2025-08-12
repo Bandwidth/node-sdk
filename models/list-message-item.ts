@@ -131,6 +131,36 @@ export interface ListMessageItem {
      * @memberof ListMessageItem
      */
     'campaignId'?: string | null;
+    /**
+     * The Bandwidth latency of the message in seconds. Only available for accounts with the Advanced Quality Metrics feature enabled.
+     * @type {number}
+     * @memberof ListMessageItem
+     */
+    'bwLatency'?: number | null;
+    /**
+     * The A3 country code of the calling number.
+     * @type {string}
+     * @memberof ListMessageItem
+     */
+    'callingNumberCountryA3'?: string | null;
+    /**
+     * The A3 country code of the called number.
+     * @type {string}
+     * @memberof ListMessageItem
+     */
+    'calledNumberCountryA3'?: string | null;
+    /**
+     * The messaging product associated with the message.
+     * @type {string}
+     * @memberof ListMessageItem
+     */
+    'product'?: string | null;
+    /**
+     * The location ID associated with this message.
+     * @type {string}
+     * @memberof ListMessageItem
+     */
+    'location'?: string | null;
 }
 
 
