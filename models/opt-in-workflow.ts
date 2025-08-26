@@ -32,5 +32,11 @@ export interface OptInWorkflow {
      * @memberof OptInWorkflow
      */
     'imageUrls': Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof OptInWorkflow
+     */
+    'confirmationResponse'?: string | null;
 }
 

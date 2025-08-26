@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **description** | **string** |  | [default to undefined]
 **imageUrls** | **Array&lt;string&gt;** |  | [default to undefined]
+**confirmationResponse** | **string** |  | [optional] [default to undefined]
 
 ## Example
 
@@ -16,6 +17,7 @@ import { OptInWorkflow } from 'bandwidth-sdk';
 const instance: OptInWorkflow = {
     description,
     imageUrls,
+    confirmationResponse,
 };
 ```
 

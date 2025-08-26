@@ -18,6 +18,12 @@
 import type { Address } from './address';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { BusinessEntityTypeEnum } from './business-entity-type-enum';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { BusinessRegistrationTypeEnum } from './business-registration-type-enum';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { Contact } from './contact';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -107,5 +113,37 @@ export interface VerificationRequest {
      * @memberof VerificationRequest
      */
     'businessDba'?: string;
+    /**
+     * US Federal Tax ID Number (EIN) or Canada Business Number (CBN). Optional until early 2026. If a value is provided for this field, a value must be provided for `businessRegistrationType` and `businessEntityType`. Available starting October 1st, 2025.
+     * @type {string}
+     * @memberof VerificationRequest
+     */
+    'businessRegistrationNumber'?: string | null;
+    /**
+     * 
+     * @type {BusinessRegistrationTypeEnum}
+     * @memberof VerificationRequest
+     */
+    'businessRegistrationType'?: BusinessRegistrationTypeEnum | null;
+    /**
+     * 
+     * @type {BusinessEntityTypeEnum}
+     * @memberof VerificationRequest
+     */
+    'businessEntityType'?: BusinessEntityTypeEnum | null;
+    /**
+     * A message that gets sent to users requesting help.
+     * @type {string}
+     * @memberof VerificationRequest
+     */
+    'helpMessageResponse'?: string | null;
+    /**
+     * Indicates whether the content is age-gated.
+     * @type {boolean}
+     * @memberof VerificationRequest
+     */
+    'ageGatedContent'?: boolean;
 }
+
+
 

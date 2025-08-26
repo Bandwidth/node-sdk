@@ -22,6 +22,12 @@ Name | Type | Description | Notes
 **recipientCount** | **number** | The number of recipients the message has. | [optional] [default to undefined]
 **campaignClass** | **string** | The campaign class of the message if it has one. | [optional] [default to undefined]
 **campaignId** | **string** | The campaign ID of the message if it has one. | [optional] [default to undefined]
+**bwLatency** | **number** | The Bandwidth latency of the message in seconds. Only available for accounts with the Advanced Quality Metrics feature enabled. | [optional] [default to undefined]
+**carrierLatency** | **number** | The carrier latency of the message in seconds. Only available for OUTBOUND messages from accounts with the Advanced Quality Metrics feature enabled. | [optional] [default to undefined]
+**callingNumberCountryA3** | **string** | The A3 country code of the calling number. | [optional] [default to undefined]
+**calledNumberCountryA3** | **string** | The A3 country code of the called number. | [optional] [default to undefined]
+**product** | **string** | The messaging product associated with the message. | [optional] [default to undefined]
+**location** | **string** | The location ID associated with this message. | [optional] [default to undefined]
 
 ## Example
 
@@ -46,6 +52,12 @@ const instance: ListMessageItem = {
     recipientCount,
     campaignClass,
     campaignId,
+    bwLatency,
+    carrierLatency,
+    callingNumberCountryA3,
+    calledNumberCountryA3,
+    product,
+    location,
 };
 ```
 

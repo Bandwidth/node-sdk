@@ -17,6 +17,9 @@ Name | Type | Description | Notes
 **privacyPolicyUrl** | **string** | The Toll-Free Verification request privacy policy URL. | [optional] [default to undefined]
 **termsAndConditionsUrl** | **string** | The Toll-Free Verification request terms and conditions policy URL. | [optional] [default to undefined]
 **businessDba** | **string** | The company \&#39;Doing Business As\&#39;. | [optional] [default to undefined]
+**businessRegistrationNumber** | **string** | US Federal Tax ID Number (EIN) or Canada Business Number (CBN). Optional until early 2026. If a value is provided for this field, a value must be provided for &#x60;businessRegistrationType&#x60; and &#x60;businessEntityType&#x60;. Available starting October 1st, 2025. | [optional] [default to undefined]
+**businessRegistrationType** | [**BusinessRegistrationTypeEnum**](BusinessRegistrationTypeEnum.md) |  | [optional] [default to undefined]
+**businessEntityType** | [**BusinessEntityTypeEnum**](BusinessEntityTypeEnum.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -36,6 +39,9 @@ const instance: TfvSubmissionInfo = {
     privacyPolicyUrl,
     termsAndConditionsUrl,
     businessDba,
+    businessRegistrationNumber,
+    businessRegistrationType,
+    businessEntityType,
 };
 ```
 

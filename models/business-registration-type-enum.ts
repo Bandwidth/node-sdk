@@ -15,18 +15,17 @@
 
 
 /**
- * The type of message. Either SMS or MMS.
+ * The type of business registration number. Optional until early 2026; required if `businessRegistrationNumber` is provided. Available starting October 1st, 2025.
  * @export
  * @enum {string}
  */
 
-export const MessageTypeEnum = {
-    Sms: 'sms',
-    Mms: 'mms',
-    Rcs: 'rcs'
+export const BusinessRegistrationTypeEnum = {
+    Ein: 'EIN',
+    Cbn: 'CBN'
 } as const;
 
-export type MessageTypeEnum = typeof MessageTypeEnum[keyof typeof MessageTypeEnum];
+export type BusinessRegistrationTypeEnum = typeof BusinessRegistrationTypeEnum[keyof typeof BusinessRegistrationTypeEnum];
 
 
 

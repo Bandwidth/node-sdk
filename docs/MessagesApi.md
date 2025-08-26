@@ -99,6 +99,18 @@ let errorCode: number; //The error code of the message. (optional) (default to u
 let fromDateTime: string; //The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. (optional) (default to undefined)
 let toDateTime: string; //The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. (optional) (default to undefined)
 let campaignId: string; //The campaign ID of the message. (optional) (default to undefined)
+let fromBwLatency: number; //The minimum Bandwidth latency of the message in seconds. Only available for accounts with the Advanced Quality Metrics feature enabled. (optional) (default to undefined)
+let bwQueued: boolean; //A boolean value indicating whether the message is queued in the Bandwidth network. (optional) (default to undefined)
+let product: ProductTypeEnum; //Messaging product associated with the message. (optional) (default to undefined)
+let location: string; //Location Id associated with the message. (optional) (default to undefined)
+let carrierQueued: boolean; //A boolean value indicating whether the message is queued in the carrier network. Only available for OUTBOUND messages from accounts with the Advanced Quality Metrics feature enabled. (optional) (default to undefined)
+let fromCarrierLatency: number; //The minimum carrier latency of the message in seconds. Only available for OUTBOUND messages from accounts with the Advanced Quality Metrics feature enabled. (optional) (default to undefined)
+let callingNumberCountryA3: string; //Calling number country in A3 format. (optional) (default to undefined)
+let calledNumberCountryA3: string; //Called number country in A3 format. (optional) (default to undefined)
+let fromSegmentCount: number; //Segment count (start range). (optional) (default to undefined)
+let toSegmentCount: number; //Segment count (end range). (optional) (default to undefined)
+let fromMessageSize: number; //Message size (start range). (optional) (default to undefined)
+let toMessageSize: number; //Message size (end range). (optional) (default to undefined)
 let sort: string; //The field and direction to sort by combined with a colon. Direction is either asc or desc. (optional) (default to undefined)
 let pageToken: string; //A base64 encoded value used for pagination of results. (optional) (default to undefined)
 let limit: number; //The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000. (optional) (default to undefined)
@@ -117,6 +129,18 @@ const { status, data } = await apiInstance.listMessages(
     fromDateTime,
     toDateTime,
     campaignId,
+    fromBwLatency,
+    bwQueued,
+    product,
+    location,
+    carrierQueued,
+    fromCarrierLatency,
+    callingNumberCountryA3,
+    calledNumberCountryA3,
+    fromSegmentCount,
+    toSegmentCount,
+    fromMessageSize,
+    toMessageSize,
     sort,
     pageToken,
     limit,
@@ -140,6 +164,18 @@ const { status, data } = await apiInstance.listMessages(
 | **fromDateTime** | [**string**] | The start of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. | (optional) defaults to undefined|
 | **toDateTime** | [**string**] | The end of the date range to search in ISO 8601 format. Uses the message receive time. The date range to search in is currently 14 days. | (optional) defaults to undefined|
 | **campaignId** | [**string**] | The campaign ID of the message. | (optional) defaults to undefined|
+| **fromBwLatency** | [**number**] | The minimum Bandwidth latency of the message in seconds. Only available for accounts with the Advanced Quality Metrics feature enabled. | (optional) defaults to undefined|
+| **bwQueued** | [**boolean**] | A boolean value indicating whether the message is queued in the Bandwidth network. | (optional) defaults to undefined|
+| **product** | **ProductTypeEnum** | Messaging product associated with the message. | (optional) defaults to undefined|
+| **location** | [**string**] | Location Id associated with the message. | (optional) defaults to undefined|
+| **carrierQueued** | [**boolean**] | A boolean value indicating whether the message is queued in the carrier network. Only available for OUTBOUND messages from accounts with the Advanced Quality Metrics feature enabled. | (optional) defaults to undefined|
+| **fromCarrierLatency** | [**number**] | The minimum carrier latency of the message in seconds. Only available for OUTBOUND messages from accounts with the Advanced Quality Metrics feature enabled. | (optional) defaults to undefined|
+| **callingNumberCountryA3** | [**string**] | Calling number country in A3 format. | (optional) defaults to undefined|
+| **calledNumberCountryA3** | [**string**] | Called number country in A3 format. | (optional) defaults to undefined|
+| **fromSegmentCount** | [**number**] | Segment count (start range). | (optional) defaults to undefined|
+| **toSegmentCount** | [**number**] | Segment count (end range). | (optional) defaults to undefined|
+| **fromMessageSize** | [**number**] | Message size (start range). | (optional) defaults to undefined|
+| **toMessageSize** | [**number**] | Message size (end range). | (optional) defaults to undefined|
 | **sort** | [**string**] | The field and direction to sort by combined with a colon. Direction is either asc or desc. | (optional) defaults to undefined|
 | **pageToken** | [**string**] | A base64 encoded value used for pagination of results. | (optional) defaults to undefined|
 | **limit** | [**number**] | The maximum records requested in search result. Default 100. The sum of limit and after cannot be more than 10000. | (optional) defaults to undefined|
