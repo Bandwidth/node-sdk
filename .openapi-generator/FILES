@@ -22,6 +22,8 @@ docs/AnswerCallback.md
 docs/BlockedWebhook.md
 docs/BridgeCompleteCallback.md
 docs/BridgeTargetCompleteCallback.md
+docs/BusinessEntityTypeEnum.md
+docs/BusinessRegistrationTypeEnum.md
 docs/CallDirectionEnum.md
 docs/CallRecordingMetadata.md
 docs/CallState.md
@@ -111,6 +113,7 @@ docs/OptInWorkflow.md
 docs/PageInfo.md
 docs/PhoneNumberLookupApi.md
 docs/PriorityEnum.md
+docs/ProductTypeEnum.md
 docs/RbmActionBase.md
 docs/RbmActionDial.md
 docs/RbmActionOpenUrl.md
@@ -186,6 +189,8 @@ models/answer-callback.ts
 models/blocked-webhook.ts
 models/bridge-complete-callback.ts
 models/bridge-target-complete-callback.ts
+models/business-entity-type-enum.ts
+models/business-registration-type-enum.ts
 models/call-direction-enum.ts
 models/call-recording-metadata.ts
 models/call-state-enum.ts
@@ -269,6 +274,7 @@ models/multi-channel-message-response-data.ts
 models/opt-in-workflow.ts
 models/page-info.ts
 models/priority-enum.ts
+models/product-type-enum.ts
 models/rbm-action-base.ts
 models/rbm-action-dial.ts
 models/rbm-action-open-url.ts
