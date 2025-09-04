@@ -13,6 +13,7 @@ describe('MessagesApi', () => {
     const smsTag = 'nodejs sdk test SMS tag';
     const mediaUrl = 'https://cdn2.thecatapi.com/images/MTY3ODk4Mg.jpg';
     const priority = PriorityEnum.High;
+    const callingNumberCountryA3 = 'USA';
     const listMessageDirection = ListMessageDirectionEnum.Outbound;
     const expirationTime = Date.now() + 1000 * 60 * 60 * 24 + 60;
     const expiration = new Date(expirationTime).toISOString();
@@ -67,7 +68,10 @@ describe('MessagesApi', () => {
     describe('listMessages', () => {
         test('should list messages', async () => {
             const { status, data } =
-                await messagesApi.listMessages(BW_ACCOUNT_ID, undefined, BW_NUMBER, undefined, undefined, listMessageDirection);
+                await messagesApi.listMessages(BW_ACCOUNT_ID, undefined, BW_NUMBER,
+                    undefined, undefined, listMessageDirection, undefined, undefined,
+                    undefined, undefined, undefined, undefined, undefined, undefined,
+                    undefined, undefined, undefined, undefined, callingNumberCountryA3);
             
             expect(status).toEqual(200);
             expect(data.messages).toBeInstanceOf(Array);
@@ -75,6 +79,7 @@ describe('MessagesApi', () => {
             expect(data.messages![0].messageId).toHaveLength(29);
             expect(data.messages![0].sourceTn).toEqual(BW_NUMBER);
             expect(data.messages![0].messageDirection).toEqual(listMessageDirection);
+            expect(data.messages![0].callingNumberCountryA3).toEqual(callingNumberCountryA3);
         });
     });
 
