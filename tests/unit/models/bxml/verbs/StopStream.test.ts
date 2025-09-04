@@ -3,10 +3,11 @@ import { StopStream, StopStreamAttributes } from '../../../../../models/bxml/ver
 
 describe('StopStream', () => {
     const attributes: StopStreamAttributes = {
-        name: 'initialName'
+        name: 'initialName',
+        wait: true
     };
 
-    const expected = '<StopStream name="initialName"/>';
+    const expected = '<StopStream name="initialName" wait="true"/>';
 
     test('should create a StopStream Verb', () => {
         const stopStream = new StopStream(attributes);
