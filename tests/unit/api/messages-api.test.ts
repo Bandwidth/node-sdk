@@ -87,6 +87,12 @@ describe('MessagesApi', () => {
             expect(data.messages![0].recipientCount).toBeInteger();
             expect(data.messages![0].campaignClass).toBeString();
             expect(data.messages![0].campaignId).toBeString();
+            expect(data.messages![0].bwLatency).toBeInteger();
+            expect(data.messages![0].carrierLatency).toBeInteger();
+            expect(data.messages![0].callingNumberCountryA3).toBeString();
+            expect(data.messages![0].calledNumberCountryA3).toBeString();
+            expect(data.messages![0].product).toBeString();
+            expect(data.messages![0].location).toBeString();
         });
     });
 
