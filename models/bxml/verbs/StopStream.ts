@@ -2,6 +2,7 @@ import { Verb } from '../Verb';
 
 export interface StopStreamAttributes {
     name: string;
+    wait?: boolean;
 }
 
 /**

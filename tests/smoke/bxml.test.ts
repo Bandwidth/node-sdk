@@ -219,7 +219,8 @@ describe('BXML Integration Tests', () => {
         };
 
         const stopStreamAttributes: StopStreamAttributes = {
-            name: 'initialName'
+            name: 'initialName',
+            wait: true
         };
 
         const stopTranscriptionAttributes: StopTranscriptionAttributes = {
