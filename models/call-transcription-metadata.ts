@@ -33,7 +33,7 @@ export interface CallTranscriptionMetadata {
      */
     'transcriptionName'?: string;
     /**
-     * A URL that may be used to retrieve the transcription itself. This points to the [Get Call Transcription](/apis/voice/#operation/getCallTranscription) endpoint.
+     * A URL that may be used to retrieve the transcription itself. This points to the [Get Call Transcription](/apis/voice-apis/voice/#tag/Transcriptions/operation/getRealTimeTranscription) endpoint.
      * @type {string}
      * @memberof CallTranscriptionMetadata
      */

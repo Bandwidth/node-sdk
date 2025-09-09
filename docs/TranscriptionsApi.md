@@ -4,9 +4,9 @@ All URIs are relative to *http://localhost*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**deleteRealTimeTranscription**](#deleterealtimetranscription) | **DELETE** /accounts/{accountId}/calls/{callId}/transcriptions/{transcriptionId} | Delete a specific transcription|
-|[**getRealTimeTranscription**](#getrealtimetranscription) | **GET** /accounts/{accountId}/calls/{callId}/transcriptions/{transcriptionId} | Retrieve a specific transcription|
-|[**listRealTimeTranscriptions**](#listrealtimetranscriptions) | **GET** /accounts/{accountId}/calls/{callId}/transcriptions | Enumerate transcriptions made with StartTranscription|
+|[**deleteRealTimeTranscription**](#deleterealtimetranscription) | **DELETE** /accounts/{accountId}/calls/{callId}/transcriptions/{transcriptionId} | Delete Real-time Transcription|
+|[**getRealTimeTranscription**](#getrealtimetranscription) | **GET** /accounts/{accountId}/calls/{callId}/transcriptions/{transcriptionId} | Get Real-time Transcription|
+|[**listRealTimeTranscriptions**](#listrealtimetranscriptions) | **GET** /accounts/{accountId}/calls/{callId}/transcriptions | List Real-time Transcriptions|
 
 # **deleteRealTimeTranscription**
 > deleteRealTimeTranscription()
@@ -141,7 +141,7 @@ const { status, data } = await apiInstance.getRealTimeTranscription(
 # **listRealTimeTranscriptions**
 > Array<CallTranscriptionMetadata> listRealTimeTranscriptions()
 
-Enumerates the transcriptions created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
+List the transcriptions created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
 
 ### Example
 

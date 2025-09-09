@@ -34,7 +34,7 @@ export interface MultiChannelMessageResponseData {
      * @type {string}
      * @memberof MultiChannelMessageResponseData
      */
-    'messageId': string;
+    'id': string;
     /**
      * The time the message was received by the Bandwidth API.
      * @type {string}

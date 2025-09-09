@@ -35,7 +35,7 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
     return {
         /**
          * Delete the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).  Note: After the deletion is requested and a `200` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
-         * @summary Delete a specific transcription
+         * @summary Delete Real-time Transcription
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
          * @param {string} transcriptionId Programmable Voice API Transcription ID.
@@ -81,7 +81,7 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
         },
         /**
          * Retrieve the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
-         * @summary Retrieve a specific transcription
+         * @summary Get Real-time Transcription
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
          * @param {string} transcriptionId Programmable Voice API Transcription ID.
@@ -126,8 +126,8 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
             };
         },
         /**
-         * Enumerates the transcriptions created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
-         * @summary Enumerate transcriptions made with StartTranscription
+         * List the transcriptions created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
+         * @summary List Real-time Transcriptions
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
          * @param {*} [options] Override http request option.
@@ -179,7 +179,7 @@ export const TranscriptionsApiFp = function(configuration?: Configuration) {
     return {
         /**
          * Delete the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).  Note: After the deletion is requested and a `200` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
-         * @summary Delete a specific transcription
+         * @summary Delete Real-time Transcription
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
          * @param {string} transcriptionId Programmable Voice API Transcription ID.
@@ -194,7 +194,7 @@ export const TranscriptionsApiFp = function(configuration?: Configuration) {
         },
         /**
          * Retrieve the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
-         * @summary Retrieve a specific transcription
+         * @summary Get Real-time Transcription
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
          * @param {string} transcriptionId Programmable Voice API Transcription ID.
@@ -208,8 +208,8 @@ export const TranscriptionsApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Enumerates the transcriptions created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
-         * @summary Enumerate transcriptions made with StartTranscription
+         * List the transcriptions created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
+         * @summary List Real-time Transcriptions
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
          * @param {*} [options] Override http request option.
@@ -233,7 +233,7 @@ export const TranscriptionsApiFactory = function (configuration?: Configuration,
     return {
         /**
          * Delete the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).  Note: After the deletion is requested and a `200` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
-         * @summary Delete a specific transcription
+         * @summary Delete Real-time Transcription
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
          * @param {string} transcriptionId Programmable Voice API Transcription ID.
@@ -245,7 +245,7 @@ export const TranscriptionsApiFactory = function (configuration?: Configuration,
         },
         /**
          * Retrieve the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
-         * @summary Retrieve a specific transcription
+         * @summary Get Real-time Transcription
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
          * @param {string} transcriptionId Programmable Voice API Transcription ID.
@@ -256,8 +256,8 @@ export const TranscriptionsApiFactory = function (configuration?: Configuration,
             return localVarFp.getRealTimeTranscription(accountId, callId, transcriptionId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Enumerates the transcriptions created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
-         * @summary Enumerate transcriptions made with StartTranscription
+         * List the transcriptions created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
+         * @summary List Real-time Transcriptions
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} callId Programmable Voice API Call ID.
          * @param {*} [options] Override http request option.
@@ -278,7 +278,7 @@ export const TranscriptionsApiFactory = function (configuration?: Configuration,
 export class TranscriptionsApi extends BaseAPI {
     /**
      * Delete the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).  Note: After the deletion is requested and a `200` is returned, the transcription will not be accessible anymore. However, it is not deleted immediately. This deletion process, while transparent and irreversible, can take an additional 24 to 48 hours.
-     * @summary Delete a specific transcription
+     * @summary Delete Real-time Transcription
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {string} callId Programmable Voice API Call ID.
      * @param {string} transcriptionId Programmable Voice API Transcription ID.
@@ -292,7 +292,7 @@ export class TranscriptionsApi extends BaseAPI {
 
     /**
      * Retrieve the specified transcription that was created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
-     * @summary Retrieve a specific transcription
+     * @summary Get Real-time Transcription
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {string} callId Programmable Voice API Call ID.
      * @param {string} transcriptionId Programmable Voice API Transcription ID.
@@ -305,8 +305,8 @@ export class TranscriptionsApi extends BaseAPI {
     }
 
     /**
-     * Enumerates the transcriptions created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
-     * @summary Enumerate transcriptions made with StartTranscription
+     * List the transcriptions created on this call via [startTranscription](/docs/voice/bxml/startTranscription).
+     * @summary List Real-time Transcriptions
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {string} callId Programmable Voice API Call ID.
      * @param {*} [options] Override http request option.
