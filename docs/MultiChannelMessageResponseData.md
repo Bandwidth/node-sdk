@@ -6,7 +6,7 @@ The data returned in a multichannel message response.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**messageId** | **string** | The ID of the message. | [default to undefined]
+**id** | **string** | The ID of the message. | [default to undefined]
 **time** | **string** | The time the message was received by the Bandwidth API. | [default to undefined]
 **direction** | [**MessageDirectionEnum**](MessageDirectionEnum.md) |  | [default to undefined]
 **to** | **Set&lt;string&gt;** | The destination phone number(s) of the message, in E164 format. | [default to undefined]
@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 import { MultiChannelMessageResponseData } from 'bandwidth-sdk';
 
 const instance: MultiChannelMessageResponseData = {
-    messageId,
+    id,
     time,
     direction,
     to,
