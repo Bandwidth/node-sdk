@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**verstat** | **string** | (optional) The verification status indicating whether the verification was successful or not. Possible values are TN-Verification-Passed and TN-Verification-Failed. | [optional] [default to undefined]
+**verstat** | **string** | (optional) The verification status indicating whether the verification was successful or not. Possible values are TN-Validation-Passed and TN-Validation-Failed. | [optional] [default to undefined]
 **attestationIndicator** | **string** | (optional) The attestation level verified by Bandwidth. Possible values are A (full), B (partial) or C (gateway). | [optional] [default to undefined]
 **originatingId** | **string** | (optional) A unique origination identifier. | [optional] [default to undefined]
 
