@@ -21,7 +21,7 @@
  */
 export interface StirShaken {
     /**
-     * (optional) The verification status indicating whether the verification was successful or not. Possible values are TN-Verification-Passed and TN-Verification-Failed.
+     * (optional) The verification status indicating whether the verification was successful or not. Possible values are TN-Validation-Passed and TN-Validation-Failed.
      * @type {string}
      * @memberof StirShaken
      */

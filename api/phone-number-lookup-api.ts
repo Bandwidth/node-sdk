@@ -41,6 +41,7 @@ export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: C
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {LookupRequest} lookupRequest Phone number lookup request.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         createLookup: async (accountId: string, lookupRequest: LookupRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -85,6 +86,7 @@ export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: C
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} requestId The phone number lookup request ID from Bandwidth.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getLookupStatus: async (accountId: string, requestId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
@@ -137,6 +139,7 @@ export const PhoneNumberLookupApiFp = function(configuration?: Configuration) {
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {LookupRequest} lookupRequest Phone number lookup request.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async createLookup(accountId: string, lookupRequest: LookupRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateLookupResponse>> {
@@ -151,6 +154,7 @@ export const PhoneNumberLookupApiFp = function(configuration?: Configuration) {
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} requestId The phone number lookup request ID from Bandwidth.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         async getLookupStatus(accountId: string, requestId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LookupStatus>> {
@@ -175,6 +179,7 @@ export const PhoneNumberLookupApiFactory = function (configuration?: Configurati
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {LookupRequest} lookupRequest Phone number lookup request.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         createLookup(accountId: string, lookupRequest: LookupRequest, options?: RawAxiosRequestConfig): AxiosPromise<CreateLookupResponse> {
@@ -186,6 +191,7 @@ export const PhoneNumberLookupApiFactory = function (configuration?: Configurati
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} requestId The phone number lookup request ID from Bandwidth.
          * @param {*} [options] Override http request option.
+         * @deprecated
          * @throws {RequiredError}
          */
         getLookupStatus(accountId: string, requestId: string, options?: RawAxiosRequestConfig): AxiosPromise<LookupStatus> {
@@ -207,6 +213,7 @@ export class PhoneNumberLookupApi extends BaseAPI {
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {LookupRequest} lookupRequest Phone number lookup request.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PhoneNumberLookupApi
      */
@@ -220,6 +227,7 @@ export class PhoneNumberLookupApi extends BaseAPI {
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {string} requestId The phone number lookup request ID from Bandwidth.
      * @param {*} [options] Override http request option.
+     * @deprecated
      * @throws {RequiredError}
      * @memberof PhoneNumberLookupApi
      */
