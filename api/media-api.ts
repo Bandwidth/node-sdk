@@ -62,6 +62,10 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -104,6 +108,10 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -142,6 +150,10 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
@@ -192,6 +204,10 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     

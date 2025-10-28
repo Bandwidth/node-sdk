@@ -48,7 +48,7 @@ const { status, data } = await apiInstance.generateMessagingCode(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -107,7 +107,7 @@ const { status, data } = await apiInstance.generateVoiceCode(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -166,7 +166,7 @@ const { status, data } = await apiInstance.verifyCode(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

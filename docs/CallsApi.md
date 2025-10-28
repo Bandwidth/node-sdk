@@ -50,7 +50,7 @@ const { status, data } = await apiInstance.createCall(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -112,7 +112,7 @@ const { status, data } = await apiInstance.getCallState(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -192,7 +192,7 @@ const { status, data } = await apiInstance.listCalls(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -258,7 +258,7 @@ void (empty response body)
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -324,7 +324,7 @@ void (empty response body)
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

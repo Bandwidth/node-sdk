@@ -75,6 +75,10 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -142,6 +146,10 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
             if (messageId !== undefined) {
                 localVarQueryParameter['messageId'] = messageId;

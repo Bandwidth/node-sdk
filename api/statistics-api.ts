@@ -58,6 +58,10 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);

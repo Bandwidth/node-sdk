@@ -47,7 +47,7 @@ const { status, data } = await apiInstance.createLookup(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -107,7 +107,7 @@ const { status, data } = await apiInstance.getLookupStatus(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

@@ -74,6 +74,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -115,6 +119,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
@@ -162,6 +170,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -208,6 +220,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -249,6 +265,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
@@ -292,6 +312,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
             if (name !== undefined) {
                 localVarQueryParameter['name'] = name;
@@ -358,6 +382,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -405,6 +433,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
@@ -457,6 +489,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
