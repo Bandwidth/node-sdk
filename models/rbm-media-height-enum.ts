@@ -16,8 +16,6 @@
 
 /**
  * The height of the media.
- * @export
- * @enum {string}
  */
 
 export const RbmMediaHeightEnum = {

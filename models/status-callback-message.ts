@@ -25,87 +25,44 @@ import type { PriorityEnum } from './priority-enum';
 
 /**
  * Message payload schema within a callback
- * @export
- * @interface StatusCallbackMessage
  */
 export interface StatusCallbackMessage {
     /**
      * A unique identifier of the message.
-     * @type {string}
-     * @memberof StatusCallbackMessage
      */
     'id': string;
     /**
      * The Bandwidth phone number or alphanumeric identifier associated with the message.
-     * @type {string}
-     * @memberof StatusCallbackMessage
      */
     'owner': string;
     /**
      * The ID of the Application your from number or senderId is associated with in the Bandwidth Phone Number Dashboard.
-     * @type {string}
-     * @memberof StatusCallbackMessage
      */
     'applicationId': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StatusCallbackMessage
-     */
     'time': string;
     /**
      * The number of segments the user\'s message is broken into before sending over carrier networks.
-     * @type {number}
-     * @memberof StatusCallbackMessage
      */
     'segmentCount': number;
-    /**
-     * 
-     * @type {MessageDirectionEnum}
-     * @memberof StatusCallbackMessage
-     */
     'direction': MessageDirectionEnum;
     /**
      * The phone number recipients of the message.
-     * @type {Set<string>}
-     * @memberof StatusCallbackMessage
      */
     'to': Set<string>;
     /**
      * The Bandwidth phone number or alphanumeric identifier the message was sent from.
-     * @type {string}
-     * @memberof StatusCallbackMessage
      */
     'from': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof StatusCallbackMessage
-     */
     'text'?: string;
     /**
      * A custom string that will be included in callback events of the message. Max 1024 characters.
-     * @type {string}
-     * @memberof StatusCallbackMessage
      */
     'tag'?: string;
     /**
      * Optional media, not applicable for sms
-     * @type {Array<string>}
-     * @memberof StatusCallbackMessage
      */
     'media'?: Array<string>;
-    /**
-     * 
-     * @type {PriorityEnum}
-     * @memberof StatusCallbackMessage
-     */
     'priority'?: PriorityEnum;
-    /**
-     * 
-     * @type {MultiChannelMessageChannelEnum}
-     * @memberof StatusCallbackMessage
-     */
     'channel'?: MultiChannelMessageChannelEnum;
 }
 

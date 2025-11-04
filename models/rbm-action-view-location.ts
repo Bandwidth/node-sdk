@@ -22,7 +22,6 @@ import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 
 /**
  * @type RbmActionViewLocation
- * @export
  */
 export type RbmActionViewLocation = RbmActionBase;
 

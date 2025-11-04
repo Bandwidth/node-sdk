@@ -23,148 +23,88 @@ import type { MessageStatusEnum } from './message-status-enum';
 // @ts-ignore
 import type { MessageTypeEnum } from './message-type-enum';
 
-/**
- * 
- * @export
- * @interface ListMessageItem
- */
 export interface ListMessageItem {
     /**
      * The message id
-     * @type {string}
-     * @memberof ListMessageItem
      */
     'messageId'?: string;
     /**
      * The account id associated with this message.
-     * @type {string}
-     * @memberof ListMessageItem
      */
     'accountId'?: string;
     /**
      * The source phone number of the message.
-     * @type {string}
-     * @memberof ListMessageItem
      */
     'sourceTn'?: string;
     /**
      * The recipient phone number of the message.
-     * @type {string}
-     * @memberof ListMessageItem
      */
     'destinationTn'?: string;
-    /**
-     * 
-     * @type {MessageStatusEnum}
-     * @memberof ListMessageItem
-     */
     'messageStatus'?: MessageStatusEnum;
-    /**
-     * 
-     * @type {ListMessageDirectionEnum}
-     * @memberof ListMessageItem
-     */
     'messageDirection'?: ListMessageDirectionEnum;
-    /**
-     * 
-     * @type {MessageTypeEnum}
-     * @memberof ListMessageItem
-     */
     'messageType'?: MessageTypeEnum;
     /**
      * The number of segments the user\'s message is broken into before sending over carrier networks.
-     * @type {number}
-     * @memberof ListMessageItem
      */
     'segmentCount'?: number;
     /**
      * The numeric error code of the message.
-     * @type {number}
-     * @memberof ListMessageItem
      */
     'errorCode'?: number;
     /**
      * The ISO 8601 datetime of the message.
-     * @type {string}
-     * @memberof ListMessageItem
      */
     'receiveTime'?: string;
     /**
      * The name of the carrier. Not currently supported for MMS coming soon.
-     * @type {string}
-     * @memberof ListMessageItem
      */
     'carrierName'?: string | null;
     /**
      * The size of the message including message content and headers.
-     * @type {number}
-     * @memberof ListMessageItem
      */
     'messageSize'?: number | null;
     /**
      * The length of the message content.
-     * @type {number}
-     * @memberof ListMessageItem
      */
     'messageLength'?: number;
     /**
      * The number of attachments the message has.
-     * @type {number}
-     * @memberof ListMessageItem
      */
     'attachmentCount'?: number | null;
     /**
      * The number of recipients the message has.
-     * @type {number}
-     * @memberof ListMessageItem
      */
     'recipientCount'?: number | null;
     /**
      * The campaign class of the message if it has one.
-     * @type {string}
-     * @memberof ListMessageItem
      */
     'campaignClass'?: string | null;
     /**
      * The campaign ID of the message if it has one.
-     * @type {string}
-     * @memberof ListMessageItem
      */
     'campaignId'?: string | null;
     /**
      * The Bandwidth latency of the message in seconds. Only available for accounts with the Advanced Quality Metrics feature enabled.
-     * @type {number}
-     * @memberof ListMessageItem
      */
     'bwLatency'?: number | null;
     /**
      * The carrier latency of the message in seconds. Only available for OUTBOUND messages from accounts with the Advanced Quality Metrics feature enabled.
-     * @type {number}
-     * @memberof ListMessageItem
      */
     'carrierLatency'?: number | null;
     /**
      * The A3 country code of the calling number.
-     * @type {string}
-     * @memberof ListMessageItem
      */
     'callingNumberCountryA3'?: string | null;
     /**
      * The A3 country code of the called number.
-     * @type {string}
-     * @memberof ListMessageItem
      */
     'calledNumberCountryA3'?: string | null;
     /**
      * The messaging product associated with the message.
-     * @type {string}
-     * @memberof ListMessageItem
      */
     'product'?: string | null;
     /**
      * The location ID associated with this message.
-     * @type {string}
-     * @memberof ListMessageItem
      */
     'location'?: string | null;
 }

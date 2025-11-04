@@ -16,32 +16,22 @@
 
 /**
  * Specifies relevant sources of the error, if any.
- * @export
- * @interface ErrorSource
  */
 export interface ErrorSource {
     /**
      * The relevant URI query parameter causing the error
-     * @type {string}
-     * @memberof ErrorSource
      */
     'parameter'?: string;
     /**
      * The request body field that led to the error
-     * @type {string}
-     * @memberof ErrorSource
      */
     'field'?: string;
     /**
      * The header field that contributed to the error
-     * @type {string}
-     * @memberof ErrorSource
      */
     'header'?: string;
     /**
      * A resource ID or path linked to the error
-     * @type {string}
-     * @memberof ErrorSource
      */
     'reference'?: string;
 }

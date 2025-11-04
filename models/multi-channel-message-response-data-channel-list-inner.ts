@@ -25,7 +25,6 @@ import type { MultiChannelMessageChannelEnum } from './multi-channel-message-cha
 
 /**
  * @type MultiChannelMessageResponseDataChannelListInner
- * @export
  */
 export type MultiChannelMessageResponseDataChannelListInner = MultiChannelChannelListObject;
 

@@ -22,44 +22,21 @@ import type { InboundCallbackTypeEnum } from './inbound-callback-type-enum';
 
 /**
  * Represents an inbound callback.
- * @export
- * @interface InboundCallback
  */
 export interface InboundCallback {
-    /**
-     * 
-     * @type {string}
-     * @memberof InboundCallback
-     */
     'time': string;
-    /**
-     * 
-     * @type {InboundCallbackTypeEnum}
-     * @memberof InboundCallback
-     */
     'type': InboundCallbackTypeEnum;
     /**
      * The destination phone number the message was sent to.  For inbound callbacks, this is the Bandwidth number or alphanumeric identifier that received the message. 
-     * @type {string}
-     * @memberof InboundCallback
      */
     'to': string;
     /**
      * A detailed description of the event described by the callback.
-     * @type {string}
-     * @memberof InboundCallback
      */
     'description': string;
-    /**
-     * 
-     * @type {InboundCallbackMessage}
-     * @memberof InboundCallback
-     */
     'message': InboundCallbackMessage;
     /**
      * The name of the Authorized Message Provider (AMP) that handled this message.  In the US, this is the carrier that the message was sent to. This field is present only when this account feature has been enabled.
-     * @type {string}
-     * @memberof InboundCallback
      */
     'carrierName'?: string;
 }

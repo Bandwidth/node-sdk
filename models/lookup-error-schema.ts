@@ -17,35 +17,19 @@
 // @ts-ignore
 import type { LookupErrorSchemaMeta } from './lookup-error-schema-meta';
 
-/**
- * 
- * @export
- * @interface LookupErrorSchema
- */
 export interface LookupErrorSchema {
     /**
      * Validation error code
-     * @type {string}
-     * @memberof LookupErrorSchema
      */
     'code'?: string;
     /**
      * Description of validation error
-     * @type {string}
-     * @memberof LookupErrorSchema
      */
     'description'?: string;
     /**
      * Type of validation error
-     * @type {string}
-     * @memberof LookupErrorSchema
      */
     'type'?: string;
-    /**
-     * 
-     * @type {LookupErrorSchemaMeta}
-     * @memberof LookupErrorSchema
-     */
     'meta'?: LookupErrorSchemaMeta;
 }
 

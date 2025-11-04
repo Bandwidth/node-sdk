@@ -16,8 +16,6 @@
 
 /**
  * The alignment of the thumbnail image in the card. Only applicable if the card using horizontal orientation.
- * @export
- * @enum {string}
  */
 
 export const ThumbnailAlignmentEnum = {

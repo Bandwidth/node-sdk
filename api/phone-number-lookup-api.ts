@@ -35,7 +35,6 @@ import type { LookupErrorResponse } from '../models';
 import type { SyncLookupRequest } from '../models';
 /**
  * PhoneNumberLookupApi - axios parameter creator
- * @export
  */
 export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -174,7 +173,6 @@ export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: C
 
 /**
  * PhoneNumberLookupApi - functional programming interface
- * @export
  */
 export const PhoneNumberLookupApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PhoneNumberLookupApiAxiosParamCreator(configuration)
@@ -226,7 +224,6 @@ export const PhoneNumberLookupApiFp = function(configuration?: Configuration) {
 
 /**
  * PhoneNumberLookupApi - factory interface
- * @export
  */
 export const PhoneNumberLookupApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PhoneNumberLookupApiFp(configuration)
@@ -269,9 +266,6 @@ export const PhoneNumberLookupApiFactory = function (configuration?: Configurati
 
 /**
  * PhoneNumberLookupApi - object-oriented interface
- * @export
- * @class PhoneNumberLookupApi
- * @extends {BaseAPI}
  */
 export class PhoneNumberLookupApi extends BaseAPI {
     /**
@@ -281,7 +275,6 @@ export class PhoneNumberLookupApi extends BaseAPI {
      * @param {AsyncLookupRequest} asyncLookupRequest Asynchronous bulk phone number lookup request.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PhoneNumberLookupApi
      */
     public createAsyncBulkLookup(accountId: string, asyncLookupRequest: AsyncLookupRequest, options?: RawAxiosRequestConfig) {
         return PhoneNumberLookupApiFp(this.configuration).createAsyncBulkLookup(accountId, asyncLookupRequest, options).then((request) => request(this.axios, this.basePath));
@@ -294,7 +287,6 @@ export class PhoneNumberLookupApi extends BaseAPI {
      * @param {SyncLookupRequest} syncLookupRequest Synchronous phone number lookup request.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PhoneNumberLookupApi
      */
     public createSyncLookup(accountId: string, syncLookupRequest: SyncLookupRequest, options?: RawAxiosRequestConfig) {
         return PhoneNumberLookupApiFp(this.configuration).createSyncLookup(accountId, syncLookupRequest, options).then((request) => request(this.axios, this.basePath));
@@ -307,7 +299,6 @@ export class PhoneNumberLookupApi extends BaseAPI {
      * @param {string} requestId 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof PhoneNumberLookupApi
      */
     public getAsyncBulkLookup(accountId: string, requestId: string, options?: RawAxiosRequestConfig) {
         return PhoneNumberLookupApiFp(this.configuration).getAsyncBulkLookup(accountId, requestId, options).then((request) => request(this.axios, this.basePath));

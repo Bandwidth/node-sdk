@@ -29,101 +29,51 @@ import type { Contact } from './contact';
 // @ts-ignore
 import type { OptInWorkflow } from './opt-in-workflow';
 
-/**
- * 
- * @export
- * @interface TfvSubmissionInfo
- */
 export interface TfvSubmissionInfo {
-    /**
-     * 
-     * @type {Address}
-     * @memberof TfvSubmissionInfo
-     */
     'businessAddress'?: Address;
-    /**
-     * 
-     * @type {Contact}
-     * @memberof TfvSubmissionInfo
-     */
     'businessContact'?: Contact;
     /**
      * Estimated monthly volume of messages from the toll-free number.
-     * @type {number}
-     * @memberof TfvSubmissionInfo
      */
     'messageVolume'?: number;
     /**
      * The category of the use case.
-     * @type {string}
-     * @memberof TfvSubmissionInfo
      */
     'useCase'?: string;
     /**
      * A general idea of the use case and customer.
-     * @type {string}
-     * @memberof TfvSubmissionInfo
      */
     'useCaseSummary'?: string;
     /**
      * Example of message content.
-     * @type {string}
-     * @memberof TfvSubmissionInfo
      */
     'productionMessageContent'?: string;
-    /**
-     * 
-     * @type {OptInWorkflow}
-     * @memberof TfvSubmissionInfo
-     */
     'optInWorkflow'?: OptInWorkflow;
     /**
      * Any additional information.
-     * @type {string}
-     * @memberof TfvSubmissionInfo
      */
     'additionalInformation'?: string | null;
     /**
      * ISV name.
-     * @type {string}
-     * @memberof TfvSubmissionInfo
      */
     'isvReseller'?: string | null;
     /**
      * The Toll-Free Verification request privacy policy URL.
-     * @type {string}
-     * @memberof TfvSubmissionInfo
      */
     'privacyPolicyUrl'?: string;
     /**
      * The Toll-Free Verification request terms and conditions policy URL.
-     * @type {string}
-     * @memberof TfvSubmissionInfo
      */
     'termsAndConditionsUrl'?: string;
     /**
      * The company \'Doing Business As\'.
-     * @type {string}
-     * @memberof TfvSubmissionInfo
      */
     'businessDba'?: string;
     /**
      * US Federal Tax ID Number (EIN) or Canada Business Number (CBN). Optional until early 2026. If a value is provided for this field, a value must be provided for `businessRegistrationType` and `businessEntityType`. Available starting October 1st, 2025.
-     * @type {string}
-     * @memberof TfvSubmissionInfo
      */
     'businessRegistrationNumber'?: string | null;
-    /**
-     * 
-     * @type {BusinessRegistrationTypeEnum}
-     * @memberof TfvSubmissionInfo
-     */
     'businessRegistrationType'?: BusinessRegistrationTypeEnum | null;
-    /**
-     * 
-     * @type {BusinessEntityTypeEnum}
-     * @memberof TfvSubmissionInfo
-     */
     'businessEntityType'?: BusinessEntityTypeEnum | null;
 }
 

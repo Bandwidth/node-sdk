@@ -23,29 +23,9 @@ import type { LinkSchema } from './link-schema';
 // @ts-ignore
 import type { LookupErrorSchema } from './lookup-error-schema';
 
-/**
- * 
- * @export
- * @interface GetAsyncBulkLookupResponse
- */
 export interface GetAsyncBulkLookupResponse {
-    /**
-     * 
-     * @type {Array<LinkSchema>}
-     * @memberof GetAsyncBulkLookupResponse
-     */
     'links'?: Array<LinkSchema>;
-    /**
-     * 
-     * @type {GetAsyncBulkLookupResponseData}
-     * @memberof GetAsyncBulkLookupResponse
-     */
     'data'?: GetAsyncBulkLookupResponseData;
-    /**
-     * 
-     * @type {Array<LookupErrorSchema>}
-     * @memberof GetAsyncBulkLookupResponse
-     */
     'errors'?: Array<LookupErrorSchema>;
 }
 

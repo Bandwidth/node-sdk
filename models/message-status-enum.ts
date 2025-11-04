@@ -16,8 +16,6 @@
 
 /**
  * The status of the message. One of RECEIVED QUEUED SENDING SENT FAILED DELIVERED ACCEPTED UNDELIVERED.
- * @export
- * @enum {string}
  */
 
 export const MessageStatusEnum = {

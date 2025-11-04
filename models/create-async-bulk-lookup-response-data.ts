@@ -19,21 +19,12 @@ import type { InProgressLookupStatusEnum } from './in-progress-lookup-status-enu
 
 /**
  * The phone number lookup response data
- * @export
- * @interface CreateAsyncBulkLookupResponseData
  */
 export interface CreateAsyncBulkLookupResponseData {
     /**
      * The phone number lookup request ID from Bandwidth.
-     * @type {string}
-     * @memberof CreateAsyncBulkLookupResponseData
      */
     'requestId'?: string;
-    /**
-     * 
-     * @type {InProgressLookupStatusEnum}
-     * @memberof CreateAsyncBulkLookupResponseData
-     */
     'status'?: InProgressLookupStatusEnum;
 }
 

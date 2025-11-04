@@ -14,28 +14,17 @@
 
 
 
-/**
- * 
- * @export
- * @interface LinkSchema
- */
 export interface LinkSchema {
     /**
      * URI of the link.
-     * @type {string}
-     * @memberof LinkSchema
      */
     'href'?: string;
     /**
      * Specifies the relationship between this link and the resource.
-     * @type {string}
-     * @memberof LinkSchema
      */
     'rel'?: string;
     /**
      * HTTP method to be used.
-     * @type {string}
-     * @memberof LinkSchema
      */
     'method'?: string;
 }

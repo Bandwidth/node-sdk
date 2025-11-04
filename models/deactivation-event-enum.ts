@@ -16,8 +16,6 @@
 
 /**
  * [DNI-Only](#section/DNI-Only). `DEACTIVATED` if the carrier reported a deactivation event for this phone number. 
- * @export
- * @enum {string}
  */
 
 export const DeactivationEventEnum = {

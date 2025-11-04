@@ -22,26 +22,15 @@ import type { LookupResult } from './lookup-result';
 
 /**
  * The phone number lookup response data
- * @export
- * @interface GetAsyncBulkLookupResponseData
  */
 export interface GetAsyncBulkLookupResponseData {
     /**
      * The phone number lookup request ID from Bandwidth.
-     * @type {string}
-     * @memberof GetAsyncBulkLookupResponseData
      */
     'requestId'?: string;
-    /**
-     * 
-     * @type {InProgressLookupStatusEnum}
-     * @memberof GetAsyncBulkLookupResponseData
-     */
     'status'?: InProgressLookupStatusEnum;
     /**
      * The carrier information results for the specified telephone number.
-     * @type {Array<LookupResult>}
-     * @memberof GetAsyncBulkLookupResponseData
      */
     'results'?: Array<LookupResult>;
 }

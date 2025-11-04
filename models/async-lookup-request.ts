@@ -14,16 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface AsyncLookupRequest
- */
 export interface AsyncLookupRequest {
     /**
      * Telephone numbers in E.164 format.
-     * @type {Array<string>}
-     * @memberof AsyncLookupRequest
      */
     'phoneNumbers': Array<string>;
 }

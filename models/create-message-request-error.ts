@@ -17,29 +17,9 @@
 // @ts-ignore
 import type { FieldError } from './field-error';
 
-/**
- * 
- * @export
- * @interface CreateMessageRequestError
- */
 export interface CreateMessageRequestError {
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateMessageRequestError
-     */
     'type': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof CreateMessageRequestError
-     */
     'description': string;
-    /**
-     * 
-     * @type {Array<FieldError>}
-     * @memberof CreateMessageRequestError
-     */
     'fieldErrors'?: Array<FieldError>;
 }
 

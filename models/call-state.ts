@@ -17,118 +17,74 @@
 // @ts-ignore
 import type { CallDirectionEnum } from './call-direction-enum';
 
-/**
- * 
- * @export
- * @interface CallState
- */
 export interface CallState {
     /**
      * The application id associated with the call.
-     * @type {string}
-     * @memberof CallState
      */
     'applicationId'?: string;
     /**
      * The account id associated with the call.
-     * @type {string}
-     * @memberof CallState
      */
     'accountId'?: string;
     /**
      * The programmable voice API call ID.
-     * @type {string}
-     * @memberof CallState
      */
     'callId'?: string;
     /**
      * The A-leg call id, set only if this call is the B-leg of a [`<Transfer>`](/docs/voice/bxml/transfer).
-     * @type {string}
-     * @memberof CallState
      */
     'parentCallId'?: string | null;
     /**
      * The phone number that received the call, in E.164 format (e.g. +15555555555), or if the call was to a SIP URI, the SIP URI.
-     * @type {string}
-     * @memberof CallState
      */
     'to'?: string;
     /**
      * The phone number that made the call, in E.164 format (e.g. +15555555555).
-     * @type {string}
-     * @memberof CallState
      */
     'from'?: string;
-    /**
-     * 
-     * @type {CallDirectionEnum}
-     * @memberof CallState
-     */
     'direction'?: CallDirectionEnum;
     /**
      * The current state of the call. Current possible values are `queued`, `initiated`, `answered` and `disconnected`. Additional states may be added in the future, so your application must be tolerant of unknown values.
-     * @type {string}
-     * @memberof CallState
      */
     'state'?: string;
     /**
      * For inbound calls, the Bandwidth STIR/SHAKEN implementation will verify the information provided in the inbound invite request `Identity` header. The verification status is stored in the call state `stirShaken` property as follows.  | Property          | Description | |:------------------|:------------| | verstat | (optional) The verification status indicating whether the verification was successful or not. Possible values are `TN-Validation-Passed` or `TN-Validation-Failed`. | | attestationIndicator | (optional) The attestation level verified by Bandwidth. Possible values are `A` (full), `B` (partial) or `C` (gateway). | | originatingId | (optional) A unique origination identifier. |  Note that these are common properties but that the `stirShaken` object is free form and can contain other key-value pairs.  More information: [Understanding STIR/SHAKEN](https://www.bandwidth.com/regulations/stir-shaken).
-     * @type {{ [key: string]: string; }}
-     * @memberof CallState
      */
     'stirShaken'?: { [key: string]: string; } | null;
     /**
      * The value of the `Identity` header from the inbound invite request. Only present for inbound calls and if the account is configured to forward this header.
-     * @type {string}
-     * @memberof CallState
      */
     'identity'?: string | null;
     /**
      * The time this call was placed in queue.
-     * @type {string}
-     * @memberof CallState
      */
     'enqueuedTime'?: string | null;
     /**
      * The time the call was initiated, in ISO 8601 format. `null` if the call is still in your queue.
-     * @type {string}
-     * @memberof CallState
      */
     'startTime'?: string | null;
     /**
      * Populated once the call has been answered, with the time in ISO 8601 format.
-     * @type {string}
-     * @memberof CallState
      */
     'answerTime'?: string | null;
     /**
      * Populated once the call has ended, with the time in ISO 8601 format.
-     * @type {string}
-     * @memberof CallState
      */
     'endTime'?: string | null;
     /**
      * | Cause | Description | |:------|:------------| | `hangup`| One party hung up the call, a [`<Hangup>`](../../bxml/verbs/hangup.md) verb was executed, or there was no more BXML to execute; it indicates that the call ended normally. | | `busy` | Callee was busy. | | `timeout` | Call wasn\'t answered before the `callTimeout` was reached. | | `cancel` | Call was cancelled by its originator while it was ringing. | | `rejected` | Call was rejected by the callee. | | `callback-error` | BXML callback couldn\'t be delivered to your callback server. | | `invalid-bxml` | Invalid BXML was returned in response to a callback. | | `application-error` | An unsupported action was tried on the call, e.g. trying to play a .ogg audio. | | `account-limit` | Account rate limits were reached. | | `node-capacity-exceeded` | System maximum capacity was reached. | | `error` | Some error not described in any of the other causes happened on the call. | | `unknown` | Unknown error happened on the call. |  Note: This list is not exhaustive and other values can appear in the future.
-     * @type {string}
-     * @memberof CallState
      */
     'disconnectCause'?: string | null;
     /**
      * Populated only if the call ended with an error, with text explaining the reason.
-     * @type {string}
-     * @memberof CallState
      */
     'errorMessage'?: string | null;
     /**
      * Populated only if the call ended with an error, with a Bandwidth internal id that references the error event.
-     * @type {string}
-     * @memberof CallState
      */
     'errorId'?: string | null;
     /**
      * The last time the call had a state update, in ISO 8601 format.
-     * @type {string}
-     * @memberof CallState
      */
     'lastUpdate'?: string;
 }
