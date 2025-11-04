@@ -15,16 +15,16 @@
 
 
 /**
- * Create phone number lookup request.
+ * [DNI-Only](#section/DNI-Only). `DEACTIVATED` if the carrier reported a deactivation event for this phone number. 
  * @export
- * @interface LookupRequest
+ * @enum {string}
  */
-export interface LookupRequest {
-    /**
-     * 
-     * @type {Array<string>}
-     * @memberof LookupRequest
-     */
-    'tns': Array<string>;
-}
+
+export const DeactivationEventEnum = {
+    Deactivated: 'DEACTIVATED'
+} as const;
+
+export type DeactivationEventEnum = typeof DeactivationEventEnum[keyof typeof DeactivationEventEnum];
+
+
 

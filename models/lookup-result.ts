@@ -13,6 +13,15 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { DeactivationEventEnum } from './deactivation-event-enum';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { LatestMessageDeliveryStatusEnum } from './latest-message-delivery-status-enum';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { LineTypeEnum } from './line-type-enum';
 
 /**
  * Carrier information results for the specified telephone number.
@@ -21,58 +30,72 @@
  */
 export interface LookupResult {
     /**
-     * Our vendor\'s response code.
-     * @type {number}
-     * @memberof LookupResult
-     */
-    'Response Code'?: number;
-    /**
-     * Message associated with the response code.
-     * @type {string}
-     * @memberof LookupResult
-     */
-    'Message'?: string;
-    /**
      * The telephone number in E.164 format.
      * @type {string}
      * @memberof LookupResult
      */
-    'E.164 Format'?: string;
+    'phoneNumber'?: string;
     /**
-     * The formatted version of the telephone number.
-     * @type {string}
+     * 
+     * @type {LineTypeEnum}
      * @memberof LookupResult
      */
-    'Formatted'?: string;
-    /**
-     * The country of the telephone number.
-     * @type {string}
-     * @memberof LookupResult
-     */
-    'Country'?: string;
-    /**
-     * The line type of the telephone number.
-     * @type {string}
-     * @memberof LookupResult
-     */
-    'Line Type'?: string;
+    'lineType'?: LineTypeEnum;
     /**
      * The messaging service provider of the telephone number.
      * @type {string}
      * @memberof LookupResult
      */
-    'Line Provider'?: string;
+    'messagingProvider'?: string;
     /**
-     * The first half of the Home Network Identity (HNI).
+     * The voice service provider of the telephone number.
      * @type {string}
      * @memberof LookupResult
      */
-    'Mobile Country Code'?: string;
+    'voiceProvider'?: string;
     /**
-     * The second half of the HNI.
+     * The country code of the telephone number in ISO 3166-1 alpha-3 format.
      * @type {string}
      * @memberof LookupResult
      */
-    'Mobile Network Code'?: string;
+    'countryCodeA3'?: string;
+    /**
+     * [DNI-Only](#section/DNI-Only). The carrier that reported a deactivation event for this phone number. 
+     * @type {string}
+     * @memberof LookupResult
+     */
+    'deactivationReporter'?: string;
+    /**
+     * [DNI-Only](#section/DNI-Only). The datetime the carrier reported a deactivation event.
+     * @type {string}
+     * @memberof LookupResult
+     */
+    'deactivationDate'?: string;
+    /**
+     * 
+     * @type {DeactivationEventEnum}
+     * @memberof LookupResult
+     */
+    'deactivationEvent'?: DeactivationEventEnum;
+    /**
+     * 
+     * @type {LatestMessageDeliveryStatusEnum}
+     * @memberof LookupResult
+     */
+    'latestMessageDeliveryStatus'?: LatestMessageDeliveryStatusEnum;
+    /**
+     * [DNI-Only](#section/DNI-Only). The date the phone number entered the status described in `latestMessageDeliveryStatus`.  Think of this as the \"start time\" for that status. Value resets every time the `latestMessageDeliveryStatus` changes.
+     * @type {string}
+     * @memberof LookupResult
+     */
+    'initialMessageDeliveryStatusDate'?: string;
+    /**
+     * [DNI-Only](#section/DNI-Only). The date bandwidth last received delivery status information for this phone number.  Use this field to understand how up-to-date the `latestMessageDeliveryStatus` is. Value resets every time the `latestMessageDeliveryStatus` changes.
+     * @type {string}
+     * @memberof LookupResult
+     */
+    'latestMessageDeliveryStatusDate'?: string;
 }
+
+
 

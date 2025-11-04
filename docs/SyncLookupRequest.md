@@ -1,20 +1,19 @@
-# LookupRequest
+# SyncLookupRequest
 
-Create phone number lookup request.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tns** | **Array&lt;string&gt;** |  | [default to undefined]
+**phoneNumbers** | **Array&lt;string&gt;** | Telephone numbers in E.164 format. | [default to undefined]
 
 ## Example
 
 ```typescript
-import { LookupRequest } from 'bandwidth-sdk';
+import { SyncLookupRequest } from 'bandwidth-sdk';
 
-const instance: LookupRequest = {
-    tns,
+const instance: SyncLookupRequest = {
+    phoneNumbers,
 };
 ```
 

@@ -17,14 +17,17 @@
 /**
  * 
  * @export
- * @interface TnLookupRequestError
+ * @enum {string}
  */
-export interface TnLookupRequestError {
-    /**
-     * A description of what validation error occurred.
-     * @type {string}
-     * @memberof TnLookupRequestError
-     */
-    'message'?: string;
-}
+
+export const InProgressLookupStatusEnum = {
+    InProgress: 'IN_PROGRESS',
+    Complete: 'COMPLETE',
+    PartialComplete: 'PARTIAL_COMPLETE',
+    Failed: 'FAILED'
+} as const;
+
+export type InProgressLookupStatusEnum = typeof InProgressLookupStatusEnum[keyof typeof InProgressLookupStatusEnum];
+
+
 

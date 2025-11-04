@@ -227,15 +227,21 @@ export const operationServerMap: ServerMap = {
             description: "Production",
         }
     ],
-    "PhoneNumberLookupApi.createLookup": [
+    "PhoneNumberLookupApi.createAsyncBulkLookup": [
         {
-            url: "https://numbers.bandwidth.com/api/v1",
+            url: "https://api.bandwidth.com/v2",
             description: "Production",
         }
     ],
-    "PhoneNumberLookupApi.getLookupStatus": [
+    "PhoneNumberLookupApi.createSyncLookup": [
         {
-            url: "https://numbers.bandwidth.com/api/v1",
+            url: "https://api.bandwidth.com/v2",
+            description: "Production",
+        }
+    ],
+    "PhoneNumberLookupApi.getAsyncBulkLookup": [
+        {
+            url: "https://api.bandwidth.com/v2",
             description: "Production",
         }
     ],

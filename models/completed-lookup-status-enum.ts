@@ -15,19 +15,18 @@
 
 
 /**
- * The status of the request (IN_PROGRESS, COMPLETE, PARTIAL_COMPLETE, or FAILED).
+ * 
  * @export
  * @enum {string}
  */
 
-export const LookupStatusEnum = {
-    InProgress: 'IN_PROGRESS',
+export const CompletedLookupStatusEnum = {
     Complete: 'COMPLETE',
     PartialComplete: 'PARTIAL_COMPLETE',
     Failed: 'FAILED'
 } as const;
 
-export type LookupStatusEnum = typeof LookupStatusEnum[keyof typeof LookupStatusEnum];
+export type CompletedLookupStatusEnum = typeof CompletedLookupStatusEnum[keyof typeof CompletedLookupStatusEnum];
 
 
 

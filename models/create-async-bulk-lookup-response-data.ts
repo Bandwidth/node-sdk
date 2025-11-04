@@ -15,26 +15,26 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { LookupStatusEnum } from './lookup-status-enum';
+import type { InProgressLookupStatusEnum } from './in-progress-lookup-status-enum';
 
 /**
- * The request has been accepted for processing but not yet finished and in a terminal state (COMPLETE, PARTIAL_COMPLETE, or FAILED).
+ * The phone number lookup response data
  * @export
- * @interface CreateLookupResponse
+ * @interface CreateAsyncBulkLookupResponseData
  */
-export interface CreateLookupResponse {
+export interface CreateAsyncBulkLookupResponseData {
     /**
      * The phone number lookup request ID from Bandwidth.
      * @type {string}
-     * @memberof CreateLookupResponse
+     * @memberof CreateAsyncBulkLookupResponseData
      */
     'requestId'?: string;
     /**
      * 
-     * @type {LookupStatusEnum}
-     * @memberof CreateLookupResponse
+     * @type {InProgressLookupStatusEnum}
+     * @memberof CreateAsyncBulkLookupResponseData
      */
-    'status'?: LookupStatusEnum;
+    'status'?: InProgressLookupStatusEnum;
 }
 
 
