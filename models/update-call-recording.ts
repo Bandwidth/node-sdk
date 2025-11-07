@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { RecordingStateEnum } from './recording-state-enum';
 
-/**
- * 
- * @export
- * @interface UpdateCallRecording
- */
 export interface UpdateCallRecording {
-    /**
-     * 
-     * @type {RecordingStateEnum}
-     * @memberof UpdateCallRecording
-     */
     'state': RecordingStateEnum;
 }
 

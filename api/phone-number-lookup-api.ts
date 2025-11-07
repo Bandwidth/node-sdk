@@ -22,34 +22,36 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
-import type { CreateLookupResponse } from '../models';
+import type { AsyncLookupRequest } from '../models';
 // @ts-ignore
-import type { LookupRequest } from '../models';
+import type { CreateAsyncBulkLookupResponse } from '../models';
 // @ts-ignore
-import type { LookupStatus } from '../models';
+import type { CreateSyncLookupResponse } from '../models';
 // @ts-ignore
-import type { TnLookupRequestError } from '../models';
+import type { GetAsyncBulkLookupResponse } from '../models';
+// @ts-ignore
+import type { LookupErrorResponse } from '../models';
+// @ts-ignore
+import type { SyncLookupRequest } from '../models';
 /**
  * PhoneNumberLookupApi - axios parameter creator
- * @export
  */
 export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
         /**
-         * Create a Phone Number Lookup Request.
-         * @summary Create Lookup
-         * @param {string} accountId Your Bandwidth Account ID.
-         * @param {LookupRequest} lookupRequest Phone number lookup request.
+         * Creates an asynchronous bulk phone number lookup request. Maximum of 15,000 telephone numbers per request. Use the [Get Asynchronous Bulk Number Lookup](#tag/Phone-Number-Lookup/operation/getAsyncBulkLookup) endpoint to check the status of the request and view the results.
+         * @summary Create Asynchronous Bulk Number Lookup
+         * @param {string} accountId 
+         * @param {AsyncLookupRequest} asyncLookupRequest Asynchronous bulk phone number lookup request.
          * @param {*} [options] Override http request option.
-         * @deprecated
          * @throws {RequiredError}
          */
-        createLookup: async (accountId: string, lookupRequest: LookupRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createAsyncBulkLookup: async (accountId: string, asyncLookupRequest: AsyncLookupRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('createLookup', 'accountId', accountId)
-            // verify required parameter 'lookupRequest' is not null or undefined
-            assertParamExists('createLookup', 'lookupRequest', lookupRequest)
-            const localVarPath = `/accounts/{accountId}/tnlookup`
+            assertParamExists('createAsyncBulkLookup', 'accountId', accountId)
+            // verify required parameter 'asyncLookupRequest' is not null or undefined
+            assertParamExists('createAsyncBulkLookup', 'asyncLookupRequest', asyncLookupRequest)
+            const localVarPath = `/accounts/{accountId}/phoneNumberLookup/bulk`
                 .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
@@ -73,7 +75,7 @@ export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: C
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
-            localVarRequestOptions.data = serializeDataIfNeeded(lookupRequest, localVarRequestOptions, configuration)
+            localVarRequestOptions.data = serializeDataIfNeeded(asyncLookupRequest, localVarRequestOptions, configuration)
 
             return {
                 url: toPathString(localVarUrlObj),
@@ -81,20 +83,63 @@ export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: C
             };
         },
         /**
-         * Get an existing Phone Number Lookup Request.
-         * @summary Get Lookup Request Status
-         * @param {string} accountId Your Bandwidth Account ID.
-         * @param {string} requestId The phone number lookup request ID from Bandwidth.
+         * Creates a synchronous phone number lookup request. Maximum of 100 telephone numbers per request.
+         * @summary Create Synchronous Number Lookup
+         * @param {string} accountId 
+         * @param {SyncLookupRequest} syncLookupRequest Synchronous phone number lookup request.
          * @param {*} [options] Override http request option.
-         * @deprecated
          * @throws {RequiredError}
          */
-        getLookupStatus: async (accountId: string, requestId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+        createSyncLookup: async (accountId: string, syncLookupRequest: SyncLookupRequest, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
             // verify required parameter 'accountId' is not null or undefined
-            assertParamExists('getLookupStatus', 'accountId', accountId)
+            assertParamExists('createSyncLookup', 'accountId', accountId)
+            // verify required parameter 'syncLookupRequest' is not null or undefined
+            assertParamExists('createSyncLookup', 'syncLookupRequest', syncLookupRequest)
+            const localVarPath = `/accounts/{accountId}/phoneNumberLookup`
+                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+            // use dummy base URL string because the URL constructor only accepts absolute URLs.
+            const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
+            let baseOptions;
+            if (configuration) {
+                baseOptions = configuration.baseOptions;
+            }
+
+            const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
+            const localVarHeaderParameter = {} as any;
+            const localVarQueryParameter = {} as any;
+
+            // authentication Basic required
+            // http basic authentication required
+            setBasicAuthToObject(localVarRequestOptions, configuration)
+
+
+    
+            localVarHeaderParameter['Content-Type'] = 'application/json';
+
+            setSearchParams(localVarUrlObj, localVarQueryParameter);
+            let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
+            localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
+            localVarRequestOptions.data = serializeDataIfNeeded(syncLookupRequest, localVarRequestOptions, configuration)
+
+            return {
+                url: toPathString(localVarUrlObj),
+                options: localVarRequestOptions,
+            };
+        },
+        /**
+         * Get an existing [Asynchronous Bulk Number Lookup](#tag/Phone-Number-Lookup/operation/createAsyncBulkLookup). Use this endpoint to check the status of the request and view the results.
+         * @summary Get Asynchronous Bulk Number Lookup
+         * @param {string} accountId 
+         * @param {string} requestId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAsyncBulkLookup: async (accountId: string, requestId: string, options: RawAxiosRequestConfig = {}): Promise<RequestArgs> => {
+            // verify required parameter 'accountId' is not null or undefined
+            assertParamExists('getAsyncBulkLookup', 'accountId', accountId)
             // verify required parameter 'requestId' is not null or undefined
-            assertParamExists('getLookupStatus', 'requestId', requestId)
-            const localVarPath = `/accounts/{accountId}/tnlookup/{requestId}`
+            assertParamExists('getAsyncBulkLookup', 'requestId', requestId)
+            const localVarPath = `/accounts/{accountId}/phoneNumberLookup/bulk/{requestId}`
                 .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
                 .replace(`{${"requestId"}}`, encodeURIComponent(String(requestId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
@@ -128,39 +173,50 @@ export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: C
 
 /**
  * PhoneNumberLookupApi - functional programming interface
- * @export
  */
 export const PhoneNumberLookupApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = PhoneNumberLookupApiAxiosParamCreator(configuration)
     return {
         /**
-         * Create a Phone Number Lookup Request.
-         * @summary Create Lookup
-         * @param {string} accountId Your Bandwidth Account ID.
-         * @param {LookupRequest} lookupRequest Phone number lookup request.
+         * Creates an asynchronous bulk phone number lookup request. Maximum of 15,000 telephone numbers per request. Use the [Get Asynchronous Bulk Number Lookup](#tag/Phone-Number-Lookup/operation/getAsyncBulkLookup) endpoint to check the status of the request and view the results.
+         * @summary Create Asynchronous Bulk Number Lookup
+         * @param {string} accountId 
+         * @param {AsyncLookupRequest} asyncLookupRequest Asynchronous bulk phone number lookup request.
          * @param {*} [options] Override http request option.
-         * @deprecated
          * @throws {RequiredError}
          */
-        async createLookup(accountId: string, lookupRequest: LookupRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateLookupResponse>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.createLookup(accountId, lookupRequest, options);
+        async createAsyncBulkLookup(accountId: string, asyncLookupRequest: AsyncLookupRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateAsyncBulkLookupResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createAsyncBulkLookup(accountId, asyncLookupRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PhoneNumberLookupApi.createLookup']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PhoneNumberLookupApi.createAsyncBulkLookup']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Get an existing Phone Number Lookup Request.
-         * @summary Get Lookup Request Status
-         * @param {string} accountId Your Bandwidth Account ID.
-         * @param {string} requestId The phone number lookup request ID from Bandwidth.
+         * Creates a synchronous phone number lookup request. Maximum of 100 telephone numbers per request.
+         * @summary Create Synchronous Number Lookup
+         * @param {string} accountId 
+         * @param {SyncLookupRequest} syncLookupRequest Synchronous phone number lookup request.
          * @param {*} [options] Override http request option.
-         * @deprecated
          * @throws {RequiredError}
          */
-        async getLookupStatus(accountId: string, requestId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<LookupStatus>> {
-            const localVarAxiosArgs = await localVarAxiosParamCreator.getLookupStatus(accountId, requestId, options);
+        async createSyncLookup(accountId: string, syncLookupRequest: SyncLookupRequest, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<CreateSyncLookupResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.createSyncLookup(accountId, syncLookupRequest, options);
             const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
-            const localVarOperationServerBasePath = operationServerMap['PhoneNumberLookupApi.getLookupStatus']?.[localVarOperationServerIndex]?.url;
+            const localVarOperationServerBasePath = operationServerMap['PhoneNumberLookupApi.createSyncLookup']?.[localVarOperationServerIndex]?.url;
+            return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
+        },
+        /**
+         * Get an existing [Asynchronous Bulk Number Lookup](#tag/Phone-Number-Lookup/operation/createAsyncBulkLookup). Use this endpoint to check the status of the request and view the results.
+         * @summary Get Asynchronous Bulk Number Lookup
+         * @param {string} accountId 
+         * @param {string} requestId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        async getAsyncBulkLookup(accountId: string, requestId: string, options?: RawAxiosRequestConfig): Promise<(axios?: AxiosInstance, basePath?: string) => AxiosPromise<GetAsyncBulkLookupResponse>> {
+            const localVarAxiosArgs = await localVarAxiosParamCreator.getAsyncBulkLookup(accountId, requestId, options);
+            const localVarOperationServerIndex = configuration?.serverIndex ?? 0;
+            const localVarOperationServerBasePath = operationServerMap['PhoneNumberLookupApi.getAsyncBulkLookup']?.[localVarOperationServerIndex]?.url;
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
     }
@@ -168,71 +224,84 @@ export const PhoneNumberLookupApiFp = function(configuration?: Configuration) {
 
 /**
  * PhoneNumberLookupApi - factory interface
- * @export
  */
 export const PhoneNumberLookupApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = PhoneNumberLookupApiFp(configuration)
     return {
         /**
-         * Create a Phone Number Lookup Request.
-         * @summary Create Lookup
-         * @param {string} accountId Your Bandwidth Account ID.
-         * @param {LookupRequest} lookupRequest Phone number lookup request.
+         * Creates an asynchronous bulk phone number lookup request. Maximum of 15,000 telephone numbers per request. Use the [Get Asynchronous Bulk Number Lookup](#tag/Phone-Number-Lookup/operation/getAsyncBulkLookup) endpoint to check the status of the request and view the results.
+         * @summary Create Asynchronous Bulk Number Lookup
+         * @param {string} accountId 
+         * @param {AsyncLookupRequest} asyncLookupRequest Asynchronous bulk phone number lookup request.
          * @param {*} [options] Override http request option.
-         * @deprecated
          * @throws {RequiredError}
          */
-        createLookup(accountId: string, lookupRequest: LookupRequest, options?: RawAxiosRequestConfig): AxiosPromise<CreateLookupResponse> {
-            return localVarFp.createLookup(accountId, lookupRequest, options).then((request) => request(axios, basePath));
+        createAsyncBulkLookup(accountId: string, asyncLookupRequest: AsyncLookupRequest, options?: RawAxiosRequestConfig): AxiosPromise<CreateAsyncBulkLookupResponse> {
+            return localVarFp.createAsyncBulkLookup(accountId, asyncLookupRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Get an existing Phone Number Lookup Request.
-         * @summary Get Lookup Request Status
-         * @param {string} accountId Your Bandwidth Account ID.
-         * @param {string} requestId The phone number lookup request ID from Bandwidth.
+         * Creates a synchronous phone number lookup request. Maximum of 100 telephone numbers per request.
+         * @summary Create Synchronous Number Lookup
+         * @param {string} accountId 
+         * @param {SyncLookupRequest} syncLookupRequest Synchronous phone number lookup request.
          * @param {*} [options] Override http request option.
-         * @deprecated
          * @throws {RequiredError}
          */
-        getLookupStatus(accountId: string, requestId: string, options?: RawAxiosRequestConfig): AxiosPromise<LookupStatus> {
-            return localVarFp.getLookupStatus(accountId, requestId, options).then((request) => request(axios, basePath));
+        createSyncLookup(accountId: string, syncLookupRequest: SyncLookupRequest, options?: RawAxiosRequestConfig): AxiosPromise<CreateSyncLookupResponse> {
+            return localVarFp.createSyncLookup(accountId, syncLookupRequest, options).then((request) => request(axios, basePath));
+        },
+        /**
+         * Get an existing [Asynchronous Bulk Number Lookup](#tag/Phone-Number-Lookup/operation/createAsyncBulkLookup). Use this endpoint to check the status of the request and view the results.
+         * @summary Get Asynchronous Bulk Number Lookup
+         * @param {string} accountId 
+         * @param {string} requestId 
+         * @param {*} [options] Override http request option.
+         * @throws {RequiredError}
+         */
+        getAsyncBulkLookup(accountId: string, requestId: string, options?: RawAxiosRequestConfig): AxiosPromise<GetAsyncBulkLookupResponse> {
+            return localVarFp.getAsyncBulkLookup(accountId, requestId, options).then((request) => request(axios, basePath));
         },
     };
 };
 
 /**
  * PhoneNumberLookupApi - object-oriented interface
- * @export
- * @class PhoneNumberLookupApi
- * @extends {BaseAPI}
  */
 export class PhoneNumberLookupApi extends BaseAPI {
     /**
-     * Create a Phone Number Lookup Request.
-     * @summary Create Lookup
-     * @param {string} accountId Your Bandwidth Account ID.
-     * @param {LookupRequest} lookupRequest Phone number lookup request.
+     * Creates an asynchronous bulk phone number lookup request. Maximum of 15,000 telephone numbers per request. Use the [Get Asynchronous Bulk Number Lookup](#tag/Phone-Number-Lookup/operation/getAsyncBulkLookup) endpoint to check the status of the request and view the results.
+     * @summary Create Asynchronous Bulk Number Lookup
+     * @param {string} accountId 
+     * @param {AsyncLookupRequest} asyncLookupRequest Asynchronous bulk phone number lookup request.
      * @param {*} [options] Override http request option.
-     * @deprecated
      * @throws {RequiredError}
-     * @memberof PhoneNumberLookupApi
      */
-    public createLookup(accountId: string, lookupRequest: LookupRequest, options?: RawAxiosRequestConfig) {
-        return PhoneNumberLookupApiFp(this.configuration).createLookup(accountId, lookupRequest, options).then((request) => request(this.axios, this.basePath));
+    public createAsyncBulkLookup(accountId: string, asyncLookupRequest: AsyncLookupRequest, options?: RawAxiosRequestConfig) {
+        return PhoneNumberLookupApiFp(this.configuration).createAsyncBulkLookup(accountId, asyncLookupRequest, options).then((request) => request(this.axios, this.basePath));
     }
 
     /**
-     * Get an existing Phone Number Lookup Request.
-     * @summary Get Lookup Request Status
-     * @param {string} accountId Your Bandwidth Account ID.
-     * @param {string} requestId The phone number lookup request ID from Bandwidth.
+     * Creates a synchronous phone number lookup request. Maximum of 100 telephone numbers per request.
+     * @summary Create Synchronous Number Lookup
+     * @param {string} accountId 
+     * @param {SyncLookupRequest} syncLookupRequest Synchronous phone number lookup request.
      * @param {*} [options] Override http request option.
-     * @deprecated
      * @throws {RequiredError}
-     * @memberof PhoneNumberLookupApi
      */
-    public getLookupStatus(accountId: string, requestId: string, options?: RawAxiosRequestConfig) {
-        return PhoneNumberLookupApiFp(this.configuration).getLookupStatus(accountId, requestId, options).then((request) => request(this.axios, this.basePath));
+    public createSyncLookup(accountId: string, syncLookupRequest: SyncLookupRequest, options?: RawAxiosRequestConfig) {
+        return PhoneNumberLookupApiFp(this.configuration).createSyncLookup(accountId, syncLookupRequest, options).then((request) => request(this.axios, this.basePath));
+    }
+
+    /**
+     * Get an existing [Asynchronous Bulk Number Lookup](#tag/Phone-Number-Lookup/operation/createAsyncBulkLookup). Use this endpoint to check the status of the request and view the results.
+     * @summary Get Asynchronous Bulk Number Lookup
+     * @param {string} accountId 
+     * @param {string} requestId 
+     * @param {*} [options] Override http request option.
+     * @throws {RequiredError}
+     */
+    public getAsyncBulkLookup(accountId: string, requestId: string, options?: RawAxiosRequestConfig) {
+        return PhoneNumberLookupApiFp(this.configuration).getAsyncBulkLookup(accountId, requestId, options).then((request) => request(this.axios, this.basePath));
     }
 }
 

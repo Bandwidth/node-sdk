@@ -22,7 +22,6 @@ import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 
 /**
  * @type MultiChannelActionCalendarEvent
- * @export
  */
 export type MultiChannelActionCalendarEvent = RbmActionBase;
 

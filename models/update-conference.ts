@@ -20,64 +20,32 @@ import type { ConferenceStateEnum } from './conference-state-enum';
 // @ts-ignore
 import type { RedirectMethodEnum } from './redirect-method-enum';
 
-/**
- * 
- * @export
- * @interface UpdateConference
- */
 export interface UpdateConference {
-    /**
-     * 
-     * @type {ConferenceStateEnum}
-     * @memberof UpdateConference
-     */
     'status'?: ConferenceStateEnum | null;
     /**
      * The URL to send the [conferenceRedirect](/docs/voice/webhooks/conferenceRedirect) event which will provide new BXML. Not allowed if `state` is `completed`, but required if `state` is `active`.
-     * @type {string}
-     * @memberof UpdateConference
      */
     'redirectUrl'?: string | null;
-    /**
-     * 
-     * @type {RedirectMethodEnum}
-     * @memberof UpdateConference
-     */
     'redirectMethod'?: RedirectMethodEnum | null;
     /**
      * Basic auth username.
-     * @type {string}
-     * @memberof UpdateConference
      */
     'username'?: string | null;
     /**
      * Basic auth password.
-     * @type {string}
-     * @memberof UpdateConference
      */
     'password'?: string | null;
     /**
      * A fallback url which, if provided, will be used to retry the `conferenceRedirect` webhook delivery in case `redirectUrl` fails to respond.  Not allowed if `state` is `completed`.
-     * @type {string}
-     * @memberof UpdateConference
      */
     'redirectFallbackUrl'?: string | null;
-    /**
-     * 
-     * @type {RedirectMethodEnum}
-     * @memberof UpdateConference
-     */
     'redirectFallbackMethod'?: RedirectMethodEnum | null;
     /**
      * Basic auth username.
-     * @type {string}
-     * @memberof UpdateConference
      */
     'fallbackUsername'?: string | null;
     /**
      * Basic auth password.
-     * @type {string}
-     * @memberof UpdateConference
      */
     'fallbackPassword'?: string | null;
 }

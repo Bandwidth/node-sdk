@@ -14,16 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface SmsMessageContent
- */
 export interface SmsMessageContent {
     /**
      * The contents of the text message. Must be 2048 characters or less.
-     * @type {string}
-     * @memberof SmsMessageContent
      */
     'text': string;
 }

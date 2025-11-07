@@ -50,7 +50,6 @@ import type { ThumbnailAlignmentEnum } from './thumbnail-alignment-enum';
 /**
  * @type MultiChannelChannelListObjectContent
  * The content of the message.
- * @export
  */
 export type MultiChannelChannelListObjectContent = MmsMessageContent | RbmMessageContentRichCard | RbmMessageContentText | RbmMessageMedia | SmsMessageContent;
 

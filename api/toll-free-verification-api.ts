@@ -37,7 +37,6 @@ import type { WebhookSubscriptionRequestSchema } from '../models';
 import type { WebhookSubscriptionsListBody } from '../models';
 /**
  * TollFreeVerificationApi - axios parameter creator
- * @export
  */
 export const TollFreeVerificationApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -428,7 +427,6 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
 
 /**
  * TollFreeVerificationApi - functional programming interface
- * @export
  */
 export const TollFreeVerificationApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TollFreeVerificationApiAxiosParamCreator(configuration)
@@ -563,7 +561,6 @@ export const TollFreeVerificationApiFp = function(configuration?: Configuration)
 
 /**
  * TollFreeVerificationApi - factory interface
- * @export
  */
 export const TollFreeVerificationApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TollFreeVerificationApiFp(configuration)
@@ -671,9 +668,6 @@ export const TollFreeVerificationApiFactory = function (configuration?: Configur
 
 /**
  * TollFreeVerificationApi - object-oriented interface
- * @export
- * @class TollFreeVerificationApi
- * @extends {BaseAPI}
  */
 export class TollFreeVerificationApi extends BaseAPI {
     /**
@@ -683,7 +677,6 @@ export class TollFreeVerificationApi extends BaseAPI {
      * @param {WebhookSubscriptionRequestSchema} webhookSubscriptionRequestSchema Information about a webhook that Bandwidth should send upon the completion of event customer is trying to subscribe to.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TollFreeVerificationApi
      */
     public createWebhookSubscription(accountId: string, webhookSubscriptionRequestSchema: WebhookSubscriptionRequestSchema, options?: RawAxiosRequestConfig) {
         return TollFreeVerificationApiFp(this.configuration).createWebhookSubscription(accountId, webhookSubscriptionRequestSchema, options).then((request) => request(this.axios, this.basePath));
@@ -696,7 +689,6 @@ export class TollFreeVerificationApi extends BaseAPI {
      * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TollFreeVerificationApi
      */
     public deleteVerificationRequest(accountId: string, phoneNumber: string, options?: RawAxiosRequestConfig) {
         return TollFreeVerificationApiFp(this.configuration).deleteVerificationRequest(accountId, phoneNumber, options).then((request) => request(this.axios, this.basePath));
@@ -709,7 +701,6 @@ export class TollFreeVerificationApi extends BaseAPI {
      * @param {string} id Webhook subscription ID
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TollFreeVerificationApi
      */
     public deleteWebhookSubscription(accountId: string, id: string, options?: RawAxiosRequestConfig) {
         return TollFreeVerificationApiFp(this.configuration).deleteWebhookSubscription(accountId, id, options).then((request) => request(this.axios, this.basePath));
@@ -722,7 +713,6 @@ export class TollFreeVerificationApi extends BaseAPI {
      * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TollFreeVerificationApi
      */
     public getTollFreeVerificationStatus(accountId: string, phoneNumber: string, options?: RawAxiosRequestConfig) {
         return TollFreeVerificationApiFp(this.configuration).getTollFreeVerificationStatus(accountId, phoneNumber, options).then((request) => request(this.axios, this.basePath));
@@ -733,7 +723,6 @@ export class TollFreeVerificationApi extends BaseAPI {
      * @summary List Toll-Free Use Cases
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TollFreeVerificationApi
      */
     public listTollFreeUseCases(options?: RawAxiosRequestConfig) {
         return TollFreeVerificationApiFp(this.configuration).listTollFreeUseCases(options).then((request) => request(this.axios, this.basePath));
@@ -745,7 +734,6 @@ export class TollFreeVerificationApi extends BaseAPI {
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TollFreeVerificationApi
      */
     public listWebhookSubscriptions(accountId: string, options?: RawAxiosRequestConfig) {
         return TollFreeVerificationApiFp(this.configuration).listWebhookSubscriptions(accountId, options).then((request) => request(this.axios, this.basePath));
@@ -758,7 +746,6 @@ export class TollFreeVerificationApi extends BaseAPI {
      * @param {VerificationRequest} verificationRequest Request for verification of a toll-free phone number.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TollFreeVerificationApi
      */
     public requestTollFreeVerification(accountId: string, verificationRequest: VerificationRequest, options?: RawAxiosRequestConfig) {
         return TollFreeVerificationApiFp(this.configuration).requestTollFreeVerification(accountId, verificationRequest, options).then((request) => request(this.axios, this.basePath));
@@ -772,7 +759,6 @@ export class TollFreeVerificationApi extends BaseAPI {
      * @param {TfvSubmissionWrapper} tfvSubmissionWrapper Update a request for verification of a toll-free phone number.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TollFreeVerificationApi
      */
     public updateTollFreeVerificationRequest(accountId: string, phoneNumber: string, tfvSubmissionWrapper: TfvSubmissionWrapper, options?: RawAxiosRequestConfig) {
         return TollFreeVerificationApiFp(this.configuration).updateTollFreeVerificationRequest(accountId, phoneNumber, tfvSubmissionWrapper, options).then((request) => request(this.axios, this.basePath));
@@ -786,7 +772,6 @@ export class TollFreeVerificationApi extends BaseAPI {
      * @param {WebhookSubscriptionRequestSchema} webhookSubscriptionRequestSchema Information about a webhook that Bandwidth should send upon the completion of event customer is trying to subscribe to.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof TollFreeVerificationApi
      */
     public updateWebhookSubscription(accountId: string, id: string, webhookSubscriptionRequestSchema: WebhookSubscriptionRequestSchema, options?: RawAxiosRequestConfig) {
         return TollFreeVerificationApiFp(this.configuration).updateWebhookSubscription(accountId, id, webhookSubscriptionRequestSchema, options).then((request) => request(this.axios, this.basePath));

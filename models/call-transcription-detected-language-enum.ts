@@ -16,8 +16,6 @@
 
 /**
  * The detected language for this transcription.
- * @export
- * @enum {string}
  */
 
 export const CallTranscriptionDetectedLanguageEnum = {

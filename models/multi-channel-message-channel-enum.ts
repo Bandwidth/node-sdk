@@ -16,8 +16,6 @@
 
 /**
  * The channel of the multi-channel message.
- * @export
- * @enum {string}
  */
 
 export const MultiChannelMessageChannelEnum = {

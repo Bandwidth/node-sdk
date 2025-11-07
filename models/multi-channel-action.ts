@@ -34,7 +34,6 @@ import type { RbmActionViewLocation } from './rbm-action-view-location';
 
 /**
  * @type MultiChannelAction
- * @export
  */
 export type MultiChannelAction = { type: 'CREATE_CALENDAR_EVENT' } & MultiChannelActionCalendarEvent | { type: 'DIAL_PHONE' } & RbmActionDial | { type: 'OPEN_URL' } & RbmActionOpenUrl | { type: 'REPLY' } & RbmActionBase | { type: 'REQUEST_LOCATION' } & RbmActionBase | { type: 'SHOW_LOCATION' } & RbmActionViewLocation;
 

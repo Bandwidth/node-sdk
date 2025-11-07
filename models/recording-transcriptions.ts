@@ -17,17 +17,7 @@
 // @ts-ignore
 import type { Transcription } from './transcription';
 
-/**
- * 
- * @export
- * @interface RecordingTranscriptions
- */
 export interface RecordingTranscriptions {
-    /**
-     * 
-     * @type {Array<Transcription>}
-     * @memberof RecordingTranscriptions
-     */
     'transcripts'?: Array<Transcription>;
 }
 

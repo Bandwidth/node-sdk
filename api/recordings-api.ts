@@ -33,7 +33,6 @@ import type { UpdateCallRecording } from '../models';
 import type { VoiceApiError } from '../models';
 /**
  * RecordingsApi - axios parameter creator
- * @export
  */
 export const RecordingsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -518,7 +517,6 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
 
 /**
  * RecordingsApi - functional programming interface
- * @export
  */
 export const RecordingsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = RecordingsApiAxiosParamCreator(configuration)
@@ -680,7 +678,6 @@ export const RecordingsApiFp = function(configuration?: Configuration) {
 
 /**
  * RecordingsApi - factory interface
- * @export
  */
 export const RecordingsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = RecordingsApiFp(configuration)
@@ -812,9 +809,6 @@ export const RecordingsApiFactory = function (configuration?: Configuration, bas
 
 /**
  * RecordingsApi - object-oriented interface
- * @export
- * @class RecordingsApi
- * @extends {BaseAPI}
  */
 export class RecordingsApi extends BaseAPI {
     /**
@@ -825,7 +819,6 @@ export class RecordingsApi extends BaseAPI {
      * @param {string} recordingId Programmable Voice API Recording ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordingsApi
      */
     public deleteRecording(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).deleteRecording(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
@@ -839,7 +832,6 @@ export class RecordingsApi extends BaseAPI {
      * @param {string} recordingId Programmable Voice API Recording ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordingsApi
      */
     public deleteRecordingMedia(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).deleteRecordingMedia(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
@@ -853,7 +845,6 @@ export class RecordingsApi extends BaseAPI {
      * @param {string} recordingId Programmable Voice API Recording ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordingsApi
      */
     public deleteRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).deleteRecordingTranscription(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
@@ -867,7 +858,6 @@ export class RecordingsApi extends BaseAPI {
      * @param {string} recordingId Programmable Voice API Recording ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordingsApi
      */
     public downloadCallRecording(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).downloadCallRecording(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
@@ -881,7 +871,6 @@ export class RecordingsApi extends BaseAPI {
      * @param {string} recordingId Programmable Voice API Recording ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordingsApi
      */
     public getCallRecording(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).getCallRecording(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
@@ -895,7 +884,6 @@ export class RecordingsApi extends BaseAPI {
      * @param {string} recordingId Programmable Voice API Recording ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordingsApi
      */
     public getRecordingTranscription(accountId: string, callId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).getRecordingTranscription(accountId, callId, recordingId, options).then((request) => request(this.axios, this.basePath));
@@ -911,7 +899,6 @@ export class RecordingsApi extends BaseAPI {
      * @param {string} [maxStartTime] Filter results to recordings which have a &#x60;startTime&#x60; before &#x60;maxStartTime&#x60; (in ISO8601 format).
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordingsApi
      */
     public listAccountCallRecordings(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).listAccountCallRecordings(accountId, to, from, minStartTime, maxStartTime, options).then((request) => request(this.axios, this.basePath));
@@ -924,7 +911,6 @@ export class RecordingsApi extends BaseAPI {
      * @param {string} callId Programmable Voice API Call ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordingsApi
      */
     public listCallRecordings(accountId: string, callId: string, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).listCallRecordings(accountId, callId, options).then((request) => request(this.axios, this.basePath));
@@ -939,7 +925,6 @@ export class RecordingsApi extends BaseAPI {
      * @param {TranscribeRecording} transcribeRecording 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordingsApi
      */
     public transcribeCallRecording(accountId: string, callId: string, recordingId: string, transcribeRecording: TranscribeRecording, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).transcribeCallRecording(accountId, callId, recordingId, transcribeRecording, options).then((request) => request(this.axios, this.basePath));
@@ -953,7 +938,6 @@ export class RecordingsApi extends BaseAPI {
      * @param {UpdateCallRecording} updateCallRecording 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof RecordingsApi
      */
     public updateCallRecordingState(accountId: string, callId: string, updateCallRecording: UpdateCallRecording, options?: RawAxiosRequestConfig) {
         return RecordingsApiFp(this.configuration).updateCallRecordingState(accountId, callId, updateCallRecording, options).then((request) => request(this.axios, this.basePath));

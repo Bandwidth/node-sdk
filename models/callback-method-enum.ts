@@ -16,8 +16,6 @@
 
 /**
  * The HTTP method to use to deliver the callback. GET or POST. Default value is POST.
- * @export
- * @enum {string}
  */
 
 export const CallbackMethodEnum = {

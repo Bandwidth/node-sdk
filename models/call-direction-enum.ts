@@ -16,8 +16,6 @@
 
 /**
  * The direction of the call.
- * @export
- * @enum {string}
  */
 
 export const CallDirectionEnum = {

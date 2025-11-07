@@ -4,10 +4,10 @@
 
 |    **OS**    |  **Node**  |
 |:------------:|:----------:|
-| Windows 2019 | 18, 20, 22 |
-| Windows 2022 | 18, 20, 22 |
-| Ubuntu 22.04 | 18, 20, 22 |
-| Ubuntu 24.04 | 18, 20, 22 |
+| Windows 2022 | 18, 20, 22, 24 |
+| Windows 2025 | 18, 20, 22, 24 |
+| Ubuntu 22.04 | 18, 20, 22, 24 |
+| Ubuntu 24.04 | 18, 20, 22, 24 |
 
 #### Available on NPM
 ```
@@ -46,7 +46,7 @@ Module system
 * CommonJS
 * ES6 module system
 
-It can be used in both TypeScript and JavaScript. In TypeScript, the definition should be automatically resolved via `package.json`. ([Reference](http://www.typescriptlang.org/docs/handbook/typings-for-npm-packages.html))
+It can be used in both TypeScript and JavaScript. In TypeScript, the definition will be automatically resolved via `package.json`. ([Reference](https://www.typescriptlang.org/docs/handbook/declaration-files/consumption.html))
 
 ### Building
 
@@ -58,7 +58,7 @@ npm run build
 
 ### Publishing
 
-First build the package then run ```npm publish```
+First build the package then run `npm publish`
 
 ### Consuming
 
@@ -99,3 +99,53 @@ await callsApi.createCall(BW_ACCOUNT_ID, body);
 ```
 
 More samples can be found in the [Bandwidth Samples](https://github.com/orgs/Bandwidth-Samples/repositories?q=lang%3Ajavascript&type=all) GitHub Organization.
+
+### Documentation for API Endpoints
+
+All URIs are relative to *{{{basePath}}}*
+
+Class | Method | HTTP request | Description
+------------ | ------------- | ------------- | -------------
+{{#apiInfo}}{{#apis}}{{#operations}}{{#operation}}*{{classname}}* | [**{{operationId}}**]({{apiDocPath}}{{classname}}.md#{{operationIdLowerCase}}) | **{{httpMethod}}** {{path}} | {{summary}}
+{{/operation}}{{/operations}}{{/apis}}{{/apiInfo}}
+
+### Documentation For Models
+
+{{#models}}{{#model}} - [{{{classname}}}]({{modelDocPath}}{{{classname}}}.md)
+{{/model}}{{/models}}
+
+<a id="documentation-for-authorization"></a>
+## Documentation For Authorization
+
+{{^authMethods}}Endpoints do not require authorization.{{/authMethods}}
+{{#hasAuthMethods}}Authentication schemes defined for the API:{{/hasAuthMethods}}
+{{#authMethods}}
+<a id="{{name}}"></a>
+### {{{name}}}
+
+{{#isApiKey}}
+- **Type**: API key
+- **API key parameter name**: {{{keyParamName}}}
+- **Location**: {{#isKeyInQuery}}URL query string{{/isKeyInQuery}}{{#isKeyInHeader}}HTTP header{{/isKeyInHeader}}
+{{/isApiKey}}
+{{#isBasic}}
+{{#isBasicBasic}}
+- **Type**: HTTP basic authentication
+{{/isBasicBasic}}
+{{#isBasicBearer}}
+- **Type**: Bearer authentication{{#bearerFormat}} ({{{.}}}){{/bearerFormat}}
+{{/isBasicBearer}}
+{{#isHttpSignature}}
+- **Type**: HTTP signature authentication
+{{/isHttpSignature}}
+{{/isBasic}}
+{{#isOAuth}}
+- **Type**: OAuth
+- **Flow**: {{{flow}}}
+- **Authorization URL**: {{{authorizationUrl}}}
+- **Scopes**: {{^scopes}}N/A{{/scopes}}
+{{#scopes}} - **{{{scope}}}**: {{{description}}}
+{{/scopes}}
+{{/isOAuth}}
+
+{{/authMethods}}

@@ -4,13 +4,14 @@ All URIs are relative to *http://localhost*
 
 |Method | HTTP request | Description|
 |------------- | ------------- | -------------|
-|[**createLookup**](#createlookup) | **POST** /accounts/{accountId}/tnlookup | Create Lookup|
-|[**getLookupStatus**](#getlookupstatus) | **GET** /accounts/{accountId}/tnlookup/{requestId} | Get Lookup Request Status|
+|[**createAsyncBulkLookup**](#createasyncbulklookup) | **POST** /accounts/{accountId}/phoneNumberLookup/bulk | Create Asynchronous Bulk Number Lookup|
+|[**createSyncLookup**](#createsynclookup) | **POST** /accounts/{accountId}/phoneNumberLookup | Create Synchronous Number Lookup|
+|[**getAsyncBulkLookup**](#getasyncbulklookup) | **GET** /accounts/{accountId}/phoneNumberLookup/bulk/{requestId} | Get Asynchronous Bulk Number Lookup|
 
-# **createLookup**
-> CreateLookupResponse createLookup(lookupRequest)
+# **createAsyncBulkLookup**
+> CreateAsyncBulkLookupResponse createAsyncBulkLookup(asyncLookupRequest)
 
-Create a Phone Number Lookup Request.
+Creates an asynchronous bulk phone number lookup request. Maximum of 15,000 telephone numbers per request. Use the [Get Asynchronous Bulk Number Lookup](#tag/Phone-Number-Lookup/operation/getAsyncBulkLookup) endpoint to check the status of the request and view the results.
 
 ### Example
 
@@ -18,18 +19,18 @@ Create a Phone Number Lookup Request.
 import {
     PhoneNumberLookupApi,
     Configuration,
-    LookupRequest
+    AsyncLookupRequest
 } from 'bandwidth-sdk';
 
 const configuration = new Configuration();
 const apiInstance = new PhoneNumberLookupApi(configuration);
 
-let accountId: string; //Your Bandwidth Account ID. (default to undefined)
-let lookupRequest: LookupRequest; //Phone number lookup request.
+let accountId: string; // (default to undefined)
+let asyncLookupRequest: AsyncLookupRequest; //Asynchronous bulk phone number lookup request.
 
-const { status, data } = await apiInstance.createLookup(
+const { status, data } = await apiInstance.createAsyncBulkLookup(
     accountId,
-    lookupRequest
+    asyncLookupRequest
 );
 ```
 
@@ -37,13 +38,13 @@ const { status, data } = await apiInstance.createLookup(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **lookupRequest** | **LookupRequest**| Phone number lookup request. | |
-| **accountId** | [**string**] | Your Bandwidth Account ID. | defaults to undefined|
+| **asyncLookupRequest** | **AsyncLookupRequest**| Asynchronous bulk phone number lookup request. | |
+| **accountId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**CreateLookupResponse**
+**CreateAsyncBulkLookupResponse**
 
 ### Authorization
 
@@ -59,19 +60,70 @@ const { status, data } = await apiInstance.createLookup(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**202** | Accepted |  -  |
-|**400** | Bad Request |  -  |
-|**401** | Unauthorized |  -  |
-|**403** | Forbidden |  -  |
-|**415** | Unsupported Media Type |  -  |
-|**429** | Too Many Requests |  -  |
-|**500** | Internal Server Error |  -  |
+|**0** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **getLookupStatus**
-> LookupStatus getLookupStatus()
+# **createSyncLookup**
+> CreateSyncLookupResponse createSyncLookup(syncLookupRequest)
 
-Get an existing Phone Number Lookup Request.
+Creates a synchronous phone number lookup request. Maximum of 100 telephone numbers per request.
+
+### Example
+
+```typescript
+import {
+    PhoneNumberLookupApi,
+    Configuration,
+    SyncLookupRequest
+} from 'bandwidth-sdk';
+
+const configuration = new Configuration();
+const apiInstance = new PhoneNumberLookupApi(configuration);
+
+let accountId: string; // (default to undefined)
+let syncLookupRequest: SyncLookupRequest; //Synchronous phone number lookup request.
+
+const { status, data } = await apiInstance.createSyncLookup(
+    accountId,
+    syncLookupRequest
+);
+```
+
+### Parameters
+
+|Name | Type | Description  | Notes|
+|------------- | ------------- | ------------- | -------------|
+| **syncLookupRequest** | **SyncLookupRequest**| Synchronous phone number lookup request. | |
+| **accountId** | [**string**] |  | defaults to undefined|
+
+
+### Return type
+
+**CreateSyncLookupResponse**
+
+### Authorization
+
+[Basic](../README.md#Basic)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+|**200** | OK |  -  |
+|**0** | Bad Request |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **getAsyncBulkLookup**
+> GetAsyncBulkLookupResponse getAsyncBulkLookup()
+
+Get an existing [Asynchronous Bulk Number Lookup](#tag/Phone-Number-Lookup/operation/createAsyncBulkLookup). Use this endpoint to check the status of the request and view the results.
 
 ### Example
 
@@ -84,10 +136,10 @@ import {
 const configuration = new Configuration();
 const apiInstance = new PhoneNumberLookupApi(configuration);
 
-let accountId: string; //Your Bandwidth Account ID. (default to undefined)
-let requestId: string; //The phone number lookup request ID from Bandwidth. (default to undefined)
+let accountId: string; // (default to undefined)
+let requestId: string; // (default to undefined)
 
-const { status, data } = await apiInstance.getLookupStatus(
+const { status, data } = await apiInstance.getAsyncBulkLookup(
     accountId,
     requestId
 );
@@ -97,13 +149,13 @@ const { status, data } = await apiInstance.getLookupStatus(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **accountId** | [**string**] | Your Bandwidth Account ID. | defaults to undefined|
-| **requestId** | [**string**] | The phone number lookup request ID from Bandwidth. | defaults to undefined|
+| **accountId** | [**string**] |  | defaults to undefined|
+| **requestId** | [**string**] |  | defaults to undefined|
 
 
 ### Return type
 
-**LookupStatus**
+**GetAsyncBulkLookupResponse**
 
 ### Authorization
 
@@ -119,12 +171,7 @@ const { status, data } = await apiInstance.getLookupStatus(
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 |**200** | OK |  -  |
-|**400** | Bad Request |  -  |
-|**401** | Unauthorized |  -  |
-|**403** | Forbidden |  -  |
-|**404** | Not Found |  -  |
-|**429** | Too Many Requests |  -  |
-|**500** | Internal Server Error |  -  |
+|**0** | Bad Request |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

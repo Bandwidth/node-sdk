@@ -1,19 +1,19 @@
-# TnLookupRequestError
+# AsyncLookupRequest
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**message** | **string** | A description of what validation error occurred. | [optional] [default to undefined]
+**phoneNumbers** | **Array&lt;string&gt;** | Telephone numbers in E.164 format. | [default to undefined]
 
 ## Example
 
 ```typescript
-import { TnLookupRequestError } from 'bandwidth-sdk';
+import { AsyncLookupRequest } from 'bandwidth-sdk';
 
-const instance: TnLookupRequestError = {
-    message,
+const instance: AsyncLookupRequest = {
+    phoneNumbers,
 };
 ```
 

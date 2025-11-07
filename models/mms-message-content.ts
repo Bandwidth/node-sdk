@@ -17,23 +17,11 @@
 // @ts-ignore
 import type { MmsMessageContentFile } from './mms-message-content-file';
 
-/**
- * 
- * @export
- * @interface MmsMessageContent
- */
 export interface MmsMessageContent {
     /**
      * The contents of the text message. Must be 2048 characters or less.
-     * @type {string}
-     * @memberof MmsMessageContent
      */
     'text'?: string;
-    /**
-     * 
-     * @type {Array<MmsMessageContentFile>}
-     * @memberof MmsMessageContent
-     */
     'media'?: Array<MmsMessageContentFile>;
 }
 

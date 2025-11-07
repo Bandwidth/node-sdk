@@ -33,7 +33,6 @@ import type { UpdateCall } from '../models';
 import type { VoiceApiError } from '../models';
 /**
  * CallsApi - axios parameter creator
- * @export
  */
 export const CallsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -297,7 +296,6 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * CallsApi - functional programming interface
- * @export
  */
 export const CallsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = CallsApiAxiosParamCreator(configuration)
@@ -385,7 +383,6 @@ export const CallsApiFp = function(configuration?: Configuration) {
 
 /**
  * CallsApi - factory interface
- * @export
  */
 export const CallsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = CallsApiFp(configuration)
@@ -458,9 +455,6 @@ export const CallsApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * CallsApi - object-oriented interface
- * @export
- * @class CallsApi
- * @extends {BaseAPI}
  */
 export class CallsApi extends BaseAPI {
     /**
@@ -470,7 +464,6 @@ export class CallsApi extends BaseAPI {
      * @param {CreateCall} createCall JSON object containing information to create an outbound call
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CallsApi
      */
     public createCall(accountId: string, createCall: CreateCall, options?: RawAxiosRequestConfig) {
         return CallsApiFp(this.configuration).createCall(accountId, createCall, options).then((request) => request(this.axios, this.basePath));
@@ -483,7 +476,6 @@ export class CallsApi extends BaseAPI {
      * @param {string} callId Programmable Voice API Call ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CallsApi
      */
     public getCallState(accountId: string, callId: string, options?: RawAxiosRequestConfig) {
         return CallsApiFp(this.configuration).getCallState(accountId, callId, options).then((request) => request(this.axios, this.basePath));
@@ -502,7 +494,6 @@ export class CallsApi extends BaseAPI {
      * @param {string} [pageToken] Not intended for explicit use. To use pagination, follow the links in the &#x60;Link&#x60; header of the response, as indicated in the endpoint description.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CallsApi
      */
     public listCalls(accountId: string, to?: string, from?: string, minStartTime?: string, maxStartTime?: string, disconnectCause?: string, pageSize?: number, pageToken?: string, options?: RawAxiosRequestConfig) {
         return CallsApiFp(this.configuration).listCalls(accountId, to, from, minStartTime, maxStartTime, disconnectCause, pageSize, pageToken, options).then((request) => request(this.axios, this.basePath));
@@ -516,7 +507,6 @@ export class CallsApi extends BaseAPI {
      * @param {UpdateCall} updateCall JSON object containing information to redirect an existing call to a new BXML document
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CallsApi
      */
     public updateCall(accountId: string, callId: string, updateCall: UpdateCall, options?: RawAxiosRequestConfig) {
         return CallsApiFp(this.configuration).updateCall(accountId, callId, updateCall, options).then((request) => request(this.axios, this.basePath));
@@ -530,7 +520,6 @@ export class CallsApi extends BaseAPI {
      * @param {string} body 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof CallsApi
      */
     public updateCallBxml(accountId: string, callId: string, body: string, options?: RawAxiosRequestConfig) {
         return CallsApiFp(this.configuration).updateCallBxml(accountId, callId, body, options).then((request) => request(this.axios, this.basePath));
