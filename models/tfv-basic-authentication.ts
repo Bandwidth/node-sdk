@@ -14,23 +14,8 @@
 
 
 
-/**
- * 
- * @export
- * @interface TfvBasicAuthentication
- */
 export interface TfvBasicAuthentication {
-    /**
-     * 
-     * @type {string}
-     * @memberof TfvBasicAuthentication
-     */
     'username': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof TfvBasicAuthentication
-     */
     'password': string;
 }
 

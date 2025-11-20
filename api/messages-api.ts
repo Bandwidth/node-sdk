@@ -41,7 +41,6 @@ import type { MessagingRequestError } from '../models';
 import type { ProductTypeEnum } from '../models';
 /**
  * MessagesApi - axios parameter creator
- * @export
  */
 export const MessagesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -267,7 +266,6 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
 
 /**
  * MessagesApi - functional programming interface
- * @export
  */
 export const MessagesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MessagesApiAxiosParamCreator(configuration)
@@ -331,7 +329,6 @@ export const MessagesApiFp = function(configuration?: Configuration) {
 
 /**
  * MessagesApi - factory interface
- * @export
  */
 export const MessagesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MessagesApiFp(configuration)
@@ -389,9 +386,6 @@ export const MessagesApiFactory = function (configuration?: Configuration, baseP
 
 /**
  * MessagesApi - object-oriented interface
- * @export
- * @class MessagesApi
- * @extends {BaseAPI}
  */
 export class MessagesApi extends BaseAPI {
     /**
@@ -401,7 +395,6 @@ export class MessagesApi extends BaseAPI {
      * @param {MessageRequest} messageRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MessagesApi
      */
     public createMessage(accountId: string, messageRequest: MessageRequest, options?: RawAxiosRequestConfig) {
         return MessagesApiFp(this.configuration).createMessage(accountId, messageRequest, options).then((request) => request(this.axios, this.basePath));
@@ -440,7 +433,6 @@ export class MessagesApi extends BaseAPI {
      * @param {boolean} [limitTotalCount] When set to true, the response\&#39;s totalCount field will have a maximum value of 10,000. When set to false, or excluded, this will give an accurate totalCount of all messages that match the provided filters. If you are experiencing latency, try using this parameter to limit your results.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof MessagesApi
      */
     public listMessages(accountId: string, messageId?: string, sourceTn?: string, destinationTn?: string, messageStatus?: MessageStatusEnum, messageDirection?: ListMessageDirectionEnum, carrierName?: string, messageType?: MessageTypeEnum, errorCode?: number, fromDateTime?: string, toDateTime?: string, campaignId?: string, fromBwLatency?: number, bwQueued?: boolean, product?: ProductTypeEnum, location?: string, carrierQueued?: boolean, fromCarrierLatency?: number, callingNumberCountryA3?: string, calledNumberCountryA3?: string, fromSegmentCount?: number, toSegmentCount?: number, fromMessageSize?: number, toMessageSize?: number, sort?: string, pageToken?: string, limit?: number, limitTotalCount?: boolean, options?: RawAxiosRequestConfig) {
         return MessagesApiFp(this.configuration).listMessages(accountId, messageId, sourceTn, destinationTn, messageStatus, messageDirection, carrierName, messageType, errorCode, fromDateTime, toDateTime, campaignId, fromBwLatency, bwQueued, product, location, carrierQueued, fromCarrierLatency, callingNumberCountryA3, calledNumberCountryA3, fromSegmentCount, toSegmentCount, fromMessageSize, toMessageSize, sort, pageToken, limit, limitTotalCount, options).then((request) => request(this.axios, this.basePath));

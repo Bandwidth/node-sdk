@@ -13,18 +13,20 @@
  */
 
 
+// May contain unused imports in some cases
+// @ts-ignore
+import type { InProgressLookupStatusEnum } from './in-progress-lookup-status-enum';
 
 /**
- * Create phone number lookup request.
- * @export
- * @interface LookupRequest
+ * The phone number lookup response data
  */
-export interface LookupRequest {
+export interface CreateAsyncBulkLookupResponseData {
     /**
-     * 
-     * @type {Array<string>}
-     * @memberof LookupRequest
+     * The phone number lookup request ID from Bandwidth.
      */
-    'tns': Array<string>;
+    'requestId'?: string;
+    'status'?: InProgressLookupStatusEnum;
 }
+
+
 

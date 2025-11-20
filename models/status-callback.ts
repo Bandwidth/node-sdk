@@ -22,56 +22,29 @@ import type { StatusCallbackTypeEnum } from './status-callback-type-enum';
 
 /**
  * Represents a status callback for an outbound MT SMS or MMS or RBM message.
- * @export
- * @interface StatusCallback
  */
 export interface StatusCallback {
-    /**
-     * 
-     * @type {string}
-     * @memberof StatusCallback
-     */
     'time': string;
     /**
      * Represents the time at which the message was read, for `message-read` callbacks.
-     * @type {string}
-     * @memberof StatusCallback
      */
     'eventTime'?: string;
-    /**
-     * 
-     * @type {StatusCallbackTypeEnum}
-     * @memberof StatusCallback
-     */
     'type': StatusCallbackTypeEnum;
     /**
      * The destination phone number the message was sent to. For status callbacks, this the the Bandwidth user\'s client phone number.
-     * @type {string}
-     * @memberof StatusCallback
      */
     'to': string;
     /**
      * A detailed description of the event described by the callback.
-     * @type {string}
-     * @memberof StatusCallback
      */
     'description': string;
-    /**
-     * 
-     * @type {StatusCallbackMessage}
-     * @memberof StatusCallback
-     */
     'message': StatusCallbackMessage;
     /**
      * Optional error code, applicable only when type is `message-failed`.
-     * @type {number}
-     * @memberof StatusCallback
      */
     'errorCode'?: number;
     /**
      * The name of the Authorized Message Provider (AMP) that handled this message.  In the US, this is the carrier that the message was sent to. This field is present only when this account feature has been enabled.
-     * @type {string}
-     * @memberof StatusCallback
      */
     'carrierName'?: string;
 }

@@ -16,8 +16,6 @@
 
 /**
  * The direction of the message. One of in out.
- * @export
- * @enum {string}
  */
 
 export const MessageDirectionEnum = {

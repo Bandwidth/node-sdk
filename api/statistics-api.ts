@@ -27,7 +27,6 @@ import type { AccountStatistics } from '../models';
 import type { VoiceApiError } from '../models';
 /**
  * StatisticsApi - axios parameter creator
- * @export
  */
 export const StatisticsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -74,7 +73,6 @@ export const StatisticsApiAxiosParamCreator = function (configuration?: Configur
 
 /**
  * StatisticsApi - functional programming interface
- * @export
  */
 export const StatisticsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = StatisticsApiAxiosParamCreator(configuration)
@@ -97,7 +95,6 @@ export const StatisticsApiFp = function(configuration?: Configuration) {
 
 /**
  * StatisticsApi - factory interface
- * @export
  */
 export const StatisticsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = StatisticsApiFp(configuration)
@@ -117,9 +114,6 @@ export const StatisticsApiFactory = function (configuration?: Configuration, bas
 
 /**
  * StatisticsApi - object-oriented interface
- * @export
- * @class StatisticsApi
- * @extends {BaseAPI}
  */
 export class StatisticsApi extends BaseAPI {
     /**
@@ -128,7 +122,6 @@ export class StatisticsApi extends BaseAPI {
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
-     * @memberof StatisticsApi
      */
     public getStatistics(accountId: string, options?: RawAxiosRequestConfig) {
         return StatisticsApiFp(this.configuration).getStatistics(accountId, options).then((request) => request(this.axios, this.basePath));

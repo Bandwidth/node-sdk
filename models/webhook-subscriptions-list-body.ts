@@ -25,27 +25,10 @@ import type { WebhookSubscription } from './webhook-subscription';
 
 /**
  * A list of all webhook subscriptions registered for this account ID for this particular feature (unpaginated).
- * @export
- * @interface WebhookSubscriptionsListBody
  */
 export interface WebhookSubscriptionsListBody {
-    /**
-     * 
-     * @type {LinksObject}
-     * @memberof WebhookSubscriptionsListBody
-     */
     'links'?: LinksObject;
-    /**
-     * 
-     * @type {Array<ModelError>}
-     * @memberof WebhookSubscriptionsListBody
-     */
     'errors'?: Array<ModelError>;
-    /**
-     * 
-     * @type {Array<WebhookSubscription>}
-     * @memberof WebhookSubscriptionsListBody
-     */
     'data': Array<WebhookSubscription>;
 }
 

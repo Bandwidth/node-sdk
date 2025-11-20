@@ -20,29 +20,12 @@ import type { ListMessageItem } from './list-message-item';
 // @ts-ignore
 import type { PageInfo } from './page-info';
 
-/**
- * 
- * @export
- * @interface MessagesList
- */
 export interface MessagesList {
     /**
      * The total number of messages matched by the search. When the request has limitTotalCount set to true this value is limited to 10,000.
-     * @type {number}
-     * @memberof MessagesList
      */
     'totalCount'?: number;
-    /**
-     * 
-     * @type {PageInfo}
-     * @memberof MessagesList
-     */
     'pageInfo'?: PageInfo;
-    /**
-     * 
-     * @type {Array<ListMessageItem>}
-     * @memberof MessagesList
-     */
     'messages'?: Array<ListMessageItem>;
 }
 

@@ -1,82 +1,85 @@
 //@ts-nocheck
 import { PhoneNumberLookupApi } from "../../api";
 import { Configuration } from "../../configuration";
-import { LookupRequest, LookupStatusEnum } from "../../models";
-import { sleep } from "../callUtils";
+import {
+    AsyncLookupRequest,
+    CompletedLookupStatusEnum,
+    InProgressLookupStatusEnum,
+    LatestMessageDeliveryStatusEnum,
+    LineTypeEnum,
+    SyncLookupRequest
+} from "../../models";
+import { sleep } from '../callUtils';
 
 describe('PhoneNumberLookupApi', () => {
-    jest.setTimeout(10000);
-    const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
+    jest.setTimeout(20000);
+    const config = new Configuration({
+        username: BW_USERNAME,
+        password: BW_PASSWORD
+    });
     const phoneNumberLookupApi = new PhoneNumberLookupApi(config);
 
-    let lookupRequestId: string;
+    const phoneNumbers = [BW_NUMBER, USER_NUMBER];
 
-    describe('createLookup', () => {
-        test('should lookup phone number', async () => {
-            const lookupRequest: LookupRequest = {
-                tns: [BW_NUMBER]
-            };
+    describe('createGetAsyncBulkLookup', () => {
+        test('should create and get an async bulk lookup request', async () => {
+            const request: AsyncLookupRequest = { phoneNumbers };
 
-            const { status, data } = await phoneNumberLookupApi.createLookup(BW_ACCOUNT_ID, lookupRequest);
+            const { status: createStatus, data: createData }
+                = await phoneNumberLookupApi.createAsyncBulkLookup(BW_ACCOUNT_ID, request);
 
-            expect(status).toEqual(202);
-            expect(data.requestId).toHaveLength(36);
-            expect(data.status).toBeOneOf(Object.values(LookupStatusEnum));
+            expect(createStatus).toEqual(202);
+            expect(createData.links[0]).toBeDefined();
+            expect(createData.links[0].rel).toBeString();
+            expect(createData.links[0].href).toBeString();
+            expect(createData.links[0].method).toBeString();
+            expect(createData.data.requestId).toBeString();
+            expect(createData.data.status).toBeOneOf(Object.values(InProgressLookupStatusEnum));
+            expect(createData.errors).toBeInstanceOf(Array);
 
-            lookupRequestId = data.requestId!;
-            await sleep(1);
+            const requestId = createData.data.requestId;
+            await sleep(10);
+
+            const { status: getStatus, data: getData }
+                = await phoneNumberLookupApi.getAsyncBulkLookup(BW_ACCOUNT_ID, requestId);
+
+            expect(getStatus).toEqual(200);
+            expect(getData.links[0]).toBeDefined();
+            expect(getData.links[0].rel).toBeString();
+            expect(getData.links[0].href).toBeString();
+            expect(getData.links[0].method).toBeString();
+            expect(getData.data.requestId).toEqual(requestId);
+            expect(getData.data.status).toBeOneOf(Object.values(InProgressLookupStatusEnum));
+            expect(getData.data.results).toBeInstanceOf(Array);
+            expect(getData.data.results[0]).toBeDefined();
+            expect(getData.data.results[0].phoneNumber).toBeString();
+            expect(getData.data.results[0].lineType).toBeOneOf(Object.values(LineTypeEnum));
+            expect(getData.data.results[0].messagingProvider).toBeString();
+            expect(getData.data.results[0].voiceProvider).toBeString();
+            expect(getData.data.results[0].countryCodeA3).toBeString();
         });
     });
 
-    describe('getLookupStatus', () => {
-        test('should get lookup status', async () => {
-            const { status, data } = await phoneNumberLookupApi.getLookupStatus(BW_ACCOUNT_ID, lookupRequestId);
+    describe('createSyncLookup', () => {
+        test('should create a sync lookup', async () => {
+            const request: SyncLookupRequest = { phoneNumbers };
+
+            const { status, data } = await phoneNumberLookupApi.createSyncLookup(BW_ACCOUNT_ID, request);
 
             expect(status).toEqual(200);
-            expect(data.requestId).toEqual(lookupRequestId);
-            expect(data.status).toBeOneOf(Object.values(LookupStatusEnum));
-            expect(data.result).toBeInstanceOf(Array);
-            expect(data.result![0]['Response Code']).toBeInteger();
-            expect(data.result![0]['E.164 Format']).toEqual(BW_NUMBER);
-        });
-    });
-
-    describe('HTTP Errors', () => {
-        test('400', async () => {
-            const lookupRequest: LookupRequest = {
-                tns: ['+1invalid']
-            };
-
-            try {
-                await phoneNumberLookupApi.createLookup(BW_ACCOUNT_ID, lookupRequest);
-            } catch (e) {
-                expect(e.response.status).toEqual(400);
-            }
-        });
-
-        test('401', async () => {
-            const configBad = new Configuration({username: UNAUTHORIZED_USERNAME, password: UNAUTHORIZED_PASSWORD});
-            const phoneNumberLookupApiBad = new PhoneNumberLookupApi(configBad);
-
-            const lookupRequest: LookupRequest = {
-                tns: [BW_NUMBER]
-            };
-
-            try {
-                await phoneNumberLookupApiBad.createLookup(BW_ACCOUNT_ID, lookupRequest);
-            } catch (e) {
-                expect(e.response.status).toEqual(401);
-            }
-        });
-
-        test('404', async () => {
-            const requestIdBad = '00000000-0000-0000-0000-000000000000';
-
-            try {
-                await phoneNumberLookupApi.getLookupStatus(BW_ACCOUNT_ID, requestIdBad);
-            } catch (e) {
-                expect(e.response.status).toEqual(404);
-            }
+            expect(data.links[0]).toBeDefined();
+            expect(data.links[0].rel).toBeString();
+            expect(data.links[0].href).toBeString();
+            expect(data.links[0].method).toBeString();
+            expect(data.data.requestId).toBeString();
+            expect(data.data.status).toBeOneOf(Object.values(CompletedLookupStatusEnum));
+            expect(data.data.results).toBeInstanceOf(Array);
+            expect(data.data.results[0]).toBeDefined();
+            expect(data.data.results[0].phoneNumber).toBeString();
+            expect(data.data.results[0].lineType).toBeOneOf(Object.values(LineTypeEnum));
+            expect(data.data.results[0].messagingProvider).toBeString();
+            expect(data.data.results[0].voiceProvider).toBeString();
+            expect(data.data.results[0].countryCodeA3).toBeString();
         });
     });
 });

@@ -17,35 +17,19 @@
 // @ts-ignore
 import type { CallTranscription } from './call-transcription';
 
-/**
- * 
- * @export
- * @interface CallTranscriptionResponse
- */
 export interface CallTranscriptionResponse {
     /**
      * The user account associated with the call.
-     * @type {string}
-     * @memberof CallTranscriptionResponse
      */
     'accountId'?: string;
     /**
      * The call id associated with the event.
-     * @type {string}
-     * @memberof CallTranscriptionResponse
      */
     'callId'?: string;
     /**
      * The programmable voice API transcription ID.
-     * @type {string}
-     * @memberof CallTranscriptionResponse
      */
     'transcriptionId'?: string;
-    /**
-     * 
-     * @type {Array<CallTranscription>}
-     * @memberof CallTranscriptionResponse
-     */
     'tracks'?: Array<CallTranscription>;
 }
 

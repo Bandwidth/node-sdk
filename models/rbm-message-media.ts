@@ -20,22 +20,10 @@ import type { MultiChannelAction } from './multi-channel-action';
 // @ts-ignore
 import type { RbmMessageContentFile } from './rbm-message-content-file';
 
-/**
- * 
- * @export
- * @interface RbmMessageMedia
- */
 export interface RbmMessageMedia {
-    /**
-     * 
-     * @type {RbmMessageContentFile}
-     * @memberof RbmMessageMedia
-     */
     'media': RbmMessageContentFile;
     /**
      * An array of suggested actions for the recipient.
-     * @type {Array<MultiChannelAction>}
-     * @memberof RbmMessageMedia
      */
     'suggestions'?: Array<MultiChannelAction>;
 }

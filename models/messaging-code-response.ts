@@ -14,16 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface MessagingCodeResponse
- */
 export interface MessagingCodeResponse {
     /**
      * Messaging API Message ID.
-     * @type {string}
-     * @memberof MessagingCodeResponse
      */
     'messageId'?: string;
 }

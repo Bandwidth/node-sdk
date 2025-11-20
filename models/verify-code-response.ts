@@ -14,16 +14,9 @@
 
 
 
-/**
- * 
- * @export
- * @interface VerifyCodeResponse
- */
 export interface VerifyCodeResponse {
     /**
      * Whether or not the supplied code is valid.
-     * @type {boolean}
-     * @memberof VerifyCodeResponse
      */
     'valid'?: boolean;
 }

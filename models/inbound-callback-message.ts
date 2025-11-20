@@ -37,7 +37,6 @@ import type { StatusCallbackMessage } from './status-callback-message';
 
 /**
  * @type InboundCallbackMessage
- * @export
  */
 export type InboundCallbackMessage = StatusCallbackMessage;
 

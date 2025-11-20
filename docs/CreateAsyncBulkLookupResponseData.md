@@ -1,20 +1,20 @@
-# CreateLookupResponse
+# CreateAsyncBulkLookupResponseData
 
-The request has been accepted for processing but not yet finished and in a terminal state (COMPLETE, PARTIAL_COMPLETE, or FAILED).
+The phone number lookup response data
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **requestId** | **string** | The phone number lookup request ID from Bandwidth. | [optional] [default to undefined]
-**status** | [**LookupStatusEnum**](LookupStatusEnum.md) |  | [optional] [default to undefined]
+**status** | [**InProgressLookupStatusEnum**](InProgressLookupStatusEnum.md) |  | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { CreateLookupResponse } from 'bandwidth-sdk';
+import { CreateAsyncBulkLookupResponseData } from 'bandwidth-sdk';
 
-const instance: CreateLookupResponse = {
+const instance: CreateAsyncBulkLookupResponseData = {
     requestId,
     status,
 };

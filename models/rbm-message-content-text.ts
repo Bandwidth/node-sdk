@@ -17,22 +17,13 @@
 // @ts-ignore
 import type { MultiChannelAction } from './multi-channel-action';
 
-/**
- * 
- * @export
- * @interface RbmMessageContentText
- */
 export interface RbmMessageContentText {
     /**
      * The text associated with the message. Must be 3270 characters or less
-     * @type {string}
-     * @memberof RbmMessageContentText
      */
     'text': string;
     /**
      * An array of suggested actions for the recipient.
-     * @type {Array<MultiChannelAction>}
-     * @memberof RbmMessageContentText
      */
     'suggestions'?: Array<MultiChannelAction>;
 }

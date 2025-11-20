@@ -14,17 +14,15 @@
 
 
 
-/**
- * 
- * @export
- * @interface TnLookupRequestError
- */
-export interface TnLookupRequestError {
+export interface LookupErrorSchemaMeta {
+    'phoneNumbers'?: Array<string>;
     /**
-     * A description of what validation error occurred.
-     * @type {string}
-     * @memberof TnLookupRequestError
+     * Message describing the error
      */
     'message'?: string;
+    /**
+     * Error code associated with the message
+     */
+    'code'?: number;
 }
 

@@ -16,32 +16,22 @@
 
 /**
  * If the recording was transcribed, metadata about the transcription
- * @export
- * @interface RecordingTranscriptionMetadata
  */
 export interface RecordingTranscriptionMetadata {
     /**
      * The unique transcription ID
-     * @type {string}
-     * @memberof RecordingTranscriptionMetadata
      */
     'id'?: string;
     /**
      * The current status of the process. For recording, current possible values are \'processing\', \'partial\', \'complete\', \'deleted\', and \'error\'. For transcriptions, current possible values are \'none\', \'processing\', \'available\', \'error\', \'timeout\', \'file-size-too-big\', and \'file-size-too-small\'. Additional states may be added in the future, so your application must be tolerant of unknown values.
-     * @type {string}
-     * @memberof RecordingTranscriptionMetadata
      */
     'status'?: string;
     /**
      * The time that the transcription was completed
-     * @type {string}
-     * @memberof RecordingTranscriptionMetadata
      */
     'completedTime'?: string;
     /**
      * The URL of the [transcription](#operation/getCallTranscription)
-     * @type {string}
-     * @memberof RecordingTranscriptionMetadata
      */
     'url'?: string;
 }

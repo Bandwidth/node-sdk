@@ -16,21 +16,9 @@
 
 /**
  * Basic authentication credentials are not required, but if present, both username and password must be provided.
- * @export
- * @interface WebhookSubscriptionBasicAuthentication
  */
 export interface WebhookSubscriptionBasicAuthentication {
-    /**
-     * 
-     * @type {string}
-     * @memberof WebhookSubscriptionBasicAuthentication
-     */
     'username': string;
-    /**
-     * 
-     * @type {string}
-     * @memberof WebhookSubscriptionBasicAuthentication
-     */
     'password': string;
 }
 

@@ -16,8 +16,6 @@
 
 /**
  * Setting the conference state to `completed` ends the conference and ejects all members.
- * @export
- * @enum {string}
  */
 
 export const ConferenceStateEnum = {

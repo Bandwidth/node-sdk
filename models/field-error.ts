@@ -14,22 +14,13 @@
 
 
 
-/**
- * 
- * @export
- * @interface FieldError
- */
 export interface FieldError {
     /**
      * The name of the field that contains the error
-     * @type {string}
-     * @memberof FieldError
      */
     'fieldName'?: string;
     /**
      * The error associated with the field
-     * @type {string}
-     * @memberof FieldError
      */
     'description'?: string;
 }
