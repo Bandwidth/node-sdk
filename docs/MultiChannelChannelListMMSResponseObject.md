@@ -1,4 +1,4 @@
-# MultiChannelMessageResponseDataChannelListInner
+# MultiChannelChannelListMMSResponseObject
 
 
 ## Properties
@@ -8,15 +8,15 @@ Name | Type | Description | Notes
 **from** | **string** | The sender ID of the message. This could be an alphanumeric sender ID. | [default to undefined]
 **applicationId** | **string** | The ID of the Application your from number or senderId is associated with in the Bandwidth Phone Number Dashboard. | [default to undefined]
 **channel** | [**MultiChannelMessageChannelEnum**](MultiChannelMessageChannelEnum.md) |  | [default to undefined]
-**content** | [**MultiChannelChannelListObjectContent**](MultiChannelChannelListObjectContent.md) |  | [default to undefined]
+**content** | [**MmsMessageContent**](MmsMessageContent.md) |  | [default to undefined]
 **owner** | **string** | The Bandwidth senderId associated with the message. Identical to \&#39;from\&#39;. | [default to undefined]
 
 ## Example
 
 ```typescript
-import { MultiChannelMessageResponseDataChannelListInner } from 'bandwidth-sdk';
+import { MultiChannelChannelListMMSResponseObject } from 'bandwidth-sdk';
 
-const instance: MultiChannelMessageResponseDataChannelListInner = {
+const instance: MultiChannelChannelListMMSResponseObject = {
     from,
     applicationId,
     channel,

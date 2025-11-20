@@ -32,9 +32,53 @@ import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 // @ts-ignore
 import type { RbmActionViewLocation } from './rbm-action-view-location';
 
-/**
- * @type MultiChannelAction
- */
-export type MultiChannelAction = { type: 'CREATE_CALENDAR_EVENT' } & MultiChannelActionCalendarEvent | { type: 'DIAL_PHONE' } & RbmActionDial | { type: 'OPEN_URL' } & RbmActionOpenUrl | { type: 'REPLY' } & RbmActionBase | { type: 'REQUEST_LOCATION' } & RbmActionBase | { type: 'SHOW_LOCATION' } & RbmActionViewLocation;
+export interface MultiChannelAction {
+    'type': RbmActionTypeEnum;
+    /**
+     * Displayed text for user to click
+     */
+    'text': string;
+    /**
+     * Base64 payload the customer receives when the reply is clicked.
+     */
+    'postbackData': string;
+    /**
+     * The phone number to dial. Must be E164 format.
+     */
+    'phoneNumber': string;
+    /**
+     * The latitude of the location.
+     */
+    'latitude': number;
+    /**
+     * The longitude of the location.
+     */
+    'longitude': number;
+    /**
+     * The label of the location.
+     */
+    'label'?: string;
+    /**
+     * The title of the event.
+     */
+    'title': string;
+    /**
+     * The start time of the event.
+     */
+    'startTime': string;
+    /**
+     * The end time of the event.
+     */
+    'endTime': string;
+    /**
+     * The description of the event.
+     */
+    'description'?: string;
+    /**
+     * The URL to open in browser.
+     */
+    'url': string;
+}
+
 
 

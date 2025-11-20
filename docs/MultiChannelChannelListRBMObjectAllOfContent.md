@@ -1,4 +1,4 @@
-# MultiChannelChannelListObjectContent
+# MultiChannelChannelListRBMObjectAllOfContent
 
 The content of the message.
 
@@ -6,9 +6,9 @@ The content of the message.
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**text** | **string** | The contents of the text message. Must be 2048 characters or less. | [default to undefined]
+**text** | **string** | The text associated with the message. Must be 3270 characters or less | [default to undefined]
 **suggestions** | [**Array&lt;MultiChannelAction&gt;**](MultiChannelAction.md) | An array of suggested actions for the recipient. | [optional] [default to undefined]
-**media** | [**Array&lt;MmsMessageContentFile&gt;**](MmsMessageContentFile.md) |  | [default to undefined]
+**media** | [**RbmMessageContentFile**](RbmMessageContentFile.md) |  | [default to undefined]
 **orientation** | [**StandaloneCardOrientationEnum**](StandaloneCardOrientationEnum.md) |  | [default to undefined]
 **thumbnailImageAlignment** | [**ThumbnailAlignmentEnum**](ThumbnailAlignmentEnum.md) |  | [default to undefined]
 **cardContent** | [**RbmCardContent**](RbmCardContent.md) |  | [default to undefined]
@@ -18,9 +18,9 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { MultiChannelChannelListObjectContent } from 'bandwidth-sdk';
+import { MultiChannelChannelListRBMObjectAllOfContent } from 'bandwidth-sdk';
 
-const instance: MultiChannelChannelListObjectContent = {
+const instance: MultiChannelChannelListRBMObjectAllOfContent = {
     text,
     suggestions,
     media,

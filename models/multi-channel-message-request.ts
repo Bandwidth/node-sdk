@@ -15,7 +15,7 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MultiChannelChannelListObject } from './multi-channel-channel-list-object';
+import type { MultiChannelChannelListRequestObject } from './multi-channel-channel-list-request-object';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { PriorityEnum } from './priority-enum';
@@ -31,7 +31,7 @@ export interface MultiChannelMessageRequest {
     /**
      * A list of message bodies. The messages will be attempted in the order they are listed. Once a message sends successfully, the others will be ignored.
      */
-    'channelList': Array<MultiChannelChannelListObject>;
+    'channelList': Array<MultiChannelChannelListRequestObject>;
     /**
      * A custom string that will be included in callback events of the message. Max 1024 characters.
      */

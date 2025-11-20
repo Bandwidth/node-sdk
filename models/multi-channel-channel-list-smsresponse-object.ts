@@ -15,17 +15,20 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MultiChannelChannelListObject } from './multi-channel-channel-list-object';
+import type { MultiChannelChannelListOwnerObject } from './multi-channel-channel-list-owner-object';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MultiChannelChannelListObjectContent } from './multi-channel-channel-list-object-content';
+import type { MultiChannelChannelListSMSObject } from './multi-channel-channel-list-smsobject';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { MultiChannelMessageChannelEnum } from './multi-channel-message-channel-enum';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { SmsMessageContent } from './sms-message-content';
 
 /**
- * @type MultiChannelMessageResponseDataChannelListInner
+ * @type MultiChannelChannelListSMSResponseObject
  */
-export type MultiChannelMessageResponseDataChannelListInner = MultiChannelChannelListObject;
+export type MultiChannelChannelListSMSResponseObject = MultiChannelChannelListOwnerObject & MultiChannelChannelListSMSObject;
 
 

@@ -18,16 +18,13 @@
 import type { CardWidthEnum } from './card-width-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MmsMessageContent } from './mms-message-content';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { MmsMessageContentFile } from './mms-message-content-file';
-// May contain unused imports in some cases
-// @ts-ignore
 import type { MultiChannelAction } from './multi-channel-action';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { RbmCardContent } from './rbm-card-content';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RbmMessageContentFile } from './rbm-message-content-file';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { RbmMessageContentRichCard } from './rbm-message-content-rich-card';
@@ -39,18 +36,15 @@ import type { RbmMessageContentText } from './rbm-message-content-text';
 import type { RbmMessageMedia } from './rbm-message-media';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { SmsMessageContent } from './sms-message-content';
-// May contain unused imports in some cases
-// @ts-ignore
 import type { StandaloneCardOrientationEnum } from './standalone-card-orientation-enum';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { ThumbnailAlignmentEnum } from './thumbnail-alignment-enum';
 
 /**
- * @type MultiChannelChannelListObjectContent
+ * @type MultiChannelChannelListRBMObjectAllOfContent
  * The content of the message.
  */
-export type MultiChannelChannelListObjectContent = MmsMessageContent | RbmMessageContentRichCard | RbmMessageContentText | RbmMessageMedia | SmsMessageContent;
+export type MultiChannelChannelListRBMObjectAllOfContent = RbmMessageContentRichCard | RbmMessageContentText | RbmMessageMedia;
 
 
