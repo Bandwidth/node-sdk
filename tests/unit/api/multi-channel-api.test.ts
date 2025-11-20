@@ -2,10 +2,13 @@
 import { MultiChannelApi } from '../../../api';
 import { Configuration } from '../../../configuration';
 import {
-    MultiChannelChannelListObject,
+    MultiChannelChannelListRBMObject,
     MultiChannelMessageChannelEnum,
     PriorityEnum,
-    RbmMessageContentText
+    RbmMessageContentText,
+    SmsMessageContent,
+    MultiChannelMessageRequest,
+    MessageDirectionEnum
 } from '../../../models';
 
 describe('MultiChannelApi', () => {
@@ -20,26 +23,40 @@ describe('MultiChannelApi', () => {
     const expiration = new Date(expirationTime).toISOString();
 
     describe('createMultiChannelMessage', () => {
-        test.skip('should create a multi-channel message', async () => { // skip because prism can't handle a oneOf with differing required fields
-            const channelListObject: MultiChannelChannelListObject = {
+        test('should create a multi-channel message', async () => {
+            const content: SmsMessageContent = { text: "Hello World!" };
+
+            const channelListObject: MultiChannelChannelListRBMObject = {
                 from: BW_NUMBER,
                 applicationId: BW_MESSAGING_APPLICATION_ID,
                 channel: MultiChannelMessageChannelEnum.Rbm,
-                content: {
-                    text: "Hello World!"
-                }
+                content,
             };
 
             const multiChannelMessageRequest: MultiChannelMessageRequest = {
                 to: USER_NUMBER,
                 tag: "tag",
-                priority: PriorityEnum.HIGH,
+                priority: PriorityEnum.High,
                 expiration,
+                channelList: [channelListObject],
             };
 
-            const { status, data } = await multiChannelApi.createMultiChannelMessage(BW_ACCOUNT_ID, multiChannelMessageRequest);
+            const { status, data } = await multiChannelApi.createMultiChannelMessage(
+                BW_ACCOUNT_ID,
+                multiChannelMessageRequest
+            );
             
             expect(status).toEqual(202);
+            expect(data.links).toBeArray();
+            expect(data.data?.id).toBeString();
+            expect(data.data?.time).toBeDateString();
+            expect(data.data?.direction).toBeOneOf(Object.values(MessageDirectionEnum));
+            expect(data.data?.to).toBeArray();
+            expect(data.data?.tag).toBeString();
+            expect(data.data?.priority).toBeOneOf(Object.values(PriorityEnum));
+            expect(data.data?.expiration).toBeDateString();
+            expect(data.data?.channelList).toBeArray();
+            expect(data.data?.channelList![0].channel).toBeOneOf(Object.values(MultiChannelMessageChannelEnum));
         });
     });
 });
