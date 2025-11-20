@@ -26,10 +26,10 @@ describe('MultiChannelApi', () => {
         test('should create a multi-channel message', async () => {
             const content: SmsMessageContent = { text: "Hello World!" };
 
-            const channelListObject: MultiChannelChannelListRBMObject = {
+            const channelListObject: MultiChannelChannelListSMSObject = {
                 from: BW_NUMBER,
                 applicationId: BW_MESSAGING_APPLICATION_ID,
-                channel: MultiChannelMessageChannelEnum.Rbm,
+                channel: MultiChannelMessageChannelEnum.Sms,
                 content,
             };
 
