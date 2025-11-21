@@ -15,23 +15,17 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MultiChannelChannelListObjectContent } from './multi-channel-channel-list-object-content';
+import type { MmsMessageContent } from './mms-message-content';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { MultiChannelChannelListObjectBase } from './multi-channel-channel-list-object-base';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { MultiChannelMessageChannelEnum } from './multi-channel-message-channel-enum';
 
-export interface MultiChannelChannelListObject {
-    /**
-     * The sender ID of the message. This could be an alphanumeric sender ID.
-     */
-    'from': string;
-    /**
-     * The ID of the Application your from number or senderId is associated with in the Bandwidth Phone Number Dashboard.
-     */
-    'applicationId': string;
-    'channel': MultiChannelMessageChannelEnum;
-    'content': MultiChannelChannelListObjectContent;
-}
-
+/**
+ * @type MultiChannelChannelListMMSObject
+ */
+export type MultiChannelChannelListMMSObject = MultiChannelChannelListObjectBase;
 
 

@@ -18,7 +18,7 @@
 import type { MessageDirectionEnum } from './message-direction-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MultiChannelMessageResponseDataChannelListInner } from './multi-channel-message-response-data-channel-list-inner';
+import type { MultiChannelChannelListResponseObject } from './multi-channel-channel-list-response-object';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { PriorityEnum } from './priority-enum';
@@ -43,7 +43,7 @@ export interface MultiChannelMessageResponseData {
     /**
      * A list of message bodies. The messages will be attempted in the order they are listed. Once a message sends successfully, the others will be ignored.
      */
-    'channelList': Array<MultiChannelMessageResponseDataChannelListInner>;
+    'channelList': Array<MultiChannelChannelListResponseObject>;
     /**
      * A custom string that will be included in callback events of the message. Max 1024 characters.
      */
