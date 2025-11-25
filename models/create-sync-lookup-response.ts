@@ -23,9 +23,29 @@ import type { LinkSchema } from './link-schema';
 // @ts-ignore
 import type { LookupErrorSchema } from './lookup-error-schema';
 
+/**
+ * 
+ * @export
+ * @interface CreateSyncLookupResponse
+ */
 export interface CreateSyncLookupResponse {
+    /**
+     * 
+     * @type {Array<LinkSchema>}
+     * @memberof CreateSyncLookupResponse
+     */
     'links'?: Array<LinkSchema>;
+    /**
+     * 
+     * @type {CreateSyncLookupResponseData}
+     * @memberof CreateSyncLookupResponse
+     */
     'data'?: CreateSyncLookupResponseData;
+    /**
+     * 
+     * @type {Array<LookupErrorSchema>}
+     * @memberof CreateSyncLookupResponse
+     */
     'errors'?: Array<LookupErrorSchema>;
 }
 

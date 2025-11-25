@@ -25,41 +25,74 @@ import type { LineTypeEnum } from './line-type-enum';
 
 /**
  * Carrier information results for the specified telephone number.
+ * @export
+ * @interface LookupResult
  */
 export interface LookupResult {
     /**
      * The telephone number in E.164 format.
+     * @type {string}
+     * @memberof LookupResult
      */
     'phoneNumber'?: string;
+    /**
+     * 
+     * @type {LineTypeEnum}
+     * @memberof LookupResult
+     */
     'lineType'?: LineTypeEnum;
     /**
      * The messaging service provider of the telephone number.
+     * @type {string}
+     * @memberof LookupResult
      */
     'messagingProvider'?: string;
     /**
      * The voice service provider of the telephone number.
+     * @type {string}
+     * @memberof LookupResult
      */
     'voiceProvider'?: string;
     /**
      * The country code of the telephone number in ISO 3166-1 alpha-3 format.
+     * @type {string}
+     * @memberof LookupResult
      */
     'countryCodeA3'?: string;
     /**
      * [DNI-Only](#section/DNI-Only). The carrier that reported a deactivation event for this phone number. 
+     * @type {string}
+     * @memberof LookupResult
      */
     'deactivationReporter'?: string;
     /**
      * [DNI-Only](#section/DNI-Only). The datetime the carrier reported a deactivation event.
+     * @type {string}
+     * @memberof LookupResult
      */
     'deactivationDate'?: string;
+    /**
+     * 
+     * @type {DeactivationEventEnum}
+     * @memberof LookupResult
+     */
     'deactivationEvent'?: DeactivationEventEnum;
+    /**
+     * 
+     * @type {LatestMessageDeliveryStatusEnum}
+     * @memberof LookupResult
+     */
     'latestMessageDeliveryStatus'?: LatestMessageDeliveryStatusEnum;
     /**
      * [DNI-Only](#section/DNI-Only). The date the phone number entered the status described in `latestMessageDeliveryStatus`.  Think of this as the \"start time\" for that status. Value resets every time the `latestMessageDeliveryStatus` changes.
+     * @type {string}
+     * @memberof LookupResult
      */
     'initialMessageDeliveryStatusDate'?: string;
     /**
      * [DNI-Only](#section/DNI-Only). The date bandwidth last received delivery status information for this phone number.  Use this field to understand how up-to-date the `latestMessageDeliveryStatus` is. Value resets every time the `latestMessageDeliveryStatus` changes.
+     * @type {string}
+     * @memberof LookupResult
      */
     'latestMessageDeliveryStatusDate'?: string;
 }

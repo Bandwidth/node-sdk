@@ -14,13 +14,22 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface AccountStatistics
+ */
 export interface AccountStatistics {
     /**
      * The number of calls currently enqueued.
+     * @type {number}
+     * @memberof AccountStatistics
      */
     'currentCallQueueSize'?: number;
     /**
      * The maximum size of the queue before outgoing calls start being rejected.
+     * @type {number}
+     * @memberof AccountStatistics
      */
     'maxCallQueueSize'?: number;
 }

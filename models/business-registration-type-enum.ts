@@ -16,6 +16,8 @@
 
 /**
  * The type of business registration number. Optional until early 2026; required if `businessRegistrationNumber` is provided. Available starting October 1st, 2025.
+ * @export
+ * @enum {string}
  */
 
 export const BusinessRegistrationTypeEnum = {

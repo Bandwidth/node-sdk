@@ -29,6 +29,7 @@ import type { StatusCallback } from './status-callback';
 /**
  * @type Callback
  * Callbacks are divided into two types based on direction of the related message: - `statusCallback` indicates status of an outbound MT SMS, MMS, or RBM message. - `inboundCallback` indicates an inbound MO message or a multichannel message client\'s response to a suggestion or location request.
+ * @export
  */
 export type Callback = { type: 'message-delivered' } & StatusCallback | { type: 'message-failed' } & StatusCallback | { type: 'message-read' } & StatusCallback | { type: 'message-received' } & InboundCallback | { type: 'message-sent' } & StatusCallback | { type: 'request-location-response' } & InboundCallback | { type: 'suggestion-response' } & InboundCallback;
 

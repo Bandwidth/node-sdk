@@ -16,6 +16,8 @@
 
 /**
  * The type of product associated with the message.
+ * @export
+ * @enum {string}
  */
 
 export const ProductTypeEnum = {

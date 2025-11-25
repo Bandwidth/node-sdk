@@ -14,13 +14,22 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface MfaRequestError
+ */
 export interface MfaRequestError {
     /**
      * A message describing the error with your request.
+     * @type {string}
+     * @memberof MfaRequestError
      */
     'error'?: string;
     /**
      * The associated requestId from AWS.
+     * @type {string}
+     * @memberof MfaRequestError
      */
     'requestId'?: string;
 }

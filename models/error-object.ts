@@ -17,15 +17,29 @@
 // @ts-ignore
 import type { ErrorSource } from './error-source';
 
+/**
+ * 
+ * @export
+ * @interface ErrorObject
+ */
 export interface ErrorObject {
     /**
      * A concise summary of the error used for categorization.
+     * @type {string}
+     * @memberof ErrorObject
      */
     'type': string;
     /**
      * A detailed explanation of the error.
+     * @type {string}
+     * @memberof ErrorObject
      */
     'description': string;
+    /**
+     * 
+     * @type {ErrorSource}
+     * @memberof ErrorObject
+     */
     'source': ErrorSource;
 }
 

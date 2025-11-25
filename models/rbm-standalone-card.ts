@@ -26,12 +26,34 @@ import type { StandaloneCardOrientationEnum } from './standalone-card-orientatio
 // @ts-ignore
 import type { ThumbnailAlignmentEnum } from './thumbnail-alignment-enum';
 
+/**
+ * 
+ * @export
+ * @interface RbmStandaloneCard
+ */
 export interface RbmStandaloneCard {
+    /**
+     * 
+     * @type {StandaloneCardOrientationEnum}
+     * @memberof RbmStandaloneCard
+     */
     'orientation': StandaloneCardOrientationEnum;
+    /**
+     * 
+     * @type {ThumbnailAlignmentEnum}
+     * @memberof RbmStandaloneCard
+     */
     'thumbnailImageAlignment': ThumbnailAlignmentEnum;
+    /**
+     * 
+     * @type {RbmCardContent}
+     * @memberof RbmStandaloneCard
+     */
     'cardContent': RbmCardContent;
     /**
      * An array of suggested actions for the recipient.
+     * @type {Array<MultiChannelAction>}
+     * @memberof RbmStandaloneCard
      */
     'suggestions'?: Array<MultiChannelAction>;
 }

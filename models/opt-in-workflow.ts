@@ -14,9 +14,29 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface OptInWorkflow
+ */
 export interface OptInWorkflow {
+    /**
+     * 
+     * @type {string}
+     * @memberof OptInWorkflow
+     */
     'description': string;
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof OptInWorkflow
+     */
     'imageUrls': Array<string>;
+    /**
+     * 
+     * @type {string}
+     * @memberof OptInWorkflow
+     */
     'confirmationResponse'?: string | null;
 }
 

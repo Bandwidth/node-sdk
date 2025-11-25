@@ -14,9 +14,29 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface VoiceApiError
+ */
 export interface VoiceApiError {
+    /**
+     * 
+     * @type {string}
+     * @memberof VoiceApiError
+     */
     'type'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof VoiceApiError
+     */
     'description'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof VoiceApiError
+     */
     'id'?: string | null;
 }
 

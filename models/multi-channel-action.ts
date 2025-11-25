@@ -32,50 +32,82 @@ import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 // @ts-ignore
 import type { RbmActionViewLocation } from './rbm-action-view-location';
 
+/**
+ * 
+ * @export
+ * @interface MultiChannelAction
+ */
 export interface MultiChannelAction {
+    /**
+     * 
+     * @type {RbmActionTypeEnum}
+     * @memberof MultiChannelAction
+     */
     'type': RbmActionTypeEnum;
     /**
      * Displayed text for user to click
+     * @type {string}
+     * @memberof MultiChannelAction
      */
     'text': string;
     /**
      * Base64 payload the customer receives when the reply is clicked.
+     * @type {string}
+     * @memberof MultiChannelAction
      */
     'postbackData': string;
     /**
      * The phone number to dial. Must be E164 format.
+     * @type {string}
+     * @memberof MultiChannelAction
      */
     'phoneNumber': string;
     /**
      * The latitude of the location.
+     * @type {number}
+     * @memberof MultiChannelAction
      */
     'latitude': number;
     /**
      * The longitude of the location.
+     * @type {number}
+     * @memberof MultiChannelAction
      */
     'longitude': number;
     /**
      * The label of the location.
+     * @type {string}
+     * @memberof MultiChannelAction
      */
     'label'?: string;
     /**
      * The title of the event.
+     * @type {string}
+     * @memberof MultiChannelAction
      */
     'title': string;
     /**
      * The start time of the event.
+     * @type {string}
+     * @memberof MultiChannelAction
      */
     'startTime': string;
     /**
      * The end time of the event.
+     * @type {string}
+     * @memberof MultiChannelAction
      */
     'endTime': string;
     /**
      * The description of the event.
+     * @type {string}
+     * @memberof MultiChannelAction
      */
     'description'?: string;
     /**
      * The URL to open in browser.
+     * @type {string}
+     * @memberof MultiChannelAction
      */
     'url': string;
 }

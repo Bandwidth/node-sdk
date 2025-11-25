@@ -16,6 +16,8 @@
 
 /**
  * The format that the recording is stored in.
+ * @export
+ * @enum {string}
  */
 
 export const FileFormatEnum = {

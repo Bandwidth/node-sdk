@@ -16,14 +16,20 @@
 
 /**
  * (optional) if machine detection was requested in sync mode, the result will be specified here. Possible values are the same as the async counterpart: Machine Detection Complete
+ * @export
+ * @interface MachineDetectionResult
  */
 export interface MachineDetectionResult {
     /**
      * Possible values are answering-machine, human, silence, timeout, or error.
+     * @type {string}
+     * @memberof MachineDetectionResult
      */
     'value'?: string;
     /**
      * The amount of time it took to determine the result.
+     * @type {string}
+     * @memberof MachineDetectionResult
      */
     'duration'?: string;
 }

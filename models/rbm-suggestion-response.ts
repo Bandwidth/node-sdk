@@ -14,13 +14,22 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface RbmSuggestionResponse
+ */
 export interface RbmSuggestionResponse {
     /**
      * The text associated with the suggestion response.
+     * @type {string}
+     * @memberof RbmSuggestionResponse
      */
     'text'?: string;
     /**
      * Base64 payload the customer receives when the reply is clicked.
+     * @type {string}
+     * @memberof RbmSuggestionResponse
      */
     'postbackData'?: string;
 }

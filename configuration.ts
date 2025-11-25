@@ -11,6 +11,7 @@
  * Do not edit the class manually.
  */
 
+
 interface AWSv4Configuration {
   options?: {
     region?: string

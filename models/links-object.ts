@@ -14,21 +14,34 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface LinksObject
+ */
 export interface LinksObject {
     /**
      * The first (or only) page of results matching the query.
+     * @type {string}
+     * @memberof LinksObject
      */
     'first'?: string;
     /**
      * If more results exist than specified by \'size\', this link returns the next page of \'size\' results.
+     * @type {string}
+     * @memberof LinksObject
      */
     'next'?: string;
     /**
      * If the results are more than one page, this link returns the previous page of \'size\' results.
+     * @type {string}
+     * @memberof LinksObject
      */
     'previous'?: string;
     /**
      * If more results exist than specified by \'size\', this link return the last page of result.
+     * @type {string}
+     * @memberof LinksObject
      */
     'last'?: string;
 }

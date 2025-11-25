@@ -16,12 +16,26 @@
 
 /**
  * A generic error object.
+ * @export
+ * @interface TfvError
  */
 export interface TfvError {
+    /**
+     * 
+     * @type {string}
+     * @memberof TfvError
+     */
     'type'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof TfvError
+     */
     'description'?: string;
     /**
      * Each key of this errors object refers to a field of the submitted object (using dot notation for nested objects), with the field being a key to an array of one or more errors for that field.
+     * @type {object}
+     * @memberof TfvError
      */
     'errors'?: object;
 }

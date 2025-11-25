@@ -14,33 +14,52 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface Address
+ */
 export interface Address {
     /**
      * The name of the business using the toll-free number.
+     * @type {string}
+     * @memberof Address
      */
     'name': string;
     /**
      * The address of the business using the toll-free number.
+     * @type {string}
+     * @memberof Address
      */
     'addr1': string;
     /**
      * The address of the business using the toll-free number.
+     * @type {string}
+     * @memberof Address
      */
     'addr2'?: string | null;
     /**
      * The city of the business using the toll-free number.
+     * @type {string}
+     * @memberof Address
      */
     'city': string;
     /**
      * The state of the business using the toll-free number.
+     * @type {string}
+     * @memberof Address
      */
     'state': string;
     /**
      * The zip of the business using the toll-free number.
+     * @type {string}
+     * @memberof Address
      */
     'zip': string;
     /**
      * The website of the business using the toll-free number.
+     * @type {string}
+     * @memberof Address
      */
     'url': string;
 }

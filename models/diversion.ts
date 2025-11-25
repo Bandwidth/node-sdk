@@ -14,33 +14,52 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface Diversion
+ */
 export interface Diversion {
     /**
      * The reason for the diversion. Common values: unknown, user-busy, no-answer, unavailable, unconditional, time-of-day, do-not-disturb, deflection, follow-me, out-of-service, away.
+     * @type {string}
+     * @memberof Diversion
      */
     'reason'?: string;
     /**
      * off or full
+     * @type {string}
+     * @memberof Diversion
      */
     'privacy'?: string;
     /**
      * No if the number was provided by the user, yes if the number was provided by the network
+     * @type {string}
+     * @memberof Diversion
      */
     'screen'?: string;
     /**
      * The number of diversions that have occurred
+     * @type {string}
+     * @memberof Diversion
      */
     'counter'?: string;
     /**
      * The maximum number of diversions allowed for this session
+     * @type {string}
+     * @memberof Diversion
      */
     'limit'?: string;
     /**
      * The normal list of values is not exhaustive. Your application must be tolerant of unlisted keys and unlisted values of those keys.
+     * @type {string}
+     * @memberof Diversion
      */
     'unknown'?: string;
     /**
      * Always present. Indicates the last telephone number that the call was diverted from.
+     * @type {string}
+     * @memberof Diversion
      */
     'origTo'?: string;
 }

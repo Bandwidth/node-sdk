@@ -14,8 +14,23 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface MessagingRequestError
+ */
 export interface MessagingRequestError {
+    /**
+     * 
+     * @type {string}
+     * @memberof MessagingRequestError
+     */
     'type': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof MessagingRequestError
+     */
     'description': string;
 }
 

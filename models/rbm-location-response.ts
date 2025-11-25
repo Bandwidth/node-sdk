@@ -14,13 +14,22 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface RbmLocationResponse
+ */
 export interface RbmLocationResponse {
     /**
      * The latitude of the client\'s location.
+     * @type {number}
+     * @memberof RbmLocationResponse
      */
     'latitude'?: number;
     /**
      * The longitude of the client\'s location.
+     * @type {number}
+     * @memberof RbmLocationResponse
      */
     'longitude'?: number;
 }

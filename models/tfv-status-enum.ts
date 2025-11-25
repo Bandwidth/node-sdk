@@ -14,6 +14,11 @@
 
 
 
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
 
 export const TfvStatusEnum = {
     Verified: 'VERIFIED',

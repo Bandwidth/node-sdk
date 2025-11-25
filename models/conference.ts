@@ -20,34 +20,58 @@ import type { CallbackMethodEnum } from './callback-method-enum';
 // @ts-ignore
 import type { ConferenceMember } from './conference-member';
 
+/**
+ * 
+ * @export
+ * @interface Conference
+ */
 export interface Conference {
     /**
      * The Bandwidth-generated conference ID.
+     * @type {string}
+     * @memberof Conference
      */
     'id'?: string;
     /**
      * The name of the conference, as specified by your application.
+     * @type {string}
+     * @memberof Conference
      */
     'name'?: string;
     /**
      * The time the conference was initiated, in ISO 8601 format.
+     * @type {string}
+     * @memberof Conference
      */
     'createdTime'?: string;
     /**
      * The time the conference was terminated, in ISO 8601 format.
+     * @type {string}
+     * @memberof Conference
      */
     'completedTime'?: string | null;
     /**
      * The URL to send the conference-related events.
+     * @type {string}
+     * @memberof Conference
      */
     'conferenceEventUrl'?: string | null;
+    /**
+     * 
+     * @type {CallbackMethodEnum}
+     * @memberof Conference
+     */
     'conferenceEventMethod'?: CallbackMethodEnum | null;
     /**
      * The custom string attached to the conference that will be sent with callbacks.
+     * @type {string}
+     * @memberof Conference
      */
     'tag'?: string | null;
     /**
      * A list of active members of the conference. Omitted if this is a response to the [Get Conferences endpoint](/apis/voice#tag/Conferences/operation/listConferences).
+     * @type {Array<ConferenceMember>}
+     * @memberof Conference
      */
     'activeMembers'?: Array<ConferenceMember> | null;
 }

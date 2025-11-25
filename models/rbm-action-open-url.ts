@@ -22,6 +22,7 @@ import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 
 /**
  * @type RbmActionOpenUrl
+ * @export
  */
 export type RbmActionOpenUrl = RbmActionBase;
 

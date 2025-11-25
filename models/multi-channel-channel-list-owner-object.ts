@@ -14,9 +14,16 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface MultiChannelChannelListOwnerObject
+ */
 export interface MultiChannelChannelListOwnerObject {
     /**
      * The Bandwidth senderId associated with the message. Identical to \'from\'.
+     * @type {string}
+     * @memberof MultiChannelChannelListOwnerObject
      */
     'owner': string;
 }

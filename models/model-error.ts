@@ -17,9 +17,29 @@
 // @ts-ignore
 import type { TelephoneNumber } from './telephone-number';
 
+/**
+ * 
+ * @export
+ * @interface ModelError
+ */
 export interface ModelError {
+    /**
+     * 
+     * @type {number}
+     * @memberof ModelError
+     */
     'code'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof ModelError
+     */
     'description'?: string;
+    /**
+     * 
+     * @type {Array<TelephoneNumber>}
+     * @memberof ModelError
+     */
     'telephoneNumbers'?: Array<TelephoneNumber>;
 }
 

@@ -20,12 +20,29 @@ import type { LinkSchema } from './link-schema';
 // @ts-ignore
 import type { LookupErrorSchema } from './lookup-error-schema';
 
+/**
+ * 
+ * @export
+ * @interface LookupErrorResponse
+ */
 export interface LookupErrorResponse {
+    /**
+     * 
+     * @type {Array<LinkSchema>}
+     * @memberof LookupErrorResponse
+     */
     'links'?: Array<LinkSchema>;
     /**
      * The phone number lookup response data
+     * @type {object}
+     * @memberof LookupErrorResponse
      */
     'data'?: object;
+    /**
+     * 
+     * @type {Array<LookupErrorSchema>}
+     * @memberof LookupErrorResponse
+     */
     'errors'?: Array<LookupErrorSchema>;
 }
 

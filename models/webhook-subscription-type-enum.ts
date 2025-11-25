@@ -14,6 +14,11 @@
 
 
 
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
 
 export const WebhookSubscriptionTypeEnum = {
     TollfreeVerificationStatus: 'TOLLFREE_VERIFICATION_STATUS',

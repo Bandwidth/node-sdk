@@ -14,9 +14,16 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface VoiceCodeResponse
+ */
 export interface VoiceCodeResponse {
     /**
      * Programmable Voice API Call ID.
+     * @type {string}
+     * @memberof VoiceCodeResponse
      */
     'callId'?: string;
 }

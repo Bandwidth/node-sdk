@@ -14,9 +14,16 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface TelephoneNumber
+ */
 export interface TelephoneNumber {
     /**
      * Simple Telephone Number.
+     * @type {string}
+     * @memberof TelephoneNumber
      */
     'telephoneNumber'?: string;
 }

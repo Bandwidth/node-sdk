@@ -14,8 +14,23 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface Link
+ */
 export interface Link {
+    /**
+     * 
+     * @type {string}
+     * @memberof Link
+     */
     'rel'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Link
+     */
     'href'?: string;
 }
 

@@ -29,6 +29,7 @@ import type { CallTranscriptionResponse } from '../models';
 import type { VoiceApiError } from '../models';
 /**
  * TranscriptionsApi - axios parameter creator
+ * @export
  */
 export const TranscriptionsApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -66,6 +67,10 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
@@ -113,6 +118,10 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -155,6 +164,10 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -171,6 +184,7 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
 
 /**
  * TranscriptionsApi - functional programming interface
+ * @export
  */
 export const TranscriptionsApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = TranscriptionsApiAxiosParamCreator(configuration)
@@ -224,6 +238,7 @@ export const TranscriptionsApiFp = function(configuration?: Configuration) {
 
 /**
  * TranscriptionsApi - factory interface
+ * @export
  */
 export const TranscriptionsApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = TranscriptionsApiFp(configuration)
@@ -268,6 +283,9 @@ export const TranscriptionsApiFactory = function (configuration?: Configuration,
 
 /**
  * TranscriptionsApi - object-oriented interface
+ * @export
+ * @class TranscriptionsApi
+ * @extends {BaseAPI}
  */
 export class TranscriptionsApi extends BaseAPI {
     /**
@@ -278,6 +296,7 @@ export class TranscriptionsApi extends BaseAPI {
      * @param {string} transcriptionId Programmable Voice API Transcription ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof TranscriptionsApi
      */
     public deleteRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: RawAxiosRequestConfig) {
         return TranscriptionsApiFp(this.configuration).deleteRealTimeTranscription(accountId, callId, transcriptionId, options).then((request) => request(this.axios, this.basePath));
@@ -291,6 +310,7 @@ export class TranscriptionsApi extends BaseAPI {
      * @param {string} transcriptionId Programmable Voice API Transcription ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof TranscriptionsApi
      */
     public getRealTimeTranscription(accountId: string, callId: string, transcriptionId: string, options?: RawAxiosRequestConfig) {
         return TranscriptionsApiFp(this.configuration).getRealTimeTranscription(accountId, callId, transcriptionId, options).then((request) => request(this.axios, this.basePath));
@@ -303,6 +323,7 @@ export class TranscriptionsApi extends BaseAPI {
      * @param {string} callId Programmable Voice API Call ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof TranscriptionsApi
      */
     public listRealTimeTranscriptions(accountId: string, callId: string, options?: RawAxiosRequestConfig) {
         return TranscriptionsApiFp(this.configuration).listRealTimeTranscriptions(accountId, callId, options).then((request) => request(this.axios, this.basePath));

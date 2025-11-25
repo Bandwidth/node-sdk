@@ -14,9 +14,16 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface SyncLookupRequest
+ */
 export interface SyncLookupRequest {
     /**
      * Telephone numbers in E.164 format.
+     * @type {Array<string>}
+     * @memberof SyncLookupRequest
      */
     'phoneNumbers': Array<string>;
 }

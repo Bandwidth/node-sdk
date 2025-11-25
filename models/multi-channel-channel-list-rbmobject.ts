@@ -25,6 +25,7 @@ import type { MultiChannelMessageChannelEnum } from './multi-channel-message-cha
 
 /**
  * @type MultiChannelChannelListRBMObject
+ * @export
  */
 export type MultiChannelChannelListRBMObject = MultiChannelChannelListObjectBase;
 

@@ -23,9 +23,29 @@ import type { Link } from './link';
 // @ts-ignore
 import type { MultiChannelMessageResponseData } from './multi-channel-message-response-data';
 
+/**
+ * 
+ * @export
+ * @interface CreateMultiChannelMessageResponse
+ */
 export interface CreateMultiChannelMessageResponse {
+    /**
+     * 
+     * @type {Array<Link>}
+     * @memberof CreateMultiChannelMessageResponse
+     */
     'links'?: Array<Link>;
+    /**
+     * 
+     * @type {MultiChannelMessageResponseData}
+     * @memberof CreateMultiChannelMessageResponse
+     */
     'data'?: MultiChannelMessageResponseData;
+    /**
+     * 
+     * @type {Array<ErrorObject>}
+     * @memberof CreateMultiChannelMessageResponse
+     */
     'errors'?: Array<ErrorObject>;
 }
 

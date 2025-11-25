@@ -14,21 +14,34 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface PageInfo
+ */
 export interface PageInfo {
     /**
      * The link to the previous page for pagination.
+     * @type {string}
+     * @memberof PageInfo
      */
     'prevPage'?: string;
     /**
      * The link to the next page for pagination.
+     * @type {string}
+     * @memberof PageInfo
      */
     'nextPage'?: string;
     /**
      * The isolated pagination token for the previous page.
+     * @type {string}
+     * @memberof PageInfo
      */
     'prevPageToken'?: string;
     /**
      * The isolated pagination token for the next page.
+     * @type {string}
+     * @memberof PageInfo
      */
     'nextPageToken'?: string;
 }

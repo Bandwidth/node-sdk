@@ -14,9 +14,16 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface MfaForbiddenRequestError
+ */
 export interface MfaForbiddenRequestError {
     /**
      * The message containing the reason behind the request being forbidden.
+     * @type {string}
+     * @memberof MfaForbiddenRequestError
      */
     'message'?: string;
 }

@@ -29,58 +29,112 @@ import type { Contact } from './contact';
 // @ts-ignore
 import type { OptInWorkflow } from './opt-in-workflow';
 
+/**
+ * 
+ * @export
+ * @interface VerificationUpdateRequest
+ */
 export interface VerificationUpdateRequest {
+    /**
+     * 
+     * @type {Address}
+     * @memberof VerificationUpdateRequest
+     */
     'businessAddress': Address;
+    /**
+     * 
+     * @type {Contact}
+     * @memberof VerificationUpdateRequest
+     */
     'businessContact': Contact;
     /**
      * Estimated monthly volume of messages from the toll-free number.
+     * @type {number}
+     * @memberof VerificationUpdateRequest
      */
     'messageVolume': number;
     /**
      * The category of the use case.
+     * @type {string}
+     * @memberof VerificationUpdateRequest
      */
     'useCase': string;
     /**
      * A general idea of the use case and customer.
+     * @type {string}
+     * @memberof VerificationUpdateRequest
      */
     'useCaseSummary': string;
     /**
      * Example of message content.
+     * @type {string}
+     * @memberof VerificationUpdateRequest
      */
     'productionMessageContent': string;
+    /**
+     * 
+     * @type {OptInWorkflow}
+     * @memberof VerificationUpdateRequest
+     */
     'optInWorkflow': OptInWorkflow;
     /**
      * Any additional information.
+     * @type {string}
+     * @memberof VerificationUpdateRequest
      */
     'additionalInformation'?: string | null;
     /**
      * ISV name.
+     * @type {string}
+     * @memberof VerificationUpdateRequest
      */
     'isvReseller'?: string | null;
     /**
      * The Toll-Free Verification request privacy policy URL.
+     * @type {string}
+     * @memberof VerificationUpdateRequest
      */
     'privacyPolicyUrl'?: string;
     /**
      * The Toll-Free Verification request terms and conditions policy URL.
+     * @type {string}
+     * @memberof VerificationUpdateRequest
      */
     'termsAndConditionsUrl'?: string;
     /**
      * The company \'Doing Business As\'.
+     * @type {string}
+     * @memberof VerificationUpdateRequest
      */
     'businessDba'?: string;
     /**
      * US Federal Tax ID Number (EIN) or Canada Business Number (CBN). Optional until early 2026. If a value is provided for this field, a value must be provided for `businessRegistrationType` and `businessEntityType`. Available starting October 1st, 2025.
+     * @type {string}
+     * @memberof VerificationUpdateRequest
      */
     'businessRegistrationNumber'?: string | null;
+    /**
+     * 
+     * @type {BusinessRegistrationTypeEnum}
+     * @memberof VerificationUpdateRequest
+     */
     'businessRegistrationType'?: BusinessRegistrationTypeEnum | null;
+    /**
+     * 
+     * @type {BusinessEntityTypeEnum}
+     * @memberof VerificationUpdateRequest
+     */
     'businessEntityType'?: BusinessEntityTypeEnum | null;
     /**
      * A message that gets sent to users requesting help.
+     * @type {string}
+     * @memberof VerificationUpdateRequest
      */
     'helpMessageResponse'?: string | null;
     /**
      * Indicates whether the content is age-gated.
+     * @type {boolean}
+     * @memberof VerificationUpdateRequest
      */
     'ageGatedContent'?: boolean;
 }

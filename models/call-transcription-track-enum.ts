@@ -16,6 +16,8 @@
 
 /**
  * Which `track` this transcription is derived from.
+ * @export
+ * @enum {string}
  */
 
 export const CallTranscriptionTrackEnum = {

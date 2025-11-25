@@ -20,15 +20,34 @@ import type { CallTranscriptionDetectedLanguageEnum } from './call-transcription
 // @ts-ignore
 import type { CallTranscriptionTrackEnum } from './call-transcription-track-enum';
 
+/**
+ * 
+ * @export
+ * @interface CallTranscription
+ */
 export interface CallTranscription {
+    /**
+     * 
+     * @type {CallTranscriptionDetectedLanguageEnum}
+     * @memberof CallTranscription
+     */
     'detectedLanguage'?: CallTranscriptionDetectedLanguageEnum;
+    /**
+     * 
+     * @type {CallTranscriptionTrackEnum}
+     * @memberof CallTranscription
+     */
     'track'?: CallTranscriptionTrackEnum;
     /**
      * The transcription itself.
+     * @type {string}
+     * @memberof CallTranscription
      */
     'transcript'?: string;
     /**
      * How confident the transcription engine was in transcribing the associated audio (from `0` to `1`).
+     * @type {number}
+     * @memberof CallTranscription
      */
     'confidence'?: number;
 }

@@ -29,19 +29,40 @@ import type { MultiChannelChannelListSMSResponseObject } from './multi-channel-c
 // @ts-ignore
 import type { MultiChannelMessageChannelEnum } from './multi-channel-message-channel-enum';
 
+/**
+ * 
+ * @export
+ * @interface MultiChannelChannelListResponseObject
+ */
 export interface MultiChannelChannelListResponseObject {
     /**
      * The sender ID of the message. This could be an alphanumeric sender ID.
+     * @type {string}
+     * @memberof MultiChannelChannelListResponseObject
      */
     'from': string;
     /**
      * The ID of the Application your from number or senderId is associated with in the Bandwidth Phone Number Dashboard.
+     * @type {string}
+     * @memberof MultiChannelChannelListResponseObject
      */
     'applicationId': string;
+    /**
+     * 
+     * @type {MultiChannelMessageChannelEnum}
+     * @memberof MultiChannelChannelListResponseObject
+     */
     'channel': MultiChannelMessageChannelEnum;
+    /**
+     * 
+     * @type {MmsMessageContent}
+     * @memberof MultiChannelChannelListResponseObject
+     */
     'content': MmsMessageContent;
     /**
      * The Bandwidth senderId associated with the message. Identical to \'from\'.
+     * @type {string}
+     * @memberof MultiChannelChannelListResponseObject
      */
     'owner': string;
 }

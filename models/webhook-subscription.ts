@@ -22,17 +22,51 @@ import type { WebhookSubscriptionTypeEnum } from './webhook-subscription-type-en
 
 /**
  * Information about a webhook that Bandwidth should send upon the completion of event customer has subscribed to.
+ * @export
+ * @interface WebhookSubscription
  */
 export interface WebhookSubscription {
+    /**
+     * 
+     * @type {string}
+     * @memberof WebhookSubscription
+     */
     'id'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof WebhookSubscription
+     */
     'accountId'?: string;
     /**
      * Callback URL to receive status updates from Bandwidth. When a webhook subscription is registered with Bandwidth under a given account ID, it will be used to send status updates for all requests submitted under that account ID.
+     * @type {string}
+     * @memberof WebhookSubscription
      */
     'callbackUrl': string | null;
+    /**
+     * 
+     * @type {WebhookSubscriptionTypeEnum}
+     * @memberof WebhookSubscription
+     */
     'type'?: WebhookSubscriptionTypeEnum;
+    /**
+     * 
+     * @type {WebhookSubscriptionBasicAuthentication}
+     * @memberof WebhookSubscription
+     */
     'basicAuthentication'?: WebhookSubscriptionBasicAuthentication;
+    /**
+     * 
+     * @type {string}
+     * @memberof WebhookSubscription
+     */
     'createdDate'?: string;
+    /**
+     * 
+     * @type {string}
+     * @memberof WebhookSubscription
+     */
     'modifiedDate'?: string;
 }
 

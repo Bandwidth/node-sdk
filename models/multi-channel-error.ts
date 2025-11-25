@@ -20,9 +20,29 @@ import type { ErrorObject } from './error-object';
 // @ts-ignore
 import type { Link } from './link';
 
+/**
+ * 
+ * @export
+ * @interface MultiChannelError
+ */
 export interface MultiChannelError {
+    /**
+     * 
+     * @type {Array<Link>}
+     * @memberof MultiChannelError
+     */
     'links'?: Array<Link>;
+    /**
+     * 
+     * @type {object}
+     * @memberof MultiChannelError
+     */
     'data'?: object | null;
+    /**
+     * 
+     * @type {Array<ErrorObject>}
+     * @memberof MultiChannelError
+     */
     'errors'?: Array<ErrorObject>;
 }
 

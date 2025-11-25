@@ -25,32 +25,56 @@ import type { PriorityEnum } from './priority-enum';
 
 /**
  * The data returned in a multichannel message response.
+ * @export
+ * @interface MultiChannelMessageResponseData
  */
 export interface MultiChannelMessageResponseData {
     /**
      * The ID of the message.
+     * @type {string}
+     * @memberof MultiChannelMessageResponseData
      */
     'id': string;
     /**
      * The time the message was received by the Bandwidth API.
+     * @type {string}
+     * @memberof MultiChannelMessageResponseData
      */
     'time': string;
+    /**
+     * 
+     * @type {MessageDirectionEnum}
+     * @memberof MultiChannelMessageResponseData
+     */
     'direction': MessageDirectionEnum;
     /**
      * The destination phone number(s) of the message, in E164 format.
+     * @type {Set<string>}
+     * @memberof MultiChannelMessageResponseData
      */
     'to': Set<string>;
     /**
      * A list of message bodies. The messages will be attempted in the order they are listed. Once a message sends successfully, the others will be ignored.
+     * @type {Array<MultiChannelChannelListResponseObject>}
+     * @memberof MultiChannelMessageResponseData
      */
     'channelList': Array<MultiChannelChannelListResponseObject>;
     /**
      * A custom string that will be included in callback events of the message. Max 1024 characters.
+     * @type {string}
+     * @memberof MultiChannelMessageResponseData
      */
     'tag'?: string;
+    /**
+     * 
+     * @type {PriorityEnum}
+     * @memberof MultiChannelMessageResponseData
+     */
     'priority'?: PriorityEnum;
     /**
      * A string with the date/time value that the message will automatically expire by. This must be a valid RFC-3339 value, e.g., 2021-03-14T01:59:26Z or 2021-03-13T20:59:26-05:00. Must be a date-time in the future.
+     * @type {string}
+     * @memberof MultiChannelMessageResponseData
      */
     'expiration'?: string;
 }

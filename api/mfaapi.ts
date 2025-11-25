@@ -39,6 +39,7 @@ import type { VerifyCodeResponse } from '../models';
 import type { VoiceCodeResponse } from '../models';
 /**
  * MFAApi - axios parameter creator
+ * @export
  */
 export const MFAApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -71,6 +72,10 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
@@ -116,6 +121,10 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -160,6 +169,10 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -179,6 +192,7 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
 
 /**
  * MFAApi - functional programming interface
+ * @export
  */
 export const MFAApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MFAApiAxiosParamCreator(configuration)
@@ -230,6 +244,7 @@ export const MFAApiFp = function(configuration?: Configuration) {
 
 /**
  * MFAApi - factory interface
+ * @export
  */
 export const MFAApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MFAApiFp(configuration)
@@ -272,6 +287,9 @@ export const MFAApiFactory = function (configuration?: Configuration, basePath?:
 
 /**
  * MFAApi - object-oriented interface
+ * @export
+ * @class MFAApi
+ * @extends {BaseAPI}
  */
 export class MFAApi extends BaseAPI {
     /**
@@ -281,6 +299,7 @@ export class MFAApi extends BaseAPI {
      * @param {CodeRequest} codeRequest MFA code request body.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof MFAApi
      */
     public generateMessagingCode(accountId: string, codeRequest: CodeRequest, options?: RawAxiosRequestConfig) {
         return MFAApiFp(this.configuration).generateMessagingCode(accountId, codeRequest, options).then((request) => request(this.axios, this.basePath));
@@ -293,6 +312,7 @@ export class MFAApi extends BaseAPI {
      * @param {CodeRequest} codeRequest MFA code request body.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof MFAApi
      */
     public generateVoiceCode(accountId: string, codeRequest: CodeRequest, options?: RawAxiosRequestConfig) {
         return MFAApiFp(this.configuration).generateVoiceCode(accountId, codeRequest, options).then((request) => request(this.axios, this.basePath));
@@ -305,6 +325,7 @@ export class MFAApi extends BaseAPI {
      * @param {VerifyCodeRequest} verifyCodeRequest MFA code verify request body.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof MFAApi
      */
     public verifyCode(accountId: string, verifyCodeRequest: VerifyCodeRequest, options?: RawAxiosRequestConfig) {
         return MFAApiFp(this.configuration).verifyCode(accountId, verifyCodeRequest, options).then((request) => request(this.axios, this.basePath));

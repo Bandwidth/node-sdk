@@ -19,9 +19,21 @@ import type { RbmMessageContentFile } from './rbm-message-content-file';
 
 /**
  * The structure of the content field of a multichannel message.
+ * @export
+ * @interface MultiChannelMessageContent
  */
 export interface MultiChannelMessageContent {
+    /**
+     * 
+     * @type {string}
+     * @memberof MultiChannelMessageContent
+     */
     'text'?: string;
+    /**
+     * 
+     * @type {RbmMessageContentFile}
+     * @memberof MultiChannelMessageContent
+     */
     'media'?: RbmMessageContentFile;
 }
 

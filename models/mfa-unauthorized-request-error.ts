@@ -14,9 +14,16 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface MfaUnauthorizedRequestError
+ */
 export interface MfaUnauthorizedRequestError {
     /**
      * Unauthorized
+     * @type {string}
+     * @memberof MfaUnauthorizedRequestError
      */
     'message'?: string;
 }

@@ -17,14 +17,28 @@
 // @ts-ignore
 import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 
+/**
+ * 
+ * @export
+ * @interface RbmActionBase
+ */
 export interface RbmActionBase {
+    /**
+     * 
+     * @type {RbmActionTypeEnum}
+     * @memberof RbmActionBase
+     */
     'type': RbmActionTypeEnum;
     /**
      * Displayed text for user to click
+     * @type {string}
+     * @memberof RbmActionBase
      */
     'text': string;
     /**
      * Base64 payload the customer receives when the reply is clicked.
+     * @type {string}
+     * @memberof RbmActionBase
      */
     'postbackData': string;
 }

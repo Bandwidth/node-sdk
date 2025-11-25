@@ -25,6 +25,7 @@ import type { SmsMessageContent } from './sms-message-content';
 
 /**
  * @type MultiChannelChannelListSMSObject
+ * @export
  */
 export type MultiChannelChannelListSMSObject = MultiChannelChannelListObjectBase;
 

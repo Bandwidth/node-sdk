@@ -35,6 +35,7 @@ import type { UpdateConferenceMember } from '../models';
 import type { VoiceApiError } from '../models';
 /**
  * ConferencesApi - axios parameter creator
+ * @export
  */
 export const ConferencesApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -72,6 +73,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
@@ -114,6 +119,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
@@ -161,6 +170,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -207,6 +220,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -248,6 +265,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
@@ -291,6 +312,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
             if (name !== undefined) {
                 localVarQueryParameter['name'] = name;
@@ -357,6 +382,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -404,6 +433,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
@@ -457,6 +490,10 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -476,6 +513,7 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
 
 /**
  * ConferencesApi - functional programming interface
+ * @export
  */
 export const ConferencesApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = ConferencesApiAxiosParamCreator(configuration)
@@ -622,6 +660,7 @@ export const ConferencesApiFp = function(configuration?: Configuration) {
 
 /**
  * ConferencesApi - factory interface
+ * @export
  */
 export const ConferencesApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = ConferencesApiFp(configuration)
@@ -741,6 +780,9 @@ export const ConferencesApiFactory = function (configuration?: Configuration, ba
 
 /**
  * ConferencesApi - object-oriented interface
+ * @export
+ * @class ConferencesApi
+ * @extends {BaseAPI}
  */
 export class ConferencesApi extends BaseAPI {
     /**
@@ -751,6 +793,7 @@ export class ConferencesApi extends BaseAPI {
      * @param {string} recordingId Programmable Voice API Recording ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof ConferencesApi
      */
     public downloadConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).downloadConferenceRecording(accountId, conferenceId, recordingId, options).then((request) => request(this.axios, this.basePath));
@@ -763,6 +806,7 @@ export class ConferencesApi extends BaseAPI {
      * @param {string} conferenceId Programmable Voice API Conference ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof ConferencesApi
      */
     public getConference(accountId: string, conferenceId: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).getConference(accountId, conferenceId, options).then((request) => request(this.axios, this.basePath));
@@ -776,6 +820,7 @@ export class ConferencesApi extends BaseAPI {
      * @param {string} memberId Programmable Voice API Conference Member ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof ConferencesApi
      */
     public getConferenceMember(accountId: string, conferenceId: string, memberId: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).getConferenceMember(accountId, conferenceId, memberId, options).then((request) => request(this.axios, this.basePath));
@@ -789,6 +834,7 @@ export class ConferencesApi extends BaseAPI {
      * @param {string} recordingId Programmable Voice API Recording ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof ConferencesApi
      */
     public getConferenceRecording(accountId: string, conferenceId: string, recordingId: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).getConferenceRecording(accountId, conferenceId, recordingId, options).then((request) => request(this.axios, this.basePath));
@@ -801,6 +847,7 @@ export class ConferencesApi extends BaseAPI {
      * @param {string} conferenceId Programmable Voice API Conference ID.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof ConferencesApi
      */
     public listConferenceRecordings(accountId: string, conferenceId: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).listConferenceRecordings(accountId, conferenceId, options).then((request) => request(this.axios, this.basePath));
@@ -817,6 +864,7 @@ export class ConferencesApi extends BaseAPI {
      * @param {string} [pageToken] Not intended for explicit use. To use pagination, follow the links in the &#x60;Link&#x60; header of the response, as indicated in the endpoint description.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof ConferencesApi
      */
     public listConferences(accountId: string, name?: string, minCreatedTime?: string, maxCreatedTime?: string, pageSize?: number, pageToken?: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).listConferences(accountId, name, minCreatedTime, maxCreatedTime, pageSize, pageToken, options).then((request) => request(this.axios, this.basePath));
@@ -830,6 +878,7 @@ export class ConferencesApi extends BaseAPI {
      * @param {UpdateConference} updateConference 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof ConferencesApi
      */
     public updateConference(accountId: string, conferenceId: string, updateConference: UpdateConference, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).updateConference(accountId, conferenceId, updateConference, options).then((request) => request(this.axios, this.basePath));
@@ -843,6 +892,7 @@ export class ConferencesApi extends BaseAPI {
      * @param {string} body 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof ConferencesApi
      */
     public updateConferenceBxml(accountId: string, conferenceId: string, body: string, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).updateConferenceBxml(accountId, conferenceId, body, options).then((request) => request(this.axios, this.basePath));
@@ -857,6 +907,7 @@ export class ConferencesApi extends BaseAPI {
      * @param {UpdateConferenceMember} updateConferenceMember 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof ConferencesApi
      */
     public updateConferenceMember(accountId: string, conferenceId: string, memberId: string, updateConferenceMember: UpdateConferenceMember, options?: RawAxiosRequestConfig) {
         return ConferencesApiFp(this.configuration).updateConferenceMember(accountId, conferenceId, memberId, updateConferenceMember, options).then((request) => request(this.axios, this.basePath));

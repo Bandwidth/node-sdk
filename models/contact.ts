@@ -14,18 +14,34 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface Contact
+ */
 export interface Contact {
     /**
      * The first name of the business contact using the toll-free number.
+     * @type {string}
+     * @memberof Contact
      */
     'firstName': string;
     /**
      * The last name of the business contact using the toll-free number.
+     * @type {string}
+     * @memberof Contact
      */
     'lastName': string;
+    /**
+     * 
+     * @type {string}
+     * @memberof Contact
+     */
     'email': string;
     /**
      * Contact telephone number
+     * @type {string}
+     * @memberof Contact
      */
     'phoneNumber': string;
 }

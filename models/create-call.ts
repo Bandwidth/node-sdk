@@ -20,77 +20,136 @@ import type { CallbackMethodEnum } from './callback-method-enum';
 // @ts-ignore
 import type { MachineDetectionConfiguration } from './machine-detection-configuration';
 
+/**
+ * 
+ * @export
+ * @interface CreateCall
+ */
 export interface CreateCall {
     /**
      * The destination to call (must be an E.164 formatted number (e.g. `+15555551212`) or a SIP URI (e.g. `sip:user@server.example`)).
+     * @type {string}
+     * @memberof CreateCall
      */
     'to': string;
     /**
      * A Bandwidth phone number on your account the call should come from (must be in E.164 format, like `+15555551212`) even if `privacy` is set to true.
+     * @type {string}
+     * @memberof CreateCall
      */
     'from': string;
     /**
      * Hide the calling number. The `displayName` field can be used to customize the displayed name.
+     * @type {boolean}
+     * @memberof CreateCall
      */
     'privacy'?: boolean | null;
     /**
      * The caller display name to use when the call is created.  May not exceed 256 characters nor contain control characters such as new lines. If `privacy` is true, only the following values are valid: `Restricted`, `Anonymous`, `Private`, or `Unavailable`.
+     * @type {string}
+     * @memberof CreateCall
      */
     'displayName'?: string | null;
     /**
      * A comma-separated list of \'User-To-User\' headers to be sent in the INVITE when calling a SIP URI. Each value must end with an \'encoding\' parameter as described in <a href=\'https://tools.ietf.org/html/rfc7433\'>RFC 7433</a>. Only \'jwt\', \'base64\' and \'hex\' encodings are allowed. The entire value cannot exceed 350 characters, including parameters and separators.
+     * @type {string}
+     * @memberof CreateCall
      */
     'uui'?: string | null;
     /**
      * The id of the application associated with the `from` number.
+     * @type {string}
+     * @memberof CreateCall
      */
     'applicationId': string;
     /**
      * The full URL to send the <a href=\'/docs/voice/webhooks/answer\'>Answer</a> event to when the called party answers. This endpoint should return the first <a href=\'/docs/voice/bxml\'>BXML document</a> to be executed in the call.  Must use `https` if specifying `username` and `password`.
+     * @type {string}
+     * @memberof CreateCall
      */
     'answerUrl': string;
+    /**
+     * 
+     * @type {CallbackMethodEnum}
+     * @memberof CreateCall
+     */
     'answerMethod'?: CallbackMethodEnum | null;
     /**
      * Basic auth username.
+     * @type {string}
+     * @memberof CreateCall
      */
     'username'?: string | null;
     /**
      * Basic auth password.
+     * @type {string}
+     * @memberof CreateCall
      */
     'password'?: string | null;
     /**
      * A fallback url which, if provided, will be used to retry the `answer` webhook delivery in case `answerUrl` fails to respond  Must use `https` if specifying `fallbackUsername` and `fallbackPassword`.
+     * @type {string}
+     * @memberof CreateCall
      */
     'answerFallbackUrl'?: string | null;
+    /**
+     * 
+     * @type {CallbackMethodEnum}
+     * @memberof CreateCall
+     */
     'answerFallbackMethod'?: CallbackMethodEnum | null;
     /**
      * Basic auth username.
+     * @type {string}
+     * @memberof CreateCall
      */
     'fallbackUsername'?: string | null;
     /**
      * Basic auth password.
+     * @type {string}
+     * @memberof CreateCall
      */
     'fallbackPassword'?: string | null;
     /**
      * The URL to send the <a href=\'/docs/voice/webhooks/disconnect\'>Disconnect</a> event to when the call ends. This event does not expect a BXML response.
+     * @type {string}
+     * @memberof CreateCall
      */
     'disconnectUrl'?: string | null;
+    /**
+     * 
+     * @type {CallbackMethodEnum}
+     * @memberof CreateCall
+     */
     'disconnectMethod'?: CallbackMethodEnum | null;
     /**
      * The timeout (in seconds) for the callee to answer the call after it starts ringing. If the call does not start ringing within 30s, the call will be cancelled regardless of this value.  Can be any numeric value (including decimals) between 1 and 300.
+     * @type {number}
+     * @memberof CreateCall
      */
     'callTimeout'?: number | null;
     /**
      * This is the timeout (in seconds) to use when delivering webhooks for the call. Can be any numeric value (including decimals) between 1 and 25.
+     * @type {number}
+     * @memberof CreateCall
      */
     'callbackTimeout'?: number | null;
+    /**
+     * 
+     * @type {MachineDetectionConfiguration}
+     * @memberof CreateCall
+     */
     'machineDetection'?: MachineDetectionConfiguration;
     /**
      * The priority of this call over other calls from your account. For example, if during a call your application needs to place a new call and bridge it with the current call, you might want to create the call with priority 1 so that it will be the next call picked off your queue, ahead of other less time sensitive calls. A lower value means higher priority, so a priority 1 call takes precedence over a priority 2 call.
+     * @type {number}
+     * @memberof CreateCall
      */
     'priority'?: number | null;
     /**
      * A custom string that will be sent with all webhooks for this call unless overwritten by a future <a href=\'/docs/voice/bxml/tag\'>`<Tag>`</a> verb or `tag` attribute on another verb, or cleared.  May be cleared by setting `tag=\"\"`  Max length 256 characters.
+     * @type {string}
+     * @memberof CreateCall
      */
     'tag'?: string | null;
 }

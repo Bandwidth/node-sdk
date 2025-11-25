@@ -14,14 +14,28 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface LookupErrorSchemaMeta
+ */
 export interface LookupErrorSchemaMeta {
+    /**
+     * 
+     * @type {Array<string>}
+     * @memberof LookupErrorSchemaMeta
+     */
     'phoneNumbers'?: Array<string>;
     /**
      * Message describing the error
+     * @type {string}
+     * @memberof LookupErrorSchemaMeta
      */
     'message'?: string;
     /**
      * Error code associated with the message
+     * @type {number}
+     * @memberof LookupErrorSchemaMeta
      */
     'code'?: number;
 }

@@ -44,6 +44,7 @@ import type { ThumbnailAlignmentEnum } from './thumbnail-alignment-enum';
 /**
  * @type MultiChannelChannelListRBMObjectAllOfContent
  * The content of the message.
+ * @export
  */
 export type MultiChannelChannelListRBMObjectAllOfContent = RbmMessageContentRichCard | RbmMessageContentText | RbmMessageMedia;
 

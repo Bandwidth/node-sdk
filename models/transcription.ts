@@ -14,13 +14,22 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface Transcription
+ */
 export interface Transcription {
     /**
      * The transcribed text
+     * @type {string}
+     * @memberof Transcription
      */
     'text'?: string;
     /**
      * The confidence on the recognized content, ranging from `0.0` to `1.0` with `1.0` being the highest confidence.
+     * @type {number}
+     * @memberof Transcription
      */
     'confidence'?: number;
 }

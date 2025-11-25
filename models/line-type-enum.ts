@@ -14,6 +14,11 @@
 
 
 
+/**
+ * 
+ * @export
+ * @enum {string}
+ */
 
 export const LineTypeEnum = {
     Fixed: 'FIXED',

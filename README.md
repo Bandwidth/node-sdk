@@ -346,3 +346,11 @@ Authentication schemes defined for the API:
 
 - **Type**: HTTP basic authentication
 
+<a id="OAuth2"></a>
+### OAuth2
+
+- **Type**: OAuth
+- **Flow**: application
+- **Authorization URL**: 
+- **Scopes**: N/A
+

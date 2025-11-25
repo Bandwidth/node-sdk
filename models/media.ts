@@ -14,9 +14,29 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface Media
+ */
 export interface Media {
+    /**
+     * 
+     * @type {string}
+     * @memberof Media
+     */
     'content'?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof Media
+     */
     'contentLength'?: number;
+    /**
+     * 
+     * @type {string}
+     * @memberof Media
+     */
     'mediaName'?: string;
 }
 

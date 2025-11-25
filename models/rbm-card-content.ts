@@ -20,18 +20,34 @@ import type { MultiChannelAction } from './multi-channel-action';
 // @ts-ignore
 import type { RbmCardContentMedia } from './rbm-card-content-media';
 
+/**
+ * 
+ * @export
+ * @interface RbmCardContent
+ */
 export interface RbmCardContent {
     /**
      * The title of the card. Must be 200 characters or less.
+     * @type {string}
+     * @memberof RbmCardContent
      */
     'title'?: string;
     /**
      * The description of the card. Must be 2000 characters or less.
+     * @type {string}
+     * @memberof RbmCardContent
      */
     'description'?: string;
+    /**
+     * 
+     * @type {RbmCardContentMedia}
+     * @memberof RbmCardContent
+     */
     'media'?: RbmCardContentMedia;
     /**
      * An array of suggested actions for the recipient that will be displayed on the rich card.
+     * @type {Array<MultiChannelAction>}
+     * @memberof RbmCardContent
      */
     'suggestions'?: Array<MultiChannelAction>;
 }

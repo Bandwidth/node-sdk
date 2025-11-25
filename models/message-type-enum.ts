@@ -16,6 +16,8 @@
 
 /**
  * The type of message. Either SMS or MMS.
+ * @export
+ * @enum {string}
  */
 
 export const MessageTypeEnum = {

@@ -37,6 +37,7 @@ import type { ThumbnailAlignmentEnum } from './thumbnail-alignment-enum';
 
 /**
  * @type RbmMessageContentRichCard
+ * @export
  */
 export type RbmMessageContentRichCard = RbmMessageCarouselCard | RbmStandaloneCard;
 

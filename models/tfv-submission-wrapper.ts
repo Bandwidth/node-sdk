@@ -17,7 +17,17 @@
 // @ts-ignore
 import type { VerificationUpdateRequest } from './verification-update-request';
 
+/**
+ * 
+ * @export
+ * @interface TfvSubmissionWrapper
+ */
 export interface TfvSubmissionWrapper {
+    /**
+     * 
+     * @type {VerificationUpdateRequest}
+     * @memberof TfvSubmissionWrapper
+     */
     'submission'?: VerificationUpdateRequest;
 }
 

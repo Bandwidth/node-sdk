@@ -23,72 +23,124 @@ import type { FileFormatEnum } from './file-format-enum';
 // @ts-ignore
 import type { RecordingTranscriptionMetadata } from './recording-transcription-metadata';
 
+/**
+ * 
+ * @export
+ * @interface CallRecordingMetadata
+ */
 export interface CallRecordingMetadata {
     /**
      * The id of the application associated with the call.
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'applicationId'?: string;
     /**
      * The user account associated with the call.
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'accountId'?: string;
     /**
      * The call id associated with the event.
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'callId'?: string;
     /**
      * (optional) If the event is related to the B leg of a <Transfer>, the call id of the original call leg that executed the <Transfer>. Otherwise, this field will not be present.
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'parentCallId'?: string;
     /**
      * The unique ID of this recording
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'recordingId'?: string;
     /**
      * The phone number that received the call, in E.164 format (e.g. +15555555555).
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'to'?: string;
     /**
      * The provided identifier of the caller. Must be a phone number in E.164 format (e.g. +15555555555).
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'from'?: string;
     /**
      * The phone number used as the from field of the B-leg call, in E.164 format (e.g. +15555555555).
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'transferCallerId'?: string;
     /**
      * The phone number used as the to field of the B-leg call, in E.164 format (e.g. +15555555555).
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'transferTo'?: string;
     /**
      * The duration of the recording in ISO-8601 format
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'duration'?: string;
+    /**
+     * 
+     * @type {CallDirectionEnum}
+     * @memberof CallRecordingMetadata
+     */
     'direction'?: CallDirectionEnum;
     /**
      * Always `1` for conference recordings; multi-channel recordings are not supported on conferences.
+     * @type {number}
+     * @memberof CallRecordingMetadata
      */
     'channels'?: number;
     /**
      * Time the call was started, in ISO 8601 format.
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'startTime'?: string;
     /**
      * The time that the recording ended in ISO-8601 format
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'endTime'?: string;
+    /**
+     * 
+     * @type {FileFormatEnum}
+     * @memberof CallRecordingMetadata
+     */
     'fileFormat'?: FileFormatEnum;
     /**
      * The current status of the process. For recording, current possible values are \'processing\', \'partial\', \'complete\', \'deleted\', and \'error\'. For transcriptions, current possible values are \'none\', \'processing\', \'available\', \'error\', \'timeout\', \'file-size-too-big\', and \'file-size-too-small\'. Additional states may be added in the future, so your application must be tolerant of unknown values.
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'status'?: string;
     /**
      * The URL that can be used to download the recording. Only present if the recording is finished and may be downloaded.
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'mediaUrl'?: string | null;
+    /**
+     * 
+     * @type {RecordingTranscriptionMetadata}
+     * @memberof CallRecordingMetadata
+     */
     'transcription'?: RecordingTranscriptionMetadata | null;
     /**
      * A name to identify this recording.
+     * @type {string}
+     * @memberof CallRecordingMetadata
      */
     'recordingName'?: string;
 }

@@ -16,6 +16,8 @@
 
 /**
  * The recording state. Possible values:  `paused` to pause an active recording  `recording` to resume a paused recording
+ * @export
+ * @enum {string}
  */
 
 export const RecordingStateEnum = {

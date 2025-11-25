@@ -16,6 +16,8 @@
 
 /**
  * The direction of the message. One of INBOUND OUTBOUND.
+ * @export
+ * @enum {string}
  */
 
 export const ListMessageDirectionEnum = {

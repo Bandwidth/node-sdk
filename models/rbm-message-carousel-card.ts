@@ -23,11 +23,28 @@ import type { MultiChannelAction } from './multi-channel-action';
 // @ts-ignore
 import type { RbmCardContent } from './rbm-card-content';
 
+/**
+ * 
+ * @export
+ * @interface RbmMessageCarouselCard
+ */
 export interface RbmMessageCarouselCard {
+    /**
+     * 
+     * @type {CardWidthEnum}
+     * @memberof RbmMessageCarouselCard
+     */
     'cardWidth': CardWidthEnum;
+    /**
+     * 
+     * @type {Array<RbmCardContent>}
+     * @memberof RbmMessageCarouselCard
+     */
     'cardContents': Array<RbmCardContent>;
     /**
      * An array of suggested actions for the recipient.
+     * @type {Array<MultiChannelAction>}
+     * @memberof RbmMessageCarouselCard
      */
     'suggestions'?: Array<MultiChannelAction>;
 }

@@ -22,6 +22,7 @@ import type { RbmMessageContentFile } from './rbm-message-content-file';
 
 /**
  * @type RbmCardContentMedia
+ * @export
  */
 export type RbmCardContentMedia = RbmMessageContentFile;
 

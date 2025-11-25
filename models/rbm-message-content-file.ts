@@ -14,13 +14,22 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface RbmMessageContentFile
+ */
 export interface RbmMessageContentFile {
     /**
      * The URL of the media file. 100MB is the maximum file size.
+     * @type {string}
+     * @memberof RbmMessageContentFile
      */
     'fileUrl': string;
     /**
      * The URL of the thumbnail image. Applies only to video file media.
+     * @type {string}
+     * @memberof RbmMessageContentFile
      */
     'thumbnailUrl'?: string;
 }

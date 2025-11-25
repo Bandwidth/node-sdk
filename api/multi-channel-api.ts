@@ -29,6 +29,7 @@ import type { MultiChannelError } from '../models';
 import type { MultiChannelMessageRequest } from '../models';
 /**
  * MultiChannelApi - axios parameter creator
+ * @export
  */
 export const MultiChannelApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -62,6 +63,10 @@ export const MultiChannelApiAxiosParamCreator = function (configuration?: Config
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -81,6 +86,7 @@ export const MultiChannelApiAxiosParamCreator = function (configuration?: Config
 
 /**
  * MultiChannelApi - functional programming interface
+ * @export
  */
 export const MultiChannelApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MultiChannelApiAxiosParamCreator(configuration)
@@ -104,6 +110,7 @@ export const MultiChannelApiFp = function(configuration?: Configuration) {
 
 /**
  * MultiChannelApi - factory interface
+ * @export
  */
 export const MultiChannelApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MultiChannelApiFp(configuration)
@@ -124,6 +131,9 @@ export const MultiChannelApiFactory = function (configuration?: Configuration, b
 
 /**
  * MultiChannelApi - object-oriented interface
+ * @export
+ * @class MultiChannelApi
+ * @extends {BaseAPI}
  */
 export class MultiChannelApi extends BaseAPI {
     /**
@@ -133,6 +143,7 @@ export class MultiChannelApi extends BaseAPI {
      * @param {MultiChannelMessageRequest} multiChannelMessageRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof MultiChannelApi
      */
     public createMultiChannelMessage(accountId: string, multiChannelMessageRequest: MultiChannelMessageRequest, options?: RawAxiosRequestConfig) {
         return MultiChannelApiFp(this.configuration).createMultiChannelMessage(accountId, multiChannelMessageRequest, options).then((request) => request(this.axios, this.basePath));

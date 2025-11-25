@@ -14,17 +14,28 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface AdditionalDenialReason
+ */
 export interface AdditionalDenialReason {
     /**
      * Reason code for denial.
+     * @type {number}
+     * @memberof AdditionalDenialReason
      */
     'statusCode': number;
     /**
      * Explanation for why a verification request was declined.
+     * @type {string}
+     * @memberof AdditionalDenialReason
      */
     'reason': string;
     /**
      * Whether a Toll-Free Verification request qualifies for resubmission via PUT.
+     * @type {boolean}
+     * @memberof AdditionalDenialReason
      */
     'resubmitAllowed': boolean;
 }

@@ -27,6 +27,7 @@ import type { Media } from '../models';
 import type { MessagingRequestError } from '../models';
 /**
  * MediaApi - axios parameter creator
+ * @export
  */
 export const MediaApiAxiosParamCreator = function (configuration?: Configuration) {
     return {
@@ -60,6 +61,10 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
@@ -103,6 +108,10 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             setSearchParams(localVarUrlObj, localVarQueryParameter);
@@ -141,6 +150,10 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             // authentication Basic required
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
+
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
 
     
@@ -192,6 +205,10 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             // http basic authentication required
             setBasicAuthToObject(localVarRequestOptions, configuration)
 
+            // authentication OAuth2 required
+            // oauth required
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
@@ -217,6 +234,7 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
 
 /**
  * MediaApi - functional programming interface
+ * @export
  */
 export const MediaApiFp = function(configuration?: Configuration) {
     const localVarAxiosParamCreator = MediaApiAxiosParamCreator(configuration)
@@ -285,6 +303,7 @@ export const MediaApiFp = function(configuration?: Configuration) {
 
 /**
  * MediaApi - factory interface
+ * @export
  */
 export const MediaApiFactory = function (configuration?: Configuration, basePath?: string, axios?: AxiosInstance) {
     const localVarFp = MediaApiFp(configuration)
@@ -341,6 +360,9 @@ export const MediaApiFactory = function (configuration?: Configuration, basePath
 
 /**
  * MediaApi - object-oriented interface
+ * @export
+ * @class MediaApi
+ * @extends {BaseAPI}
  */
 export class MediaApi extends BaseAPI {
     /**
@@ -350,6 +372,7 @@ export class MediaApi extends BaseAPI {
      * @param {string} mediaId Media ID to retrieve.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof MediaApi
      */
     public deleteMedia(accountId: string, mediaId: string, options?: RawAxiosRequestConfig) {
         return MediaApiFp(this.configuration).deleteMedia(accountId, mediaId, options).then((request) => request(this.axios, this.basePath));
@@ -362,6 +385,7 @@ export class MediaApi extends BaseAPI {
      * @param {string} mediaId Media ID to retrieve.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof MediaApi
      */
     public getMedia(accountId: string, mediaId: string, options?: RawAxiosRequestConfig) {
         return MediaApiFp(this.configuration).getMedia(accountId, mediaId, options).then((request) => request(this.axios, this.basePath));
@@ -374,6 +398,7 @@ export class MediaApi extends BaseAPI {
      * @param {string} [continuationToken] Continuation token used to retrieve subsequent media.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof MediaApi
      */
     public listMedia(accountId: string, continuationToken?: string, options?: RawAxiosRequestConfig) {
         return MediaApiFp(this.configuration).listMedia(accountId, continuationToken, options).then((request) => request(this.axios, this.basePath));
@@ -389,6 +414,7 @@ export class MediaApi extends BaseAPI {
      * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
+     * @memberof MediaApi
      */
     public uploadMedia(accountId: string, mediaId: string, body: File, contentType?: string, cacheControl?: string, options?: RawAxiosRequestConfig) {
         return MediaApiFp(this.configuration).uploadMedia(accountId, mediaId, body, contentType, cacheControl, options).then((request) => request(this.axios, this.basePath));

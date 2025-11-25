@@ -14,17 +14,28 @@
 
 
 
+/**
+ * 
+ * @export
+ * @interface StirShaken
+ */
 export interface StirShaken {
     /**
      * (optional) The verification status indicating whether the verification was successful or not. Possible values are TN-Validation-Passed and TN-Validation-Failed.
+     * @type {string}
+     * @memberof StirShaken
      */
     'verstat'?: string;
     /**
      * (optional) The attestation level verified by Bandwidth. Possible values are A (full), B (partial) or C (gateway).
+     * @type {string}
+     * @memberof StirShaken
      */
     'attestationIndicator'?: string;
     /**
      * (optional) A unique origination identifier.
+     * @type {string}
+     * @memberof StirShaken
      */
     'originatingId'?: string;
 }
