@@ -6,6 +6,8 @@ module.exports = {
     globals: {
         'BW_USERNAME': process.env.BW_USERNAME,
         'BW_PASSWORD': process.env.BW_PASSWORD,
+        'BW_CLIENT_ID': process.env.BW_CLIENT_ID,
+        'BW_CLIENT_SECRET': process.env.BW_CLIENT_SECRET,
         'BW_ACCOUNT_ID': process.env.BW_ACCOUNT_ID,
         'BW_NUMBER': process.env.BW_NUMBER,
         'USER_NUMBER': process.env.USER_NUMBER,
