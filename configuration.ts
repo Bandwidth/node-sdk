@@ -10,6 +10,7 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+
 import globalAxios from 'axios';
 
 interface AWSv4Configuration {

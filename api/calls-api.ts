@@ -68,7 +68,8 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
 
             // authentication OAuth2 required
             // oauth required
-            const setOAuth = await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration);
+            await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
+
 
     
             localVarHeaderParameter['Content-Type'] = 'application/json';
