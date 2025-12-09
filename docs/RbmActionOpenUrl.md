@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **postbackData** | **string** | Base64 payload the customer receives when the reply is clicked. | [default to undefined]
 **url** | **string** | The URL to open in browser. | [default to undefined]
 **application** | [**RbmOpenUrlEnum**](RbmOpenUrlEnum.md) |  | [optional] [default to undefined]
-**webviewViewMode** | [**RbmVebViewEnum**](RbmVebViewEnum.md) |  | [optional] [default to undefined]
+**webviewViewMode** | [**RbmWebViewEnum**](RbmWebViewEnum.md) |  | [optional] [default to undefined]
 
 ## Example
 

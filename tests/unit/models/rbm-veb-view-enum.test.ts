@@ -1,9 +1,9 @@
-import { RbmVebViewEnum } from '../../../models/rbm-veb-view-enum';
+import { RbmWebViewEnum } from '../../../models/rbm-web-view-enum';
 
-describe('RbmVebViewEnum', () => {
+describe('RbmWebViewEnum', () => {
     test('should define the expected values', () => {
-        expect(RbmVebViewEnum.Full).toBe('FULL');
-        expect(RbmVebViewEnum.Half).toBe('HALF');
-        expect(RbmVebViewEnum.Tall).toBe('TALL');
+        expect(RbmWebViewEnum.Full).toBe('FULL');
+        expect(RbmWebViewEnum.Half).toBe('HALF');
+        expect(RbmWebViewEnum.Tall).toBe('TALL');
     });
 });

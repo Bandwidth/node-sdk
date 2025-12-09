@@ -127,7 +127,7 @@ export * from './rbm-message-media';
 export * from './rbm-open-url-enum';
 export * from './rbm-standalone-card';
 export * from './rbm-suggestion-response';
-export * from './rbm-veb-view-enum';
+export * from './rbm-web-view-enum';
 export * from './recording-available-callback';
 export * from './recording-complete-callback';
 export * from './recording-state-enum';

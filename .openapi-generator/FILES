@@ -151,7 +151,7 @@ docs/RbmMessageMedia.md
 docs/RbmOpenUrlEnum.md
 docs/RbmStandaloneCard.md
 docs/RbmSuggestionResponse.md
-docs/RbmVebViewEnum.md
+docs/RbmWebViewEnum.md
 docs/RecordingAvailableCallback.md
 docs/RecordingCompleteCallback.md
 docs/RecordingStateEnum.md
@@ -334,7 +334,7 @@ models/rbm-message-media.ts
 models/rbm-open-url-enum.ts
 models/rbm-standalone-card.ts
 models/rbm-suggestion-response.ts
-models/rbm-veb-view-enum.ts
+models/rbm-web-view-enum.ts
 models/recording-available-callback.ts
 models/recording-complete-callback.ts
 models/recording-state-enum.ts
