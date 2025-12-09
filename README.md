@@ -84,8 +84,8 @@ The following is a simple example of how to use this module:
 import { CallsApi, Configuration } from 'bandwidth-sdk';
 
 const config = new Configuration({
-    username: BW_USERNAME,
-    password: BW_PASSWORD
+    clientId: BW_CLIENT_ID,
+    clientSecret: BW_CLIENT_SECRET
 });
 const callsApi = new CallsApi(config);
 
@@ -345,4 +345,12 @@ Authentication schemes defined for the API:
 ### Basic
 
 - **Type**: HTTP basic authentication
+
+<a id="OAuth2"></a>
+### OAuth2
+
+- **Type**: OAuth
+- **Flow**: application
+- **Authorization URL**: 
+- **Scopes**: N/A
 
