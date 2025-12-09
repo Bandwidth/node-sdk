@@ -14,8 +14,8 @@ import { sleep } from '../callUtils';
 describe('PhoneNumberLookupApi', () => {
     jest.setTimeout(40000);
     const config = new Configuration({
-        username: BW_USERNAME,
-        password: BW_PASSWORD
+        clientId: BW_CLIENT_ID,
+        clientSecret: BW_CLIENT_SECRET
     });
     const phoneNumberLookupApi = new PhoneNumberLookupApi(config);
 

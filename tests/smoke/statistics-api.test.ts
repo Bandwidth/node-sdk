@@ -3,7 +3,10 @@ import { StatisticsApi } from '../../api';
 import { Configuration } from '../../configuration';
 
 describe('StatisticsApi', () => {
-    const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
+    const config = new Configuration({
+        clientId: BW_CLIENT_ID,
+        clientSecret: BW_CLIENT_SECRET
+    });
     const statisticsApi = new StatisticsApi(config);
 
     describe('getStatistics', () => {
