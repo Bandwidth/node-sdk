@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **text** | **string** | Displayed text for user to click | [default to undefined]
 **postbackData** | **string** | Base64 payload the customer receives when the reply is clicked. | [default to undefined]
 **url** | **string** | The URL to open in browser. | [default to undefined]
+**application** | [**RbmOpenUrlEnum**](RbmOpenUrlEnum.md) |  | [optional] [default to undefined]
+**webviewViewMode** | [**RbmVebViewEnum**](RbmVebViewEnum.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -20,6 +22,8 @@ const instance: RbmActionOpenUrl = {
     text,
     postbackData,
     url,
+    application,
+    webviewViewMode,
 };
 ```
 

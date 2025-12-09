@@ -148,8 +148,10 @@ docs/RbmMessageContentFile.md
 docs/RbmMessageContentRichCard.md
 docs/RbmMessageContentText.md
 docs/RbmMessageMedia.md
+docs/RbmOpenUrlEnum.md
 docs/RbmStandaloneCard.md
 docs/RbmSuggestionResponse.md
+docs/RbmVebViewEnum.md
 docs/RecordingAvailableCallback.md
 docs/RecordingCompleteCallback.md
 docs/RecordingStateEnum.md
@@ -329,8 +331,10 @@ models/rbm-message-content-file.ts
 models/rbm-message-content-rich-card.ts
 models/rbm-message-content-text.ts
 models/rbm-message-media.ts
+models/rbm-open-url-enum.ts
 models/rbm-standalone-card.ts
 models/rbm-suggestion-response.ts
+models/rbm-veb-view-enum.ts
 models/recording-available-callback.ts
 models/recording-complete-callback.ts
 models/recording-state-enum.ts

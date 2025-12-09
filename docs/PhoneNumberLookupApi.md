@@ -48,7 +48,7 @@ const { status, data } = await apiInstance.createAsyncBulkLookup(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -104,7 +104,7 @@ const { status, data } = await apiInstance.createSyncLookup(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
@@ -159,7 +159,7 @@ const { status, data } = await apiInstance.getAsyncBulkLookup(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 

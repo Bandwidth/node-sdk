@@ -31,6 +31,12 @@ import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { RbmActionViewLocation } from './rbm-action-view-location';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RbmOpenUrlEnum } from './rbm-open-url-enum';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RbmVebViewEnum } from './rbm-veb-view-enum';
 
 export interface MultiChannelAction {
     'type': RbmActionTypeEnum;
@@ -78,6 +84,8 @@ export interface MultiChannelAction {
      * The URL to open in browser.
      */
     'url': string;
+    'application'?: RbmOpenUrlEnum;
+    'webviewViewMode'?: RbmVebViewEnum;
 }
 
 

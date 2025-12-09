@@ -17,6 +17,8 @@ Name | Type | Description | Notes
 **endTime** | **string** | The end time of the event. | [default to undefined]
 **description** | **string** | The description of the event. | [optional] [default to undefined]
 **url** | **string** | The URL to open in browser. | [default to undefined]
+**application** | [**RbmOpenUrlEnum**](RbmOpenUrlEnum.md) |  | [optional] [default to undefined]
+**webviewViewMode** | [**RbmVebViewEnum**](RbmVebViewEnum.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -36,6 +38,8 @@ const instance: MultiChannelAction = {
     endTime,
     description,
     url,
+    application,
+    webviewViewMode,
 };
 ```
 

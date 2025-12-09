@@ -46,7 +46,7 @@ const { status, data } = await apiInstance.createMultiChannelMessage(
 
 ### Authorization
 
-[Basic](../README.md#Basic)
+[Basic](../README.md#Basic), [OAuth2](../README.md#OAuth2)
 
 ### HTTP request headers
 
