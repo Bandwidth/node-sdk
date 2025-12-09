@@ -13,6 +13,8 @@ env:
   BW_ACCOUNT_ID: ${{ secrets.BW_ACCOUNT_ID }}
   BW_USERNAME: ${{ secrets.BW_USERNAME }}
   BW_PASSWORD: ${{ secrets.BW_PASSWORD }}
+  BW_CLIENT_ID: ${{ secrets.BW_CLIENT_ID }}
+  BW_CLIENT_SECRET: ${{ secrets.BW_CLIENT_SECRET }}
   BW_USERNAME_FORBIDDEN: ${{ secrets.BW_USERNAME_FORBIDDEN }}
   BW_PASSWORD_FORBIDDEN: ${{ secrets.BW_PASSWORD_FORBIDDEN }}
   BW_VOICE_APPLICATION_ID: ${{ secrets.BW_VOICE_APPLICATION_ID }}
@@ -32,7 +34,7 @@ jobs:
     strategy:
       matrix:
         os: [windows-2022, windows-2025, ubuntu-22.04, ubuntu-24.04]
-        node-version: [18, 20, 22, 24]
+        node-version: [20, 22, 24]
       fail-fast: false
     steps:
       - name: Checkout

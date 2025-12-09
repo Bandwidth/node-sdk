@@ -28,9 +28,12 @@
     "test-smoke": "jest --coverage --detectOpenHandles --testPathPattern=tests/smoke",
     "test": "jest --coverage --detectOpenHandles"
   },
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "dependencies": {
     "axios": "^1.7.2",
-    "xmlbuilder2": "^3.1.1"
+    "xmlbuilder2": "^4.0.0"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",
@@ -38,7 +41,7 @@
     "jest": "^29.7.0",
     "jest-extended": "^4.0.2",
     "ts-jest": "^29.1.1",
-    "typescript": "^5.0"
+    "typescript": "^5.9.0"
   }{{#npmRepository}},{{/npmRepository}}
 {{#npmRepository}}
   "publishConfig": {
