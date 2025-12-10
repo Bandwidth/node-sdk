@@ -19,6 +19,12 @@ import type { RbmActionBase } from './rbm-action-base';
 // May contain unused imports in some cases
 // @ts-ignore
 import type { RbmActionTypeEnum } from './rbm-action-type-enum';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RbmOpenUrlEnum } from './rbm-open-url-enum';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RbmWebViewEnum } from './rbm-web-view-enum';
 
 /**
  * @type RbmActionOpenUrl
