@@ -55,6 +55,10 @@ export interface TfvStatus {
      * The reason why the Toll-Free Verification is blocked. This attribute will only be defined when the number is blocked.
      */
     'blockedReason'?: string;
+    /**
+     * The token provided by Campaign Verify to validate your political use case. Only required for 527 political organizations. If you are not a 527 political organization, this field should be omitted. If you pass an empty string, it will be passed along and potentially rejected.
+     */
+    'cvToken'?: string | null;
 }
 
 
