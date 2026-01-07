@@ -59,6 +59,7 @@ describe('TollFreeVerificationApi', () => {
             expect(data.submission).toBeObject();
             expect(data.blocked).toBeBoolean();
             expect(data.blockedReason).toBeString();
+            expect(data.cvToken).toBeString();
         });
     });
 
