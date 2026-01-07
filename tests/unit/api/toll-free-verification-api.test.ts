@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { TollFreeVerificationApi } from '../../../api';
 import { Configuration } from '../../../configuration';
-import { CallbackTypeEnum, TfvStatusEnum, WebhookSubscriptionTypeEnum } from '../../../models';
+import { BusinessEntityTypeEnum, BusinessRegistrationTypeEnum, CallbackTypeEnum, TfvStatusEnum, WebhookSubscriptionTypeEnum } from '../../../models';
 
 describe('TollFreeVerificationApi', () => {
     const config = new Configuration({
@@ -56,6 +56,9 @@ describe('TollFreeVerificationApi', () => {
             expect(data.resubmitAllowed).toBeBoolean();
             expect(data.createdDateTime).toBeDateString();
             expect(data.modifiedDateTime).toBeDateString();
+            expect(data.submission).toBeObject();
+            expect(data.blocked).toBeBoolean();
+            expect(data.blockedReason).toBeString();
         });
     });
 
@@ -130,7 +133,16 @@ describe('TollFreeVerificationApi', () => {
                     imageUrls: ['https://example.com']
                 },
                 additionalInformation: 'additionalInformation',
-                isvReseller: 'isvReseller'
+                isvReseller: 'isvReseller',
+                privacyPolicyUrl: 'https://example.com',
+                termsAndConditionsUrl: 'https://example.com',
+                businessDba: 'businessDba',
+                businessRegistrationNumber: 'businessRegistrationNumber',
+                businessRegistrationType: BusinessRegistrationTypeEnum.Ein,
+                businessEntityType: BusinessEntityTypeEnum.NonProfit,
+                helpMessageResponse: 'helpMessageResponse',
+                ageGatedContent: true,
+                cvToken: 'cvToken'
             };
             const { status } = await tfvApi.requestTollFreeVerification(BW_ACCOUNT_ID, verificationRequest);
 
