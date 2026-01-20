@@ -41,6 +41,7 @@ export * from './create-message-request-error';
 export * from './create-multi-channel-message-response';
 export * from './create-sync-lookup-response';
 export * from './create-sync-lookup-response-data';
+export * from './custom-too-many-requests-error';
 export * from './deactivation-event-enum';
 export * from './disconnect-callback';
 export * from './diversion';

@@ -60,6 +60,7 @@ docs/CreateMessageRequestError.md
 docs/CreateMultiChannelMessageResponse.md
 docs/CreateSyncLookupResponse.md
 docs/CreateSyncLookupResponseData.md
+docs/CustomTooManyRequestsError.md
 docs/DeactivationEventEnum.md
 docs/DisconnectCallback.md
 docs/Diversion.md
@@ -247,6 +248,7 @@ models/create-message-request-error.ts
 models/create-multi-channel-message-response.ts
 models/create-sync-lookup-response-data.ts
 models/create-sync-lookup-response.ts
+models/custom-too-many-requests-error.ts
 models/deactivation-event-enum.ts
 models/disconnect-callback.ts
 models/diversion.ts

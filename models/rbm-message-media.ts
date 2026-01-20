@@ -21,7 +21,7 @@ import type { MultiChannelAction } from './multi-channel-action';
 import type { RbmMessageContentFile } from './rbm-message-content-file';
 
 export interface RbmMessageMedia {
-    'media': RbmMessageContentFile;
+    'media': Array<RbmMessageContentFile>;
     /**
      * An array of suggested actions for the recipient.
      */

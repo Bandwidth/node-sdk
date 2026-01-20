@@ -24,6 +24,8 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 // @ts-ignore
 import type { CreateMessageRequestError } from '../models';
 // @ts-ignore
+import type { CustomTooManyRequestsError } from '../models';
+// @ts-ignore
 import type { ListMessageDirectionEnum } from '../models';
 // @ts-ignore
 import type { Message } from '../models';
@@ -93,7 +95,7 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
             };
         },
         /**
-         * Returns a list of messages based on query parameters.
+         * Returns a list of messages based on query parameters.  **Rate Limit:** This endpoint is rate limited to 3500 requests per 5 minutes per Source IP address. Exceeding the limit returns HTTP 429 with a `Retry-After` header. 
          * @summary List Messages
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter.
@@ -293,7 +295,7 @@ export const MessagesApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Returns a list of messages based on query parameters.
+         * Returns a list of messages based on query parameters.  **Rate Limit:** This endpoint is rate limited to 3500 requests per 5 minutes per Source IP address. Exceeding the limit returns HTTP 429 with a `Retry-After` header. 
          * @summary List Messages
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter.
@@ -353,7 +355,7 @@ export const MessagesApiFactory = function (configuration?: Configuration, baseP
             return localVarFp.createMessage(accountId, messageRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Returns a list of messages based on query parameters.
+         * Returns a list of messages based on query parameters.  **Rate Limit:** This endpoint is rate limited to 3500 requests per 5 minutes per Source IP address. Exceeding the limit returns HTTP 429 with a `Retry-After` header. 
          * @summary List Messages
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter.
@@ -409,7 +411,7 @@ export class MessagesApi extends BaseAPI {
     }
 
     /**
-     * Returns a list of messages based on query parameters.
+     * Returns a list of messages based on query parameters.  **Rate Limit:** This endpoint is rate limited to 3500 requests per 5 minutes per Source IP address. Exceeding the limit returns HTTP 429 with a `Retry-After` header. 
      * @summary List Messages
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter.
