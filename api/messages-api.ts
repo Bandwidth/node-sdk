@@ -24,8 +24,6 @@ import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError
 // @ts-ignore
 import type { CreateMessageRequestError } from '../models';
 // @ts-ignore
-import type { CustomTooManyRequestsError } from '../models';
-// @ts-ignore
 import type { ListMessageDirectionEnum } from '../models';
 // @ts-ignore
 import type { Message } from '../models';
