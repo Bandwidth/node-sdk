@@ -1,12 +1,13 @@
 {
   "name": "{{npmName}}",
-  "version": "{{npmVersion}}",
+  "version": "1.0.0",
   "description": "OpenAPI client for {{npmName}}",
   "author": "OpenAPI-Generator Contributors",
   "repository": {
     "type": "git",
-    "url": "git+https://{{gitHost}}/{{gitUserId}}/{{gitRepoId}}.git"
+    "url": "https://{{gitHost}}/{{gitUserId}}/{{gitRepoId}}"
   },
+  "homepage": "https://github.com/bandwidth/node-numbers",
   "keywords": [
     "axios",
     "typescript",
@@ -14,7 +15,7 @@
     "openapi-generator",
     "{{npmName}}"
   ],
-  "license": "Unlicense",
+  "license": "MIT",
   "main": "./dist/index.js",
   "typings": "./dist/index.d.ts",
 {{#supportsES6}}
@@ -42,10 +43,8 @@
     "jest-extended": "^4.0.2",
     "ts-jest": "^29.1.1",
     "typescript": "^5.9.0"
-  }{{#npmRepository}},{{/npmRepository}}
-{{#npmRepository}}
+  },
   "publishConfig": {
-    "registry": "{{npmRepository}}"
+    "access": "public"
   }
-{{/npmRepository}}
 }
