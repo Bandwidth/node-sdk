@@ -6771,19 +6771,12 @@ components:
       content:
         application/json:
           schema:
-<<<<<<< SWI-9488
             $ref: '#/components/schemas/messagingRequestError'
           example:
             type: rate_limit_exceeded
             description: >-
               Rate limit exceeded. Wait for Retry-After time before sending
               another request.
-=======
-            $ref: "#/components/schemas/messagingRequestError"
-          example:
-            type: rate_limit_exceeded
-            description: Rate limit exceeded. Wait for Retry-After time before sending another request.
->>>>>>> main
     createCallResponse:
       description: Created
       headers:
