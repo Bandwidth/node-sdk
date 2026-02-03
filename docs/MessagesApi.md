@@ -74,7 +74,7 @@ const { status, data } = await apiInstance.createMessage(
 # **listMessages**
 > MessagesList listMessages()
 
-Returns a list of messages based on query parameters.
+Returns a list of messages based on query parameters.  **Rate Limit:** This endpoint is rate limited to 3500 requests per 5 minutes per Source IP address. Exceeding the limit returns HTTP 429 with a `Retry-After` header. 
 
 ### Example
 
@@ -204,8 +204,9 @@ const { status, data } = await apiInstance.listMessages(
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
 |**404** | Not Found |  -  |
+|**405** | Method Not Allowed |  -  |
 |**415** | Unsupported Media Type |  -  |
-|**429** | Too Many Requests |  -  |
+|**429** | Too Many Requests |  * Retry-After - The number of seconds to wait before retrying the request. <br>  |
 |**500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
