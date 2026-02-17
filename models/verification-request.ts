@@ -85,7 +85,7 @@ export interface VerificationRequest {
      */
     'ageGatedContent'?: boolean;
     /**
-     * The token provided by Campaign Verify to validate your political use case. Only required for 527 political organizations. If you are not a 527 political organization, this field should be omitted. If you pass an empty string, it will be passed along and potentially rejected.
+     * The token provided by Campaign Verify to validate your political use case. Only required for 527 political organizations. If you are not a 527 political organization, this field should be omitted. Supplying an empty string will likely result in rejection.
      */
     'cvToken'?: string | null;
 }
