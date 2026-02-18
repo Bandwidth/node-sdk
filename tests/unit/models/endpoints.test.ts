@@ -15,8 +15,8 @@ describe('Endpoints', () => {
         expect(endpoint.endpointId).toBe('ep-123456');
         expect(endpoint.type).toBe('WEBRTC');
         expect(endpoint.status).toBe('CONNECTED');
-        expect(endpoint.creationTimestamp).toBeString();
-        expect(endpoint.expirationTimestamp).toBeString();
+        expect(typeof endpoint.creationTimestamp).toBe('string');
+        expect(typeof endpoint.expirationTimestamp).toBe('string');
     });
 
     test('should create an endpoints object with optional tag property', () => {

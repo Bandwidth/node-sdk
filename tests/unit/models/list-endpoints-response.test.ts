@@ -14,8 +14,8 @@ describe('ListEndpointsResponse', () => {
         };
 
         const page: Page = {
-            size: 10,
-            number: 1,
+            pageSize: 10,
+            pageNumber: 1,
             totalPages: 5,
             totalElements: 47
         };
@@ -46,7 +46,7 @@ describe('ListEndpointsResponse', () => {
 
         expect(response.links).toHaveLength(1);
         expect(response.page).toBeDefined();
-        expect(response.page?.size).toBe(10);
+        expect(response.page?.pageSize).toBe(10);
         expect(response.data).toHaveLength(2);
         expect(response.data[0].endpointId).toBe('ep-001');
         expect(response.data[1].endpointId).toBe('ep-002');
