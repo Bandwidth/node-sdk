@@ -55,11 +55,11 @@ export interface LookupResult {
     'deactivationEvent'?: DeactivationEventEnum;
     'latestMessageDeliveryStatus'?: LatestMessageDeliveryStatusEnum;
     /**
-     * [DNI-Only](#section/DNI-Only). The date the phone number entered the status described in `latestMessageDeliveryStatus`.  Think of this as the \"start time\" for that status. Value resets every time the `latestMessageDeliveryStatus` changes.
+     * [DNI-Only](#section/DNI-Only). The date the phone number entered the status described in `latestMessageDeliveryStatus`. Think of this as the \"start time\" for that status. Value resets every time the `latestMessageDeliveryStatus` changes.
      */
     'initialMessageDeliveryStatusDate'?: string;
     /**
-     * [DNI-Only](#section/DNI-Only). The date bandwidth last received delivery status information for this phone number.  Use this field to understand how up-to-date the `latestMessageDeliveryStatus` is. Value resets every time the `latestMessageDeliveryStatus` changes.
+     * [DNI-Only](#section/DNI-Only). The date bandwidth last received delivery status information for this phone number. Use this field to understand how up-to-date the `latestMessageDeliveryStatus` is. Value resets every time the `latestMessageDeliveryStatus` changes.
      */
     'latestMessageDeliveryStatusDate'?: string;
 }
