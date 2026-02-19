@@ -133,23 +133,24 @@ describe('EndpointsApi', () => {
         });
     });
 
-    describe('updateEndpointBxml', () => {
-        test('should update endpoint BXML', async () => {
-            const bxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><SpeakSentence>Test endpoint BXML</SpeakSentence></Bxml>';
+    // TODO: Re-enable once we implement the updateEndpointBxml endpoint in the endpoint service
+    // describe('updateEndpointBxml', () => {
+    //     test('should update endpoint BXML', async () => {
+    //         const bxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><SpeakSentence>Test endpoint BXML</SpeakSentence></Bxml>';
 
-            const { status } = await endpointsApi.updateEndpointBxml(BW_ACCOUNT_ID, endpointId, bxml);
+    //         const { status } = await endpointsApi.updateEndpointBxml(BW_ACCOUNT_ID, endpointId, bxml);
 
-            expect(status).toEqual(204);
-        });
+    //         expect(status).toEqual(204);
+    //     });
 
-        test('should update endpoint BXML with different content', async () => {
-            const bxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><Pause duration="2"/></Bxml>';
+    //     test('should update endpoint BXML with different content', async () => {
+    //         const bxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><Pause duration="2"/></Bxml>';
 
-            const { status } = await endpointsApi.updateEndpointBxml(BW_ACCOUNT_ID, endpointId, bxml);
+    //         const { status } = await endpointsApi.updateEndpointBxml(BW_ACCOUNT_ID, endpointId, bxml);
 
-            expect(status).toEqual(204);
-        });
-    });
+    //         expect(status).toEqual(204);
+    //     });
+    // });
 
     describe('deleteEndpoint', () => {
         test('should delete an endpoint', async () => {
