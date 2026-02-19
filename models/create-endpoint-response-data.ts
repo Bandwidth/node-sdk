@@ -29,6 +29,9 @@ import type { EndpointTypeEnum } from './endpoint-type-enum';
 /**
  * @type CreateEndpointResponseData
  */
-export type CreateEndpointResponseData = Endpoint;
-
-
+export interface CreateEndpointResponseData extends Endpoint {
+    /**
+     * The json web token specific to the endpoint. Used to authenticate the client with the media gateway.
+     */
+    'token': string;
+}

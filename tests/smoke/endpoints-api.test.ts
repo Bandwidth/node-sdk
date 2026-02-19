@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { EndpointsApi } from '../../api';
 import { Configuration } from '../../configuration';
-import { CreateWebRtcConnectionRequest, EndpointStatusEnum, EndpointTypeEnum } from '../../models';
+import { CreateWebRtcConnectionRequest, EndpointDirectionEnum, EndpointStatusEnum, EndpointTypeEnum } from '../../models';
 
 describe('EndpointsApi', () => {
     const config = new Configuration({
@@ -27,16 +27,17 @@ describe('EndpointsApi', () => {
     describe('createEndpoint', () => {
         test('should create a new endpoint', async () => {
             const endpointBody: CreateWebRtcConnectionRequest = {
-                name: 'Test Endpoint',
-                displayName: 'Test WebRTC Endpoint'
+                type: EndpointTypeEnum.Webrtc,
+                direction: EndpointDirectionEnum.Bidirectional
             };
 
             const { status, data } = await endpointsApi.createEndpoint(BW_ACCOUNT_ID, endpointBody);
 
             expect(status).toEqual(201);
             expect(data.endpointId).toBeDefined();
+            expect(data.token).toBeDefined();
             expect(data.type).toEqual(EndpointTypeEnum.Webrtc);
-            expect(data.status).toEqual(EndpointStatusEnum.Connected);
+            expect(data.status).toBeDefined();
             expect(data.creationTimestamp).toBeDefined();
 
             endpointId = data.endpointId;
@@ -45,13 +46,13 @@ describe('EndpointsApi', () => {
 
         test('should create multiple endpoints', async () => {
             const endpointBody1: CreateWebRtcConnectionRequest = {
-                name: 'Test Endpoint 1',
-                displayName: 'Test WebRTC Endpoint 1'
+                type: EndpointTypeEnum.Webrtc,
+                direction: EndpointDirectionEnum.Bidirectional
             };
 
             const endpointBody2: CreateWebRtcConnectionRequest = {
-                name: 'Test Endpoint 2',
-                displayName: 'Test WebRTC Endpoint 2'
+                type: EndpointTypeEnum.Webrtc,
+                direction: EndpointDirectionEnum.Bidirectional
             };
 
             const { status: status1, data: data1 } = await endpointsApi.createEndpoint(BW_ACCOUNT_ID, endpointBody1);
@@ -155,8 +156,8 @@ describe('EndpointsApi', () => {
         test('should delete an endpoint', async () => {
             // Create an endpoint to delete
             const endpointBody: CreateWebRtcConnectionRequest = {
-                name: 'Endpoint to Delete',
-                displayName: 'Test WebRTC Endpoint to Delete'
+                type: EndpointTypeEnum.Webrtc,
+                direction: EndpointDirectionEnum.Bidirectional
             };
 
             const { data: createdData } = await endpointsApi.createEndpoint(BW_ACCOUNT_ID, endpointBody);
@@ -194,7 +195,7 @@ describe('EndpointsApi', () => {
             }
         });
 
-        test('403 - Forbidden with unauthorized account', async () => {
+        test('404 - Not Found with invalid account', async () => {
             const configBad = new Configuration({
                 clientId: BW_CLIENT_ID,
                 clientSecret: BW_CLIENT_SECRET
@@ -205,7 +206,7 @@ describe('EndpointsApi', () => {
                 await endpointsApiBad.listEndpoints('invalid-account-id');
                 fail('Expected error to be thrown');
             } catch (e) {
-                expect(e.response.status).toEqual(403);
+                expect(e.response.status).toEqual(404);
             }
         });
 

@@ -18,6 +18,7 @@ describe('CreateEndpointResponse', () => {
             status: EndpointStatusEnum.Connected,
             creationTimestamp: '2024-02-18T10:30:00Z',
             expirationTimestamp: '2024-02-19T10:30:00Z',
+            token: 'xxxxx.yyyyy.zzzzz',
             tag: 'webrtc-endpoint'
         };
 
@@ -31,6 +32,7 @@ describe('CreateEndpointResponse', () => {
         expect(response.data.endpointId).toBe('ep-123456');
         expect(response.data.type).toBe('WEBRTC');
         expect(response.data.status).toBe('CONNECTED');
+        expect(response.data.token).toBe('xxxxx.yyyyy.zzzzz');
         expect(response.errors).toHaveLength(0);
     });
 
@@ -45,7 +47,8 @@ describe('CreateEndpointResponse', () => {
             type: EndpointTypeEnum.Webrtc,
             status: EndpointStatusEnum.Disconnected,
             creationTimestamp: '2024-02-18T10:30:00Z',
-            expirationTimestamp: '2024-02-19T10:30:00Z'
+            expirationTimestamp: '2024-02-19T10:30:00Z',
+            token: 'invalid.token.value'
         };
 
         const error: ModelError = {
