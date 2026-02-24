@@ -18,9 +18,10 @@ Name | Type | Description | Notes
 **privacyPolicyUrl** | **string** | The Toll-Free Verification request privacy policy URL. | [optional] [default to undefined]
 **termsAndConditionsUrl** | **string** | The Toll-Free Verification request terms and conditions policy URL. | [optional] [default to undefined]
 **businessDba** | **string** | The company \&#39;Doing Business As\&#39;. | [optional] [default to undefined]
-**businessRegistrationNumber** | **string** | US Federal Tax ID Number (EIN) or Canada Business Number (CBN). Optional until early 2026. If a value is provided for this field, a value must be provided for &#x60;businessRegistrationType&#x60; and &#x60;businessEntityType&#x60;. Available starting October 1st, 2025. | [optional] [default to undefined]
+**businessRegistrationNumber** | **string** | Government-issued business identifying number. | [optional] [default to undefined]
 **businessRegistrationType** | [**BusinessRegistrationTypeEnum**](BusinessRegistrationTypeEnum.md) |  | [optional] [default to undefined]
-**businessEntityType** | [**BusinessEntityTypeEnum**](BusinessEntityTypeEnum.md) |  | [optional] [default to undefined]
+**businessRegistrationIssuingCountry** | [**BusinessRegistrationIssuingCountryEnum**](BusinessRegistrationIssuingCountryEnum.md) |  | [optional] [default to undefined]
+**businessEntityType** | [**BusinessEntityTypeEnum**](BusinessEntityTypeEnum.md) |  | [default to undefined]
 **helpMessageResponse** | **string** | A message that gets sent to users requesting help. | [optional] [default to undefined]
 **ageGatedContent** | **boolean** | Indicates whether the content is age-gated. | [optional] [default to undefined]
 **cvToken** | **string** | The token provided by Campaign Verify to validate your political use case. Only required for 527 political organizations. If you are not a 527 political organization, this field should be omitted. Supplying an empty string will likely result in rejection. | [optional] [default to undefined]
@@ -46,6 +47,7 @@ const instance: VerificationRequest = {
     businessDba,
     businessRegistrationNumber,
     businessRegistrationType,
+    businessRegistrationIssuingCountry,
     businessEntityType,
     helpMessageResponse,
     ageGatedContent,

@@ -24,6 +24,7 @@ docs/BlockedWebhook.md
 docs/BridgeCompleteCallback.md
 docs/BridgeTargetCompleteCallback.md
 docs/BusinessEntityTypeEnum.md
+docs/BusinessRegistrationIssuingCountryEnum.md
 docs/BusinessRegistrationTypeEnum.md
 docs/CallDirectionEnum.md
 docs/CallRecordingMetadata.md
@@ -213,6 +214,7 @@ models/blocked-webhook.ts
 models/bridge-complete-callback.ts
 models/bridge-target-complete-callback.ts
 models/business-entity-type-enum.ts
+models/business-registration-issuing-country-enum.ts
 models/business-registration-type-enum.ts
 models/call-direction-enum.ts
 models/call-recording-metadata.ts
