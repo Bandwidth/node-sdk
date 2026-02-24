@@ -21,6 +21,9 @@ import type { Address } from './address';
 import type { BusinessEntityTypeEnum } from './business-entity-type-enum';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { BusinessRegistrationIssuingCountryEnum } from './business-registration-issuing-country-enum';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { BusinessRegistrationTypeEnum } from './business-registration-type-enum';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -71,11 +74,12 @@ export interface VerificationRequest {
      */
     'businessDba'?: string;
     /**
-     * US Federal Tax ID Number (EIN) or Canada Business Number (CBN). Optional until early 2026. If a value is provided for this field, a value must be provided for `businessRegistrationType` and `businessEntityType`. Available starting October 1st, 2025.
+     * Government-issued business identifying number.
      */
     'businessRegistrationNumber'?: string | null;
     'businessRegistrationType'?: BusinessRegistrationTypeEnum | null;
-    'businessEntityType'?: BusinessEntityTypeEnum | null;
+    'businessRegistrationIssuingCountry'?: BusinessRegistrationIssuingCountryEnum;
+    'businessEntityType': BusinessEntityTypeEnum;
     /**
      * A message that gets sent to users requesting help.
      */
