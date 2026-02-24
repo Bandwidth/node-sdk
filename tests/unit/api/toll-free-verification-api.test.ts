@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { TollFreeVerificationApi } from '../../../api';
 import { Configuration } from '../../../configuration';
-import { BusinessEntityTypeEnum, BusinessRegistrationTypeEnum, CallbackTypeEnum, TfvStatusEnum, WebhookSubscriptionTypeEnum } from '../../../models';
+import { BusinessEntityTypeEnum, BusinessRegistrationIssuingCountryEnum, BusinessRegistrationTypeEnum, CallbackTypeEnum, TfvStatusEnum, WebhookSubscriptionTypeEnum } from '../../../models';
 
 describe('TollFreeVerificationApi', () => {
     const config = new Configuration({
@@ -140,6 +140,7 @@ describe('TollFreeVerificationApi', () => {
                 businessDba: 'businessDba',
                 businessRegistrationNumber: 'businessRegistrationNumber',
                 businessRegistrationType: BusinessRegistrationTypeEnum.Ein,
+                businessRegistrationIssuingCountry: BusinessRegistrationIssuingCountryEnum.Us,
                 businessEntityType: BusinessEntityTypeEnum.NonProfit,
                 helpMessageResponse: 'helpMessageResponse',
                 ageGatedContent: true,
