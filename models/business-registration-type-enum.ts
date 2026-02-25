@@ -15,12 +15,28 @@
 
 
 /**
- * The type of business registration number. Optional until early 2026; required if `businessRegistrationNumber` is provided. Available starting October 1st, 2025.
+ * The type of business registration number.
  */
 
 export const BusinessRegistrationTypeEnum = {
     Ein: 'EIN',
-    Cbn: 'CBN'
+    Cbn: 'CBN',
+    Neq: 'NEQ',
+    ProvincialNumber: 'PROVINCIAL_NUMBER',
+    Crn: 'CRN',
+    Vat: 'VAT',
+    Acn: 'ACN',
+    Abn: 'ABN',
+    Brn: 'BRN',
+    Siren: 'SIREN',
+    Siret: 'SIRET',
+    Nzbn: 'NZBN',
+    UstIdnr: 'UST_IDNR',
+    Cif: 'CIF',
+    Nif: 'NIF',
+    Cnpj: 'CNPJ',
+    Uid: 'UID',
+    Other: 'OTHER'
 } as const;
 
 export type BusinessRegistrationTypeEnum = typeof BusinessRegistrationTypeEnum[keyof typeof BusinessRegistrationTypeEnum];

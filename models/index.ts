@@ -7,6 +7,7 @@ export * from './blocked-webhook';
 export * from './bridge-complete-callback';
 export * from './bridge-target-complete-callback';
 export * from './business-entity-type-enum';
+export * from './business-registration-issuing-country-enum';
 export * from './business-registration-type-enum';
 export * from './call-direction-enum';
 export * from './call-recording-metadata';
