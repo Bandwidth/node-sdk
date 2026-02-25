@@ -42,7 +42,7 @@ export interface MachineDetectionConfiguration {
      */
     'speechEndThreshold'?: number | null;
     /**
-     * When an answering machine is detected, the amount of silence (in seconds) before assuming the message has finished playing.  If not provided it will default to the speechEndThreshold value.
+     * When an answering machine is detected, the amount of silence (in seconds) before assuming the message has finished playing. If not provided it will default to the speechEndThreshold value.
      */
     'machineSpeechEndThreshold'?: number | null;
     /**

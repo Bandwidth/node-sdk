@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **description** | **string** | A detailed description of the event described by the callback. | [default to undefined]
 **message** | [**StatusCallbackMessage**](StatusCallbackMessage.md) |  | [default to undefined]
 **errorCode** | **number** | Optional error code, applicable only when type is &#x60;message-failed&#x60;. | [optional] [default to undefined]
-**carrierName** | **string** | The name of the Authorized Message Provider (AMP) that handled this message.  In the US, this is the carrier that the message was sent to. This field is present only when this account feature has been enabled. | [optional] [default to undefined]
+**carrierName** | **string** | The name of the Authorized Message Provider (AMP) that handled this message. In the US, this is the carrier that the message was sent to. This field is present only when this account feature has been enabled. | [optional] [default to undefined]
 
 ## Example
 

@@ -16,6 +16,7 @@
 
 export * from './api/calls-api';
 export * from './api/conferences-api';
+export * from './api/endpoints-api';
 export * from './api/mfaapi';
 export * from './api/media-api';
 export * from './api/messages-api';
