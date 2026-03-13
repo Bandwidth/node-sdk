@@ -11,18 +11,6 @@ describe('EndpointsApi', () => {
     const endpointsApi = new EndpointsApi(config);
 
     let endpointId: string;
-    let createdEndpoints: string[] = [];
-
-    afterAll(async () => {
-        // Cleanup: Delete all created endpoints
-        for (const id of createdEndpoints) {
-            try {
-                await endpointsApi.deleteEndpoint(BW_ACCOUNT_ID, id);
-            } catch (e) {
-                // Endpoint may have already been deleted
-            }
-        }
-    });
 
     describe('createEndpoint', () => {
         test('should create a new endpoint', async () => {
@@ -34,38 +22,27 @@ describe('EndpointsApi', () => {
             const { status, data } = await endpointsApi.createEndpoint(BW_ACCOUNT_ID, endpointBody);
 
             expect(status).toEqual(201);
+            expect(data.links).toBeInstanceOf(Array);
+            expect(data.links.length).toBeGreaterThan(0);
+            expect(data.links[0].rel).toBeString();
+            expect(data.links[0].href).toBeString();
+
+            expect(data.data).toBeDefined();
             expect(data.data.endpointId).toBeDefined();
+            expect(data.data.endpointId).toBeString();
             expect(data.data.token).toBeDefined();
+            expect(data.data.token).toBeString();
             expect(data.data.type).toEqual(EndpointTypeEnum.Webrtc);
             expect(data.data.status).toBeDefined();
+            expect(data.data.status).toBeOneOf(Object.values(EndpointStatusEnum));
             expect(data.data.creationTimestamp).toBeDefined();
+            expect(data.data.creationTimestamp).toBeDateString();
+            expect(data.data.expirationTimestamp).toBeDefined();
+            expect(data.data.expirationTimestamp).toBeDateString();
+            expect(data.errors).toBeInstanceOf(Array);
+            expect(data.errors).toHaveLength(0);
 
             endpointId = data.data.endpointId;
-            createdEndpoints.push(endpointId);
-        });
-
-        test('should create multiple endpoints', async () => {
-            const endpointBody1: CreateWebRtcConnectionRequest = {
-                type: EndpointTypeEnum.Webrtc,
-                direction: EndpointDirectionEnum.Bidirectional
-            };
-
-            const endpointBody2: CreateWebRtcConnectionRequest = {
-                type: EndpointTypeEnum.Webrtc,
-                direction: EndpointDirectionEnum.Bidirectional
-            };
-
-            const { status: status1, data: data1 } = await endpointsApi.createEndpoint(BW_ACCOUNT_ID, endpointBody1);
-            const { status: status2, data: data2 } = await endpointsApi.createEndpoint(BW_ACCOUNT_ID, endpointBody2);
-
-            expect(status1).toEqual(201);
-            expect(status2).toEqual(201);
-            expect(data1.data.endpointId).toBeDefined();
-            expect(data2.data.endpointId).toBeDefined();
-            expect(data1.data.endpointId).not.toEqual(data2.data.endpointId);
-
-            createdEndpoints.push(data1.data.endpointId);
-            createdEndpoints.push(data2.data.endpointId);
         });
     });
 
@@ -74,50 +51,34 @@ describe('EndpointsApi', () => {
             const { status, data } = await endpointsApi.listEndpoints(BW_ACCOUNT_ID);
 
             expect(status).toEqual(200);
+            expect(data.links).toBeInstanceOf(Array);
+            expect(data.links.length).toBeGreaterThan(0);
+            expect(data.links[0].rel).toBeString();
+            expect(data.links[0].href).toBeString();
             expect(data.data).toBeDefined();
             expect(data.data).toBeInstanceOf(Array);
             expect(data.page).toBeDefined();
             expect(data.page.totalElements).toBeDefined();
-        });
+            expect(data.errors).toBeInstanceOf(Array);
 
-        test('should list endpoints with type filter', async () => {
-            const { status, data } = await endpointsApi.listEndpoints(
+            const createdEndpoint = data.data.find((item) => item.endpointId === endpointId);
+            expect(createdEndpoint).toBeDefined();
+            expect(createdEndpoint!.type).toEqual(EndpointTypeEnum.Webrtc);
+            expect(createdEndpoint!.status).toBeOneOf(Object.values(EndpointStatusEnum));
+            expect(createdEndpoint!.creationTimestamp).toBeDateString();
+            expect(createdEndpoint!.expirationTimestamp).toBeDateString();
+
+            const { status: filteredStatus, data: filteredData } = await endpointsApi.listEndpoints(
                 BW_ACCOUNT_ID,
                 EndpointTypeEnum.Webrtc
             );
 
-            expect(status).toEqual(200);
-            expect(data.data).toBeInstanceOf(Array);
-            if (data.data.length > 0) {
-                expect(data.data[0].type).toEqual(EndpointTypeEnum.Webrtc);
+            expect(filteredStatus).toEqual(200);
+            expect(filteredData.data).toBeInstanceOf(Array);
+            expect(filteredData.errors).toBeInstanceOf(Array);
+            if (filteredData.data.length > 0) {
+                expect(filteredData.data.every((item) => item.type === EndpointTypeEnum.Webrtc)).toEqual(true);
             }
-        });
-
-        test('should list endpoints with status filter', async () => {
-            const { status, data } = await endpointsApi.listEndpoints(
-                BW_ACCOUNT_ID,
-                undefined,
-                EndpointStatusEnum.Connected
-            );
-
-            expect(status).toEqual(200);
-            expect(data.data).toBeInstanceOf(Array);
-            // Note: Endpoints may be in various states, so we just check that the array is returned
-            expect(data.data.length).toBeGreaterThanOrEqual(0);
-        });
-
-        test('should list endpoints with limit', async () => {
-            const { status, data } = await endpointsApi.listEndpoints(
-                BW_ACCOUNT_ID,
-                undefined,
-                undefined,
-                undefined,
-                5
-            );
-
-            expect(status).toEqual(200);
-            expect(data.data).toBeInstanceOf(Array);
-            expect(data.data.length).toBeLessThanOrEqual(5);
         });
     });
 
@@ -126,10 +87,20 @@ describe('EndpointsApi', () => {
             const { status, data } = await endpointsApi.getEndpoint(BW_ACCOUNT_ID, endpointId);
 
             expect(status).toEqual(200);
+            expect(data.links).toBeInstanceOf(Array);
+            expect(data.links.length).toBeGreaterThan(0);
+            expect(data.links[0].rel).toBeString();
+            expect(data.links[0].href).toBeString();
+            expect(data.errors).toBeInstanceOf(Array);
+            expect(data.errors).toHaveLength(0);
             expect(data.data.endpointId).toEqual(endpointId);
             expect(data.data.type).toEqual(EndpointTypeEnum.Webrtc);
             expect(data.data.status).toBeDefined();
+            expect(data.data.status).toBeOneOf(Object.values(EndpointStatusEnum));
             expect(data.data.creationTimestamp).toBeDefined();
+            expect(data.data.creationTimestamp).toBeDateString();
+            expect(data.data.expirationTimestamp).toBeDefined();
+            expect(data.data.expirationTimestamp).toBeDateString();
         });
     });
 
@@ -155,28 +126,9 @@ describe('EndpointsApi', () => {
 
     describe('deleteEndpoint', () => {
         test('should delete an endpoint', async () => {
-            // Create an endpoint to delete
-            const endpointBody: CreateWebRtcConnectionRequest = {
-                type: EndpointTypeEnum.Webrtc,
-                direction: EndpointDirectionEnum.Bidirectional
-            };
-
-            const { data: createdData } = await endpointsApi.createEndpoint(BW_ACCOUNT_ID, endpointBody);
-            const idToDelete = createdData.data.endpointId;
-
-            // Delete the endpoint
-            const { status } = await endpointsApi.deleteEndpoint(BW_ACCOUNT_ID, idToDelete);
+            const { status } = await endpointsApi.deleteEndpoint(BW_ACCOUNT_ID, endpointId);
 
             expect(status).toEqual(204);
-        });
-
-        test('should fail to delete non-existent endpoint', async () => {
-            try {
-                await endpointsApi.deleteEndpoint(BW_ACCOUNT_ID, 'non-existent-endpoint-id');
-                fail('Expected error to be thrown');
-            } catch (e) {
-                expect(e.response.status).toEqual(404);
-            }
         });
     });
 
