@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** | The id of the message. | [optional] [default to undefined]
 **owner** | **string** | The Bandwidth phone number associated with the message. | [optional] [default to undefined]
-**applicationId** | **string** | The ID of the Application your from number or senderId is associated with in the Bandwidth Phone Number Dashboard. | [optional] [default to undefined]
+**applicationId** | **string** | The ID of the Application your from number or senderId is associated with in the Bandwidth App. | [optional] [default to undefined]
 **time** | **string** | The datetime stamp of the message in ISO 8601 | [optional] [default to undefined]
 **segmentCount** | **number** | The number of segments the user\&#39;s message is broken into before sending over carrier networks. | [optional] [default to undefined]
 **direction** | [**MessageDirectionEnum**](MessageDirectionEnum.md) |  | [optional] [default to undefined]
