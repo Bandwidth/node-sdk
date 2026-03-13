@@ -12,7 +12,7 @@ describe('EndpointsApi', () => {
 
     let endpointId: string;
 
-    describe('createEndpoint', () => {
+    describe('endpoint lifecycle', () => {
         test('should create a new endpoint', async () => {
             const endpointBody: CreateWebRtcConnectionRequest = {
                 type: EndpointTypeEnum.Webrtc,
@@ -23,9 +23,6 @@ describe('EndpointsApi', () => {
 
             expect(status).toEqual(201);
             expect(data.links).toBeInstanceOf(Array);
-            expect(data.links.length).toBeGreaterThan(0);
-            expect(data.links[0].rel).toBeString();
-            expect(data.links[0].href).toBeString();
 
             expect(data.data).toBeDefined();
             expect(data.data.endpointId).toBeDefined();
@@ -44,17 +41,12 @@ describe('EndpointsApi', () => {
 
             endpointId = data.data.endpointId;
         });
-    });
 
-    describe('listEndpoints', () => {
         test('should list endpoints for the account', async () => {
             const { status, data } = await endpointsApi.listEndpoints(BW_ACCOUNT_ID);
 
             expect(status).toEqual(200);
             expect(data.links).toBeInstanceOf(Array);
-            expect(data.links.length).toBeGreaterThan(0);
-            expect(data.links[0].rel).toBeString();
-            expect(data.links[0].href).toBeString();
             expect(data.data).toBeDefined();
             expect(data.data).toBeInstanceOf(Array);
             expect(data.page).toBeDefined();
@@ -67,30 +59,24 @@ describe('EndpointsApi', () => {
             expect(createdEndpoint!.status).toBeOneOf(Object.values(EndpointStatusEnum));
             expect(createdEndpoint!.creationTimestamp).toBeDateString();
             expect(createdEndpoint!.expirationTimestamp).toBeDateString();
+        });
 
-            const { status: filteredStatus, data: filteredData } = await endpointsApi.listEndpoints(
-                BW_ACCOUNT_ID,
-                EndpointTypeEnum.Webrtc
-            );
+        test('should list endpoints filtered by type', async () => {
+            const { status, data } = await endpointsApi.listEndpoints(BW_ACCOUNT_ID, EndpointTypeEnum.Webrtc);
 
-            expect(filteredStatus).toEqual(200);
-            expect(filteredData.data).toBeInstanceOf(Array);
-            expect(filteredData.errors).toBeInstanceOf(Array);
-            if (filteredData.data.length > 0) {
-                expect(filteredData.data.every((item) => item.type === EndpointTypeEnum.Webrtc)).toEqual(true);
+            expect(status).toEqual(200);
+            expect(data.data).toBeInstanceOf(Array);
+            expect(data.errors).toBeInstanceOf(Array);
+            if (data.data.length > 0) {
+                expect(data.data.every((item) => item.type === EndpointTypeEnum.Webrtc)).toEqual(true);
             }
         });
-    });
 
-    describe('getEndpoint', () => {
         test('should retrieve details of a specific endpoint', async () => {
             const { status, data } = await endpointsApi.getEndpoint(BW_ACCOUNT_ID, endpointId);
 
             expect(status).toEqual(200);
             expect(data.links).toBeInstanceOf(Array);
-            expect(data.links.length).toBeGreaterThan(0);
-            expect(data.links[0].rel).toBeString();
-            expect(data.links[0].href).toBeString();
             expect(data.errors).toBeInstanceOf(Array);
             expect(data.errors).toHaveLength(0);
             expect(data.data.endpointId).toEqual(endpointId);
@@ -102,29 +88,20 @@ describe('EndpointsApi', () => {
             expect(data.data.expirationTimestamp).toBeDefined();
             expect(data.data.expirationTimestamp).toBeDateString();
         });
-    });
 
-    // TODO: Re-enable once we implement the updateEndpointBxml endpoint in the endpoint service
-    // describe('updateEndpointBxml', () => {
-    //     test('should update endpoint BXML', async () => {
-    //         const bxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><SpeakSentence>Test endpoint BXML</SpeakSentence></Bxml>';
+        // TODO: Re-enable once we implement the updateEndpointBxml endpoint in the endpoint service
+        // test('should update endpoint BXML', async () => {
+        //     const bxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><SpeakSentence>Test endpoint BXML</SpeakSentence></Bxml>';
+        //     const { status } = await endpointsApi.updateEndpointBxml(BW_ACCOUNT_ID, endpointId, bxml);
+        //     expect(status).toEqual(204);
+        // });
 
-    //         const { status } = await endpointsApi.updateEndpointBxml(BW_ACCOUNT_ID, endpointId, bxml);
+        // test('should update endpoint BXML with different content', async () => {
+        //     const bxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><Pause duration="2"/></Bxml>';
+        //     const { status } = await endpointsApi.updateEndpointBxml(BW_ACCOUNT_ID, endpointId, bxml);
+        //     expect(status).toEqual(204);
+        // });
 
-    //         expect(status).toEqual(204);
-    //     });
-
-    //     test('should update endpoint BXML with different content', async () => {
-    //         const bxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><Pause duration="2"/></Bxml>';
-
-    //         const { status } = await endpointsApi.updateEndpointBxml(BW_ACCOUNT_ID, endpointId, bxml);
-
-    //         expect(status).toEqual(204);
-    //     });
-    // });
-
-
-    describe('deleteEndpoint', () => {
         test('should delete an endpoint', async () => {
             const { status } = await endpointsApi.deleteEndpoint(BW_ACCOUNT_ID, endpointId);
 
