@@ -24,7 +24,7 @@ describe('EndpointsApi', () => {
             expect(status).toEqual(201);
             expect(data.links).toBeInstanceOf(Array);
             expect(data.links.length).toBeGreaterThan(0);
-            expect(data.links[0]).toContainAllKeys(['rel', 'href']);
+            expect(data.links[0]).toContainKeys(['rel', 'href']);
             expect(data.links[0].rel).toBeString();
             expect(data.links[0].href).toBeString();
 
@@ -55,7 +55,7 @@ describe('EndpointsApi', () => {
             expect(status).toEqual(200);
             expect(data.links).toBeInstanceOf(Array);
             expect(data.links.length).toBeGreaterThan(0);
-            expect(data.links[0]).toContainAllKeys(['rel', 'href']);
+            expect(data.links[0]).toContainKeys(['rel', 'href']);
             expect(data.data).toBeInstanceOf(Array);
             expect(data.page).toBeDefined();
             expect(data.page).toContainAllKeys(['pageSize', 'pageNumber', 'totalPages', 'totalElements']);
@@ -89,7 +89,7 @@ describe('EndpointsApi', () => {
             expect(status).toEqual(200);
             expect(data.links).toBeInstanceOf(Array);
             expect(data.links.length).toBeGreaterThan(0);
-            expect(data.links[0]).toContainAllKeys(['rel', 'href']);
+            expect(data.links[0]).toContainKeys(['rel', 'href']);
 
             expect(data.data).toContainAllKeys([
                 'endpointId',
