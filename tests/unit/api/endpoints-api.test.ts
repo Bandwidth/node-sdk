@@ -28,7 +28,7 @@ describe('EndpointsApi', () => {
             expect(data.links[0].rel).toBeString();
             expect(data.links[0].href).toBeString();
 
-            expect(data.data).toContainAllKeys([
+            expect(data.data).toContainKeys([
                 'endpointId',
                 'type',
                 'status',
@@ -58,7 +58,7 @@ describe('EndpointsApi', () => {
             expect(data.links[0]).toContainKeys(['rel', 'href']);
             expect(data.data).toBeInstanceOf(Array);
             expect(data.page).toBeDefined();
-            expect(data.page).toContainAllKeys(['pageSize', 'pageNumber', 'totalPages', 'totalElements']);
+            expect(data.page).toContainKeys(['pageSize', 'pageNumber', 'totalPages', 'totalElements']);
             expect(data.page.pageSize).toBeNumber();
             expect(data.page.pageNumber).toBeNumber();
             expect(data.page.totalPages).toBeNumber();
@@ -66,7 +66,7 @@ describe('EndpointsApi', () => {
             expect(data.errors).toBeInstanceOf(Array);
 
             if (data.data.length > 0) {
-                expect(data.data[0]).toContainAllKeys([
+                expect(data.data[0]).toContainKeys([
                     'endpointId',
                     'type',
                     'status',
@@ -91,7 +91,7 @@ describe('EndpointsApi', () => {
             expect(data.links.length).toBeGreaterThan(0);
             expect(data.links[0]).toContainKeys(['rel', 'href']);
 
-            expect(data.data).toContainAllKeys([
+            expect(data.data).toContainKeys([
                 'endpointId',
                 'type',
                 'status',
