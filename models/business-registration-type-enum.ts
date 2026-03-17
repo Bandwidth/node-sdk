@@ -15,7 +15,7 @@
 
 
 /**
- * The type of business registration number.
+ * The type of business registration number. 
  */
 
 export const BusinessRegistrationTypeEnum = {
