@@ -74,7 +74,7 @@ export interface VerificationRequest {
      */
     'businessDba'?: string;
     /**
-     * Government-issued business identifying number.
+     * Government-issued business identifying number.  **Note:** If this field is provided, it is strongly recommended to also provide `businessRegistrationType` and `businessRegistrationIssuingCountry`. Submissions missing these fields have a high likelihood of rejection. 
      */
     'businessRegistrationNumber'?: string | null;
     'businessRegistrationType'?: BusinessRegistrationTypeEnum | null;

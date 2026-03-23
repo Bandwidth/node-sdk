@@ -15,5 +15,9 @@ describe('BusinessRegistrationIssuingCountryEnum', () => {
         expect(BusinessRegistrationIssuingCountryEnum.Deu).toBe('DEU');
         expect(BusinessRegistrationIssuingCountryEnum.Esp).toBe('ESP');
         expect(BusinessRegistrationIssuingCountryEnum.Che).toBe('CHE');
+        expect(BusinessRegistrationIssuingCountryEnum.Cyp).toBe('CYP');
+        expect(BusinessRegistrationIssuingCountryEnum.Ind).toBe('IND');
+        expect(BusinessRegistrationIssuingCountryEnum.Chn).toBe('CHN');
+        expect(BusinessRegistrationIssuingCountryEnum.Bgr).toBe('BGR');
     });
 });
