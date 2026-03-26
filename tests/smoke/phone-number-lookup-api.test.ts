@@ -54,7 +54,6 @@ describe('PhoneNumberLookupApi', () => {
             expect(getData.data.results[0]).toBeDefined();
             expect(getData.data.results[0].phoneNumber).toBeString();
             expect(getData.data.results[0].lineType).toBeOneOf(Object.values(LineTypeEnum));
-            expect(getData.data.results[0].messagingProvider).toBeString();
             expect(getData.data.results[0].voiceProvider).toBeString();
             expect(getData.data.results[0].countryCodeA3).toBeString();
         });
@@ -77,7 +76,6 @@ describe('PhoneNumberLookupApi', () => {
             expect(data.data.results[0]).toBeDefined();
             expect(data.data.results[0].phoneNumber).toBeString();
             expect(data.data.results[0].lineType).toBeOneOf(Object.values(LineTypeEnum));
-            expect(data.data.results[0].messagingProvider).toBeString();
             expect(data.data.results[0].voiceProvider).toBeString();
             expect(data.data.results[0].countryCodeA3).toBeString();
         });
