@@ -3,7 +3,7 @@ import { EndpointStatusEnum } from '../../../models/endpoint-status-enum';
 import { EndpointTypeEnum } from '../../../models/endpoint-type-enum';
 
 describe('CreateEndpointResponseData', () => {
-    test('should include endpoint fields and token', () => {
+    test('should include all endpoint fields and token', () => {
         const responseData: CreateEndpointResponseData = {
             endpointId: 'ep-123456',
             type: EndpointTypeEnum.Webrtc,
@@ -17,8 +17,10 @@ describe('CreateEndpointResponseData', () => {
         expect(responseData.endpointId).toBe('ep-123456');
         expect(responseData.type).toBe(EndpointTypeEnum.Webrtc);
         expect(responseData.status).toBe(EndpointStatusEnum.Connected);
-        expect(new Date(responseData.creationTimestamp).toString()).not.toBe('Invalid Date');
-        expect(new Date(responseData.expirationTimestamp).toString()).not.toBe('Invalid Date');
+        expect(new Date(responseData.creationTimestamp).getFullYear()).toBe(2024);
+        expect(new Date(responseData.creationTimestamp).toISOString()).toBe('2024-02-18T10:30:00.000Z');
+        expect(new Date(responseData.expirationTimestamp).getFullYear()).toBe(2024);
+        expect(new Date(responseData.expirationTimestamp).toISOString()).toBe('2024-02-19T10:30:00.000Z');
         expect(responseData.token).toBe('xxxxx.yyyyy.zzzzz');
         expect(responseData.tag).toBe('endpoint-tag');
     });

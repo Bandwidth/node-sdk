@@ -1,7 +1,7 @@
 //@ts-nocheck
 import { EndpointsApi } from '../../../api';
 import { Configuration } from '../../../configuration';
-import { EndpointDirectionEnum, EndpointStatusEnum, EndpointTypeEnum } from '../../../models';
+import { CreateWebRtcConnectionRequest, EndpointDirectionEnum, EndpointStatusEnum, EndpointTypeEnum } from '../../../models';
 
 describe('EndpointsApi', () => {
     const config = new Configuration({
@@ -15,27 +15,20 @@ describe('EndpointsApi', () => {
     const endpointId = 'ep-123456';
 
     describe('createEndpoint', () => {
-        test('should create endpoint and return full response shape', async () => {
-            const { status, data } = await endpointsApi.createEndpoint(accountId, {
+        test('should create endpoint', async () => {
+            const createEndpointBody: CreateWebRtcConnectionRequest = {
                 type: EndpointTypeEnum.Webrtc,
                 direction: EndpointDirectionEnum.Bidirectional
-            });
+            };
+
+            const { status, data } = await endpointsApi.createEndpoint(accountId, createEndpointBody);
 
             expect(status).toEqual(201);
             expect(data.links).toBeInstanceOf(Array);
             expect(data.links.length).toBeGreaterThan(0);
-            expect(data.links[0]).toContainKeys(['rel', 'href']);
             expect(data.links[0].rel).toBeString();
             expect(data.links[0].href).toBeString();
 
-            expect(data.data).toContainKeys([
-                'endpointId',
-                'type',
-                'status',
-                'creationTimestamp',
-                'expirationTimestamp',
-                'token'
-            ]);
             expect(data.data.endpointId).toBeString();
             expect(data.data.type).toBeOneOf(Object.values(EndpointTypeEnum));
             expect(data.data.status).toBeOneOf(Object.values(EndpointStatusEnum));
@@ -49,16 +42,16 @@ describe('EndpointsApi', () => {
     });
 
     describe('listEndpoints', () => {
-        test('should list endpoints and include links, page, data, and errors', async () => {
+        test('should list endpoints', async () => {
             const { status, data } = await endpointsApi.listEndpoints(accountId, EndpointTypeEnum.Webrtc, EndpointStatusEnum.Connected, undefined, 10);
 
             expect(status).toEqual(200);
             expect(data.links).toBeInstanceOf(Array);
             expect(data.links.length).toBeGreaterThan(0);
-            expect(data.links[0]).toContainKeys(['rel', 'href']);
+            expect(data.links[0].rel).toBeString();
+            expect(data.links[0].href).toBeString();
             expect(data.data).toBeInstanceOf(Array);
             expect(data.page).toBeDefined();
-            expect(data.page).toContainKeys(['pageSize', 'pageNumber', 'totalPages', 'totalElements']);
             expect(data.page.pageSize).toBeNumber();
             expect(data.page.pageNumber).toBeNumber();
             expect(data.page.totalPages).toBeNumber();
@@ -66,13 +59,6 @@ describe('EndpointsApi', () => {
             expect(data.errors).toBeInstanceOf(Array);
 
             if (data.data.length > 0) {
-                expect(data.data[0]).toContainKeys([
-                    'endpointId',
-                    'type',
-                    'status',
-                    'creationTimestamp',
-                    'expirationTimestamp'
-                ]);
                 expect(data.data[0].endpointId).toBeString();
                 expect(data.data[0].type).toBeOneOf(Object.values(EndpointTypeEnum));
                 expect(data.data[0].status).toBeOneOf(Object.values(EndpointStatusEnum));
@@ -83,21 +69,15 @@ describe('EndpointsApi', () => {
     });
 
     describe('getEndpoint', () => {
-        test('should get endpoint and return full response shape', async () => {
+        test('should get endpoint', async () => {
             const { status, data } = await endpointsApi.getEndpoint(accountId, endpointId);
 
             expect(status).toEqual(200);
             expect(data.links).toBeInstanceOf(Array);
             expect(data.links.length).toBeGreaterThan(0);
-            expect(data.links[0]).toContainKeys(['rel', 'href']);
+            expect(data.links[0].rel).toBeString();
+            expect(data.links[0].href).toBeString();
 
-            expect(data.data).toContainKeys([
-                'endpointId',
-                'type',
-                'status',
-                'creationTimestamp',
-                'expirationTimestamp'
-            ]);
             expect(data.data.endpointId).toBeString();
             expect(data.data.type).toBeOneOf(Object.values(EndpointTypeEnum));
             expect(data.data.status).toBeOneOf(Object.values(EndpointStatusEnum));
@@ -106,6 +86,14 @@ describe('EndpointsApi', () => {
 
             expect(data.errors).toBeInstanceOf(Array);
             expect(data.errors).toHaveLength(0);
+        });
+    });
+
+    describe('deleteEndpoint', () => {
+        test('should delete endpoint', async () => {
+            const { status } = await endpointsApi.deleteEndpoint(accountId, endpointId);
+
+            expect(status).toEqual(204);
         });
     });
 });

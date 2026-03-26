@@ -6,7 +6,7 @@ import { Link } from '../../../models/link';
 import { ModelError } from '../../../models/model-error';
 
 describe('CreateEndpointResponse', () => {
-    test('should create an endpoint response with successful data', () => {
+    test('should create an endpoint response with all fields', () => {
         const link: Link = {
             rel: 'self',
             href: 'http://api.example.com/endpoints/ep-123456'
@@ -22,35 +22,6 @@ describe('CreateEndpointResponse', () => {
             tag: 'webrtc-endpoint'
         };
 
-        const response: CreateEndpointResponse = {
-            links: [link],
-            data: responseData,
-            errors: []
-        };
-
-        expect(response.links).toHaveLength(1);
-        expect(response.data.endpointId).toBe('ep-123456');
-        expect(response.data.type).toBe('WEBRTC');
-        expect(response.data.status).toBe('CONNECTED');
-        expect(response.data.token).toBe('xxxxx.yyyyy.zzzzz');
-        expect(response.errors).toHaveLength(0);
-    });
-
-    test('should create an endpoint response with error', () => {
-        const link: Link = {
-            rel: 'documentation',
-            href: 'http://api.example.com/docs/endpoints'
-        };
-
-        const responseData: CreateEndpointResponseData = {
-            endpointId: '',
-            type: EndpointTypeEnum.Webrtc,
-            status: EndpointStatusEnum.Disconnected,
-            creationTimestamp: '2024-02-18T10:30:00Z',
-            expirationTimestamp: '2024-02-19T10:30:00Z',
-            token: 'invalid.token.value'
-        };
-
         const error: ModelError = {
             code: 400,
             description: 'Missing required field: endpointId'
@@ -62,7 +33,18 @@ describe('CreateEndpointResponse', () => {
             errors: [error]
         };
 
+        expect(response.links).toHaveLength(1);
+        expect(response.links[0].rel).toBe('self');
+        expect(response.links[0].href).toBe('http://api.example.com/endpoints/ep-123456');
+        expect(response.data.endpointId).toBe('ep-123456');
+        expect(response.data.type).toBe('WEBRTC');
+        expect(response.data.status).toBe('CONNECTED');
+        expect(response.data.token).toBe('xxxxx.yyyyy.zzzzz');
+        expect(response.data.tag).toBe('webrtc-endpoint');
+        expect(new Date(response.data.creationTimestamp).getFullYear()).toBe(2024);
+        expect(new Date(response.data.expirationTimestamp).getFullYear()).toBe(2024);
         expect(response.errors).toHaveLength(1);
+        expect(response.errors[0].code).toBe(400);
         expect(response.errors[0].description).toContain('endpointId');
     });
 });

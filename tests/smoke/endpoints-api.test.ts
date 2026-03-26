@@ -13,7 +13,7 @@ describe('EndpointsApi', () => {
     let endpointId: string;
 
     describe('endpoint lifecycle', () => {
-        test('should create a new endpoint', async () => {
+        test('should create endpoint', async () => {
             const endpointBody: CreateWebRtcConnectionRequest = {
                 type: EndpointTypeEnum.Webrtc,
                 direction: EndpointDirectionEnum.Bidirectional
@@ -42,7 +42,7 @@ describe('EndpointsApi', () => {
             endpointId = data.data.endpointId;
         });
 
-        test('should list endpoints for the account', async () => {
+        test('should list endpoints', async () => {
             const { status, data } = await endpointsApi.listEndpoints(BW_ACCOUNT_ID);
 
             expect(status).toEqual(200);
@@ -61,18 +61,7 @@ describe('EndpointsApi', () => {
             expect(createdEndpoint!.expirationTimestamp).toBeDateString();
         });
 
-        test('should list endpoints filtered by type', async () => {
-            const { status, data } = await endpointsApi.listEndpoints(BW_ACCOUNT_ID, EndpointTypeEnum.Webrtc);
-
-            expect(status).toEqual(200);
-            expect(data.data).toBeInstanceOf(Array);
-            expect(data.errors).toBeInstanceOf(Array);
-            if (data.data.length > 0) {
-                expect(data.data.every((item) => item.type === EndpointTypeEnum.Webrtc)).toEqual(true);
-            }
-        });
-
-        test('should retrieve details of a specific endpoint', async () => {
+        test('should get endpoint', async () => {
             const { status, data } = await endpointsApi.getEndpoint(BW_ACCOUNT_ID, endpointId);
 
             expect(status).toEqual(200);

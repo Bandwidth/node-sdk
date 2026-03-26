@@ -13,6 +13,7 @@ describe('Device', () => {
         expect(device.deviceId).toBe('dev-1234');
         expect(device.deviceName).toBe('Mobile App');
         expect(device.status).toBe(DeviceStatusEnum.Connected);
-        expect(new Date(device.creationTimestamp).toString()).not.toBe('Invalid Date');
+        expect(new Date(device.creationTimestamp).getFullYear()).toBe(2024);
+        expect(new Date(device.creationTimestamp).toISOString()).toBe('2024-02-18T10:30:00.000Z');
     });
 });

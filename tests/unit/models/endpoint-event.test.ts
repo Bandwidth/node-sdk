@@ -16,8 +16,10 @@ describe('EndpointEvent', () => {
         expect(event.endpointId).toBe('ep-123456');
         expect(event.type).toBe(EndpointTypeEnum.Webrtc);
         expect(event.status).toBe(EndpointStatusEnum.Disconnected);
-        expect(new Date(event.creationTimestamp).toString()).not.toBe('Invalid Date');
-        expect(new Date(event.expirationTimestamp).toString()).not.toBe('Invalid Date');
+        expect(new Date(event.creationTimestamp).getFullYear()).toBe(2024);
+        expect(new Date(event.creationTimestamp).toISOString()).toBe('2024-02-18T10:30:00.000Z');
+        expect(new Date(event.expirationTimestamp).getFullYear()).toBe(2024);
+        expect(new Date(event.expirationTimestamp).toISOString()).toBe('2024-02-19T10:30:00.000Z');
         expect(event.tag).toBe('event-tag');
     });
 });
