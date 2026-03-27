@@ -120,6 +120,11 @@ Class | Method | HTTP request | Description
 *ConferencesApi* | [**updateConference**](docs/ConferencesApi.md#updateconference) | **POST** /accounts/{accountId}/conferences/{conferenceId} | Update Conference
 *ConferencesApi* | [**updateConferenceBxml**](docs/ConferencesApi.md#updateconferencebxml) | **PUT** /accounts/{accountId}/conferences/{conferenceId}/bxml | Update Conference BXML
 *ConferencesApi* | [**updateConferenceMember**](docs/ConferencesApi.md#updateconferencemember) | **PUT** /accounts/{accountId}/conferences/{conferenceId}/members/{memberId} | Update Conference Member
+*EndpointsApi* | [**createEndpoint**](docs/EndpointsApi.md#createendpoint) | **POST** /accounts/{accountId}/endpoints | Create Endpoint
+*EndpointsApi* | [**deleteEndpoint**](docs/EndpointsApi.md#deleteendpoint) | **DELETE** /accounts/{accountId}/endpoints/{endpointId} | Delete Endpoint
+*EndpointsApi* | [**getEndpoint**](docs/EndpointsApi.md#getendpoint) | **GET** /accounts/{accountId}/endpoints/{endpointId} | Get Endpoint
+*EndpointsApi* | [**listEndpoints**](docs/EndpointsApi.md#listendpoints) | **GET** /accounts/{accountId}/endpoints | List Endpoints
+*EndpointsApi* | [**updateEndpointBxml**](docs/EndpointsApi.md#updateendpointbxml) | **PUT** /accounts/{accountId}/endpoints/{endpointId}/bxml | Update Endpoint BXML
 *MFAApi* | [**generateMessagingCode**](docs/MFAApi.md#generatemessagingcode) | **POST** /accounts/{accountId}/code/messaging | Messaging Authentication Code
 *MFAApi* | [**generateVoiceCode**](docs/MFAApi.md#generatevoicecode) | **POST** /accounts/{accountId}/code/voice | Voice Authentication Code
 *MFAApi* | [**verifyCode**](docs/MFAApi.md#verifycode) | **POST** /accounts/{accountId}/code/verify | Verify Authentication Code
@@ -200,15 +205,30 @@ Class | Method | HTTP request | Description
  - [CreateAsyncBulkLookupResponseData](docs/CreateAsyncBulkLookupResponseData.md)
  - [CreateCall](docs/CreateCall.md)
  - [CreateCallResponse](docs/CreateCallResponse.md)
+ - [CreateEndpointRequestBase](docs/CreateEndpointRequestBase.md)
+ - [CreateEndpointResponse](docs/CreateEndpointResponse.md)
+ - [CreateEndpointResponseData](docs/CreateEndpointResponseData.md)
  - [CreateMessageRequestError](docs/CreateMessageRequestError.md)
  - [CreateMultiChannelMessageResponse](docs/CreateMultiChannelMessageResponse.md)
  - [CreateSyncLookupResponse](docs/CreateSyncLookupResponse.md)
  - [CreateSyncLookupResponseData](docs/CreateSyncLookupResponseData.md)
+ - [CreateWebRtcConnectionRequest](docs/CreateWebRtcConnectionRequest.md)
  - [DeactivationEventEnum](docs/DeactivationEventEnum.md)
+ - [Device](docs/Device.md)
+ - [DeviceStatusEnum](docs/DeviceStatusEnum.md)
  - [DisconnectCallback](docs/DisconnectCallback.md)
  - [Diversion](docs/Diversion.md)
  - [DtmfCallback](docs/DtmfCallback.md)
+ - [Endpoint](docs/Endpoint.md)
+ - [EndpointDirectionEnum](docs/EndpointDirectionEnum.md)
+ - [EndpointEvent](docs/EndpointEvent.md)
+ - [EndpointEventTypeEnum](docs/EndpointEventTypeEnum.md)
+ - [EndpointResponse](docs/EndpointResponse.md)
+ - [EndpointStatusEnum](docs/EndpointStatusEnum.md)
+ - [EndpointTypeEnum](docs/EndpointTypeEnum.md)
+ - [Endpoints](docs/Endpoints.md)
  - [ErrorObject](docs/ErrorObject.md)
+ - [ErrorResponse](docs/ErrorResponse.md)
  - [ErrorSource](docs/ErrorSource.md)
  - [FailureWebhook](docs/FailureWebhook.md)
  - [FieldError](docs/FieldError.md)
@@ -226,6 +246,7 @@ Class | Method | HTTP request | Description
  - [Link](docs/Link.md)
  - [LinkSchema](docs/LinkSchema.md)
  - [LinksObject](docs/LinksObject.md)
+ - [ListEndpointsResponse](docs/ListEndpointsResponse.md)
  - [ListMessageDirectionEnum](docs/ListMessageDirectionEnum.md)
  - [ListMessageItem](docs/ListMessageItem.md)
  - [LookupErrorResponse](docs/LookupErrorResponse.md)
@@ -270,6 +291,7 @@ Class | Method | HTTP request | Description
  - [MultiChannelMessageRequest](docs/MultiChannelMessageRequest.md)
  - [MultiChannelMessageResponseData](docs/MultiChannelMessageResponseData.md)
  - [OptInWorkflow](docs/OptInWorkflow.md)
+ - [Page](docs/Page.md)
  - [PageInfo](docs/PageInfo.md)
  - [PriorityEnum](docs/PriorityEnum.md)
  - [ProductTypeEnum](docs/ProductTypeEnum.md)
@@ -298,6 +320,8 @@ Class | Method | HTTP request | Description
  - [RecordingTranscriptions](docs/RecordingTranscriptions.md)
  - [RedirectCallback](docs/RedirectCallback.md)
  - [RedirectMethodEnum](docs/RedirectMethodEnum.md)
+ - [SipConnectionMetadata](docs/SipConnectionMetadata.md)
+ - [SipCredentials](docs/SipCredentials.md)
  - [SmsMessageContent](docs/SmsMessageContent.md)
  - [StandaloneCardOrientationEnum](docs/StandaloneCardOrientationEnum.md)
  - [StatusCallback](docs/StatusCallback.md)
