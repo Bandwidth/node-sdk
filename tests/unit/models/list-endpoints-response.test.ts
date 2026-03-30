@@ -62,7 +62,12 @@ describe('ListEndpointsResponse', () => {
         expect(response.data[0].endpointId).toBe('ep-001');
         expect(response.data[0].tag).toBe('primary-endpoint');
         expect(response.data[1].endpointId).toBe('ep-002');
+        expect(response.data[1].type).toBe(EndpointTypeEnum.Webrtc);
         expect(response.data[1].status).toBe(EndpointStatusEnum.Disconnected);
+        expect(new Date(response.data[1].creationTimestamp).getFullYear()).toBe(2024);
+        expect(new Date(response.data[1].creationTimestamp).toISOString()).toBe('2024-02-18T10:30:00.000Z');
+        expect(new Date(response.data[1].expirationTimestamp).getFullYear()).toBe(2024);
+        expect(new Date(response.data[1].expirationTimestamp).toISOString()).toBe('2024-02-19T10:30:00.000Z');
         expect(response.errors).toHaveLength(1);
         expect(response.errors[0].code).toBe(500);
         expect(response.errors[0].description).toBe('Internal server error');

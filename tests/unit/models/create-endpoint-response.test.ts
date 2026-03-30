@@ -1,5 +1,7 @@
 import { CreateEndpointResponse } from '../../../models/create-endpoint-response';
 import { CreateEndpointResponseData } from '../../../models/create-endpoint-response-data';
+import { Device } from '../../../models/device';
+import { DeviceStatusEnum } from '../../../models/device-status-enum';
 import { EndpointStatusEnum } from '../../../models/endpoint-status-enum';
 import { EndpointTypeEnum } from '../../../models/endpoint-type-enum';
 import { Link } from '../../../models/link';
@@ -12,6 +14,15 @@ describe('CreateEndpointResponse', () => {
             href: 'http://api.example.com/endpoints/ep-123456'
         };
 
+        const devices: Device[] = [
+            {
+                deviceId: 'dev-1',
+                deviceName: 'Chrome Browser',
+                status: DeviceStatusEnum.Connected,
+                creationTimestamp: '2024-02-18T10:31:00Z'
+            }
+        ];
+
         const responseData: CreateEndpointResponseData = {
             endpointId: 'ep-123456',
             type: EndpointTypeEnum.Webrtc,
@@ -19,7 +30,8 @@ describe('CreateEndpointResponse', () => {
             creationTimestamp: '2024-02-18T10:30:00Z',
             expirationTimestamp: '2024-02-19T10:30:00Z',
             token: 'xxxxx.yyyyy.zzzzz',
-            tag: 'webrtc-endpoint'
+            tag: 'webrtc-endpoint',
+            devices
         };
 
         const error: ModelError = {
@@ -43,6 +55,11 @@ describe('CreateEndpointResponse', () => {
         expect(response.data.tag).toBe('webrtc-endpoint');
         expect(new Date(response.data.creationTimestamp).getFullYear()).toBe(2024);
         expect(new Date(response.data.expirationTimestamp).getFullYear()).toBe(2024);
+        expect(response.data.devices).toHaveLength(1);
+        expect(response.data.devices![0].deviceId).toBe('dev-1');
+        expect(response.data.devices![0].deviceName).toBe('Chrome Browser');
+        expect(response.data.devices![0].status).toBe(DeviceStatusEnum.Connected);
+        expect(response.data.devices![0].creationTimestamp).toBe('2024-02-18T10:31:00Z');
         expect(response.errors).toHaveLength(1);
         expect(response.errors[0].code).toBe(400);
         expect(response.errors[0].description).toContain('endpointId');

@@ -42,7 +42,9 @@ describe('Endpoint', () => {
         expect(endpoint.devices![0].deviceId).toBe('dev-1');
         expect(endpoint.devices![0].deviceName).toBe('Chrome Browser');
         expect(endpoint.devices![0].status).toBe(DeviceStatusEnum.Connected);
+        expect(endpoint.devices![0].creationTimestamp).toBe('2024-02-18T10:31:00Z');
         expect(endpoint.devices![1].deviceId).toBe('dev-2');
         expect(endpoint.devices![1].status).toBe(DeviceStatusEnum.Disconnected);
+        expect(endpoint.devices![1].creationTimestamp).toBe('2024-02-18T10:32:00Z');
     });
 });

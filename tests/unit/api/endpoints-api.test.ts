@@ -58,13 +58,12 @@ describe('EndpointsApi', () => {
             expect(data.page.totalElements).toBeNumber();
             expect(data.errors).toBeInstanceOf(Array);
 
-            if (data.data.length > 0) {
-                expect(data.data[0].endpointId).toBeString();
-                expect(data.data[0].type).toBeOneOf(Object.values(EndpointTypeEnum));
-                expect(data.data[0].status).toBeOneOf(Object.values(EndpointStatusEnum));
-                expect(data.data[0].creationTimestamp).toBeDateString();
-                expect(data.data[0].expirationTimestamp).toBeDateString();
-            }
+            expect(data.data.length).toBeGreaterThan(0);
+            expect(data.data[0].endpointId).toBeString();
+            expect(data.data[0].type).toBeOneOf(Object.values(EndpointTypeEnum));
+            expect(data.data[0].status).toBeOneOf(Object.values(EndpointStatusEnum));
+            expect(data.data[0].creationTimestamp).toBeDateString();
+            expect(data.data[0].expirationTimestamp).toBeDateString();
         });
     });
 
