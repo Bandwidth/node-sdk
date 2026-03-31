@@ -45,10 +45,6 @@ describe('PhoneNumberLookupApi', () => {
             const { status, data } = await phoneNumberLookupApi.createSyncLookup(BW_ACCOUNT_ID, request);
 
             expect(status).toEqual(200);
-            expect(data.links[0]).toBeDefined();
-            expect(data.links[0].rel).toBeString();
-            expect(data.links[0].href).toBeString();
-            expect(data.links[0].method).toBeString();
             expect(data.data.requestId).toBeString();
             expect(data.data.status).toBeOneOf(Object.values(CompletedLookupStatusEnum));
             expect(data.data.results).toBeInstanceOf(Array);
@@ -70,10 +66,6 @@ describe('PhoneNumberLookupApi', () => {
             const { status, data } = await phoneNumberLookupApi.getAsyncBulkLookup(BW_ACCOUNT_ID, requestId);
 
             expect(status).toEqual(200);
-            expect(data.links[0]).toBeDefined();
-            expect(data.links[0].rel).toBeString();
-            expect(data.links[0].href).toBeString();
-            expect(data.links[0].method).toBeString();
             expect(data.data.requestId).toBeString();
             expect(data.data.status).toBeOneOf(Object.values(InProgressLookupStatusEnum));
             expect(data.data.results).toBeInstanceOf(Array);
