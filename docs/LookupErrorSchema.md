@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **string** | Validation error code | [optional] [default to undefined]
-**description** | **string** | Description of validation error | [optional] [default to undefined]
-**type** | **string** | Type of validation error | [optional] [default to undefined]
+**code** | **string** | Validation error code | [default to undefined]
+**description** | **string** | Description of validation error | [default to undefined]
+**type** | **string** | Type of validation error | [default to undefined]
 **meta** | [**LookupErrorSchemaMeta**](LookupErrorSchemaMeta.md) |  | [optional] [default to undefined]
 
 ## Example

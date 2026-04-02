@@ -62,6 +62,10 @@ export interface LookupResult {
      * [DNI-Only](#section/DNI-Only). The date bandwidth last received delivery status information for this phone number. Use this field to understand how up-to-date the `latestMessageDeliveryStatus` is. Value resets every time the `latestMessageDeliveryStatus` changes.
      */
     'latestMessageDeliveryStatusDate'?: string;
+    /**
+     * [RCS-Only](#section/RCS-Only). Indicates whether the phone number is capable of receiving RCS messages. Value will be null if account has RCS, but no value was returned. Absent when account does not have RCS. 
+     */
+    'rcsEnabled'?: boolean;
 }
 
 

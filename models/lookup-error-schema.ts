@@ -21,15 +21,15 @@ export interface LookupErrorSchema {
     /**
      * Validation error code
      */
-    'code'?: string;
+    'code': string;
     /**
      * Description of validation error
      */
-    'description'?: string;
+    'description': string;
     /**
      * Type of validation error
      */
-    'type'?: string;
+    'type': string;
     'meta'?: LookupErrorSchemaMeta;
 }
 
