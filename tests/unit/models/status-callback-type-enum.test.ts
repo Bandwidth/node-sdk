@@ -6,5 +6,6 @@ describe('StatusCallbackTypeEnum', () => {
         expect(StatusCallbackTypeEnum.MessageDelivered).toBe('message-delivered');
         expect(StatusCallbackTypeEnum.MessageFailed).toBe('message-failed');
         expect(StatusCallbackTypeEnum.MessageRead).toBe('message-read');
+        expect(Object.values(StatusCallbackTypeEnum)).toEqual(['message-sending', 'message-delivered', 'message-failed', 'message-read']);
     });
 });

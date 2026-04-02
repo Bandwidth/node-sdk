@@ -10,5 +10,6 @@ describe('MessageStatusEnum', () => {
         expect(MessageStatusEnum.Delivered).toBe('DELIVERED');
         expect(MessageStatusEnum.Accepted).toBe('ACCEPTED');
         expect(MessageStatusEnum.Undelivered).toBe('UNDELIVERED');
+        expect(Object.values(MessageStatusEnum)).toEqual(['RECEIVED', 'QUEUED', 'SENDING', 'SENT', 'FAILED', 'DELIVERED', 'ACCEPTED', 'UNDELIVERED']);
     });
 });

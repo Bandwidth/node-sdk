@@ -4,5 +4,6 @@ describe('ListMessageDirectionEnum', () => {
     test('should define the expected values', () => {
         expect(ListMessageDirectionEnum.Inbound).toBe('INBOUND');
         expect(ListMessageDirectionEnum.Outbound).toBe('OUTBOUND');
+        expect(Object.values(ListMessageDirectionEnum)).toEqual(['INBOUND', 'OUTBOUND']);
     });
 });

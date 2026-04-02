@@ -4,5 +4,6 @@ describe('MachineDetectionModeEnum', () => {
     test('should define the expected values', () => {
         expect(MachineDetectionModeEnum.Sync).toBe('sync');
         expect(MachineDetectionModeEnum.Async).toBe('async');
+        expect(Object.values(MachineDetectionModeEnum)).toEqual(['sync', 'async']);
     });
 });

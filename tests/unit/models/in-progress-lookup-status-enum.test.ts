@@ -6,6 +6,7 @@ describe('InProgressLookupStatusEnum', () => {
         expect(InProgressLookupStatusEnum.Complete).toBe('COMPLETE');
         expect(InProgressLookupStatusEnum.PartialComplete).toBe('PARTIAL_COMPLETE');
         expect(InProgressLookupStatusEnum.Failed).toBe('FAILED');
+        expect(Object.values(InProgressLookupStatusEnum)).toEqual(['IN_PROGRESS', 'COMPLETE', 'PARTIAL_COMPLETE', 'FAILED']);
     });
 });
 

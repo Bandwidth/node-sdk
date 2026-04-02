@@ -19,5 +19,6 @@ describe('BusinessRegistrationIssuingCountryEnum', () => {
         expect(BusinessRegistrationIssuingCountryEnum.Ind).toBe('IND');
         expect(BusinessRegistrationIssuingCountryEnum.Chn).toBe('CHN');
         expect(BusinessRegistrationIssuingCountryEnum.Bgr).toBe('BGR');
+        expect(Object.values(BusinessRegistrationIssuingCountryEnum)).toEqual(['USA', 'CAN', 'HKG', 'GBR', 'IRL', 'BRA', 'NLD', 'AUS', 'FRA', 'NZL', 'DEU', 'ESP', 'CHE', 'CYP', 'IND', 'CHN', 'BGR']);
     });
 });

@@ -5,5 +5,6 @@ describe('RbmMediaHeightEnum', () => {
         expect(RbmMediaHeightEnum.Short).toBe('SHORT');
         expect(RbmMediaHeightEnum.Medium).toBe('MEDIUM');
         expect(RbmMediaHeightEnum.Tall).toBe('TALL');
+        expect(Object.values(RbmMediaHeightEnum)).toEqual(['SHORT', 'MEDIUM', 'TALL']);
     });
 });

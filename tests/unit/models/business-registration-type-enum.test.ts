@@ -20,5 +20,6 @@ describe('BusinessRegistrationTypeEnum', () => {
         expect(BusinessRegistrationTypeEnum.Cnpj).toBe('CNPJ');
         expect(BusinessRegistrationTypeEnum.Uid).toBe('UID');
         expect(BusinessRegistrationTypeEnum.Other).toBe('OTHER');
+        expect(Object.values(BusinessRegistrationTypeEnum)).toEqual(['EIN', 'CBN', 'NEQ', 'PROVINCIAL_NUMBER', 'CRN', 'VAT', 'ACN', 'ABN', 'BRN', 'SIREN', 'SIRET', 'NZBN', 'UST_IDNR', 'CIF', 'NIF', 'CNPJ', 'UID', 'OTHER']);
     });
 });

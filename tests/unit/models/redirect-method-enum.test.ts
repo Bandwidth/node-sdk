@@ -4,5 +4,6 @@ describe('RedirectMethodEnum', () => {
     test('should define the expected values', () => {
         expect(RedirectMethodEnum.Get).toBe('GET');
         expect(RedirectMethodEnum.Post).toBe('POST');
+        expect(Object.values(RedirectMethodEnum)).toEqual(['GET', 'POST']);
     });
 });

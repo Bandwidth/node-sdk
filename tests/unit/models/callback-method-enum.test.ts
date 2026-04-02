@@ -4,5 +4,6 @@ describe('CallbackMethodEnum', () => {
     test('should define the expected values', () => {
         expect(CallbackMethodEnum.Get).toBe('GET');
         expect(CallbackMethodEnum.Post).toBe('POST');
+        expect(Object.values(CallbackMethodEnum)).toEqual(['GET', 'POST']);
     });
 });

@@ -7,5 +7,6 @@ describe('BusinessEntityTypeEnum', () => {
         expect(BusinessEntityTypeEnum.PublicProfit).toBe('PUBLIC_PROFIT');
         expect(BusinessEntityTypeEnum.NonProfit).toBe('NON_PROFIT');
         expect(BusinessEntityTypeEnum.Government).toBe('GOVERNMENT');
+        expect(Object.values(BusinessEntityTypeEnum)).toEqual(['SOLE_PROPRIETOR', 'PRIVATE_PROFIT', 'PUBLIC_PROFIT', 'NON_PROFIT', 'GOVERNMENT']);
     });
 });

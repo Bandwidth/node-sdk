@@ -4,5 +4,6 @@ describe('CallTranscriptionTrackEnum', () => {
     test('should define the expected values', () => {
         expect(CallTranscriptionTrackEnum.Inbound).toBe('inbound');
         expect(CallTranscriptionTrackEnum.Outbound).toBe('outbound');
+        expect(Object.values(CallTranscriptionTrackEnum)).toEqual(['inbound', 'outbound']);
     });
 });

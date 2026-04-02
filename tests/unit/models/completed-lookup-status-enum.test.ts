@@ -5,5 +5,6 @@ describe('CompletedLookupStatusEnum', () => {
         expect(CompletedLookupStatusEnum.Complete).toBe('COMPLETE');
         expect(CompletedLookupStatusEnum.PartialComplete).toBe('PARTIAL_COMPLETE');
         expect(CompletedLookupStatusEnum.Failed).toBe('FAILED');
+        expect(Object.values(CompletedLookupStatusEnum)).toEqual(['COMPLETE', 'PARTIAL_COMPLETE', 'FAILED']);
     });
 });

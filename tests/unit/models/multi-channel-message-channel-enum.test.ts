@@ -5,5 +5,6 @@ describe('MultiChannelMessageChannelEnum', () => {
         expect(MultiChannelMessageChannelEnum.Rbm).toBe('RBM');
         expect(MultiChannelMessageChannelEnum.Sms).toBe('SMS');
         expect(MultiChannelMessageChannelEnum.Mms).toBe('MMS');
+        expect(Object.values(MultiChannelMessageChannelEnum)).toEqual(['RBM', 'SMS', 'MMS']);
     });
 });
