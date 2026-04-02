@@ -2,15 +2,7 @@ import { NestableVerb } from '../NestableVerb';
 import { Endpoint } from './Endpoint';
 
 export interface ConnectAttributes {
-    connectCompleteUrl?: string;
-    connectCompleteMethod?: string;
-    connectCompleteFallbackUrl?: string;
-    connectCompleteFallbackMethod?: string;
-    username?: string;
-    password?: string;
-    fallbackUsername?: string;
-    fallbackPassword?: string;
-    tag?: string;
+    eventCallbackUrl?: string;
 }
 
 /**
