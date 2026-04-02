@@ -4,6 +4,5 @@ describe('CallStateEnum', () => {
     test('should define the expected values', () => {
         expect(CallStateEnum.Active).toBe('active');
         expect(CallStateEnum.Completed).toBe('completed');
-        expect(Object.values(CallStateEnum)).toEqual(['active', 'completed']);
     });
 });

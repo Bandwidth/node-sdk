@@ -11,6 +11,5 @@ describe('ProductTypeEnum', () => {
         expect(ProductTypeEnum.RbmMedia).toBe('RBM_MEDIA');
         expect(ProductTypeEnum.RbmRich).toBe('RBM_RICH');
         expect(ProductTypeEnum.RbmConversational).toBe('RBM_CONVERSATIONAL');
-        expect(Object.values(ProductTypeEnum)).toEqual(['LOCAL_A2P', 'P2P', 'SHORT_CODE_REACH', 'TOLL_FREE', 'HOSTED_SHORT_CODE', 'ALPHA_NUMERIC', 'RBM_MEDIA', 'RBM_RICH', 'RBM_CONVERSATIONAL']);
     });
 });

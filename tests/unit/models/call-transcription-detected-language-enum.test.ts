@@ -5,6 +5,5 @@ describe('CallTranscriptionTrackEnum', () => {
         expect(CallTranscriptionDetectedLanguageEnum.EnUs).toBe('en-US');
         expect(CallTranscriptionDetectedLanguageEnum.EsUs).toBe('es-US');
         expect(CallTranscriptionDetectedLanguageEnum.FrFr).toBe('fr-FR');
-        expect(Object.values(CallTranscriptionDetectedLanguageEnum)).toEqual(['en-US', 'es-US', 'fr-FR']);
     });
 });

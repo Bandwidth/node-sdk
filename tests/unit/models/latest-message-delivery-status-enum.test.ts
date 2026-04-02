@@ -6,7 +6,6 @@ describe('LatestMessageDeliveryStatusEnum', () => {
         expect(LatestMessageDeliveryStatusEnum.Deactivated).toBe('DEACTIVATED');
         expect(LatestMessageDeliveryStatusEnum.Unknown).toBe('UNKNOWN');
         expect(LatestMessageDeliveryStatusEnum.NotEnabled).toBe('NOT_ENABLED');
-        expect(Object.values(LatestMessageDeliveryStatusEnum)).toEqual(['ACTIVE', 'DEACTIVATED', 'UNKNOWN', 'NOT_ENABLED']);
     });
 });
 

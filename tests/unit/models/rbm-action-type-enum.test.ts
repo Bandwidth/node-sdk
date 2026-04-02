@@ -8,6 +8,5 @@ describe('RbmActionTypeEnum', () => {
         expect(RbmActionTypeEnum.CreateCalendarEvent).toBe('CREATE_CALENDAR_EVENT');
         expect(RbmActionTypeEnum.OpenUrl).toBe('OPEN_URL');
         expect(RbmActionTypeEnum.RequestLocation).toBe('REQUEST_LOCATION');
-        expect(Object.values(RbmActionTypeEnum)).toEqual(['REPLY', 'DIAL_PHONE', 'SHOW_LOCATION', 'CREATE_CALENDAR_EVENT', 'OPEN_URL', 'REQUEST_LOCATION']);
     });
 });

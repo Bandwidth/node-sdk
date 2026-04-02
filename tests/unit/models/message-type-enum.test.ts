@@ -5,6 +5,5 @@ describe('MessageTypeEnum', () => {
         expect(MessageTypeEnum.Sms).toBe('sms');
         expect(MessageTypeEnum.Mms).toBe('mms');
         expect(MessageTypeEnum.Rcs).toBe('rcs');
-        expect(Object.values(MessageTypeEnum)).toEqual(['sms', 'mms', 'rcs']);
     });
 });

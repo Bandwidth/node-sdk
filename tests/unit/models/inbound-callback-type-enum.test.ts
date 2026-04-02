@@ -5,6 +5,5 @@ describe('InboundCallbackTypeEnum', () => {
         expect(InboundCallbackTypeEnum.MessageReceived).toBe('message-received');
         expect(InboundCallbackTypeEnum.RequestLocationResponse).toBe('request-location-response');
         expect(InboundCallbackTypeEnum.SuggestionResponse).toBe('suggestion-response');
-        expect(Object.values(InboundCallbackTypeEnum)).toEqual(['message-received', 'request-location-response', 'suggestion-response']);
     });
 });

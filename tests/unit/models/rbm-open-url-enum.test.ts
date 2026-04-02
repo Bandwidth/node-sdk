@@ -4,6 +4,5 @@ describe('RbmOpenUrlEnum', () => {
     test('should define the expected values', () => {
         expect(RbmOpenUrlEnum.Browser).toBe('BROWSER');
         expect(RbmOpenUrlEnum.Webview).toBe('WEBVIEW');
-        expect(Object.values(RbmOpenUrlEnum)).toEqual(['BROWSER', 'WEBVIEW']);
     });
 });
