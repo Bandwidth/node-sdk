@@ -13,14 +13,13 @@ describe('EndpointsApi', () => {
 
     const accountId = '9900000';
     const endpointId = 'ep-123456';
+    const createEndpointBody: CreateWebRtcConnectionRequest = {
+        type: EndpointTypeEnum.Webrtc,
+        direction: EndpointDirectionEnum.Bidirectional
+    };
 
     describe('createEndpoint', () => {
         test('should create endpoint', async () => {
-            const createEndpointBody: CreateWebRtcConnectionRequest = {
-                type: EndpointTypeEnum.Webrtc,
-                direction: EndpointDirectionEnum.Bidirectional
-            };
-
             const { status, data } = await endpointsApi.createEndpoint(accountId, createEndpointBody);
 
             expect(status).toEqual(201);
