@@ -94,4 +94,13 @@ describe('EndpointsApi', () => {
             expect(status).toEqual(204);
         });
     });
+
+    describe('updateEndpointBxml', () => {
+        test('should update endpoint bxml', async () => {
+            const bxml = '<?xml version="1.0" encoding="UTF-8"?><Bxml><SpeakSentence>Hello</SpeakSentence></Bxml>';
+            const { status } = await endpointsApi.updateEndpointBxml(accountId, endpointId, bxml);
+
+            expect(status).toEqual(204);
+        });
+    });
 });
