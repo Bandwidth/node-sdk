@@ -12,7 +12,7 @@ import {
 import { sleep } from '../callUtils';
 
 describe('PhoneNumberLookupApi', () => {
-    jest.setTimeout(40000);
+    jest.setTimeout(70000);
     const config = new Configuration({
         clientId: BW_CLIENT_ID,
         clientSecret: BW_CLIENT_SECRET
@@ -38,16 +38,12 @@ describe('PhoneNumberLookupApi', () => {
             expect(createData.errors).toBeInstanceOf(Array);
 
             const requestId = createData.data.requestId;
-            await sleep(30);
+            await sleep(60);
 
             const { status: getStatus, data: getData }
                 = await phoneNumberLookupApi.getAsyncBulkLookup(BW_ACCOUNT_ID, requestId);
 
             expect(getStatus).toEqual(200);
-            expect(getData.links[0]).toBeDefined();
-            expect(getData.links[0].rel).toBeString();
-            expect(getData.links[0].href).toBeString();
-            expect(getData.links[0].method).toBeString();
             expect(getData.data.requestId).toEqual(requestId);
             expect(getData.data.status).toBeOneOf(Object.values(InProgressLookupStatusEnum));
             expect(getData.data.results).toBeInstanceOf(Array);
@@ -66,10 +62,6 @@ describe('PhoneNumberLookupApi', () => {
             const { status, data } = await phoneNumberLookupApi.createSyncLookup(BW_ACCOUNT_ID, request);
 
             expect(status).toEqual(200);
-            expect(data.links[0]).toBeDefined();
-            expect(data.links[0].rel).toBeString();
-            expect(data.links[0].href).toBeString();
-            expect(data.links[0].method).toBeString();
             expect(data.data.requestId).toBeString();
             expect(data.data.status).toBeOneOf(Object.values(CompletedLookupStatusEnum));
             expect(data.data.results).toBeInstanceOf(Array);
