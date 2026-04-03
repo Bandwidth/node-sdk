@@ -12,7 +12,7 @@ import {
 import { sleep } from '../callUtils';
 
 describe('PhoneNumberLookupApi', () => {
-    jest.setTimeout(40000);
+    jest.setTimeout(70000);
     const config = new Configuration({
         clientId: BW_CLIENT_ID,
         clientSecret: BW_CLIENT_SECRET
@@ -38,7 +38,7 @@ describe('PhoneNumberLookupApi', () => {
             expect(createData.errors).toBeInstanceOf(Array);
 
             const requestId = createData.data.requestId;
-            await sleep(30);
+            await sleep(60);
 
             const { status: getStatus, data: getData }
                 = await phoneNumberLookupApi.getAsyncBulkLookup(BW_ACCOUNT_ID, requestId);
