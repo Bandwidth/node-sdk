@@ -140,7 +140,7 @@ describe('TollFreeVerificationApi', () => {
                 businessDba: 'businessDba',
                 businessRegistrationNumber: 'businessRegistrationNumber',
                 businessRegistrationType: BusinessRegistrationTypeEnum.Ein,
-                businessRegistrationIssuingCountry: BusinessRegistrationIssuingCountryEnum.Us,
+                businessRegistrationIssuingCountry: 'USA',
                 businessEntityType: BusinessEntityTypeEnum.NonProfit,
                 helpMessageResponse: 'helpMessageResponse',
                 ageGatedContent: true,
