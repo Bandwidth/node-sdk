@@ -21,9 +21,6 @@ import type { Address } from './address';
 import type { BusinessEntityTypeEnum } from './business-entity-type-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { BusinessRegistrationIssuingCountryEnum } from './business-registration-issuing-country-enum';
-// May contain unused imports in some cases
-// @ts-ignore
 import type { BusinessRegistrationTypeEnum } from './business-registration-type-enum';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -73,11 +70,14 @@ export interface TfvSubmissionInfo {
      */
     'businessDba'?: string;
     /**
-     * Government-issued business identifying number.  **Note:** If this field is provided, it is strongly recommended to also provide `businessRegistrationType` and `businessRegistrationIssuingCountry`. Submissions missing these fields have a high likelihood of rejection. 
+     * Government-issued business identifying number.  **Note: As of October 19th, 2026 this field will be required when `businessEntityType` is _not_ `SOLE_PROPRIETOR`. If this field is provided, `businessRegistrationType` and `businessRegistrationIssuingCountry` are also required.** 
      */
     'businessRegistrationNumber'?: string | null;
     'businessRegistrationType'?: BusinessRegistrationTypeEnum | null;
-    'businessRegistrationIssuingCountry'?: BusinessRegistrationIssuingCountryEnum;
+    /**
+     * The country issuing the business registration in ISO-3166-1 alpha-3 format. Alpha-2 format is accepted by the API, but alpha-3 is highly encouraged.  **Note: As of October 19th, 2026 this field will be required when `businessRegistrationNumber` is provided.**  | Registration Type     | Supported Countries                | |----------------------|------------------------------------| | EIN                  | USA                                | | CBN                  | CAN                                | | NEQ                  | CAN                                | | PROVINCIAL_NUMBER    | CAN                                | | CRN                  | GBR, HKG                           | | VAT                  | GBR, IRL, BRA, NLD                 | | ACN                  | AUS                                | | ABN                  | AUS                                | | BRN                  | HKG                                | | SIREN                | FRA                                | | SIRET                | FRA                                | | NZBN                 | NZL                                | | UST_IDNR             | DEU                                | | CIF                  | ESP                                | | NIF                  | ESP                                | | CNPJ                 | BRA                                | | UID                  | CHE                                | | OTHER                | Must Provide Country Code          |
+     */
+    'businessRegistrationIssuingCountry'?: string | null;
     'businessEntityType'?: BusinessEntityTypeEnum;
 }
 
