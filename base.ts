@@ -143,6 +143,36 @@ export const operationServerMap: ServerMap = {
             description: "Production",
         }
     ],
+    "EndpointsApi.createEndpoint": [
+        {
+            url: "https://api.bandwidth.com/v2",
+            description: "Production",
+        }
+    ],
+    "EndpointsApi.deleteEndpoint": [
+        {
+            url: "https://api.bandwidth.com/v2",
+            description: "Production",
+        }
+    ],
+    "EndpointsApi.getEndpoint": [
+        {
+            url: "https://api.bandwidth.com/v2",
+            description: "Production",
+        }
+    ],
+    "EndpointsApi.listEndpoints": [
+        {
+            url: "https://api.bandwidth.com/v2",
+            description: "Production",
+        }
+    ],
+    "EndpointsApi.updateEndpointBxml": [
+        {
+            url: "https://api.bandwidth.com/v2",
+            description: "Production",
+        }
+    ],
     "MFAApi.generateMessagingCode": [
         {
             url: "https://mfa.bandwidth.com/api/v1",
