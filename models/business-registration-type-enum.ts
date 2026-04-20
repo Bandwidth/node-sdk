@@ -15,7 +15,7 @@
 
 
 /**
- * The type of business registration number. 
+ * The type of business registration number.  **Note: As of October 19th, 2026 this field will be required when `businessRegistrationNumber` is provided.** 
  */
 
 export const BusinessRegistrationTypeEnum = {
