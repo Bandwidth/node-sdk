@@ -7,6 +7,8 @@ import { Verb } from '../Verb';
  * Represents an Endpoint verb
  */
 export class Endpoint extends Verb {
+    endpointId: string;
+    
     /**
      * Creates an instance of Endpoint
      * @param {string} endpointId The endpoint ID to connect to
