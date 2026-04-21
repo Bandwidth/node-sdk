@@ -18,14 +18,14 @@
 import type { CreateEndpointResponseData } from './create-endpoint-response-data';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Link } from './link';
+import type { Error1 } from './error1';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ModelError } from './model-error';
+import type { Link1 } from './link1';
 
 export interface CreateEndpointResponse {
-    'links': Array<Link>;
+    'links': Array<Link1>;
     'data': CreateEndpointResponseData;
-    'errors': Array<ModelError>;
+    'errors': Array<Error1>;
 }
 

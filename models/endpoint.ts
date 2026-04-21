@@ -29,6 +29,6 @@ import type { Endpoints } from './endpoints';
 /**
  * @type Endpoint
  */
-export interface Endpoint extends Endpoints {
-    'devices'?: Array<Device>;
-}
+export type Endpoint = Endpoints;
+
+

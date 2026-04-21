@@ -49,7 +49,7 @@ export interface UpdateCall {
      */
     'fallbackPassword'?: string | null;
     /**
-     * A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or [`<Tag>`](/docs/voice/bxml/tag) verb, or cleared.  May be cleared by setting `tag=\"\"`.  Max length 256 characters.  Not allowed if `state` is `completed`.
+     * A custom string that will be sent with this and all future callbacks unless overwritten by a future `tag` attribute or [`<Tag>`](/docs/voice/bxml/tag) verb, or cleared.  May be cleared by setting `tag=\"\"`.  Max length 4096 characters.  Not allowed if `state` is `completed`.
      */
     'tag'?: string | null;
 }

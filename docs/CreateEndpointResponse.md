@@ -5,9 +5,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**Array&lt;Link&gt;**](Link.md) |  | [default to undefined]
+**links** | [**Array&lt;Link1&gt;**](Link1.md) |  | [default to undefined]
 **data** | [**CreateEndpointResponseData**](CreateEndpointResponseData.md) |  | [default to undefined]
-**errors** | [**Array&lt;ModelError&gt;**](ModelError.md) |  | [default to undefined]
+**errors** | [**Array&lt;Error1&gt;**](Error1.md) |  | [default to undefined]
 
 ## Example
 
