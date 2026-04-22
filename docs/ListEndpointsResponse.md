@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**Array&lt;Link&gt;**](Link.md) |  | [default to undefined]
+**links** | [**Array&lt;BrtcLink&gt;**](BrtcLink.md) |  | [default to undefined]
 **page** | [**Page**](Page.md) |  | [optional] [default to undefined]
 **data** | [**Array&lt;Endpoints&gt;**](Endpoints.md) |  | [default to undefined]
-**errors** | [**Array&lt;ModelError&gt;**](ModelError.md) |  | [default to undefined]
+**errors** | [**Array&lt;BrtcError&gt;**](BrtcError.md) |  | [default to undefined]
 
 ## Example
 

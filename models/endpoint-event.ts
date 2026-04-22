@@ -33,6 +33,31 @@ import type { Endpoints } from './endpoints';
  * @type EndpointEvent
  * An event that occurred on an endpoint.
  */
-export type EndpointEvent = Endpoints;
+export interface EndpointEvent {
+    /**
+     * The unique ID of the endpoint.
+     */
+    'endpointId': string;
+    'type': EndpointTypeEnum;
+    'status': EndpointStatusEnum;
+    /**
+     * The time the endpoint was created. In ISO-8601 format.
+     */
+    'creationTimestamp': string;
+    /**
+     * The time the endpoint token will expire. In ISO-8601 format. Tokens last 24 hours.
+     */
+    'expirationTimestamp': string;
+    /**
+     * A tag for the endpoint.
+     */
+    'tag'?: string;
+    /**
+     * The time the event occurred. In ISO-8601 format.
+     */
+    'eventTime': string;
+    'eventType': EndpointEventTypeEnum;
+    'device'?: Device;
+}
 
 

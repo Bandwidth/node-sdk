@@ -29,6 +29,26 @@ import type { Endpoints } from './endpoints';
 /**
  * @type Endpoint
  */
-export interface Endpoint extends Endpoints {
+export interface Endpoint {
+    /**
+     * The unique ID of the endpoint.
+     */
+    'endpointId': string;
+    'type': EndpointTypeEnum;
+    'status': EndpointStatusEnum;
+    /**
+     * The time the endpoint was created. In ISO-8601 format.
+     */
+    'creationTimestamp': string;
+    /**
+     * The time the endpoint token will expire. In ISO-8601 format. Tokens last 24 hours.
+     */
+    'expirationTimestamp': string;
+    /**
+     * A tag for the endpoint.
+     */
+    'tag'?: string;
     'devices'?: Array<Device>;
 }
+
+

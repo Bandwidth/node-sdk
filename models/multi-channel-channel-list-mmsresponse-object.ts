@@ -29,6 +29,21 @@ import type { MultiChannelMessageChannelEnum } from './multi-channel-message-cha
 /**
  * @type MultiChannelChannelListMMSResponseObject
  */
-export type MultiChannelChannelListMMSResponseObject = MultiChannelChannelListMMSObject & MultiChannelChannelListOwnerObject;
+export interface MultiChannelChannelListMMSResponseObject {
+    /**
+     * The sender ID of the message. This could be an alphanumeric sender ID.
+     */
+    'from': string;
+    /**
+     * The ID of the Application your from number or senderId is associated with in the Bandwidth App.
+     */
+    'applicationId': string;
+    'channel': MultiChannelMessageChannelEnum;
+    'content': MmsMessageContent;
+    /**
+     * The Bandwidth senderId associated with the message. Identical to \'from\'.
+     */
+    'owner': string;
+}
 
 

@@ -1,0 +1,14 @@
+/**
+ * @type {{classname}}{{#description}}
+ * {{{.}}}{{/description}}
+ */
+export interface {{classname}} {
+{{#vars}}
+{{#description}}
+    /**
+     * {{{.}}}
+     */
+{{/description}}
+    '{{name}}'{{^required}}?{{/required}}: {{{dataType}}};
+{{/vars}}
+}

@@ -18,17 +18,17 @@
 import type { LinksObject } from './links-object';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ModelError } from './model-error';
+import type { WebhookSubscription } from './webhook-subscription';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { WebhookSubscription } from './webhook-subscription';
+import type { WebhookSubscriptionError } from './webhook-subscription-error';
 
 /**
  * A list of all webhook subscriptions registered for this account ID for this particular feature (unpaginated).
  */
 export interface WebhookSubscriptionsListBody {
     'links'?: LinksObject;
-    'errors'?: Array<ModelError>;
+    'errors'?: Array<WebhookSubscriptionError>;
     'data': Array<WebhookSubscription>;
 }
 

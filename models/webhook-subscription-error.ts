@@ -17,7 +17,7 @@
 // @ts-ignore
 import type { TelephoneNumber } from './telephone-number';
 
-export interface ModelError {
+export interface WebhookSubscriptionError {
     'code'?: number;
     'description'?: string;
     'telephoneNumbers'?: Array<TelephoneNumber>;

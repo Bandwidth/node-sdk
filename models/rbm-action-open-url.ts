@@ -29,6 +29,22 @@ import type { RbmWebViewEnum } from './rbm-web-view-enum';
 /**
  * @type RbmActionOpenUrl
  */
-export type RbmActionOpenUrl = RbmActionBase;
+export interface RbmActionOpenUrl {
+    'type': RbmActionTypeEnum;
+    /**
+     * Displayed text for user to click
+     */
+    'text': string;
+    /**
+     * Base64 payload the customer receives when the reply is clicked.
+     */
+    'postbackData': string;
+    /**
+     * The URL to open in browser.
+     */
+    'url': string;
+    'application'?: RbmOpenUrlEnum;
+    'webviewViewMode'?: RbmWebViewEnum;
+}
 
 
