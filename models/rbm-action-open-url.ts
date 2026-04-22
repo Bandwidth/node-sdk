@@ -29,7 +29,7 @@ import type { RbmWebViewEnum } from './rbm-web-view-enum';
 /**
  * @type RbmActionOpenUrl
  */
-export type RbmActionOpenUrl = {
+export interface RbmActionOpenUrl {
     'type': RbmActionTypeEnum;
     /**
      * Displayed text for user to click
@@ -45,6 +45,6 @@ export type RbmActionOpenUrl = {
     'url': string;
     'application'?: RbmOpenUrlEnum;
     'webviewViewMode'?: RbmWebViewEnum;
-};
+}
 
 

@@ -23,7 +23,7 @@ import type { RbmMessageContentFile } from './rbm-message-content-file';
 /**
  * @type RbmCardContentMedia
  */
-export type RbmCardContentMedia = {
+export interface RbmCardContentMedia {
     /**
      * The URL of the media file. 100MB is the maximum file size.
      */
@@ -33,6 +33,6 @@ export type RbmCardContentMedia = {
      */
     'thumbnailUrl'?: string;
     'height': RbmMediaHeightEnum;
-};
+}
 
 

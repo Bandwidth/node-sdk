@@ -29,7 +29,7 @@ import type { Endpoints } from './endpoints';
 /**
  * @type Endpoint
  */
-export type Endpoint = {
+export interface Endpoint {
     /**
      * The unique ID of the endpoint.
      */
@@ -49,6 +49,6 @@ export type Endpoint = {
      */
     'tag'?: string;
     'devices'?: Array<Device>;
-};
+}
 
 

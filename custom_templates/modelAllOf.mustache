@@ -2,7 +2,7 @@
  * @type {{classname}}{{#description}}
  * {{{.}}}{{/description}}
  */
-export type {{classname}} = {{#allOf}}{{#isModel}}{{{dataType}}}{{/isModel}}{{^isModel}}{{#hasVars}}{
+export interface {{classname}} {
 {{#vars}}
 {{#description}}
     /**
@@ -11,4 +11,4 @@ export type {{classname}} = {{#allOf}}{{#isModel}}{{{dataType}}}{{/isModel}}{{^i
 {{/description}}
     '{{name}}'{{^required}}?{{/required}}: {{{dataType}}};
 {{/vars}}
-}{{/hasVars}}{{/isModel}}{{^-last}} & {{/-last}}{{/allOf}};
+}

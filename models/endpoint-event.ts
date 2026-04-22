@@ -33,7 +33,7 @@ import type { Endpoints } from './endpoints';
  * @type EndpointEvent
  * An event that occurred on an endpoint.
  */
-export type EndpointEvent = {
+export interface EndpointEvent {
     /**
      * The unique ID of the endpoint.
      */
@@ -58,6 +58,6 @@ export type EndpointEvent = {
     'eventTime': string;
     'eventType': EndpointEventTypeEnum;
     'device'?: Device;
-};
+}
 
 

@@ -26,7 +26,7 @@ import type { EndpointTypeEnum } from './endpoint-type-enum';
 /**
  * @type CreateWebRtcConnectionRequest
  */
-export type CreateWebRtcConnectionRequest = {
+export interface CreateWebRtcConnectionRequest {
     'type': EndpointTypeEnum;
     'direction': EndpointDirectionEnum;
     /**
@@ -42,6 +42,6 @@ export type CreateWebRtcConnectionRequest = {
      */
     'tag'?: string;
     'connectionMetadata'?: object;
-};
+}
 
 

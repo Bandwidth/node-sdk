@@ -26,7 +26,7 @@ import type { SmsMessageContent } from './sms-message-content';
 /**
  * @type MultiChannelChannelListSMSObject
  */
-export type MultiChannelChannelListSMSObject = {
+export interface MultiChannelChannelListSMSObject {
     /**
      * The sender ID of the message. This could be an alphanumeric sender ID.
      */
@@ -37,6 +37,6 @@ export type MultiChannelChannelListSMSObject = {
     'applicationId': string;
     'channel': MultiChannelMessageChannelEnum;
     'content': SmsMessageContent;
-};
+}
 
 

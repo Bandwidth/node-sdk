@@ -23,7 +23,7 @@ import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 /**
  * @type RbmActionDial
  */
-export type RbmActionDial = {
+export interface RbmActionDial {
     'type': RbmActionTypeEnum;
     /**
      * Displayed text for user to click
@@ -37,6 +37,6 @@ export type RbmActionDial = {
      * The phone number to dial. Must be E164 format.
      */
     'phoneNumber': string;
-};
+}
 
 

@@ -38,7 +38,7 @@ import type { StatusCallbackMessage } from './status-callback-message';
 /**
  * @type InboundCallbackMessage
  */
-export type InboundCallbackMessage = {
+export interface InboundCallbackMessage {
     /**
      * A unique identifier of the message.
      */
@@ -79,6 +79,6 @@ export type InboundCallbackMessage = {
     'content'?: MultiChannelMessageContent;
     'suggestionResponse'?: RbmSuggestionResponse;
     'locationResponse'?: RbmLocationResponse;
-};
+}
 
 

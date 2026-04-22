@@ -23,7 +23,7 @@ import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 /**
  * @type MultiChannelActionCalendarEvent
  */
-export type MultiChannelActionCalendarEvent = {
+export interface MultiChannelActionCalendarEvent {
     'type': RbmActionTypeEnum;
     /**
      * Displayed text for user to click
@@ -49,6 +49,6 @@ export type MultiChannelActionCalendarEvent = {
      * The description of the event.
      */
     'description'?: string;
-};
+}
 
 

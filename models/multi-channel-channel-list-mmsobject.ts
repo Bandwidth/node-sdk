@@ -26,7 +26,7 @@ import type { MultiChannelMessageChannelEnum } from './multi-channel-message-cha
 /**
  * @type MultiChannelChannelListMMSObject
  */
-export type MultiChannelChannelListMMSObject = {
+export interface MultiChannelChannelListMMSObject {
     /**
      * The sender ID of the message. This could be an alphanumeric sender ID.
      */
@@ -37,6 +37,6 @@ export type MultiChannelChannelListMMSObject = {
     'applicationId': string;
     'channel': MultiChannelMessageChannelEnum;
     'content': MmsMessageContent;
-};
+}
 
 

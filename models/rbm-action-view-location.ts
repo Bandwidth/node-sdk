@@ -23,7 +23,7 @@ import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 /**
  * @type RbmActionViewLocation
  */
-export type RbmActionViewLocation = {
+export interface RbmActionViewLocation {
     'type': RbmActionTypeEnum;
     /**
      * Displayed text for user to click
@@ -45,6 +45,6 @@ export type RbmActionViewLocation = {
      * The label of the location.
      */
     'label'?: string;
-};
+}
 
 
