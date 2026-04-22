@@ -15,14 +15,11 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Error1 } from './error1';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { Link1 } from './link1';
+import type { TelephoneNumber } from './telephone-number';
 
-export interface ErrorResponse {
-    'links': Array<Link1>;
-    'data': object | null;
-    'errors': Array<Error1>;
+export interface WebhookSubscriptionError {
+    'code'?: number;
+    'description'?: string;
+    'telephoneNumbers'?: Array<TelephoneNumber>;
 }
 

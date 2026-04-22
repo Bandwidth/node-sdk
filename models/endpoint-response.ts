@@ -15,17 +15,17 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { BrtcError } from './brtc-error';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { BrtcLink } from './brtc-link';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { Endpoint } from './endpoint';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { Error1 } from './error1';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { Link1 } from './link1';
 
 export interface EndpointResponse {
-    'links': Array<Link1>;
+    'links': Array<BrtcLink>;
     'data': Endpoint;
-    'errors': Array<Error1>;
+    'errors': Array<BrtcError>;
 }
 

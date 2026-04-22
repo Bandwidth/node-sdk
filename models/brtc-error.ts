@@ -15,9 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Error1Source } from './error1-source';
+import type { BrtcErrorSource } from './brtc-error-source';
 
-export interface Error1 {
+export interface BrtcError {
     /**
      * A unique identifier for the error.
      */
@@ -34,6 +34,6 @@ export interface Error1 {
      * A code that uniquely identifies the error.
      */
     'code'?: string;
-    'source'?: Error1Source;
+    'source'?: BrtcErrorSource;
 }
 

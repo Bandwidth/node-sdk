@@ -1,20 +1,20 @@
-# ErrorResponse
+# BrtcErrorResponse
 
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**links** | [**Array&lt;Link1&gt;**](Link1.md) |  | [default to undefined]
+**links** | [**Array&lt;BrtcLink&gt;**](BrtcLink.md) |  | [default to undefined]
 **data** | **object** |  | [default to undefined]
-**errors** | [**Array&lt;Error1&gt;**](Error1.md) |  | [default to undefined]
+**errors** | [**Array&lt;BrtcError&gt;**](BrtcError.md) |  | [default to undefined]
 
 ## Example
 
 ```typescript
-import { ErrorResponse } from 'bandwidth-sdk';
+import { BrtcErrorResponse } from 'bandwidth-sdk';
 
-const instance: ErrorResponse = {
+const instance: BrtcErrorResponse = {
     links,
     data,
     errors,

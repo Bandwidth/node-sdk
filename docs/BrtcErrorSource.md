@@ -1,4 +1,4 @@
-# Error1Source
+# BrtcErrorSource
 
 
 ## Properties
@@ -13,9 +13,9 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Error1Source } from 'bandwidth-sdk';
+import { BrtcErrorSource } from 'bandwidth-sdk';
 
-const instance: Error1Source = {
+const instance: BrtcErrorSource = {
     parameter,
     field,
     header,

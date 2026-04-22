@@ -14,7 +14,7 @@
 
 
 
-export interface Link1 {
+export interface BrtcLink {
     /**
      * The full URL of the link.
      */
@@ -26,15 +26,6 @@ export interface Link1 {
     /**
      * The HTTP method to use when making the request.
      */
-    'method'?: Link1MethodEnum;
+    'method'?: string;
 }
-
-export const Link1MethodEnum = {
-    Get: 'GET',
-    Post: 'POST',
-    Delete: 'DELETE'
-} as const;
-
-export type Link1MethodEnum = typeof Link1MethodEnum[keyof typeof Link1MethodEnum];
-
 

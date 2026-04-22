@@ -14,7 +14,7 @@
 
 
 
-export interface Error1Source {
+export interface BrtcErrorSource {
     /**
      * The URI parameter that caused the error.
      */

@@ -1,4 +1,4 @@
-# Error1
+# BrtcError
 
 
 ## Properties
@@ -9,14 +9,14 @@ Name | Type | Description | Notes
 **type** | **string** | The type of error. | [default to undefined]
 **description** | **string** | A description of the error. | [default to undefined]
 **code** | **string** | A code that uniquely identifies the error. | [optional] [default to undefined]
-**source** | [**Error1Source**](Error1Source.md) |  | [optional] [default to undefined]
+**source** | [**BrtcErrorSource**](BrtcErrorSource.md) |  | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { Error1 } from 'bandwidth-sdk';
+import { BrtcError } from 'bandwidth-sdk';
 
-const instance: Error1 = {
+const instance: BrtcError = {
     id,
     type,
     description,

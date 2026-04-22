@@ -1,4 +1,4 @@
-# Link1
+# BrtcLink
 
 
 ## Properties
@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { Link1 } from 'bandwidth-sdk';
+import { BrtcLink } from 'bandwidth-sdk';
 
-const instance: Link1 = {
+const instance: BrtcLink = {
     href,
     rel,
     method,

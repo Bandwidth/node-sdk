@@ -15,11 +15,14 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { TelephoneNumber } from './telephone-number';
+import type { BrtcError } from './brtc-error';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { BrtcLink } from './brtc-link';
 
-export interface ModelError {
-    'code'?: number;
-    'description'?: string;
-    'telephoneNumbers'?: Array<TelephoneNumber>;
+export interface BrtcErrorResponse {
+    'links': Array<BrtcLink>;
+    'data': object | null;
+    'errors': Array<BrtcError>;
 }
 
