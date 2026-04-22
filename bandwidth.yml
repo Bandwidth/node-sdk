@@ -2161,7 +2161,7 @@ components:
       type: string
       description: >-
         The name of the Authorized Message Provider (AMP) that handled this
-        message. 
+        message.
 
         In the US, this is the carrier that the message was sent to.
 
@@ -2248,7 +2248,7 @@ components:
           description: >-
             Either an alphanumeric sender ID or the sender's Bandwidth phone
             number in E.164 format, which must be hosted within Bandwidth and
-            linked to the account that is generating the message. 
+            linked to the account that is generating the message.
 
             Alphanumeric Sender IDs can contain up to 11 characters, upper-case
             letters A-Z, lower-case letters a-z, numbers 0-9, space, hyphen -,
@@ -2571,8 +2571,8 @@ components:
         Specifies how the URL should be opened on a mobile device.
 
         - `BROWSER` Opens the URL in the device's default browser. If
-        application is not set or the device doesn’t support WebView, this
-        option is used by default. 
+        application is not set or the device doesn't support WebView, this
+        option is used by default.
 
         - `WEBVIEW` Opens the URL in an in-app WebView.
       enum:
@@ -2585,7 +2585,7 @@ components:
         Defines the layout of the WebView on a mobile device. It must be defined
         when application is set to `WEBVIEW`
 
-        - `FULL` WebView takes the full screen. 
+        - `FULL` WebView takes the full screen.
 
         - `HALF` WebView takes half of the screen.
 
@@ -2987,7 +2987,7 @@ components:
         to:
           type: string
           description: >
-            The destination phone number the message was sent to. 
+            The destination phone number the message was sent to.
 
             For inbound callbacks, this is the Bandwidth number or alphanumeric
             identifier that received the message.
@@ -3038,7 +3038,7 @@ components:
         client to a Bandwidth number.
 
         - `request-location-response` indicates a response to a location request
-        sent by the Bandwidth user's client after receiving an RBM message. 
+        sent by the Bandwidth user's client after receiving an RBM message.
 
         - `suggestion-response` indicates a response to a suggestion sent by the
         Bandwidth user's client after receiving an RBM message.
@@ -3277,7 +3277,7 @@ components:
           nullable: true
           type: string
           description: >-
-            The caller display name to use when the call is created. 
+            The caller display name to use when the call is created.
 
             May not exceed 256 characters nor contain control characters such as
             new lines.
@@ -4214,7 +4214,7 @@ components:
           format: double
           description: >-
             When an answering machine is detected, the amount of silence (in
-            seconds) before assuming the message has finished playing. 
+            seconds) before assuming the message has finished playing.
 
             If not provided it will default to the speechEndThreshold value.
           example: 5
@@ -9627,12 +9627,12 @@ components:
             required: true
             description: >-
               <p>This Inbound Message Webhook is an envelope containing either a
-              received (MO) message to your 
+              received (MO) message to your
 
               message-enabled Bandwidth telephone number or a multichannel
-              client's response to a suggestion response 
+              client's response to a suggestion response
 
-              or location request. 
+              or location request.
 
               <p>The payload type will be one of <code>message-received</code>,
               <code>suggestion-response</code>, or

@@ -44,7 +44,7 @@ export interface StatusCallback {
      */
     'errorCode'?: number;
     /**
-     * The name of the Authorized Message Provider (AMP) that handled this message.  In the US, this is the carrier that the message was sent to. This field is present only when this account feature has been enabled.
+     * The name of the Authorized Message Provider (AMP) that handled this message. In the US, this is the carrier that the message was sent to. This field is present only when this account feature has been enabled.
      */
     'carrierName'?: string;
 }
