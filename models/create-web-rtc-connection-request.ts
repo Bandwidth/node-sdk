@@ -26,6 +26,22 @@ import type { EndpointTypeEnum } from './endpoint-type-enum';
 /**
  * @type CreateWebRtcConnectionRequest
  */
-export type CreateWebRtcConnectionRequest = CreateEndpointRequestBase;
+export type CreateWebRtcConnectionRequest = {
+    'type': EndpointTypeEnum;
+    'direction': EndpointDirectionEnum;
+    /**
+     * The URL to send event callbacks to.
+     */
+    'eventCallbackUrl'?: string;
+    /**
+     * The URL to send event fallbacks to.
+     */
+    'eventFallbackUrl'?: string;
+    /**
+     * A tag for the endpoint.
+     */
+    'tag'?: string;
+    'connectionMetadata'?: object;
+};
 
 

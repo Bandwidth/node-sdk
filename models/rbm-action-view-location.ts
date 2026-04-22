@@ -23,6 +23,28 @@ import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 /**
  * @type RbmActionViewLocation
  */
-export type RbmActionViewLocation = RbmActionBase;
+export type RbmActionViewLocation = {
+    'type': RbmActionTypeEnum;
+    /**
+     * Displayed text for user to click
+     */
+    'text': string;
+    /**
+     * Base64 payload the customer receives when the reply is clicked.
+     */
+    'postbackData': string;
+    /**
+     * The latitude of the location.
+     */
+    'latitude': number;
+    /**
+     * The longitude of the location.
+     */
+    'longitude': number;
+    /**
+     * The label of the location.
+     */
+    'label'?: string;
+};
 
 

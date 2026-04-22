@@ -38,6 +38,47 @@ import type { StatusCallbackMessage } from './status-callback-message';
 /**
  * @type InboundCallbackMessage
  */
-export type InboundCallbackMessage = StatusCallbackMessage;
+export type InboundCallbackMessage = {
+    /**
+     * A unique identifier of the message.
+     */
+    'id': string;
+    /**
+     * The Bandwidth phone number or alphanumeric identifier associated with the message.
+     */
+    'owner': string;
+    /**
+     * The ID of the Application your from number or senderId is associated with in the Bandwidth App.
+     */
+    'applicationId': string;
+    'time': string;
+    /**
+     * The number of segments the user\'s message is broken into before sending over carrier networks.
+     */
+    'segmentCount': number;
+    'direction': MessageDirectionEnum;
+    /**
+     * The phone number recipients of the message.
+     */
+    'to': Set<string>;
+    /**
+     * The Bandwidth phone number or alphanumeric identifier the message was sent from.
+     */
+    'from': string;
+    'text'?: string;
+    /**
+     * A custom string that will be included in callback events of the message. Max 1024 characters.
+     */
+    'tag'?: string;
+    /**
+     * Optional media, not applicable for sms
+     */
+    'media'?: Array<string>;
+    'priority'?: PriorityEnum;
+    'channel'?: MultiChannelMessageChannelEnum;
+    'content'?: MultiChannelMessageContent;
+    'suggestionResponse'?: RbmSuggestionResponse;
+    'locationResponse'?: RbmLocationResponse;
+};
 
 

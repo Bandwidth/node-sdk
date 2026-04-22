@@ -29,6 +29,36 @@ import type { SmsMessageContent } from './sms-message-content';
 /**
  * @type MultiChannelChannelListSMSResponseObject
  */
-export type MultiChannelChannelListSMSResponseObject = MultiChannelChannelListOwnerObject & MultiChannelChannelListSMSObject;
+export type MultiChannelChannelListSMSResponseObject = {
+    /**
+     * The sender ID of the message. This could be an alphanumeric sender ID.
+     */
+    'from': string;
+    /**
+     * The ID of the Application your from number or senderId is associated with in the Bandwidth App.
+     */
+    'applicationId': string;
+    'channel': MultiChannelMessageChannelEnum;
+    'content': SmsMessageContent;
+    /**
+     * The Bandwidth senderId associated with the message. Identical to \'from\'.
+     */
+    'owner': string;
+} & {
+    /**
+     * The sender ID of the message. This could be an alphanumeric sender ID.
+     */
+    'from': string;
+    /**
+     * The ID of the Application your from number or senderId is associated with in the Bandwidth App.
+     */
+    'applicationId': string;
+    'channel': MultiChannelMessageChannelEnum;
+    'content': SmsMessageContent;
+    /**
+     * The Bandwidth senderId associated with the message. Identical to \'from\'.
+     */
+    'owner': string;
+};
 
 

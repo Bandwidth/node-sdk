@@ -23,6 +23,32 @@ import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 /**
  * @type MultiChannelActionCalendarEvent
  */
-export type MultiChannelActionCalendarEvent = RbmActionBase;
+export type MultiChannelActionCalendarEvent = {
+    'type': RbmActionTypeEnum;
+    /**
+     * Displayed text for user to click
+     */
+    'text': string;
+    /**
+     * Base64 payload the customer receives when the reply is clicked.
+     */
+    'postbackData': string;
+    /**
+     * The title of the event.
+     */
+    'title': string;
+    /**
+     * The start time of the event.
+     */
+    'startTime': string;
+    /**
+     * The end time of the event.
+     */
+    'endTime': string;
+    /**
+     * The description of the event.
+     */
+    'description'?: string;
+};
 
 

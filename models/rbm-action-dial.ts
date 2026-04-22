@@ -23,6 +23,20 @@ import type { RbmActionTypeEnum } from './rbm-action-type-enum';
 /**
  * @type RbmActionDial
  */
-export type RbmActionDial = RbmActionBase;
+export type RbmActionDial = {
+    'type': RbmActionTypeEnum;
+    /**
+     * Displayed text for user to click
+     */
+    'text': string;
+    /**
+     * Base64 payload the customer receives when the reply is clicked.
+     */
+    'postbackData': string;
+    /**
+     * The phone number to dial. Must be E164 format.
+     */
+    'phoneNumber': string;
+};
 
 

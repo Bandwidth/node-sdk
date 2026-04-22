@@ -26,6 +26,17 @@ import type { MultiChannelMessageChannelEnum } from './multi-channel-message-cha
 /**
  * @type MultiChannelChannelListRBMObject
  */
-export type MultiChannelChannelListRBMObject = MultiChannelChannelListObjectBase;
+export type MultiChannelChannelListRBMObject = {
+    /**
+     * The sender ID of the message. This could be an alphanumeric sender ID.
+     */
+    'from': string;
+    /**
+     * The ID of the Application your from number or senderId is associated with in the Bandwidth App.
+     */
+    'applicationId': string;
+    'channel': MultiChannelMessageChannelEnum;
+    'content': MultiChannelChannelListRBMObjectAllOfContent;
+};
 
 

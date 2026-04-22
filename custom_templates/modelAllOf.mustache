@@ -1,0 +1,14 @@
+/**
+ * @type {{classname}}{{#description}}
+ * {{{.}}}{{/description}}
+ */
+export type {{classname}} = {{#allOf}}{{#isModel}}{{{dataType}}}{{/isModel}}{{^isModel}}{{#hasVars}}{
+{{#vars}}
+{{#description}}
+    /**
+     * {{{.}}}
+     */
+{{/description}}
+    '{{name}}'{{^required}}?{{/required}}: {{{dataType}}};
+{{/vars}}
+}{{/hasVars}}{{/isModel}}{{^-last}} & {{/-last}}{{/allOf}};
