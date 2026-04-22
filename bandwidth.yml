@@ -5958,7 +5958,7 @@ components:
           format: date
           description: >-
             [DNI-Only](#section/DNI-Only). The date the phone number entered the
-            status described in `latestMessageDeliveryStatus`. 
+            status described in `latestMessageDeliveryStatus`.
 
             Think of this as the "start time" for that status.
 
