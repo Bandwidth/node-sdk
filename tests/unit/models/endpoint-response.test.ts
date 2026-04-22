@@ -4,14 +4,16 @@ import { Device } from '../../../models/device';
 import { DeviceStatusEnum } from '../../../models/device-status-enum';
 import { EndpointStatusEnum } from '../../../models/endpoint-status-enum';
 import { EndpointTypeEnum } from '../../../models/endpoint-type-enum';
-import { Link } from '../../../models/link';
-import { ModelError } from '../../../models/model-error';
+import { BrtcLink } from '../../../models/brtc-link';
+import { BrtcError } from '../../../models/brtc-error';
+import { BrtcErrorSource } from '../../../models/brtc-error-source';
 
 describe('EndpointResponse', () => {
     test('should create an endpoint response with all fields', () => {
-        const link: Link = {
+        const link: BrtcLink = {
+            href: 'http://api.example.com/endpoints/ep-123456',
             rel: 'self',
-            href: 'http://api.example.com/endpoints/ep-123456'
+            method: 'GET'
         };
 
         const devices: Device[] = [
@@ -33,9 +35,19 @@ describe('EndpointResponse', () => {
             devices
         };
 
-        const error: ModelError = {
-            code: 400,
-            description: 'Invalid endpoint configuration'
+        const source: BrtcErrorSource = {
+            parameter: 'endpointId',
+            field: 'id',
+            header: 'Authorization',
+            reference: '/endpoints/ep-123456'
+        };
+
+        const error: BrtcError = {
+            id: 'err-400',
+            type: 'validation-error',
+            description: 'Invalid endpoint configuration',
+            code: '400',
+            source
         };
 
         const response: EndpointResponse = {
@@ -45,8 +57,9 @@ describe('EndpointResponse', () => {
         };
 
         expect(response.links).toHaveLength(1);
-        expect(response.links[0].rel).toBe('self');
         expect(response.links[0].href).toBe('http://api.example.com/endpoints/ep-123456');
+        expect(response.links[0].rel).toBe('self');
+        expect(response.links[0].method).toBe('GET');
         expect(response.data.endpointId).toBe('ep-123456');
         expect(response.data.type).toBe(EndpointTypeEnum.Webrtc);
         expect(response.data.status).toBe(EndpointStatusEnum.Connected);
@@ -59,7 +72,13 @@ describe('EndpointResponse', () => {
         expect(response.data.devices![0].status).toBe(DeviceStatusEnum.Connected);
         expect(response.data.devices![0].creationTimestamp).toBe('2024-02-18T10:31:00Z');
         expect(response.errors).toHaveLength(1);
-        expect(response.errors[0].code).toBe(400);
+        expect(response.errors[0].id).toBe('err-400');
+        expect(response.errors[0].type).toBe('validation-error');
         expect(response.errors[0].description).toBe('Invalid endpoint configuration');
+        expect(response.errors[0].code).toBe('400');
+        expect(response.errors[0].source?.parameter).toBe('endpointId');
+        expect(response.errors[0].source?.field).toBe('id');
+        expect(response.errors[0].source?.header).toBe('Authorization');
+        expect(response.errors[0].source?.reference).toBe('/endpoints/ep-123456');
     });
 });
