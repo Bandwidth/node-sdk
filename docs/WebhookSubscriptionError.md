@@ -1,4 +1,4 @@
-# ModelError
+# WebhookSubscriptionError
 
 
 ## Properties
@@ -12,9 +12,9 @@ Name | Type | Description | Notes
 ## Example
 
 ```typescript
-import { ModelError } from 'bandwidth-sdk';
+import { WebhookSubscriptionError } from 'bandwidth-sdk';
 
-const instance: ModelError = {
+const instance: WebhookSubscriptionError = {
     code,
     description,
     telephoneNumbers,

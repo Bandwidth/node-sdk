@@ -22,6 +22,8 @@ import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObj
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
+import type { BrtcErrorResponse } from '../models';
+// @ts-ignore
 import type { CreateEndpointResponse } from '../models';
 // @ts-ignore
 import type { CreateWebRtcConnectionRequest } from '../models';
@@ -31,8 +33,6 @@ import type { EndpointResponse } from '../models';
 import type { EndpointStatusEnum } from '../models';
 // @ts-ignore
 import type { EndpointTypeEnum } from '../models';
-// @ts-ignore
-import type { ErrorResponse } from '../models';
 // @ts-ignore
 import type { ListEndpointsResponse } from '../models';
 /**

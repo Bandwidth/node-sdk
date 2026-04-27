@@ -2,15 +2,17 @@ import { ListEndpointsResponse } from '../../../models/list-endpoints-response';
 import { Endpoints } from '../../../models/endpoints';
 import { EndpointStatusEnum } from '../../../models/endpoint-status-enum';
 import { EndpointTypeEnum } from '../../../models/endpoint-type-enum';
-import { Link } from '../../../models/link';
+import { BrtcLink } from '../../../models/brtc-link';
+import { BrtcError } from '../../../models/brtc-error';
+import { BrtcErrorSource } from '../../../models/brtc-error-source';
 import { Page } from '../../../models/page';
-import { ModelError } from '../../../models/model-error';
 
 describe('ListEndpointsResponse', () => {
     test('should create a list endpoints response with all fields', () => {
-        const link: Link = {
+        const link: BrtcLink = {
+            href: 'http://api.example.com/endpoints?page=1',
             rel: 'self',
-            href: 'http://api.example.com/endpoints?page=1'
+            method: 'GET'
         };
 
         const page: Page = {
@@ -38,9 +40,19 @@ describe('ListEndpointsResponse', () => {
             }
         ];
 
-        const error: ModelError = {
-            code: 500,
-            description: 'Internal server error'
+        const source: BrtcErrorSource = {
+            parameter: 'page',
+            field: 'pageNumber',
+            header: 'Authorization',
+            reference: '/endpoints'
+        };
+
+        const error: BrtcError = {
+            id: 'err-500',
+            type: 'internal-error',
+            description: 'Internal server error',
+            code: '500',
+            source
         };
 
         const response: ListEndpointsResponse = {
@@ -51,8 +63,9 @@ describe('ListEndpointsResponse', () => {
         };
 
         expect(response.links).toHaveLength(1);
-        expect(response.links[0].rel).toBe('self');
         expect(response.links[0].href).toBe('http://api.example.com/endpoints?page=1');
+        expect(response.links[0].rel).toBe('self');
+        expect(response.links[0].method).toBe('GET');
         expect(response.page).toBeDefined();
         expect(response.page?.pageSize).toBe(10);
         expect(response.page?.pageNumber).toBe(1);
@@ -69,7 +82,13 @@ describe('ListEndpointsResponse', () => {
         expect(new Date(response.data[1].expirationTimestamp).getFullYear()).toBe(2024);
         expect(new Date(response.data[1].expirationTimestamp).toISOString()).toBe('2024-02-19T10:30:00.000Z');
         expect(response.errors).toHaveLength(1);
-        expect(response.errors[0].code).toBe(500);
+        expect(response.errors[0].id).toBe('err-500');
+        expect(response.errors[0].type).toBe('internal-error');
         expect(response.errors[0].description).toBe('Internal server error');
+        expect(response.errors[0].code).toBe('500');
+        expect(response.errors[0].source?.parameter).toBe('page');
+        expect(response.errors[0].source?.field).toBe('pageNumber');
+        expect(response.errors[0].source?.header).toBe('Authorization');
+        expect(response.errors[0].source?.reference).toBe('/endpoints');
     });
 });

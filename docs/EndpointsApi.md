@@ -67,7 +67,7 @@ const { status, data } = await apiInstance.createEndpoint(
 |**404** | Not Found |  -  |
 |**405** | Method Not Allowed |  -  |
 |**415** | Unsupported Media Type |  -  |
-|**429** | Too Many Requests |  -  |
+|**429** | Too Many Requests |  * Retry-After - The number of seconds the client should wait before making another request. <br>  |
 |**500** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -129,7 +129,7 @@ void (empty response body)
 |**404** | Not Found |  -  |
 |**405** | Method Not Allowed |  -  |
 |**415** | Unsupported Media Type |  -  |
-|**429** | Too Many Requests |  -  |
+|**429** | Too Many Requests |  * Retry-After - The number of seconds the client should wait before making another request. <br>  |
 |**500** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -191,7 +191,7 @@ const { status, data } = await apiInstance.getEndpoint(
 |**404** | Not Found |  -  |
 |**405** | Method Not Allowed |  -  |
 |**415** | Unsupported Media Type |  -  |
-|**429** | Too Many Requests |  -  |
+|**429** | Too Many Requests |  * Retry-After - The number of seconds the client should wait before making another request. <br>  |
 |**500** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -262,7 +262,7 @@ const { status, data } = await apiInstance.listEndpoints(
 |**404** | Not Found |  -  |
 |**405** | Method Not Allowed |  -  |
 |**415** | Unsupported Media Type |  -  |
-|**429** | Too Many Requests |  -  |
+|**429** | Too Many Requests |  * Retry-After - The number of seconds the client should wait before making another request. <br>  |
 |**500** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -327,7 +327,7 @@ void (empty response body)
 |**404** | Not Found |  -  |
 |**405** | Method Not Allowed |  -  |
 |**415** | Unsupported Media Type |  -  |
-|**429** | Too Many Requests |  -  |
+|**429** | Too Many Requests |  * Retry-After - The number of seconds the client should wait before making another request. <br>  |
 |**500** | Service Unavailable |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)

@@ -90,7 +90,7 @@ export interface CreateCall {
      */
     'priority'?: number | null;
     /**
-     * A custom string that will be sent with all webhooks for this call unless overwritten by a future <a href=\'/docs/voice/bxml/tag\'>`<Tag>`</a> verb or `tag` attribute on another verb, or cleared.  May be cleared by setting `tag=\"\"`  Max length 256 characters.
+     * A custom string that will be sent with all webhooks for this call unless overwritten by a future <a href=\'/docs/voice/bxml/tag\'>`<Tag>`</a> verb or `tag` attribute on another verb, or cleared.  May be cleared by setting `tag=\"\"`  Max length 4096 characters.
      */
     'tag'?: string | null;
 }

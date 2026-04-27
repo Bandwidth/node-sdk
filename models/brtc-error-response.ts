@@ -15,14 +15,14 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
-import type { Link } from './link';
+import type { BrtcError } from './brtc-error';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { ModelError } from './model-error';
+import type { BrtcLink } from './brtc-link';
 
-export interface ErrorResponse {
-    'links': Array<Link>;
+export interface BrtcErrorResponse {
+    'links': Array<BrtcLink>;
     'data': object | null;
-    'errors': Array<ModelError>;
+    'errors': Array<BrtcError>;
 }
 
