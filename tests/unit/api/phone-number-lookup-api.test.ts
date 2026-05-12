@@ -40,7 +40,10 @@ describe('PhoneNumberLookupApi', () => {
 
     describe('createSyncLookup', () => {
         test('should create a sync lookup', async () => {
-            const request: SyncLookupRequest = { phoneNumbers };
+            const request: SyncLookupRequest = {
+                phoneNumbers,
+                rcsAgent: 'TestAgent'
+            };
 
             const { status, data } = await phoneNumberLookupApi.createSyncLookup(BW_ACCOUNT_ID, request);
 
