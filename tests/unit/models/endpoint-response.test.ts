@@ -63,8 +63,8 @@ describe('EndpointResponse', () => {
         expect(response.data.endpointId).toBe('ep-123456');
         expect(response.data.type).toBe(EndpointTypeEnum.Webrtc);
         expect(response.data.status).toBe(EndpointStatusEnum.Connected);
-        expect(new Date(response.data.creationTimestamp).getFullYear()).toBe(2024);
-        expect(new Date(response.data.expirationTimestamp).getFullYear()).toBe(2024);
+        expect(response.data.creationTimestamp).toBe('2024-02-18T10:30:00Z');
+        expect(response.data.expirationTimestamp).toBe('2024-02-19T10:30:00Z');
         expect(response.data.tag).toBe('test-endpoint');
         expect(response.data.devices).toHaveLength(1);
         expect(response.data.devices![0].deviceId).toBe('dev-1');
