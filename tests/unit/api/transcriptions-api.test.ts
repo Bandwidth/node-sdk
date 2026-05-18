@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { TranscriptionsApi } from "../../../api";
 import { Configuration } from "../../../configuration";
 import { CallTranscriptionDetectedLanguageEnum, CallTranscriptionTrackEnum } from "../../../models";

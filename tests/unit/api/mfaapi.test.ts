@@ -1,4 +1,4 @@
-//@ts-nocheck
+import axios from 'axios';
 import { MFAApi } from '../../../api';
 import { Configuration } from '../../../configuration';
 import { CodeRequest, VerifyCodeRequest } from '../../../models';
@@ -66,10 +66,14 @@ describe('MFAApi', () => {
 
     describe('HTTP Errors', () => {
         test('400', async () => {
+            expect.assertions(1);
             try {
+                // @ts-expect-error intentionally empty body to trigger 400
                 await mfaApi.generateMessagingCode(BW_ACCOUNT_ID, {});
             } catch (e) {
-                expect(e.response.status).toEqual(400);
+                if (axios.isAxiosError(e)) {
+                    expect(e.response?.status).toEqual(400);
+                }
             }
         });
     });

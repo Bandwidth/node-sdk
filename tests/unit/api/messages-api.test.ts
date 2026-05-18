@@ -1,4 +1,4 @@
-//@ts-nocheck
+import axios from 'axios';
 import { MessagesApi } from '../../../api';
 import { Configuration } from '../../../configuration';
 import {
@@ -46,9 +46,11 @@ describe('MessagesApi', () => {
             expect(data.segmentCount).toBeInteger();
             expect(data.direction).toBeOneOf(Object.values(MessageDirectionEnum));
             expect(data.to).toBeInstanceOf(Array);
+            // @ts-expect-error SWI-11047: typed as Set<T> but runtime is Array<T>
             expect(data.to![0]).toHaveLength(12);
             expect(data.from).toHaveLength(12);
             expect(data.media).toBeInstanceOf(Array);
+            // @ts-expect-error SWI-11047: typed as Set<T> but runtime is Array<T>
             expect(data.media![0]).toStartWith('http');
             expect(data.text).toBeString();
             expect(data.tag).toBeString();
@@ -98,21 +100,28 @@ describe('MessagesApi', () => {
 
     describe('HTTP Errors', () => {
         test('400', async () => {
+            expect.assertions(1);
             try {
+                // @ts-expect-error intentionally empty body to trigger 400
                 await messagesApi.createMessage(BW_ACCOUNT_ID, {});
             } catch (e) {
-                expect(e.response.status).toEqual(400);
+                if (axios.isAxiosError(e)) {
+                    expect(e.response?.status).toEqual(400);
+                }
             }
         });
 
         test('401', async () => {
+            expect.assertions(1);
             const unauthorizedConfig = new Configuration({ basePath: 'http://127.0.0.1:4010' });
             const unauthorizedMessagesApi = new MessagesApi(unauthorizedConfig);
-            
+
             try {
                 await unauthorizedMessagesApi.listMessages(BW_ACCOUNT_ID);
             } catch (e) {
-                expect(e.response.status).toEqual(401);
+                if (axios.isAxiosError(e)) {
+                    expect(e.response?.status).toEqual(401);
+                }
             }
         });
     });
