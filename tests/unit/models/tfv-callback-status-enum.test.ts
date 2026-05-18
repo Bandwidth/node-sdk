@@ -4,5 +4,9 @@ describe('TfvCallbackStatusEnum', () => {
     test('should define the expected values', () => {
         expect(TfvCallbackStatusEnum.Verified).toBe('VERIFIED');
         expect(TfvCallbackStatusEnum.Unverified).toBe('UNVERIFIED');
+        expect(Object.values(TfvCallbackStatusEnum)).toEqual([
+            'VERIFIED',
+            'UNVERIFIED'
+        ]);
     });
 });
