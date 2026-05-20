@@ -6,6 +6,12 @@ describe('LineTypeEnum', () => {
         expect(LineTypeEnum.VoipFixed).toBe('VOIP-FIXED');
         expect(LineTypeEnum.Mobile).toBe('MOBILE');
         expect(LineTypeEnum.Voip).toBe('VOIP');
+        expect(Object.values(LineTypeEnum)).toEqual([
+            'FIXED',
+            'VOIP-FIXED',
+            'MOBILE',
+            'VOIP'
+        ]);
     });
 });
 

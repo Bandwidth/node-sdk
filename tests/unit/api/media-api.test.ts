@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { MediaApi } from '../../../api';
 import { Configuration } from '../../../configuration';
 
@@ -18,6 +17,7 @@ describe('MediaApi', () => {
             const { status } = await mediaApi.uploadMedia(
                 BW_ACCOUNT_ID,
                 binaryMediaName,
+                // @ts-expect-error SDK types body as File but axios/API accept strings
                 binaryMediaData,
                 undefined,
                 undefined,

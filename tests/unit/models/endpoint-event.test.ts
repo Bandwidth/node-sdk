@@ -27,14 +27,12 @@ describe('EndpointEvent', () => {
         };
 
         expect(event.endpointId).toBe('ep-123456');
-        expect(event.type).toBe('WEBRTC');
-        expect(event.status).toBe('CONNECTED');
-        expect(new Date(event.creationTimestamp).getFullYear()).toBe(2024);
-        expect(new Date(event.creationTimestamp).toISOString()).toBe('2024-02-18T10:30:00.000Z');
-        expect(new Date(event.expirationTimestamp).getFullYear()).toBe(2024);
-        expect(new Date(event.expirationTimestamp).toISOString()).toBe('2024-02-19T10:30:00.000Z');
+        expect(event.type).toBe(EndpointTypeEnum.Webrtc);
+        expect(event.status).toBe(EndpointStatusEnum.Connected);
+        expect(event.creationTimestamp).toBe('2024-02-18T10:30:00Z');
+        expect(event.expirationTimestamp).toBe('2024-02-19T10:30:00Z');
         expect(event.tag).toBe('test-event');
-        expect(new Date(event.eventTime).toISOString()).toBe('2024-02-18T10:35:00.000Z');
+        expect(event.eventTime).toBe('2024-02-18T10:35:00Z');
         expect(event.eventType).toBe(EndpointEventTypeEnum.DeviceConnected);
         expect(event.device?.deviceId).toBe('dev-1');
         expect(event.device?.deviceName).toBe('Chrome Browser');

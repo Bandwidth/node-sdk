@@ -62,12 +62,12 @@ describe('CreateEndpointResponse', () => {
         expect(response.links[0].rel).toBe('self');
         expect(response.links[0].method).toBe('POST');
         expect(response.data.endpointId).toBe('ep-123456');
-        expect(response.data.type).toBe('WEBRTC');
-        expect(response.data.status).toBe('CONNECTED');
+        expect(response.data.type).toBe(EndpointTypeEnum.Webrtc);
+        expect(response.data.status).toBe(EndpointStatusEnum.Connected);
         expect(response.data.token).toBe('xxxxx.yyyyy.zzzzz');
         expect(response.data.tag).toBe('webrtc-endpoint');
-        expect(new Date(response.data.creationTimestamp).getFullYear()).toBe(2024);
-        expect(new Date(response.data.expirationTimestamp).getFullYear()).toBe(2024);
+        expect(response.data.creationTimestamp).toBe('2024-02-18T10:30:00Z');
+        expect(response.data.expirationTimestamp).toBe('2024-02-19T10:30:00Z');
         expect(response.data.devices).toHaveLength(1);
         expect(response.data.devices![0].deviceId).toBe('dev-1');
         expect(response.data.devices![0].deviceName).toBe('Chrome Browser');

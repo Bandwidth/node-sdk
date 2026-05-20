@@ -1,7 +1,11 @@
-//@ts-nocheck
 import { EndpointsApi } from '../../../api';
 import { Configuration } from '../../../configuration';
-import { CreateWebRtcConnectionRequest, EndpointDirectionEnum, EndpointStatusEnum, EndpointTypeEnum } from '../../../models';
+import {
+    CreateWebRtcConnectionRequest,
+    EndpointDirectionEnum,
+    EndpointStatusEnum,
+    EndpointTypeEnum
+} from '../../../models';
 
 describe('EndpointsApi', () => {
     const config = new Configuration({
@@ -51,10 +55,10 @@ describe('EndpointsApi', () => {
             expect(data.links[0].href).toBeString();
             expect(data.data).toBeInstanceOf(Array);
             expect(data.page).toBeDefined();
-            expect(data.page.pageSize).toBeNumber();
-            expect(data.page.pageNumber).toBeNumber();
-            expect(data.page.totalPages).toBeNumber();
-            expect(data.page.totalElements).toBeNumber();
+            expect(data.page!.pageSize).toBeNumber();
+            expect(data.page!.pageNumber).toBeNumber();
+            expect(data.page!.totalPages).toBeNumber();
+            expect(data.page!.totalElements).toBeNumber();
             expect(data.errors).toBeInstanceOf(Array);
 
             expect(data.data.length).toBeGreaterThan(0);

@@ -1,7 +1,15 @@
-//@ts-nocheck
 import { TollFreeVerificationApi } from '../../../api';
 import { Configuration } from '../../../configuration';
-import { BusinessEntityTypeEnum, BusinessRegistrationIssuingCountryEnum, BusinessRegistrationTypeEnum, CallbackTypeEnum, TfvStatusEnum, WebhookSubscriptionTypeEnum } from '../../../models';
+import {
+    BusinessEntityTypeEnum,
+    BusinessRegistrationTypeEnum,
+    TfvStatusEnum,
+    TfvSubmissionWrapper,
+    VerificationRequest,
+    WebhookSubscriptionRequestSchema,
+    WebhookSubscriptionTypeEnum
+    
+} from '../../../models';
 
 describe('TollFreeVerificationApi', () => {
     const config = new Configuration({
@@ -11,7 +19,7 @@ describe('TollFreeVerificationApi', () => {
     });
     const tfvApi = new TollFreeVerificationApi(config);
 
-    const webhookSubscriptionRequestSchema = {
+    const webhookSubscriptionRequestSchema: WebhookSubscriptionRequestSchema = {
         basicAuthentication: {
             username: 'username',
             password: 'password'
@@ -90,25 +98,25 @@ describe('TollFreeVerificationApi', () => {
             expect(data.links!.previous).toBeString();
             expect(data.links!.last).toBeString();
             expect(data.errors).toBeInstanceOf(Array);
-            expect(data.errors[0]!.code).toBeNumber();
-            expect(data.errors[0]!.description).toBeString();
-            expect(data.errors[0]!.telephoneNumbers).toBeInstanceOf(Array);
-            expect(data.errors[0]!.telephoneNumbers[0].telephoneNumber).toBeString();
+            expect(data.errors![0]!.code).toBeNumber();
+            expect(data.errors![0]!.description).toBeString();
+            expect(data.errors![0]!.telephoneNumbers).toBeInstanceOf(Array);
+            expect(data.errors![0]!.telephoneNumbers![0].telephoneNumber).toBeString();
             expect(data.data).toBeInstanceOf(Array);
-            expect(data.data[0]!.id).toBeString();
-            expect(data.data[0]!.accountId).toBeString();
-            expect(data.data[0]!.callbackUrl).toBeString();
-            expect(data.data[0]!.type).toBeOneOf(Object.values(WebhookSubscriptionTypeEnum));
-            expect(data.data[0]!.basicAuthentication.username).toBeString();
-            expect(data.data[0]!.basicAuthentication.password).toBeString();
-            expect(data.data[0]!.createdDate).toBeDateString();
-            expect(data.data[0]!.modifiedDate).toBeDateString();
+            expect(data.data![0]!.id).toBeString();
+            expect(data.data![0]!.accountId).toBeString();
+            expect(data.data![0]!.callbackUrl).toBeString();
+            expect(data.data![0]!.type).toBeOneOf(Object.values(WebhookSubscriptionTypeEnum));
+            expect(data.data![0]!.basicAuthentication!.username).toBeString();
+            expect(data.data![0]!.basicAuthentication!.password).toBeString();
+            expect(data.data![0]!.createdDate).toBeDateString();
+            expect(data.data![0]!.modifiedDate).toBeDateString();
         });
     });
 
     describe('requestTollFreeVerification', () => {
         test('should request toll-free verification', async () => {
-            const verificationRequest = {
+            const verificationRequest: VerificationRequest = {
                 businessAddress: {
                     name: 'name',
                     addr1: 'addr1',
@@ -154,7 +162,7 @@ describe('TollFreeVerificationApi', () => {
 
     describe('updateTollFreeVerificationRequest', () => {
         test('should update toll-free verification request', async () => {
-            const tfvSubmissionWrapper = {
+            const tfvSubmissionWrapper: TfvSubmissionWrapper = {
                 submission: undefined
             };
             const { status } = await tfvApi.updateTollFreeVerificationRequest(BW_ACCOUNT_ID, '+18005551234', tfvSubmissionWrapper);

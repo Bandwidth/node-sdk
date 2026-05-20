@@ -1,7 +1,12 @@
-//@ts-nocheck
 import { RecordingsApi } from "../../../api";
 import { Configuration } from "../../../configuration";
-import { CallDirectionEnum, FileFormatEnum, RecordingStateEnum } from "../../../models";
+import {
+    CallDirectionEnum,
+    FileFormatEnum,
+    RecordingStateEnum,
+    TranscribeRecording,
+    UpdateCallRecording
+} from "../../../models";
 
 describe('RecordingsApi', () => {
     const config = new Configuration({
@@ -16,7 +21,7 @@ describe('RecordingsApi', () => {
 
     describe('updateCallRecordingState', () => {
         test('should update call recording state', async () => {
-            const pauseRecording = { state: RecordingStateEnum.Paused };
+            const pauseRecording: UpdateCallRecording = { state: RecordingStateEnum.Paused };
 
             const { status } =
                 await recordingsApi.updateCallRecordingState(BW_ACCOUNT_ID, callId, pauseRecording);
@@ -130,7 +135,7 @@ describe('RecordingsApi', () => {
 
     describe('transcribeCallRecording', () => {
         test('should create a transcription request', async () => {
-            const transcribeRecording = {
+            const transcribeRecording: TranscribeRecording = {
                 callbackUrl: `${MANTECA_BASE_URL}/transcriptions`,
                 tag: callId
             };

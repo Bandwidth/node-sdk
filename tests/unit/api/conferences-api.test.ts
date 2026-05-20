@@ -1,4 +1,3 @@
-//@ts-nocheck
 import { ConferencesApi } from '../../../api';
 import { Configuration } from '../../../configuration';
 import {

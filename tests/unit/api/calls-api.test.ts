@@ -1,4 +1,4 @@
-//@ts-nocheck
+import axios from 'axios';
 import { CallsApi } from '../../../api';
 import { Configuration } from '../../../configuration';
 import {
@@ -158,21 +158,28 @@ describe('CallsApi', () => {
 
     describe('HTTP Errors', () => {
         test('400', async () => {
+            expect.assertions(1);
             try {
+                // @ts-expect-error intentionally empty body to trigger 400
                 await callsApi.createCall(BW_ACCOUNT_ID, {});
             } catch (e) {
-                expect(e.response.status).toEqual(400);
+                if (axios.isAxiosError(e)) {
+                    expect(e.response?.status).toEqual(400);
+                }
             }
         });
 
         test('401', async () => {
+            expect.assertions(1);
             const unauthorizedConfig = new Configuration({ basePath: 'http://127.0.0.1:4010' });
             const unauthorizedCallsApi = new CallsApi(unauthorizedConfig);
-            
+
             try {
                 await unauthorizedCallsApi.getCallState(BW_ACCOUNT_ID, callId);
             } catch (e) {
-                expect(e.response.status).toEqual(401);
+                if (axios.isAxiosError(e)) {
+                    expect(e.response?.status).toEqual(401);
+                }
             }
         });
     });
