@@ -12,6 +12,7 @@ export * from './PhoneNumber';
 export * from './PlayAudio';
 export * from './Record';
 export * from './Redirect';
+export * from './Refer';
 export * from './ResumeRecording';
 export * from './Ring';
 export * from './SendDtmf';
