@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **type** | [**RbmActionTypeEnum**](RbmActionTypeEnum.md) |  | [default to undefined]
 **text** | **string** | Displayed text for user to click | [default to undefined]
 **postbackData** | **string** | Base64 payload the customer receives when the reply is clicked. | [default to undefined]
-**url** | **string** | The URL to open in browser. | [default to undefined]
+**url** | **string** | The URL to open in browser. Must use http:// or https:// scheme. | [default to undefined]
 **application** | [**RbmOpenUrlEnum**](RbmOpenUrlEnum.md) |  | [optional] [default to undefined]
 **webviewViewMode** | [**RbmWebViewEnum**](RbmWebViewEnum.md) |  | [optional] [default to undefined]
 
