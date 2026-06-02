@@ -9,8 +9,8 @@ Name | Type | Description | Notes
 **text** | **string** | Displayed text for user to click | [default to undefined]
 **postbackData** | **string** | Base64 payload the customer receives when the reply is clicked. | [default to undefined]
 **title** | **string** | The title of the event. | [default to undefined]
-**startTime** | **string** | The start time of the event. | [default to undefined]
-**endTime** | **string** | The end time of the event. | [default to undefined]
+**startTime** | **string** | The start time of the event. Must be a valid RFC-3339 value, e.g., 2021-03-14T01:59:26Z or 2021-03-13T20:59:26-05:00. | [default to undefined]
+**endTime** | **string** | The end time of the event. Must be a valid RFC-3339 value, e.g., 2021-03-14T01:59:26Z or 2021-03-13T20:59:26-05:00. | [default to undefined]
 **description** | **string** | The description of the event. | [optional] [default to undefined]
 
 ## Example

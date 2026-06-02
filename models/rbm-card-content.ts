@@ -20,6 +20,9 @@ import type { MultiChannelAction } from './multi-channel-action';
 // @ts-ignore
 import type { RbmCardContentMedia } from './rbm-card-content-media';
 
+/**
+ * Must contain at least one of title, description, or media to be valid.
+ */
 export interface RbmCardContent {
     /**
      * The title of the card. Must be 200 characters or less.

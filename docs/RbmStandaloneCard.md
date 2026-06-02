@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **orientation** | [**StandaloneCardOrientationEnum**](StandaloneCardOrientationEnum.md) |  | [default to undefined]
-**thumbnailImageAlignment** | [**ThumbnailAlignmentEnum**](ThumbnailAlignmentEnum.md) |  | [default to undefined]
+**thumbnailImageAlignment** | [**ThumbnailAlignmentEnum**](ThumbnailAlignmentEnum.md) |  | [optional] [default to undefined]
 **cardContent** | [**RbmCardContent**](RbmCardContent.md) |  | [default to undefined]
 **suggestions** | [**Array&lt;MultiChannelAction&gt;**](MultiChannelAction.md) | An array of suggested actions for the recipient. | [optional] [default to undefined]
 
