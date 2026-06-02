@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { AdditionalDenialReason } from './additional-denial-reason';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { TfvStatusEnum } from './tfv-status-enum';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -34,6 +37,14 @@ export interface TfvStatus {
      * Explanation for why a verification request was declined.
      */
     'declineReasonDescription'?: string;
+    /**
+     * Reason code for denial.
+     */
+    'denialStatusCode'?: number | null;
+    /**
+     * An optional list of denial reasons in addition to declineReasonDescription when multiple reasons apply.
+     */
+    'additionalDenialReasons'?: Array<AdditionalDenialReason> | null;
     /**
      * Whether a Toll-Free Verification request qualifies for resubmission via PUT.
      */
