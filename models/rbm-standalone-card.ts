@@ -28,7 +28,7 @@ import type { ThumbnailAlignmentEnum } from './thumbnail-alignment-enum';
 
 export interface RbmStandaloneCard {
     'orientation': StandaloneCardOrientationEnum;
-    'thumbnailImageAlignment': ThumbnailAlignmentEnum;
+    'thumbnailImageAlignment'?: ThumbnailAlignmentEnum;
     'cardContent': RbmCardContent;
     /**
      * An array of suggested actions for the recipient.
