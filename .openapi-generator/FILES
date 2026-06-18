@@ -105,6 +105,7 @@ docs/LinksObject.md
 docs/ListEndpointsResponse.md
 docs/ListMessageDirectionEnum.md
 docs/ListMessageItem.md
+docs/LocationResponse.md
 docs/LookupErrorResponse.md
 docs/LookupErrorSchema.md
 docs/LookupErrorSchemaMeta.md
@@ -162,7 +163,6 @@ docs/RbmActionTypeEnum.md
 docs/RbmActionViewLocation.md
 docs/RbmCardContent.md
 docs/RbmCardContentMedia.md
-docs/RbmLocationResponse.md
 docs/RbmMediaHeightEnum.md
 docs/RbmMessageCarouselCard.md
 docs/RbmMessageContentFile.md
@@ -171,7 +171,6 @@ docs/RbmMessageContentText.md
 docs/RbmMessageMedia.md
 docs/RbmOpenUrlEnum.md
 docs/RbmStandaloneCard.md
-docs/RbmSuggestionResponse.md
 docs/RbmWebViewEnum.md
 docs/RecordingAvailableCallback.md
 docs/RecordingCompleteCallback.md
@@ -190,6 +189,7 @@ docs/StatusCallback.md
 docs/StatusCallbackMessage.md
 docs/StatusCallbackTypeEnum.md
 docs/StirShaken.md
+docs/SuggestionResponse.md
 docs/SyncLookupRequest.md
 docs/TelephoneNumber.md
 docs/TfvBasicAuthentication.md
@@ -315,6 +315,7 @@ models/links-object.ts
 models/list-endpoints-response.ts
 models/list-message-direction-enum.ts
 models/list-message-item.ts
+models/location-response.ts
 models/lookup-error-response.ts
 models/lookup-error-schema-meta.ts
 models/lookup-error-schema.ts
@@ -367,7 +368,6 @@ models/rbm-action-type-enum.ts
 models/rbm-action-view-location.ts
 models/rbm-card-content-media.ts
 models/rbm-card-content.ts
-models/rbm-location-response.ts
 models/rbm-media-height-enum.ts
 models/rbm-message-carousel-card.ts
 models/rbm-message-content-file.ts
@@ -376,7 +376,6 @@ models/rbm-message-content-text.ts
 models/rbm-message-media.ts
 models/rbm-open-url-enum.ts
 models/rbm-standalone-card.ts
-models/rbm-suggestion-response.ts
 models/rbm-web-view-enum.ts
 models/recording-available-callback.ts
 models/recording-complete-callback.ts
@@ -393,6 +392,7 @@ models/status-callback-message.ts
 models/status-callback-type-enum.ts
 models/status-callback.ts
 models/stir-shaken.ts
+models/suggestion-response.ts
 models/sync-lookup-request.ts
 models/telephone-number.ts
 models/tfv-basic-authentication.ts

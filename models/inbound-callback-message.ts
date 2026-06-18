@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { LocationResponse } from './location-response';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { MessageDirectionEnum } from './message-direction-enum';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -27,13 +30,10 @@ import type { MultiChannelMessageContent } from './multi-channel-message-content
 import type { PriorityEnum } from './priority-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { RbmLocationResponse } from './rbm-location-response';
-// May contain unused imports in some cases
-// @ts-ignore
-import type { RbmSuggestionResponse } from './rbm-suggestion-response';
-// May contain unused imports in some cases
-// @ts-ignore
 import type { StatusCallbackMessage } from './status-callback-message';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { SuggestionResponse } from './suggestion-response';
 
 /**
  * @type InboundCallbackMessage
@@ -77,8 +77,8 @@ export interface InboundCallbackMessage {
     'priority'?: PriorityEnum;
     'channel'?: MultiChannelMessageChannelEnum;
     'content'?: MultiChannelMessageContent;
-    'suggestionResponse'?: RbmSuggestionResponse;
-    'locationResponse'?: RbmLocationResponse;
+    'suggestionResponse'?: SuggestionResponse;
+    'locationResponse'?: LocationResponse;
 }
 
 
