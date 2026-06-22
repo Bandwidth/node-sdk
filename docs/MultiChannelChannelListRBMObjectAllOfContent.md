@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **suggestions** | [**Array&lt;MultiChannelAction&gt;**](MultiChannelAction.md) | An array of suggested actions for the recipient. | [optional] [default to undefined]
 **media** | [**Array&lt;RbmMessageContentFile&gt;**](RbmMessageContentFile.md) |  | [default to undefined]
 **orientation** | [**StandaloneCardOrientationEnum**](StandaloneCardOrientationEnum.md) |  | [default to undefined]
-**thumbnailImageAlignment** | [**ThumbnailAlignmentEnum**](ThumbnailAlignmentEnum.md) |  | [default to undefined]
+**thumbnailImageAlignment** | [**ThumbnailAlignmentEnum**](ThumbnailAlignmentEnum.md) |  | [optional] [default to undefined]
 **cardContent** | [**RbmCardContent**](RbmCardContent.md) |  | [default to undefined]
 **cardWidth** | [**CardWidthEnum**](CardWidthEnum.md) |  | [default to undefined]
 **cardContents** | [**Array&lt;RbmCardContent&gt;**](RbmCardContent.md) |  | [default to undefined]

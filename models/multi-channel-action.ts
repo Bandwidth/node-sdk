@@ -53,11 +53,11 @@ export interface MultiChannelAction {
      */
     'phoneNumber': string;
     /**
-     * The latitude of the location.
+     * The latitude of the location. Must be in range [-90.000000, 90.000000].
      */
     'latitude': number;
     /**
-     * The longitude of the location.
+     * The longitude of the location. Must be in range [-180.000000, 180.000000].
      */
     'longitude': number;
     /**
@@ -69,11 +69,11 @@ export interface MultiChannelAction {
      */
     'title': string;
     /**
-     * The start time of the event.
+     * The start time of the event. Must be a valid RFC-3339 value, e.g., 2021-03-14T01:59:26Z or 2021-03-13T20:59:26-05:00.
      */
     'startTime': string;
     /**
-     * The end time of the event.
+     * The end time of the event. Must be a valid RFC-3339 value, e.g., 2021-03-14T01:59:26Z or 2021-03-13T20:59:26-05:00.
      */
     'endTime': string;
     /**
@@ -81,7 +81,7 @@ export interface MultiChannelAction {
      */
     'description'?: string;
     /**
-     * The URL to open in browser.
+     * The URL to open in browser. Must use http:// or https:// scheme.
      */
     'url': string;
     'application'?: RbmOpenUrlEnum;

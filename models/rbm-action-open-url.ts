@@ -40,7 +40,7 @@ export interface RbmActionOpenUrl {
      */
     'postbackData': string;
     /**
-     * The URL to open in browser.
+     * The URL to open in browser. Must use http:// or https:// scheme.
      */
     'url': string;
     'application'?: RbmOpenUrlEnum;

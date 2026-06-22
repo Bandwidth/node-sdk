@@ -38,11 +38,11 @@ export interface MultiChannelActionCalendarEvent {
      */
     'title': string;
     /**
-     * The start time of the event.
+     * The start time of the event. Must be a valid RFC-3339 value, e.g., 2021-03-14T01:59:26Z or 2021-03-13T20:59:26-05:00.
      */
     'startTime': string;
     /**
-     * The end time of the event.
+     * The end time of the event. Must be a valid RFC-3339 value, e.g., 2021-03-14T01:59:26Z or 2021-03-13T20:59:26-05:00.
      */
     'endTime': string;
     /**

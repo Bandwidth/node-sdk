@@ -34,11 +34,11 @@ export interface RbmActionViewLocation {
      */
     'postbackData': string;
     /**
-     * The latitude of the location.
+     * The latitude of the location. Must be in range [-90.000000, 90.000000].
      */
     'latitude': number;
     /**
-     * The longitude of the location.
+     * The longitude of the location. Must be in range [-180.000000, 180.000000].
      */
     'longitude': number;
     /**
