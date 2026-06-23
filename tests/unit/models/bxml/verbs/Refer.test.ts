@@ -1,5 +1,5 @@
 import { Refer, ReferAttributes } from '../../../../../models/bxml/verbs/Refer';
-import { SipUri } from '../../../../../models/bxml/verbs/SipUri';
+import { ReferSipUri } from '../../../../../models/bxml/verbs/ReferSipUri';
 
 describe('Refer', () => {
     test('should generate Refer XML with SipUri and all attributes', () => {
@@ -8,8 +8,8 @@ describe('Refer', () => {
             referCompleteMethod: 'POST',
             tag: 'my-tag',
         };
-        const sipUri = new SipUri('sip:alice@atlanta.example.com');
-        const refer = new Refer(attributes, sipUri);
+        const sipUri = new ReferSipUri('sip:alice@atlanta.example.com');
+        const refer = new Refer(sipUri, attributes);
 
         const xml = refer.toBxml();
         expect(xml).toContain('<Refer');
@@ -21,8 +21,8 @@ describe('Refer', () => {
     });
 
     test('should generate Refer XML with no attributes', () => {
-        const sipUri = new SipUri('sip:bob@biloxi.example.com');
-        const refer = new Refer(undefined, sipUri);
+        const sipUri = new ReferSipUri('sip:bob@biloxi.example.com');
+        const refer = new Refer(sipUri);
 
         const xml = refer.toBxml();
         expect(xml).toContain('<Refer>');
@@ -30,9 +30,9 @@ describe('Refer', () => {
     });
 
     test('setSipUri should replace the nested SipUri', () => {
-        const sipUri1 = new SipUri('sip:alice@atlanta.example.com');
-        const sipUri2 = new SipUri('sip:bob@biloxi.example.com');
-        const refer = new Refer({}, sipUri1);
+        const sipUri1 = new ReferSipUri('sip:alice@atlanta.example.com');
+        const sipUri2 = new ReferSipUri('sip:bob@biloxi.example.com');
+        const refer = new Refer(sipUri1);
 
         refer.setSipUri(sipUri2);
         const xml = refer.toBxml();
@@ -40,4 +40,3 @@ describe('Refer', () => {
         expect(xml).toContain('sip:bob@biloxi.example.com');
     });
 });
-

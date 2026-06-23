@@ -1,5 +1,5 @@
 import { NestableVerb } from '../NestableVerb';
-import { SipUri } from './SipUri';
+import { ReferSipUri } from './ReferSipUri';
 
 export interface ReferAttributes {
     referCompleteUrl?: string;
@@ -20,19 +20,19 @@ export class Refer extends NestableVerb {
 
     /**
      * Creates an instance of Refer
+     * @param {ReferSipUri} sipUri The SipUri child element (required — spec mandates exactly one)
      * @param {ReferAttributes} attributes The attributes to add to the element
-     * @param {SipUri} sipUri The SipUri child element (required for a valid Refer)
      */
-    constructor(attributes?: ReferAttributes, sipUri?: SipUri) {
-        super('Refer', undefined, attributes, sipUri ? [sipUri] : undefined);
+    constructor(sipUri: ReferSipUri, attributes?: ReferAttributes) {
+        super('Refer', undefined, attributes, [sipUri]);
     }
 
     /**
      * Set the SipUri for this Refer verb
-     * @param {SipUri} sipUri The SipUri to refer to
+     * @param {ReferSipUri} sipUri The SipUri to refer to
      */
-    setSipUri(sipUri: SipUri): void {
+    setSipUri(sipUri: ReferSipUri): void {
+        // Replaces the single required SipUri child — <Refer> allows exactly one.
         this.nestedVerbs = [sipUri];
     }
 }
-
