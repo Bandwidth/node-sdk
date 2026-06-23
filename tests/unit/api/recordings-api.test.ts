@@ -152,6 +152,7 @@ describe('RecordingsApi', () => {
 
             expect(status).toEqual(200);
             expect(data.transcripts).toBeInstanceOf(Array);
+            expect(data.transcripts![0].speaker).toBeNumber();
             expect(data.transcripts![0].text).toBeString();
             expect(data.transcripts![0].confidence).toBeNumber();
         });
