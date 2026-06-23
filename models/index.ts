@@ -150,6 +150,7 @@ export * from './rbm-web-view-enum';
 export * from './recording-available-callback';
 export * from './recording-complete-callback';
 export * from './recording-state-enum';
+export * from './recording-transcription-clip';
 export * from './recording-transcription-metadata';
 export * from './recording-transcriptions';
 export * from './redirect-callback';

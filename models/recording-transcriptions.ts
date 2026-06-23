@@ -15,9 +15,16 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { RecordingTranscriptionClip } from './recording-transcription-clip';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { Transcription } from './transcription';
 
 export interface RecordingTranscriptions {
     'transcripts'?: Array<Transcription>;
+    /**
+     * A list of individual speech clips with speaker, timing, and confidence information.
+     */
+    'clips'?: Array<RecordingTranscriptionClip>;
 }
 

@@ -14,18 +14,26 @@
 
 
 
-export interface Transcription {
+export interface RecordingTranscriptionClip {
     /**
      * Zero-based index identifying the speaker.
      */
     'speaker'?: number;
     /**
-     * The transcribed text
+     * The transcribed text of this clip.
      */
     'text'?: string;
     /**
-     * The confidence on the recognized content, ranging from `0.0` to `1.0` with `1.0` being the highest confidence.
+     * How confident the transcription engine was in transcribing this clip (from `0.0` to `1.0`).
      */
     'confidence'?: number;
+    /**
+     * The start time of this clip within the recording, in seconds.
+     */
+    'startTimeSeconds'?: number;
+    /**
+     * The end time of this clip within the recording, in seconds.
+     */
+    'endTimeSeconds'?: number;
 }
 
