@@ -3,11 +3,11 @@ import { InboundCallbackTypeEnum } from '../../../models/inbound-callback-type-e
 describe('InboundCallbackTypeEnum', () => {
     test('should define the expected values', () => {
         expect(InboundCallbackTypeEnum.MessageReceived).toBe('message-received');
-        expect(InboundCallbackTypeEnum.RequestLocationResponse).toBe('request-location-response');
+        expect(InboundCallbackTypeEnum.RequestedLocationResponse).toBe('requested-location-response');
         expect(InboundCallbackTypeEnum.SuggestionResponse).toBe('suggestion-response');
         expect(Object.values(InboundCallbackTypeEnum)).toEqual([
             'message-received',
-            'request-location-response',
+            'requested-location-response',
             'suggestion-response'
         ]);
     });

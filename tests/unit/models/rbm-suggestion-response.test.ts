@@ -5,9 +5,11 @@ describe('RbmSuggestionResponse', () => {
         const fixture: RbmSuggestionResponse = {
             text: 'test-text',
             postbackData: 'test-postbackData',
+            pairedMessageId: 'test-pairedMessageId'
         };
 
         expect(fixture.text).toBe('test-text');
         expect(fixture.postbackData).toBe('test-postbackData');
+        expect(fixture.pairedMessageId).toBe('test-pairedMessageId');
     });
 });

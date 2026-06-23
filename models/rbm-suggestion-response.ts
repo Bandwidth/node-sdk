@@ -23,5 +23,9 @@ export interface RbmSuggestionResponse {
      * Base64 payload the customer receives when the reply is clicked.
      */
     'postbackData'?: string;
+    /**
+     * Corresponding parent message ID (MT).
+     */
+    'pairedMessageId'?: string | null;
 }
 
