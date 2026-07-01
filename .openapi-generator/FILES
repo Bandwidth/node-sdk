@@ -182,6 +182,8 @@ docs/RecordingTranscriptions.md
 docs/RecordingsApi.md
 docs/RedirectCallback.md
 docs/RedirectMethodEnum.md
+docs/ReferCallStatus.md
+docs/ReferCompleteCallback.md
 docs/SipConnectionMetadata.md
 docs/SipCredentials.md
 docs/SmsMessageContent.md
@@ -387,6 +389,8 @@ models/recording-transcription-metadata.ts
 models/recording-transcriptions.ts
 models/redirect-callback.ts
 models/redirect-method-enum.ts
+models/refer-call-status.ts
+models/refer-complete-callback.ts
 models/sip-connection-metadata.ts
 models/sip-credentials.ts
 models/sms-message-content.ts

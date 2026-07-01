@@ -5308,6 +5308,66 @@ components:
           $ref: '#/components/schemas/errorMessage'
         errorId:
           $ref: '#/components/schemas/errorId'
+    referCompleteCallback:
+      type: object
+      description: >-
+        The Refer Complete event is fired when the <Refer> verb finishes
+        executing. This is sent to the referCompleteUrl specified on the
+        <Refer> verb, and the BXML returned in it is executed on the call.
+      properties:
+        eventType:
+          $ref: '#/components/schemas/eventType'
+        eventTime:
+          $ref: '#/components/schemas/eventTime'
+        accountId:
+          $ref: '#/components/schemas/accountId'
+        applicationId:
+          $ref: '#/components/schemas/applicationId1'
+        from:
+          $ref: '#/components/schemas/from'
+        to:
+          $ref: '#/components/schemas/to'
+        direction:
+          $ref: '#/components/schemas/callDirectionEnum'
+        callId:
+          $ref: '#/components/schemas/callId'
+        callUrl:
+          $ref: '#/components/schemas/callUrl'
+        startTime:
+          $ref: '#/components/schemas/startTime'
+        answerTime:
+          $ref: '#/components/schemas/answerTime'
+        tag:
+          $ref: '#/components/schemas/tag1'
+        referCallStatus:
+          $ref: '#/components/schemas/referCallStatus'
+        referSipResponseCode:
+          $ref: '#/components/schemas/referSipResponseCode'
+        notifySipResponseCode:
+          $ref: '#/components/schemas/notifySipResponseCode'
+    referCallStatus:
+      type: string
+      description: >-
+        The outcome of the REFER attempt. Possible values are success or
+        failure.
+      enum:
+        - success
+        - failure
+      example: success
+    referSipResponseCode:
+      type: integer
+      nullable: true
+      description: >-
+        The SIP response code received for the REFER request (e.g. 202, 405,
+        603). Absent when not applicable.
+      example: 202
+    notifySipResponseCode:
+      type: integer
+      nullable: true
+      description: >-
+        The SIP response code received in the NOTIFY message (e.g. 200, 404,
+        486). Absent on REFER rejection or NOTIFY timeout.
+      example: 200
     eventType:
       type: string
       description: >-
@@ -5316,8 +5376,8 @@ components:
         conferenceRedirect, conferenceMemberJoin, conferenceMemberExit,
         conferenceCompleted, conferenceRecordingAvailable, disconnect, dtmf,
         gather, initiate, machineDetectionComplete, recordingComplete,
-        recordingAvailable, redirect, transcriptionAvailable, transferAnswer,
-        transferComplete, transferDisconnect.
+        recordingAvailable, redirect, referComplete, transcriptionAvailable,
+        transferAnswer, transferComplete, transferDisconnect.
       example: bridgeComplete
     eventTime:
       type: string

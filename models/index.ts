@@ -155,6 +155,8 @@ export * from './recording-transcription-metadata';
 export * from './recording-transcriptions';
 export * from './redirect-callback';
 export * from './redirect-method-enum';
+export * from './refer-call-status';
+export * from './refer-complete-callback';
 export * from './sip-connection-metadata';
 export * from './sip-credentials';
 export * from './sms-message-content';
