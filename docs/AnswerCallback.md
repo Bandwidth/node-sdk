@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **answerTime** | **string** | Time the call was answered, in ISO 8601 format. | [optional] [default to undefined]
 **tag** | **string** | (optional) The tag specified on call creation. If no tag was specified or it was previously cleared, this field will not be present. | [optional] [default to undefined]
 **machineDetectionResult** | [**MachineDetectionResult**](MachineDetectionResult.md) |  | [optional] [default to undefined]
+**sipCallId** | **string** | (optional) The SIP Call-ID of the call\&#39;s current SIP dialog with Bandwidth\&#39;s SBC. Used to correlate dialogs and trace calls. Present on any call, inbound or outbound, once that dialog has been established; may be absent very early in a call before the dialog exists. | [optional] [default to undefined]
 
 ## Example
 
@@ -41,6 +42,7 @@ const instance: AnswerCallback = {
     answerTime,
     tag,
     machineDetectionResult,
+    sipCallId,
 };
 ```
 

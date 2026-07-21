@@ -74,6 +74,10 @@ export interface AnswerCallback {
      */
     'tag'?: string | null;
     'machineDetectionResult'?: MachineDetectionResult | null;
+    /**
+     * (optional) The SIP Call-ID of the call\'s current SIP dialog with Bandwidth\'s SBC. Used to correlate dialogs and trace calls. Present on any call, inbound or outbound, once that dialog has been established; may be absent very early in a call before the dialog exists.
+     */
+    'sipCallId'?: string;
 }
 
 
