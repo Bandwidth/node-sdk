@@ -19,6 +19,7 @@ describe('AnswerCallback', () => {
             answerTime: 'test-answerTime',
             tag: 'test-tag',
             machineDetectionResult: {} as unknown as MachineDetectionResult,
+            sipCallId: 'test-sipCallId',
         };
 
         expect(fixture.eventType).toBe('test-eventType');
@@ -35,5 +36,6 @@ describe('AnswerCallback', () => {
         expect(fixture.answerTime).toBe('test-answerTime');
         expect(fixture.tag).toBe('test-tag');
         expect(fixture.machineDetectionResult).toBeDefined();
+        expect(fixture.sipCallId).toBe('test-sipCallId');
     });
 });

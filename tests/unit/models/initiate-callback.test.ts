@@ -19,6 +19,8 @@ describe('InitiateCallback', () => {
             diversion: {} as unknown as Diversion,
             stirShaken: {} as unknown as StirShaken,
             uui: 'test-uui',
+            sipCallId: 'test-sipCallId',
+            sipHeaders: { 'test-header': 'test-value' },
         };
 
         expect(fixture.eventType).toBe('test-eventType');
@@ -34,5 +36,7 @@ describe('InitiateCallback', () => {
         expect(fixture.diversion).toBeDefined();
         expect(fixture.stirShaken).toBeDefined();
         expect(fixture.uui).toBe('test-uui');
+        expect(fixture.sipCallId).toBe('test-sipCallId');
+        expect(fixture.sipHeaders).toEqual({ 'test-header': 'test-value' });
     });
 });
