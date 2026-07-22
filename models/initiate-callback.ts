@@ -70,6 +70,14 @@ export interface InitiateCallback {
      * The value of the `User-To-User` header to send within the initial `INVITE`. Must include the encoding parameter as specified in RFC 7433. Only `base64`, `jwt` and `hex` encoding are currently allowed. This value, including the encoding specifier, may not exceed 256 characters.
      */
     'uui'?: string;
+    /**
+     * (optional) The SIP Call-ID of the call\'s current SIP dialog with Bandwidth\'s SBC. Used to correlate dialogs and trace calls. Present on any call, inbound or outbound, once that dialog has been established; may be absent very early in a call before the dialog exists.
+     */
+    'sipCallId'?: string;
+    /**
+     * (optional) Map of customer-supplied X-* headers from the original INVITE. Keys are lowercase (SIP headers are case-insensitive). Present only for inbound SIP URI calls with custom headers. Note - keys preserve the original SIP header name in lowercase rather than Bandwidth\'s usual camelCase JSON convention, since these are passthrough values from the caller\'s SIP INVITE, not Bandwidth-defined fields. If the same header name is sent more than once in the INVITE, only the last value is kept.
+     */
+    'sipHeaders'?: { [key: string]: string; };
 }
 
 

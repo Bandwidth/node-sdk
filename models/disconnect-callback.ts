@@ -86,6 +86,14 @@ export interface DisconnectCallback {
      * (optional) The tag specified on call creation. If no tag was specified or it was previously cleared, this field will not be present.
      */
     'tag'?: string | null;
+    /**
+     * (optional) The SIP Call-ID of the call\'s current SIP dialog with Bandwidth\'s SBC. Used to correlate dialogs and trace calls. Present on any call, inbound or outbound, once that dialog has been established; may be absent very early in a call before the dialog exists.
+     */
+    'sipCallId'?: string;
+    /**
+     * (optional) The SIP status code returned by Bandwidth\'s SBC when it rejected an outbound call\'s INVITE (e.g. 486 for busy, 603 for decline). Present only when an outbound call was rejected by the SBC.
+     */
+    'sipResponseCode'?: number;
 }
 
 

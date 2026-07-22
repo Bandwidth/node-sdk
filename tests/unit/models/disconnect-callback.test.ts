@@ -21,6 +21,8 @@ describe('DisconnectCallback', () => {
             errorMessage: 'test-errorMessage',
             errorId: 'test-errorId',
             tag: 'test-tag',
+            sipCallId: 'test-sipCallId',
+            sipResponseCode: 200,
         };
 
         expect(fixture.eventType).toBe('test-eventType');
@@ -40,5 +42,7 @@ describe('DisconnectCallback', () => {
         expect(fixture.errorMessage).toBe('test-errorMessage');
         expect(fixture.errorId).toBe('test-errorId');
         expect(fixture.tag).toBe('test-tag');
+        expect(fixture.sipCallId).toBe('test-sipCallId');
+        expect(fixture.sipResponseCode).toBe(200);
     });
 });
