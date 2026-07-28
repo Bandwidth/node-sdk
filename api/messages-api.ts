@@ -47,7 +47,7 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Endpoint for sending text messages and picture messages using V2 messaging.
          * @summary Create Message
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {MessageRequest} messageRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -95,7 +95,7 @@ export const MessagesApiAxiosParamCreator = function (configuration?: Configurat
         /**
          * Returns a list of messages based on query parameters.  **Rate Limit:** This endpoint is rate limited to 3500 requests per 5 minutes per Source IP address. Exceeding the limit returns HTTP 429 with a `Retry-After` header. 
          * @summary List Messages
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter.
          * @param {string} [sourceTn] The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
          * @param {string} [destinationTn] The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
@@ -281,7 +281,7 @@ export const MessagesApiFp = function(configuration?: Configuration) {
         /**
          * Endpoint for sending text messages and picture messages using V2 messaging.
          * @summary Create Message
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {MessageRequest} messageRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -295,7 +295,7 @@ export const MessagesApiFp = function(configuration?: Configuration) {
         /**
          * Returns a list of messages based on query parameters.  **Rate Limit:** This endpoint is rate limited to 3500 requests per 5 minutes per Source IP address. Exceeding the limit returns HTTP 429 with a `Retry-After` header. 
          * @summary List Messages
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter.
          * @param {string} [sourceTn] The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
          * @param {string} [destinationTn] The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
@@ -344,7 +344,7 @@ export const MessagesApiFactory = function (configuration?: Configuration, baseP
         /**
          * Endpoint for sending text messages and picture messages using V2 messaging.
          * @summary Create Message
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {MessageRequest} messageRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -355,7 +355,7 @@ export const MessagesApiFactory = function (configuration?: Configuration, baseP
         /**
          * Returns a list of messages based on query parameters.  **Rate Limit:** This endpoint is rate limited to 3500 requests per 5 minutes per Source IP address. Exceeding the limit returns HTTP 429 with a `Retry-After` header. 
          * @summary List Messages
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter.
          * @param {string} [sourceTn] The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
          * @param {string} [destinationTn] The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
@@ -399,7 +399,7 @@ export class MessagesApi extends BaseAPI {
     /**
      * Endpoint for sending text messages and picture messages using V2 messaging.
      * @summary Create Message
-     * @param {string} accountId Your Bandwidth Account ID.
+     * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
      * @param {MessageRequest} messageRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -411,7 +411,7 @@ export class MessagesApi extends BaseAPI {
     /**
      * Returns a list of messages based on query parameters.  **Rate Limit:** This endpoint is rate limited to 3500 requests per 5 minutes per Source IP address. Exceeding the limit returns HTTP 429 with a `Retry-After` header. 
      * @summary List Messages
-     * @param {string} accountId Your Bandwidth Account ID.
+     * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
      * @param {string} [messageId] The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter.
      * @param {string} [sourceTn] The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).
      * @param {string} [destinationTn] The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;).

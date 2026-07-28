@@ -24,7 +24,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MessagesApi(configuration);
 
-let accountId: string; //Your Bandwidth Account ID. (default to undefined)
+let accountId: string; //This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (`u-be8dvafwrs63rwpm7pfil4b`) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  (default to undefined)
 let messageRequest: MessageRequest; //
 
 const { status, data } = await apiInstance.createMessage(
@@ -38,7 +38,7 @@ const { status, data } = await apiInstance.createMessage(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **messageRequest** | **MessageRequest**|  | |
-| **accountId** | [**string**] | Your Bandwidth Account ID. | defaults to undefined|
+| **accountId** | [**string**] | This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  | defaults to undefined|
 
 
 ### Return type
@@ -87,7 +87,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MessagesApi(configuration);
 
-let accountId: string; //Your Bandwidth Account ID. (default to undefined)
+let accountId: string; //This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (`u-be8dvafwrs63rwpm7pfil4b`) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  (default to undefined)
 let messageId: string; //The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter. (optional) (default to undefined)
 let sourceTn: string; //The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \'%2B1919\'). (optional) (default to undefined)
 let destinationTn: string; //The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \'%2B1919\'). (optional) (default to undefined)
@@ -152,7 +152,7 @@ const { status, data } = await apiInstance.listMessages(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **accountId** | [**string**] | Your Bandwidth Account ID. | defaults to undefined|
+| **accountId** | [**string**] | This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  | defaults to undefined|
 | **messageId** | [**string**] | The ID of the message to search for. Special characters need to be encoded using URL encoding. Message IDs could come in different formats, e.g., 9e0df4ca-b18d-40d7-a59f-82fcdf5ae8e6 and 1589228074636lm4k2je7j7jklbn2 are valid message ID formats. Note that you must include at least one query parameter. | (optional) defaults to undefined|
 | **sourceTn** | [**string**] | The phone number that sent the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;). | (optional) defaults to undefined|
 | **destinationTn** | [**string**] | The phone number that received the message. Accepted values are: a single full phone number a comma separated list of full phone numbers (maximum of 10) or a single partial phone number (minimum of 5 characters e.g. \&#39;%2B1919\&#39;). | (optional) defaults to undefined|

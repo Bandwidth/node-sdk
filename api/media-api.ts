@@ -33,7 +33,7 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Deletes a media file from Bandwidth API server. Make sure you don\'t have any application scripts still using the media before you delete.  If you accidentally delete a media file you can immediately upload a new file with the same name.
          * @summary Delete Media
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} mediaId Media ID to retrieve.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -79,7 +79,7 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Downloads a media file you previously uploaded.
          * @summary Get Media
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} mediaId Media ID to retrieve.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -125,7 +125,7 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Gets a list of your media files. No query parameters are supported.
          * @summary List Media
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} [continuationToken] Continuation token used to retrieve subsequent media.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -171,7 +171,7 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
         /**
          * Upload a file. You may add headers to the request in order to provide some control to your media file.  If a file is uploaded with the same name as a file that already exists under this account, the previous file will be overwritten.  A list of supported media types can be found at [Bandwidth Support](https://www.bandwidth.com/support/en/articles/12823220-what-mms-file-types-are-supported).
          * @summary Upload Media
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} mediaId Media ID to retrieve.
          * @param {File} body 
          * @param {string} [contentType] The media type of the entity-body.
@@ -240,7 +240,7 @@ export const MediaApiFp = function(configuration?: Configuration) {
         /**
          * Deletes a media file from Bandwidth API server. Make sure you don\'t have any application scripts still using the media before you delete.  If you accidentally delete a media file you can immediately upload a new file with the same name.
          * @summary Delete Media
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} mediaId Media ID to retrieve.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -254,7 +254,7 @@ export const MediaApiFp = function(configuration?: Configuration) {
         /**
          * Downloads a media file you previously uploaded.
          * @summary Get Media
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} mediaId Media ID to retrieve.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -268,7 +268,7 @@ export const MediaApiFp = function(configuration?: Configuration) {
         /**
          * Gets a list of your media files. No query parameters are supported.
          * @summary List Media
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} [continuationToken] Continuation token used to retrieve subsequent media.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -282,7 +282,7 @@ export const MediaApiFp = function(configuration?: Configuration) {
         /**
          * Upload a file. You may add headers to the request in order to provide some control to your media file.  If a file is uploaded with the same name as a file that already exists under this account, the previous file will be overwritten.  A list of supported media types can be found at [Bandwidth Support](https://www.bandwidth.com/support/en/articles/12823220-what-mms-file-types-are-supported).
          * @summary Upload Media
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} mediaId Media ID to retrieve.
          * @param {File} body 
          * @param {string} [contentType] The media type of the entity-body.
@@ -308,7 +308,7 @@ export const MediaApiFactory = function (configuration?: Configuration, basePath
         /**
          * Deletes a media file from Bandwidth API server. Make sure you don\'t have any application scripts still using the media before you delete.  If you accidentally delete a media file you can immediately upload a new file with the same name.
          * @summary Delete Media
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} mediaId Media ID to retrieve.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -319,7 +319,7 @@ export const MediaApiFactory = function (configuration?: Configuration, basePath
         /**
          * Downloads a media file you previously uploaded.
          * @summary Get Media
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} mediaId Media ID to retrieve.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -330,7 +330,7 @@ export const MediaApiFactory = function (configuration?: Configuration, basePath
         /**
          * Gets a list of your media files. No query parameters are supported.
          * @summary List Media
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} [continuationToken] Continuation token used to retrieve subsequent media.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -341,7 +341,7 @@ export const MediaApiFactory = function (configuration?: Configuration, basePath
         /**
          * Upload a file. You may add headers to the request in order to provide some control to your media file.  If a file is uploaded with the same name as a file that already exists under this account, the previous file will be overwritten.  A list of supported media types can be found at [Bandwidth Support](https://www.bandwidth.com/support/en/articles/12823220-what-mms-file-types-are-supported).
          * @summary Upload Media
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} mediaId Media ID to retrieve.
          * @param {File} body 
          * @param {string} [contentType] The media type of the entity-body.
@@ -362,7 +362,7 @@ export class MediaApi extends BaseAPI {
     /**
      * Deletes a media file from Bandwidth API server. Make sure you don\'t have any application scripts still using the media before you delete.  If you accidentally delete a media file you can immediately upload a new file with the same name.
      * @summary Delete Media
-     * @param {string} accountId Your Bandwidth Account ID.
+     * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
      * @param {string} mediaId Media ID to retrieve.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -374,7 +374,7 @@ export class MediaApi extends BaseAPI {
     /**
      * Downloads a media file you previously uploaded.
      * @summary Get Media
-     * @param {string} accountId Your Bandwidth Account ID.
+     * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
      * @param {string} mediaId Media ID to retrieve.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -386,7 +386,7 @@ export class MediaApi extends BaseAPI {
     /**
      * Gets a list of your media files. No query parameters are supported.
      * @summary List Media
-     * @param {string} accountId Your Bandwidth Account ID.
+     * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
      * @param {string} [continuationToken] Continuation token used to retrieve subsequent media.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
@@ -398,7 +398,7 @@ export class MediaApi extends BaseAPI {
     /**
      * Upload a file. You may add headers to the request in order to provide some control to your media file.  If a file is uploaded with the same name as a file that already exists under this account, the previous file will be overwritten.  A list of supported media types can be found at [Bandwidth Support](https://www.bandwidth.com/support/en/articles/12823220-what-mms-file-types-are-supported).
      * @summary Upload Media
-     * @param {string} accountId Your Bandwidth Account ID.
+     * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
      * @param {string} mediaId Media ID to retrieve.
      * @param {File} body 
      * @param {string} [contentType] The media type of the entity-body.

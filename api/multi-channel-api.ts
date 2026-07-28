@@ -35,7 +35,7 @@ export const MultiChannelApiAxiosParamCreator = function (configuration?: Config
         /**
          * Endpoint for sending Multi-Channel messages.
          * @summary Create Multi-Channel Message
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {MultiChannelMessageRequest} multiChannelMessageRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -92,7 +92,7 @@ export const MultiChannelApiFp = function(configuration?: Configuration) {
         /**
          * Endpoint for sending Multi-Channel messages.
          * @summary Create Multi-Channel Message
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {MultiChannelMessageRequest} multiChannelMessageRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -115,7 +115,7 @@ export const MultiChannelApiFactory = function (configuration?: Configuration, b
         /**
          * Endpoint for sending Multi-Channel messages.
          * @summary Create Multi-Channel Message
-         * @param {string} accountId Your Bandwidth Account ID.
+         * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {MultiChannelMessageRequest} multiChannelMessageRequest 
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
@@ -133,7 +133,7 @@ export class MultiChannelApi extends BaseAPI {
     /**
      * Endpoint for sending Multi-Channel messages.
      * @summary Create Multi-Channel Message
-     * @param {string} accountId Your Bandwidth Account ID.
+     * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
      * @param {MultiChannelMessageRequest} multiChannelMessageRequest 
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
