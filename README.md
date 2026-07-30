@@ -323,7 +323,6 @@ Class | Method | HTTP request | Description
  - [RedirectCallback](docs/RedirectCallback.md)
  - [RedirectMethodEnum](docs/RedirectMethodEnum.md)
  - [ReferCallStatus](docs/ReferCallStatus.md)
- - [ReferCompleteCallback](docs/ReferCompleteCallback.md)
  - [SipConnectionMetadata](docs/SipConnectionMetadata.md)
  - [SipCredentials](docs/SipCredentials.md)
  - [SmsMessageContent](docs/SmsMessageContent.md)
