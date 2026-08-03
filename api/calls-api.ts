@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -50,7 +50,7 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'createCall' is not null or undefined
             assertParamExists('createCall', 'createCall', createCall)
             const localVarPath = `/accounts/{accountId}/calls`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -70,9 +70,8 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -98,8 +97,8 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'callId' is not null or undefined
             assertParamExists('getCallState', 'callId', callId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -119,8 +118,8 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -148,7 +147,7 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listCalls', 'accountId', accountId)
             const localVarPath = `/accounts/{accountId}/calls`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -196,8 +195,8 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
                 localVarQueryParameter['pageToken'] = pageToken;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -224,8 +223,8 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'updateCall' is not null or undefined
             assertParamExists('updateCall', 'updateCall', updateCall)
             const localVarPath = `/accounts/{accountId}/calls/{callId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -245,9 +244,8 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -276,8 +274,8 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
             // verify required parameter 'body' is not null or undefined
             assertParamExists('updateCallBxml', 'body', body)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/bxml`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -297,9 +295,8 @@ export const CallsApiAxiosParamCreator = function (configuration?: Configuration
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/xml';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};

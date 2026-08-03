@@ -16,7 +16,7 @@
 
 
 export const EndpointTypeEnum = {
-    Webrtc: 'WEBRTC'
+    Webrtc: 'WEBRTC',
 } as const;
 
 export type EndpointTypeEnum = typeof EndpointTypeEnum[keyof typeof EndpointTypeEnum];

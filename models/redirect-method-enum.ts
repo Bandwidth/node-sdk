@@ -20,7 +20,7 @@
 
 export const RedirectMethodEnum = {
     Get: 'GET',
-    Post: 'POST'
+    Post: 'POST',
 } as const;
 
 export type RedirectMethodEnum = typeof RedirectMethodEnum[keyof typeof RedirectMethodEnum];

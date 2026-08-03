@@ -19,7 +19,7 @@ export const InProgressLookupStatusEnum = {
     InProgress: 'IN_PROGRESS',
     Complete: 'COMPLETE',
     PartialComplete: 'PARTIAL_COMPLETE',
-    Failed: 'FAILED'
+    Failed: 'FAILED',
 } as const;
 
 export type InProgressLookupStatusEnum = typeof InProgressLookupStatusEnum[keyof typeof InProgressLookupStatusEnum];

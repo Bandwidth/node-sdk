@@ -21,7 +21,7 @@
 export const InboundCallbackTypeEnum = {
     MessageReceived: 'message-received',
     RequestedLocationResponse: 'requested-location-response',
-    SuggestionResponse: 'suggestion-response'
+    SuggestionResponse: 'suggestion-response',
 } as const;
 
 export type InboundCallbackTypeEnum = typeof InboundCallbackTypeEnum[keyof typeof InboundCallbackTypeEnum];

@@ -20,7 +20,7 @@
 
 export const ListMessageDirectionEnum = {
     Inbound: 'INBOUND',
-    Outbound: 'OUTBOUND'
+    Outbound: 'OUTBOUND',
 } as const;
 
 export type ListMessageDirectionEnum = typeof ListMessageDirectionEnum[keyof typeof ListMessageDirectionEnum];

@@ -18,7 +18,7 @@
 export const CompletedLookupStatusEnum = {
     Complete: 'COMPLETE',
     PartialComplete: 'PARTIAL_COMPLETE',
-    Failed: 'FAILED'
+    Failed: 'FAILED',
 } as const;
 
 export type CompletedLookupStatusEnum = typeof CompletedLookupStatusEnum[keyof typeof CompletedLookupStatusEnum];

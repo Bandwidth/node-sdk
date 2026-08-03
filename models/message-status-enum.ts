@@ -26,7 +26,7 @@ export const MessageStatusEnum = {
     Failed: 'FAILED',
     Delivered: 'DELIVERED',
     Accepted: 'ACCEPTED',
-    Undelivered: 'UNDELIVERED'
+    Undelivered: 'UNDELIVERED',
 } as const;
 
 export type MessageStatusEnum = typeof MessageStatusEnum[keyof typeof MessageStatusEnum];

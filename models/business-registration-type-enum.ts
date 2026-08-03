@@ -36,7 +36,7 @@ export const BusinessRegistrationTypeEnum = {
     Nif: 'NIF',
     Cnpj: 'CNPJ',
     Uid: 'UID',
-    Other: 'OTHER'
+    Other: 'OTHER',
 } as const;
 
 export type BusinessRegistrationTypeEnum = typeof BusinessRegistrationTypeEnum[keyof typeof BusinessRegistrationTypeEnum];

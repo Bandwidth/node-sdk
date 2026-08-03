@@ -20,7 +20,7 @@
 
 export const CallStateEnum = {
     Active: 'active',
-    Completed: 'completed'
+    Completed: 'completed',
 } as const;
 
 export type CallStateEnum = typeof CallStateEnum[keyof typeof CallStateEnum];

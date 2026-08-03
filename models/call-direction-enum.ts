@@ -20,7 +20,7 @@
 
 export const CallDirectionEnum = {
     Inbound: 'inbound',
-    Outbound: 'outbound'
+    Outbound: 'outbound',
 } as const;
 
 export type CallDirectionEnum = typeof CallDirectionEnum[keyof typeof CallDirectionEnum];

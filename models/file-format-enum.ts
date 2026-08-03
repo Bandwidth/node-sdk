@@ -20,7 +20,7 @@
 
 export const FileFormatEnum = {
     Mp3: 'mp3',
-    Wav: 'wav'
+    Wav: 'wav',
 } as const;
 
 export type FileFormatEnum = typeof FileFormatEnum[keyof typeof FileFormatEnum];

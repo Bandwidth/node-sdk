@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -55,9 +55,9 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'recordingId' is not null or undefined
             assertParamExists('downloadConferenceRecording', 'recordingId', recordingId)
             const localVarPath = `/accounts/{accountId}/conferences/{conferenceId}/recordings/{recordingId}/media`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"conferenceId"}}`, encodeURIComponent(String(conferenceId)))
-                .replace(`{${"recordingId"}}`, encodeURIComponent(String(recordingId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{conferenceId}', encodeURIComponent(String(conferenceId)))
+                .replace('{recordingId}', encodeURIComponent(String(recordingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -77,8 +77,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'audio/vnd.wave,audio/mpeg,application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -102,8 +102,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'conferenceId' is not null or undefined
             assertParamExists('getConference', 'conferenceId', conferenceId)
             const localVarPath = `/accounts/{accountId}/conferences/{conferenceId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"conferenceId"}}`, encodeURIComponent(String(conferenceId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{conferenceId}', encodeURIComponent(String(conferenceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -123,8 +123,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -151,9 +151,9 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'memberId' is not null or undefined
             assertParamExists('getConferenceMember', 'memberId', memberId)
             const localVarPath = `/accounts/{accountId}/conferences/{conferenceId}/members/{memberId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"conferenceId"}}`, encodeURIComponent(String(conferenceId)))
-                .replace(`{${"memberId"}}`, encodeURIComponent(String(memberId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{conferenceId}', encodeURIComponent(String(conferenceId)))
+                .replace('{memberId}', encodeURIComponent(String(memberId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -173,8 +173,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -201,9 +201,9 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'recordingId' is not null or undefined
             assertParamExists('getConferenceRecording', 'recordingId', recordingId)
             const localVarPath = `/accounts/{accountId}/conferences/{conferenceId}/recordings/{recordingId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"conferenceId"}}`, encodeURIComponent(String(conferenceId)))
-                .replace(`{${"recordingId"}}`, encodeURIComponent(String(recordingId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{conferenceId}', encodeURIComponent(String(conferenceId)))
+                .replace('{recordingId}', encodeURIComponent(String(recordingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -223,8 +223,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -248,8 +248,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'conferenceId' is not null or undefined
             assertParamExists('listConferenceRecordings', 'conferenceId', conferenceId)
             const localVarPath = `/accounts/{accountId}/conferences/{conferenceId}/recordings`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"conferenceId"}}`, encodeURIComponent(String(conferenceId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{conferenceId}', encodeURIComponent(String(conferenceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -269,8 +269,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -296,7 +296,7 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listConferences', 'accountId', accountId)
             const localVarPath = `/accounts/{accountId}/conferences`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -336,8 +336,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
                 localVarQueryParameter['pageToken'] = pageToken;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -364,8 +364,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'updateConference' is not null or undefined
             assertParamExists('updateConference', 'updateConference', updateConference)
             const localVarPath = `/accounts/{accountId}/conferences/{conferenceId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"conferenceId"}}`, encodeURIComponent(String(conferenceId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{conferenceId}', encodeURIComponent(String(conferenceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -385,9 +385,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -416,8 +415,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'body' is not null or undefined
             assertParamExists('updateConferenceBxml', 'body', body)
             const localVarPath = `/accounts/{accountId}/conferences/{conferenceId}/bxml`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"conferenceId"}}`, encodeURIComponent(String(conferenceId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{conferenceId}', encodeURIComponent(String(conferenceId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -437,9 +436,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/xml';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -471,9 +469,9 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // verify required parameter 'updateConferenceMember' is not null or undefined
             assertParamExists('updateConferenceMember', 'updateConferenceMember', updateConferenceMember)
             const localVarPath = `/accounts/{accountId}/conferences/{conferenceId}/members/{memberId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"conferenceId"}}`, encodeURIComponent(String(conferenceId)))
-                .replace(`{${"memberId"}}`, encodeURIComponent(String(memberId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{conferenceId}', encodeURIComponent(String(conferenceId)))
+                .replace('{memberId}', encodeURIComponent(String(memberId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -493,9 +491,8 @@ export const ConferencesApiAxiosParamCreator = function (configuration?: Configu
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};

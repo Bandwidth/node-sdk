@@ -20,7 +20,7 @@
 
 export const CallbackMethodEnum = {
     Get: 'GET',
-    Post: 'POST'
+    Post: 'POST',
 } as const;
 
 export type CallbackMethodEnum = typeof CallbackMethodEnum[keyof typeof CallbackMethodEnum];
