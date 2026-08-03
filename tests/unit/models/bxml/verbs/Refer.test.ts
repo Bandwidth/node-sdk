@@ -1,42 +1,40 @@
-import { Refer, ReferAttributes } from '../../../../../models/bxml/verbs/Refer';
+import { Verb } from '../../../../../models/bxml/Verb';
 import { SipUri } from '../../../../../models/bxml/verbs/SipUri';
+import { Refer, ReferAttributes } from '../../../../../models/bxml/verbs/Refer';
 
 describe('Refer', () => {
-    test('should generate Refer XML with SipUri and all attributes', () => {
-        const attributes: ReferAttributes = {
-            referCompleteUrl: 'https://example.com/handleRefer',
-            referCompleteMethod: 'POST',
-            tag: 'my-tag',
-        };
-        const sipUri = new SipUri('sip:alice@atlanta.example.com');
-        const refer = new Refer(sipUri, attributes);
+    const attributes: ReferAttributes = {
+        referCompleteUrl: 'https://initial.com',
+        referCompleteMethod: 'POST',
+        tag: 'initialTag'
+    };
 
-        const xml = refer.toBxml();
-        expect(xml).toContain('<Refer');
-        expect(xml).toContain('referCompleteUrl="https://example.com/handleRefer"');
-        expect(xml).toContain('referCompleteMethod="POST"');
-        expect(xml).toContain('tag="my-tag"');
-        expect(xml).toContain('<SipUri>sip:alice@atlanta.example.com</SipUri>');
-        expect(xml).toContain('</Refer>');
+    const sipUri = new SipUri('sip:alice@atlanta.example.com');
+    const newSipUri = new SipUri('sip:bob@biloxi.example.com');
+
+    test('should create a Refer Verb', () => {
+        const refer = new Refer(attributes);
+        const expected = '<Refer referCompleteUrl="https://initial.com" referCompleteMethod="POST" tag="initialTag"/>';
+
+        expect(refer).toBeInstanceOf(Refer);
+        expect(refer).toBeInstanceOf(Verb);
+        expect(refer.toBxml()).toBe(expected);
     });
 
-    test('should generate Refer XML with no attributes', () => {
-        const sipUri = new SipUri('sip:bob@biloxi.example.com');
-        const refer = new Refer(sipUri);
+    test('should create a Refer Verb with a nested SipUri', () => {
+        const refer = new Refer(attributes, sipUri);
+        const expected = '<Refer referCompleteUrl="https://initial.com" referCompleteMethod="POST" tag="initialTag"><SipUri>sip:alice@atlanta.example.com</SipUri></Refer>';
 
-        const xml = refer.toBxml();
-        expect(xml).toContain('<Refer>');
-        expect(xml).toContain('<SipUri>sip:bob@biloxi.example.com</SipUri>');
+        expect(refer).toBeInstanceOf(Refer);
+        expect(refer).toBeInstanceOf(Verb);
+        expect(refer.toBxml()).toBe(expected);
     });
 
-    test('setSipUri should replace the nested SipUri', () => {
-        const sipUri1 = new SipUri('sip:alice@atlanta.example.com');
-        const sipUri2 = new SipUri('sip:bob@biloxi.example.com');
-        const refer = new Refer(sipUri1);
+    test('should test the setSipUri method', () => {
+        const refer = new Refer(attributes, sipUri);
+        const expected = '<Refer referCompleteUrl="https://initial.com" referCompleteMethod="POST" tag="initialTag"><SipUri>sip:bob@biloxi.example.com</SipUri></Refer>';
 
-        refer.setSipUri(sipUri2);
-        const xml = refer.toBxml();
-        expect(xml).not.toContain('alice');
-        expect(xml).toContain('sip:bob@biloxi.example.com');
+        refer.setSipUri(newSipUri);
+        expect(refer.toBxml()).toBe(expected);
     });
 });
