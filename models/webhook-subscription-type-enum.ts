@@ -17,7 +17,7 @@
 
 export const WebhookSubscriptionTypeEnum = {
     TollfreeVerificationStatus: 'TOLLFREE_VERIFICATION_STATUS',
-    MessagingPortoutApprovalStatus: 'MESSAGING_PORTOUT_APPROVAL_STATUS'
+    MessagingPortoutApprovalStatus: 'MESSAGING_PORTOUT_APPROVAL_STATUS',
 } as const;
 
 export type WebhookSubscriptionTypeEnum = typeof WebhookSubscriptionTypeEnum[keyof typeof WebhookSubscriptionTypeEnum];

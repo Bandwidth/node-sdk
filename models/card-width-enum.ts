@@ -17,7 +17,7 @@
 
 export const CardWidthEnum = {
     Small: 'SMALL',
-    Medium: 'MEDIUM'
+    Medium: 'MEDIUM',
 } as const;
 
 export type CardWidthEnum = typeof CardWidthEnum[keyof typeof CardWidthEnum];

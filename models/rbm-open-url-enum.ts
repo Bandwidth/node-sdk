@@ -20,7 +20,7 @@
 
 export const RbmOpenUrlEnum = {
     Browser: 'BROWSER',
-    Webview: 'WEBVIEW'
+    Webview: 'WEBVIEW',
 } as const;
 
 export type RbmOpenUrlEnum = typeof RbmOpenUrlEnum[keyof typeof RbmOpenUrlEnum];

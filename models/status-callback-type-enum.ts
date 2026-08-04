@@ -23,7 +23,7 @@ export const StatusCallbackTypeEnum = {
     MessageSent: 'message-sent',
     MessageDelivered: 'message-delivered',
     MessageFailed: 'message-failed',
-    MessageRead: 'message-read'
+    MessageRead: 'message-read',
 } as const;
 
 export type StatusCallbackTypeEnum = typeof StatusCallbackTypeEnum[keyof typeof StatusCallbackTypeEnum];

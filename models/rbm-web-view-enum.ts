@@ -21,7 +21,7 @@
 export const RbmWebViewEnum = {
     Full: 'FULL',
     Half: 'HALF',
-    Tall: 'TALL'
+    Tall: 'TALL',
 } as const;
 
 export type RbmWebViewEnum = typeof RbmWebViewEnum[keyof typeof RbmWebViewEnum];

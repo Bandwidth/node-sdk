@@ -21,7 +21,7 @@
 export const CallTranscriptionDetectedLanguageEnum = {
     EnUs: 'en-US',
     EsUs: 'es-US',
-    FrFr: 'fr-FR'
+    FrFr: 'fr-FR',
 } as const;
 
 export type CallTranscriptionDetectedLanguageEnum = typeof CallTranscriptionDetectedLanguageEnum[keyof typeof CallTranscriptionDetectedLanguageEnum];

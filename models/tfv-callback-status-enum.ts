@@ -17,7 +17,7 @@
 
 export const TfvCallbackStatusEnum = {
     Verified: 'VERIFIED',
-    Unverified: 'UNVERIFIED'
+    Unverified: 'UNVERIFIED',
 } as const;
 
 export type TfvCallbackStatusEnum = typeof TfvCallbackStatusEnum[keyof typeof TfvCallbackStatusEnum];

@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -56,7 +56,7 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
             // verify required parameter 'codeRequest' is not null or undefined
             assertParamExists('generateMessagingCode', 'codeRequest', codeRequest)
             const localVarPath = `/accounts/{accountId}/code/messaging`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -76,9 +76,8 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -104,7 +103,7 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
             // verify required parameter 'codeRequest' is not null or undefined
             assertParamExists('generateVoiceCode', 'codeRequest', codeRequest)
             const localVarPath = `/accounts/{accountId}/code/voice`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -124,9 +123,8 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -152,7 +150,7 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
             // verify required parameter 'verifyCodeRequest' is not null or undefined
             assertParamExists('verifyCode', 'verifyCodeRequest', verifyCodeRequest)
             const localVarPath = `/accounts/{accountId}/code/verify`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -172,9 +170,8 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};

@@ -20,7 +20,7 @@
 
 export const PriorityEnum = {
     Default: 'default',
-    High: 'high'
+    High: 'high',
 } as const;
 
 export type PriorityEnum = typeof PriorityEnum[keyof typeof PriorityEnum];

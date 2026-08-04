@@ -21,7 +21,7 @@
 export const RbmMediaHeightEnum = {
     Short: 'SHORT',
     Medium: 'MEDIUM',
-    Tall: 'TALL'
+    Tall: 'TALL',
 } as const;
 
 export type RbmMediaHeightEnum = typeof RbmMediaHeightEnum[keyof typeof RbmMediaHeightEnum];

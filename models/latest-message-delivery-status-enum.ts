@@ -22,7 +22,7 @@ export const LatestMessageDeliveryStatusEnum = {
     Active: 'ACTIVE',
     Deactivated: 'DEACTIVATED',
     Unknown: 'UNKNOWN',
-    NotEnabled: 'NOT_ENABLED'
+    NotEnabled: 'NOT_ENABLED',
 } as const;
 
 export type LatestMessageDeliveryStatusEnum = typeof LatestMessageDeliveryStatusEnum[keyof typeof LatestMessageDeliveryStatusEnum];

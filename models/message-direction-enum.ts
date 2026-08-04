@@ -20,7 +20,7 @@
 
 export const MessageDirectionEnum = {
     In: 'in',
-    Out: 'out'
+    Out: 'out',
 } as const;
 
 export type MessageDirectionEnum = typeof MessageDirectionEnum[keyof typeof MessageDirectionEnum];

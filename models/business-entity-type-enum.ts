@@ -23,7 +23,7 @@ export const BusinessEntityTypeEnum = {
     PrivateProfit: 'PRIVATE_PROFIT',
     PublicProfit: 'PUBLIC_PROFIT',
     NonProfit: 'NON_PROFIT',
-    Government: 'GOVERNMENT'
+    Government: 'GOVERNMENT',
 } as const;
 
 export type BusinessEntityTypeEnum = typeof BusinessEntityTypeEnum[keyof typeof BusinessEntityTypeEnum];

@@ -21,7 +21,7 @@
 export const MultiChannelMessageChannelEnum = {
     Rbm: 'RBM',
     Sms: 'SMS',
-    Mms: 'MMS'
+    Mms: 'MMS',
 } as const;
 
 export type MultiChannelMessageChannelEnum = typeof MultiChannelMessageChannelEnum[keyof typeof MultiChannelMessageChannelEnum];

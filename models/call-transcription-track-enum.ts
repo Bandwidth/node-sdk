@@ -20,7 +20,7 @@
 
 export const CallTranscriptionTrackEnum = {
     Inbound: 'inbound',
-    Outbound: 'outbound'
+    Outbound: 'outbound',
 } as const;
 
 export type CallTranscriptionTrackEnum = typeof CallTranscriptionTrackEnum[keyof typeof CallTranscriptionTrackEnum];
