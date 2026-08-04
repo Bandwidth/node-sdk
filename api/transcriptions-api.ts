@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -49,9 +49,9 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'transcriptionId' is not null or undefined
             assertParamExists('deleteRealTimeTranscription', 'transcriptionId', transcriptionId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/transcriptions/{transcriptionId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
-                .replace(`{${"transcriptionId"}}`, encodeURIComponent(String(transcriptionId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)))
+                .replace('{transcriptionId}', encodeURIComponent(String(transcriptionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -71,8 +71,8 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -99,9 +99,9 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'transcriptionId' is not null or undefined
             assertParamExists('getRealTimeTranscription', 'transcriptionId', transcriptionId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/transcriptions/{transcriptionId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
-                .replace(`{${"transcriptionId"}}`, encodeURIComponent(String(transcriptionId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)))
+                .replace('{transcriptionId}', encodeURIComponent(String(transcriptionId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -121,8 +121,8 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -146,8 +146,8 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
             // verify required parameter 'callId' is not null or undefined
             assertParamExists('listRealTimeTranscriptions', 'callId', callId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/transcriptions`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -167,8 +167,8 @@ export const TranscriptionsApiAxiosParamCreator = function (configuration?: Conf
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};

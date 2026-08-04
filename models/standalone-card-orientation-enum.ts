@@ -17,7 +17,7 @@
 
 export const StandaloneCardOrientationEnum = {
     Horizontal: 'HORIZONTAL',
-    Vertical: 'VERTICAL'
+    Vertical: 'VERTICAL',
 } as const;
 
 export type StandaloneCardOrientationEnum = typeof StandaloneCardOrientationEnum[keyof typeof StandaloneCardOrientationEnum];

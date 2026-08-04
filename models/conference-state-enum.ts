@@ -20,7 +20,7 @@
 
 export const ConferenceStateEnum = {
     Active: 'active',
-    Completed: 'completed'
+    Completed: 'completed',
 } as const;
 
 export type ConferenceStateEnum = typeof ConferenceStateEnum[keyof typeof ConferenceStateEnum];

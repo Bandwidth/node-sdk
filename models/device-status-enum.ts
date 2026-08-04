@@ -17,7 +17,7 @@
 
 export const DeviceStatusEnum = {
     Connected: 'CONNECTED',
-    Disconnected: 'DISCONNECTED'
+    Disconnected: 'DISCONNECTED',
 } as const;
 
 export type DeviceStatusEnum = typeof DeviceStatusEnum[keyof typeof DeviceStatusEnum];

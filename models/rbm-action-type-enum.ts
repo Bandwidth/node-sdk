@@ -21,7 +21,7 @@ export const RbmActionTypeEnum = {
     ShowLocation: 'SHOW_LOCATION',
     CreateCalendarEvent: 'CREATE_CALENDAR_EVENT',
     OpenUrl: 'OPEN_URL',
-    RequestLocation: 'REQUEST_LOCATION'
+    RequestLocation: 'REQUEST_LOCATION',
 } as const;
 
 export type RbmActionTypeEnum = typeof RbmActionTypeEnum[keyof typeof RbmActionTypeEnum];

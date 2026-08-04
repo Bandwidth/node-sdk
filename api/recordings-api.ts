@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -53,9 +53,9 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'recordingId' is not null or undefined
             assertParamExists('deleteRecording', 'recordingId', recordingId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/recordings/{recordingId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
-                .replace(`{${"recordingId"}}`, encodeURIComponent(String(recordingId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)))
+                .replace('{recordingId}', encodeURIComponent(String(recordingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -75,8 +75,8 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -103,9 +103,9 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'recordingId' is not null or undefined
             assertParamExists('deleteRecordingMedia', 'recordingId', recordingId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/recordings/{recordingId}/media`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
-                .replace(`{${"recordingId"}}`, encodeURIComponent(String(recordingId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)))
+                .replace('{recordingId}', encodeURIComponent(String(recordingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -125,8 +125,8 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -153,9 +153,9 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'recordingId' is not null or undefined
             assertParamExists('deleteRecordingTranscription', 'recordingId', recordingId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/recordings/{recordingId}/transcription`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
-                .replace(`{${"recordingId"}}`, encodeURIComponent(String(recordingId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)))
+                .replace('{recordingId}', encodeURIComponent(String(recordingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -175,8 +175,8 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -203,9 +203,9 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'recordingId' is not null or undefined
             assertParamExists('downloadCallRecording', 'recordingId', recordingId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/recordings/{recordingId}/media`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
-                .replace(`{${"recordingId"}}`, encodeURIComponent(String(recordingId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)))
+                .replace('{recordingId}', encodeURIComponent(String(recordingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -225,8 +225,8 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'audio/vnd.wave,audio/mpeg,application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -253,9 +253,9 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'recordingId' is not null or undefined
             assertParamExists('getCallRecording', 'recordingId', recordingId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/recordings/{recordingId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
-                .replace(`{${"recordingId"}}`, encodeURIComponent(String(recordingId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)))
+                .replace('{recordingId}', encodeURIComponent(String(recordingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -275,8 +275,8 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -303,9 +303,9 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'recordingId' is not null or undefined
             assertParamExists('getRecordingTranscription', 'recordingId', recordingId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/recordings/{recordingId}/transcription`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
-                .replace(`{${"recordingId"}}`, encodeURIComponent(String(recordingId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)))
+                .replace('{recordingId}', encodeURIComponent(String(recordingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -325,8 +325,8 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -351,7 +351,7 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listAccountCallRecordings', 'accountId', accountId)
             const localVarPath = `/accounts/{accountId}/recordings`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -387,8 +387,8 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
                 localVarQueryParameter['maxStartTime'] = maxStartTime;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -412,8 +412,8 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'callId' is not null or undefined
             assertParamExists('listCallRecordings', 'callId', callId)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/recordings`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -433,8 +433,8 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -464,9 +464,9 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'transcribeRecording' is not null or undefined
             assertParamExists('transcribeCallRecording', 'transcribeRecording', transcribeRecording)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/recordings/{recordingId}/transcription`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)))
-                .replace(`{${"recordingId"}}`, encodeURIComponent(String(recordingId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)))
+                .replace('{recordingId}', encodeURIComponent(String(recordingId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -486,9 +486,8 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -517,8 +516,8 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // verify required parameter 'updateCallRecording' is not null or undefined
             assertParamExists('updateCallRecordingState', 'updateCallRecording', updateCallRecording)
             const localVarPath = `/accounts/{accountId}/calls/{callId}/recording`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"callId"}}`, encodeURIComponent(String(callId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{callId}', encodeURIComponent(String(callId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -538,9 +537,8 @@ export const RecordingsApiAxiosParamCreator = function (configuration?: Configur
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};

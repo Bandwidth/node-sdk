@@ -19,7 +19,7 @@
  */
 
 export const DeactivationEventEnum = {
-    Deactivated: 'DEACTIVATED'
+    Deactivated: 'DEACTIVATED',
 } as const;
 
 export type DeactivationEventEnum = typeof DeactivationEventEnum[keyof typeof DeactivationEventEnum];

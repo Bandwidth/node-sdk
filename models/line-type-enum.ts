@@ -19,7 +19,7 @@ export const LineTypeEnum = {
     Fixed: 'FIXED',
     VoipFixed: 'VOIP-FIXED',
     Mobile: 'MOBILE',
-    Voip: 'VOIP'
+    Voip: 'VOIP',
 } as const;
 
 export type LineTypeEnum = typeof LineTypeEnum[keyof typeof LineTypeEnum];

@@ -20,7 +20,7 @@
 
 export const RecordingStateEnum = {
     Paused: 'paused',
-    Recording: 'recording'
+    Recording: 'recording',
 } as const;
 
 export type RecordingStateEnum = typeof RecordingStateEnum[keyof typeof RecordingStateEnum];

@@ -27,7 +27,7 @@ export const ProductTypeEnum = {
     AlphaNumeric: 'ALPHA_NUMERIC',
     RbmMedia: 'RBM_MEDIA',
     RbmRich: 'RBM_RICH',
-    RbmConversational: 'RBM_CONVERSATIONAL'
+    RbmConversational: 'RBM_CONVERSATIONAL',
 } as const;
 
 export type ProductTypeEnum = typeof ProductTypeEnum[keyof typeof ProductTypeEnum];

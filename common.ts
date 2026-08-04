@@ -68,7 +68,7 @@ export const setOAuthToObject = async function (object: any, name: string, scope
 function setFlattenedQueryParams(urlSearchParams: URLSearchParams, parameter: any, key: string = ""): void {
     if (parameter == null) return;
     if (typeof parameter === "object") {
-        if (Array.isArray(parameter)) {
+        if (Array.isArray(parameter) || parameter instanceof Set) {
             (parameter as any[]).forEach(item => setFlattenedQueryParams(urlSearchParams, item, key));
         }
         else {
@@ -93,13 +93,27 @@ export const setSearchParams = function (url: URL, ...objects: any[]) {
     url.search = searchParams.toString();
 }
 
+/**
+ * JSON serialization helper function which replaces instances of unserializable types with serializable ones.
+ * This function will run for every key-value pair encountered by JSON.stringify while traversing an object.
+ * Converting a set to a string will return an empty object, so an intermediate conversion to an array is required.
+ */
+// @ts-ignore
+export const replaceWithSerializableTypeIfNeeded = function(key: string, value: any) {
+    if (value instanceof Set) {
+        return Array.from(value);
+    } else {
+        return value;
+    }
+}
+
 export const serializeDataIfNeeded = function (value: any, requestOptions: any, configuration?: Configuration) {
     const nonString = typeof value !== 'string';
     const needsSerialization = nonString && configuration && configuration.isJsonMime
         ? configuration.isJsonMime(requestOptions.headers['Content-Type'])
         : nonString;
     return needsSerialization
-        ? JSON.stringify(value !== undefined ? value : {}, (_k, v) => (v instanceof Set ? Array.from(v) : v))
+        ? JSON.stringify(value !== undefined ? value : {}, replaceWithSerializableTypeIfNeeded)
         : (value || "");
 }
 
@@ -108,8 +122,8 @@ export const toPathString = function (url: URL) {
 }
 
 export const createRequestFunction = function (axiosArgs: RequestArgs, globalAxios: AxiosInstance, BASE_PATH: string, configuration?: Configuration) {
-    return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH) => {
+    return <T = unknown, R = AxiosResponse<T>>(axios: AxiosInstance = globalAxios, basePath: string = BASE_PATH): Promise<R> => {
         const axiosRequestArgs = {...axiosArgs.options, url: (axios.defaults.baseURL ? '' : configuration?.basePath ?? basePath) + axiosArgs.url};
-        return axios.request<T, R>(axiosRequestArgs);
+        return axios.request<T, R>(axiosRequestArgs) as Promise<R>;
     };
 }
