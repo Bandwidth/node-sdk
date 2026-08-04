@@ -64,10 +64,10 @@ jobs:
       MANTECA_APPLICATION_ID: ${{ secrets.MANTECA_UP_APPLICATION_ID }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 24
 
@@ -79,14 +79,14 @@ jobs:
           OPERATING_SYSTEM: "ubuntu"
 
   notify_for_failures:
-      name: Notify for Failures
-      needs: [test, test_up]
-      if: failure()
-      runs-on: ubuntu-latest
-      steps:
-        - name: Notify Slack of Failures
-          uses: Bandwidth/build-notify-slack-action@v2
-          with:
-            job-status: failure
-            slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
-            slack-channel: ${{ secrets.SLACK_CHANNEL }}
+    name: Notify for Failures
+    needs: [test, test_up]
+    if: failure()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify Slack of Failures
+        uses: Bandwidth/build-notify-slack-action@v2
+        with:
+          job-status: failure
+          slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}
+          slack-channel: ${{ secrets.SLACK_CHANNEL }}
