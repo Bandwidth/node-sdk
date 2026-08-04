@@ -20,7 +20,7 @@
 
 export const ThumbnailAlignmentEnum = {
     Left: 'LEFT',
-    Right: 'RIGHT'
+    Right: 'RIGHT',
 } as const;
 
 export type ThumbnailAlignmentEnum = typeof ThumbnailAlignmentEnum[keyof typeof ThumbnailAlignmentEnum];

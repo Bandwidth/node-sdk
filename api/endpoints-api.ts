@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -54,7 +54,7 @@ export const EndpointsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'body' is not null or undefined
             assertParamExists('createEndpoint', 'body', body)
             const localVarPath = `/accounts/{accountId}/endpoints`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -74,9 +74,8 @@ export const EndpointsApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -102,8 +101,8 @@ export const EndpointsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'endpointId' is not null or undefined
             assertParamExists('deleteEndpoint', 'endpointId', endpointId)
             const localVarPath = `/accounts/{accountId}/endpoints/{endpointId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"endpointId"}}`, encodeURIComponent(String(endpointId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{endpointId}', encodeURIComponent(String(endpointId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -123,8 +122,8 @@ export const EndpointsApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -148,8 +147,8 @@ export const EndpointsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'endpointId' is not null or undefined
             assertParamExists('getEndpoint', 'endpointId', endpointId)
             const localVarPath = `/accounts/{accountId}/endpoints/{endpointId}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"endpointId"}}`, encodeURIComponent(String(endpointId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{endpointId}', encodeURIComponent(String(endpointId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -169,8 +168,8 @@ export const EndpointsApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -195,7 +194,7 @@ export const EndpointsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listEndpoints', 'accountId', accountId)
             const localVarPath = `/accounts/{accountId}/endpoints`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -231,8 +230,8 @@ export const EndpointsApiAxiosParamCreator = function (configuration?: Configura
                 localVarQueryParameter['limit'] = limit;
             }
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -259,8 +258,8 @@ export const EndpointsApiAxiosParamCreator = function (configuration?: Configura
             // verify required parameter 'body' is not null or undefined
             assertParamExists('updateEndpointBxml', 'body', body)
             const localVarPath = `/accounts/{accountId}/endpoints/{endpointId}/bxml`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"endpointId"}}`, encodeURIComponent(String(endpointId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{endpointId}', encodeURIComponent(String(endpointId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -280,9 +279,8 @@ export const EndpointsApiAxiosParamCreator = function (configuration?: Configura
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/xml';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};

@@ -17,7 +17,7 @@
 
 export const EndpointEventTypeEnum = {
     DeviceConnected: 'DEVICE_CONNECTED',
-    DeviceDisconnected: 'DEVICE_DISCONNECTED'
+    DeviceDisconnected: 'DEVICE_DISCONNECTED',
 } as const;
 
 export type EndpointEventTypeEnum = typeof EndpointEventTypeEnum[keyof typeof EndpointEventTypeEnum];

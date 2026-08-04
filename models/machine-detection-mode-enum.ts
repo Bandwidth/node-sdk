@@ -20,7 +20,7 @@
 
 export const MachineDetectionModeEnum = {
     Sync: 'sync',
-    Async: 'async'
+    Async: 'async',
 } as const;
 
 export type MachineDetectionModeEnum = typeof MachineDetectionModeEnum[keyof typeof MachineDetectionModeEnum];

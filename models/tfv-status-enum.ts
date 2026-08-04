@@ -18,7 +18,7 @@
 export const TfvStatusEnum = {
     Verified: 'VERIFIED',
     Unverified: 'UNVERIFIED',
-    Pending: 'PENDING'
+    Pending: 'PENDING',
 } as const;
 
 export type TfvStatusEnum = typeof TfvStatusEnum[keyof typeof TfvStatusEnum];

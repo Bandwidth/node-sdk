@@ -18,7 +18,7 @@ import type { AxiosPromise, AxiosInstance, RawAxiosRequestConfig } from 'axios';
 import globalAxios from 'axios';
 // Some imports not used depending on template conditions
 // @ts-ignore
-import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction } from '../common';
+import { DUMMY_BASE_URL, assertParamExists, setApiKeyToObject, setBasicAuthToObject, setBearerAuthToObject, setOAuthToObject, setSearchParams, serializeDataIfNeeded, toPathString, createRequestFunction, replaceWithSerializableTypeIfNeeded } from '../common';
 // @ts-ignore
 import { BASE_PATH, COLLECTION_FORMATS, type RequestArgs, BaseAPI, RequiredError, operationServerMap } from '../base';
 // @ts-ignore
@@ -54,7 +54,7 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // verify required parameter 'webhookSubscriptionRequestSchema' is not null or undefined
             assertParamExists('createWebhookSubscription', 'webhookSubscriptionRequestSchema', webhookSubscriptionRequestSchema)
             const localVarPath = `/accounts/{accountId}/tollFreeVerification/webhooks/subscriptions`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -74,9 +74,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -102,8 +101,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // verify required parameter 'phoneNumber' is not null or undefined
             assertParamExists('deleteVerificationRequest', 'phoneNumber', phoneNumber)
             const localVarPath = `/accounts/{accountId}/phoneNumbers/{phoneNumber}/tollFreeVerification`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"phoneNumber"}}`, encodeURIComponent(String(phoneNumber)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{phoneNumber}', encodeURIComponent(String(phoneNumber)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -123,8 +122,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -148,8 +147,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // verify required parameter 'id' is not null or undefined
             assertParamExists('deleteWebhookSubscription', 'id', id)
             const localVarPath = `/accounts/{accountId}/tollFreeVerification/webhooks/subscriptions/{id}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -169,8 +168,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -194,8 +193,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // verify required parameter 'phoneNumber' is not null or undefined
             assertParamExists('getTollFreeVerificationStatus', 'phoneNumber', phoneNumber)
             const localVarPath = `/accounts/{accountId}/phoneNumbers/{phoneNumber}/tollFreeVerification`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"phoneNumber"}}`, encodeURIComponent(String(phoneNumber)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{phoneNumber}', encodeURIComponent(String(phoneNumber)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -215,8 +214,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -253,8 +252,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -275,7 +274,7 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // verify required parameter 'accountId' is not null or undefined
             assertParamExists('listWebhookSubscriptions', 'accountId', accountId)
             const localVarPath = `/accounts/{accountId}/tollFreeVerification/webhooks/subscriptions`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -295,8 +294,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
+            localVarHeaderParameter['Accept'] = 'application/json';
 
-    
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
             localVarRequestOptions.headers = {...localVarHeaderParameter, ...headersFromBaseOptions, ...options.headers};
@@ -320,7 +319,7 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // verify required parameter 'verificationRequest' is not null or undefined
             assertParamExists('requestTollFreeVerification', 'verificationRequest', verificationRequest)
             const localVarPath = `/accounts/{accountId}/tollFreeVerification`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -340,9 +339,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -371,8 +369,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // verify required parameter 'tfvSubmissionWrapper' is not null or undefined
             assertParamExists('updateTollFreeVerificationRequest', 'tfvSubmissionWrapper', tfvSubmissionWrapper)
             const localVarPath = `/accounts/{accountId}/phoneNumbers/{phoneNumber}/tollFreeVerification`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"phoneNumber"}}`, encodeURIComponent(String(phoneNumber)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{phoneNumber}', encodeURIComponent(String(phoneNumber)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -392,9 +390,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};
@@ -423,8 +420,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // verify required parameter 'webhookSubscriptionRequestSchema' is not null or undefined
             assertParamExists('updateWebhookSubscription', 'webhookSubscriptionRequestSchema', webhookSubscriptionRequestSchema)
             const localVarPath = `/accounts/{accountId}/tollFreeVerification/webhooks/subscriptions/{id}`
-                .replace(`{${"accountId"}}`, encodeURIComponent(String(accountId)))
-                .replace(`{${"id"}}`, encodeURIComponent(String(id)));
+                .replace('{accountId}', encodeURIComponent(String(accountId)))
+                .replace('{id}', encodeURIComponent(String(id)));
             // use dummy base URL string because the URL constructor only accepts absolute URLs.
             const localVarUrlObj = new URL(localVarPath, DUMMY_BASE_URL);
             let baseOptions;
@@ -444,9 +441,8 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
 
-
-    
             localVarHeaderParameter['Content-Type'] = 'application/json';
+            localVarHeaderParameter['Accept'] = 'application/json';
 
             setSearchParams(localVarUrlObj, localVarQueryParameter);
             let headersFromBaseOptions = baseOptions && baseOptions.headers ? baseOptions.headers : {};

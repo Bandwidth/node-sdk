@@ -18,7 +18,7 @@
 export const EndpointDirectionEnum = {
     Inbound: 'INBOUND',
     Outbound: 'OUTBOUND',
-    Bidirectional: 'BIDIRECTIONAL'
+    Bidirectional: 'BIDIRECTIONAL',
 } as const;
 
 export type EndpointDirectionEnum = typeof EndpointDirectionEnum[keyof typeof EndpointDirectionEnum];
