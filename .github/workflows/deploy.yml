@@ -79,6 +79,8 @@ jobs:
           npm install -g @stoplight/prism-cli
           prism mock ./bandwidth.yml & yarn test-unit
         shell: bash
+        env:
+          NODE_AUTH_TOKEN: DUMMY_TOKEN
 
       - name: Publish npm Package
         run: |
