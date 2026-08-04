@@ -51,15 +51,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Setup Node
-        uses: actions/setup-node@v7
-        with:
-          node-version: 24
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Update NPM
-        run: npm install -g npm@latest
-
       - name: Set OpenAPI Generator Version
         run: |
           OPENAPI_VERSION=$(jq .[\"generator-cli\"].version openapitools.json)
@@ -72,6 +63,15 @@ jobs:
           openapi-generator-version: ${{ env.OPENAPI_GENERATOR_VERSION }}
           language: typescript-axios
           additional-properties: --additional-properties=npmVersion=$PACKAGE_VERSION
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Update NPM
+        run: npm install -g npm@latest
 
       - name: Install Packages and Test
         run: |
