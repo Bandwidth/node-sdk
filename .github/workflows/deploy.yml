@@ -49,16 +49,7 @@ jobs:
           TAG: ${{ github.event.release.tag_name }}
 
       - name: Checkout
-        uses: actions/checkout@v6
-
-      - name: Setup Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 20
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Update NPM
-        run: npm install -g npm@latest
+        uses: actions/checkout@v7
 
       - name: Set OpenAPI Generator Version
         run: |
@@ -67,11 +58,20 @@ jobs:
         shell: bash
 
       - name: Generate SDK with Updated Version
-        uses: Bandwidth/generate-sdk-action@v4.0.0
+        uses: Bandwidth/generate-sdk-action@v4.1.0
         with:
           openapi-generator-version: ${{ env.OPENAPI_GENERATOR_VERSION }}
           language: typescript-axios
           additional-properties: --additional-properties=npmVersion=$PACKAGE_VERSION
+
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Update NPM
+        run: npm install -g npm@latest
 
       - name: Install Packages and Test
         run: |
@@ -79,6 +79,8 @@ jobs:
           npm install -g @stoplight/prism-cli
           prism mock ./bandwidth.yml & yarn test-unit
         shell: bash
+        env:
+          NODE_AUTH_TOKEN: DUMMY_TOKEN
 
       - name: Publish npm Package
         run: |

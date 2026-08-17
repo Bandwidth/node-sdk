@@ -25,7 +25,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MediaApi(configuration);
 
-let accountId: string; //Your Bandwidth Account ID. (default to undefined)
+let accountId: string; //This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (`u-be8dvafwrs63rwpm7pfil4b`) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  (default to undefined)
 let mediaId: string; //Media ID to retrieve. (default to undefined)
 
 const { status, data } = await apiInstance.deleteMedia(
@@ -38,7 +38,7 @@ const { status, data } = await apiInstance.deleteMedia(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **accountId** | [**string**] | Your Bandwidth Account ID. | defaults to undefined|
+| **accountId** | [**string**] | This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  | defaults to undefined|
 | **mediaId** | [**string**] | Media ID to retrieve. | defaults to undefined|
 
 
@@ -87,7 +87,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MediaApi(configuration);
 
-let accountId: string; //Your Bandwidth Account ID. (default to undefined)
+let accountId: string; //This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (`u-be8dvafwrs63rwpm7pfil4b`) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  (default to undefined)
 let mediaId: string; //Media ID to retrieve. (default to undefined)
 
 const { status, data } = await apiInstance.getMedia(
@@ -100,7 +100,7 @@ const { status, data } = await apiInstance.getMedia(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **accountId** | [**string**] | Your Bandwidth Account ID. | defaults to undefined|
+| **accountId** | [**string**] | This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  | defaults to undefined|
 | **mediaId** | [**string**] | Media ID to retrieve. | defaults to undefined|
 
 
@@ -149,7 +149,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MediaApi(configuration);
 
-let accountId: string; //Your Bandwidth Account ID. (default to undefined)
+let accountId: string; //This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (`u-be8dvafwrs63rwpm7pfil4b`) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  (default to undefined)
 let continuationToken: string; //Continuation token used to retrieve subsequent media. (optional) (default to undefined)
 
 const { status, data } = await apiInstance.listMedia(
@@ -162,7 +162,7 @@ const { status, data } = await apiInstance.listMedia(
 
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
-| **accountId** | [**string**] | Your Bandwidth Account ID. | defaults to undefined|
+| **accountId** | [**string**] | This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  | defaults to undefined|
 | **continuationToken** | [**string**] | Continuation token used to retrieve subsequent media. | (optional) defaults to undefined|
 
 
@@ -211,7 +211,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MediaApi(configuration);
 
-let accountId: string; //Your Bandwidth Account ID. (default to undefined)
+let accountId: string; //This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (`u-be8dvafwrs63rwpm7pfil4b`) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  (default to undefined)
 let mediaId: string; //Media ID to retrieve. (default to undefined)
 let body: File; //
 let contentType: string; //The media type of the entity-body. (optional) (default to undefined)
@@ -231,7 +231,7 @@ const { status, data } = await apiInstance.uploadMedia(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **body** | **File**|  | |
-| **accountId** | [**string**] | Your Bandwidth Account ID. | defaults to undefined|
+| **accountId** | [**string**] | This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  | defaults to undefined|
 | **mediaId** | [**string**] | Media ID to retrieve. | defaults to undefined|
 | **contentType** | [**string**] | The media type of the entity-body. | (optional) defaults to undefined|
 | **cacheControl** | [**string**] | General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain. | (optional) defaults to undefined|

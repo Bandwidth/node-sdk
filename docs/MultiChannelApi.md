@@ -23,7 +23,7 @@ import {
 const configuration = new Configuration();
 const apiInstance = new MultiChannelApi(configuration);
 
-let accountId: string; //Your Bandwidth Account ID. (default to undefined)
+let accountId: string; //This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (`u-be8dvafwrs63rwpm7pfil4b`) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  (default to undefined)
 let multiChannelMessageRequest: MultiChannelMessageRequest; //
 
 const { status, data } = await apiInstance.createMultiChannelMessage(
@@ -37,7 +37,7 @@ const { status, data } = await apiInstance.createMultiChannelMessage(
 |Name | Type | Description  | Notes|
 |------------- | ------------- | ------------- | -------------|
 | **multiChannelMessageRequest** | **MultiChannelMessageRequest**|  | |
-| **accountId** | [**string**] | Your Bandwidth Account ID. | defaults to undefined|
+| **accountId** | [**string**] | This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.**  | defaults to undefined|
 
 
 ### Return type
