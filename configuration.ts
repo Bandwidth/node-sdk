@@ -32,6 +32,7 @@ export interface ConfigurationParameters {
     clientId?: string;
     clientSecret?: string;
     accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string) | ((name?: string, scopes?: string[]) => Promise<string>);
+    accessTokenUrl?: string;
     awsv4?: AWSv4Configuration;
     basePath?: string;
     serverIndex?: number;
@@ -67,6 +68,10 @@ export class Configuration {
      * @param scopes oauth2 scope
      */
     accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string) | ((name?: string, scopes?: string[]) => Promise<string>);
+    /**
+     * oauth2 token url
+     */
+    accessTokenUrl?: string;
     /**
      * temporary access token storage
      */
@@ -115,6 +120,7 @@ export class Configuration {
         this.clientSecret = param.clientSecret;
         this.tempAccessToken;
         this.tempAccessTokenExpiration;
+        this.accessTokenUrl = param.accessTokenUrl ?? 'https://api.bandwidth.com/api/v1/oauth2/token';
         this.accessToken = param.accessToken ?? (async (name, scopes) => {
             const now = Math.floor(Date.now() / 1000);
             if (this.tempAccessToken && (!this.tempAccessTokenExpiration || this.tempAccessTokenExpiration > now + 60)) {
@@ -125,7 +131,7 @@ export class Configuration {
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     auth: { username: this.clientId || '', password: this.clientSecret || '' },
                     data: 'grant_type=client_credentials',
-                    url: 'https://api.bandwidth.com/api/v1/oauth2/token'
+                    url: this.accessTokenUrl
                 };
                 const response = await globalAxios.request(tokenRequestArgs);
                 this.tempAccessToken = response.data.access_token;
