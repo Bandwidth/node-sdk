@@ -18,12 +18,12 @@
 import type { CallDirectionEnum } from './call-direction-enum';
 // May contain unused imports in some cases
 // @ts-ignore
-import type { MachineDetectionResult } from './machine-detection-result';
+import type { ReferCallStatusEnum } from './refer-call-status-enum';
 
 /**
- * This event is sent to the url informed when requesting a machine detection operation. It contains the machine detection operation result, which can be: human, answering-machine, silence, timeout, error. This event is not sent when sync answering machine detection mode is chosen.
+ * This event is sent to the referCompleteUrl of a call\'s <Refer> verb when the SIP REFER flow completes. On success, the call has been torn down and the BXML returned from this callback is ignored. On failure, the call remains active and the BXML returned from this callback is executed on the call.
  */
-export interface MachineDetectionCompleteCallback {
+export interface ReferCompleteCallback {
     /**
      * The event type, value can be one of the following: answer, bridgeComplete, bridgeTargetComplete, conferenceCreated, conferenceRedirect, conferenceMemberJoin, conferenceMemberExit, conferenceCompleted, conferenceRecordingAvailable, disconnect, dtmf, gather, initiate, machineDetectionComplete, recordingComplete, recordingAvailable, redirect, referComplete, transcriptionAvailable, transferAnswer, transferComplete, transferDisconnect.
      */
@@ -58,10 +58,6 @@ export interface MachineDetectionCompleteCallback {
      */
     'callUrl'?: string;
     /**
-     * (optional) If call queueing is enabled and this is an outbound call, time the call was queued, in ISO 8601 format.
-     */
-    'enqueuedTime'?: string | null;
-    /**
      * Time the call was started, in ISO 8601 format.
      */
     'startTime'?: string;
@@ -73,7 +69,15 @@ export interface MachineDetectionCompleteCallback {
      * (optional) The tag specified on call creation. If no tag was specified or it was previously cleared, this field will not be present.
      */
     'tag'?: string | null;
-    'machineDetectionResult'?: MachineDetectionResult | null;
+    'referCallStatus'?: ReferCallStatusEnum;
+    /**
+     * (optional) The SIP response code returned for the REFER request itself (e.g. 202, 405, 603). Present when a SIP response was received for the REFER.
+     */
+    'referSipResponseCode'?: number;
+    /**
+     * (optional) The final SIP response code reported via NOTIFY (message/sipfrag body). Present only when the caller\'s endpoint sent a final NOTIFY (e.g. 200, 404, 486, 503). Not present on NOTIFY timeout or when the REFER was rejected before a subscription was established.
+     */
+    'notifySipResponseCode'?: number;
 }
 
 
