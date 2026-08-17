@@ -3,8 +3,7 @@ import { Configuration } from '../../../configuration';
 
 describe('MediaApi', () => {
     const config = new Configuration({
-        username: BW_USERNAME,
-        password: BW_PASSWORD,
+        accessToken: 'abcd1234',
         basePath: 'http://127.0.0.1:4010'
     });
     const mediaApi = new MediaApi(config);
