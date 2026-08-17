@@ -1,6 +1,6 @@
-# RedirectCallback
+# ReferCompleteCallback
 
-The Redirect event is fired when a <Redirect> verb is executed. Its purpose is to get the next set of verbs from the calling application.
+This event is sent to the referCompleteUrl of a call\'s <Refer> verb when the SIP REFER flow completes. On success, the call has been torn down and the BXML returned from this callback is ignored. On failure, the call remains active and the BXML returned from this callback is executed on the call.
 
 ## Properties
 
@@ -15,20 +15,19 @@ Name | Type | Description | Notes
 **direction** | [**CallDirectionEnum**](CallDirectionEnum.md) |  | [optional] [default to undefined]
 **callId** | **string** | The call id associated with the event. | [optional] [default to undefined]
 **callUrl** | **string** | The URL of the call associated with the event. | [optional] [default to undefined]
-**parentCallId** | **string** | (optional) If the event is related to the B leg of a &lt;Transfer&gt;, the call id of the original call leg that executed the &lt;Transfer&gt;. Otherwise, this field will not be present. | [optional] [default to undefined]
-**enqueuedTime** | **string** | (optional) If call queueing is enabled and this is an outbound call, time the call was queued, in ISO 8601 format. | [optional] [default to undefined]
 **startTime** | **string** | Time the call was started, in ISO 8601 format. | [optional] [default to undefined]
 **answerTime** | **string** | Time the call was answered, in ISO 8601 format. | [optional] [default to undefined]
 **tag** | **string** | (optional) The tag specified on call creation. If no tag was specified or it was previously cleared, this field will not be present. | [optional] [default to undefined]
-**transferCallerId** | **string** | The phone number used as the from field of the B-leg call, in E.164 format (e.g. +15555555555). | [optional] [default to undefined]
-**transferTo** | **string** | The phone number used as the to field of the B-leg call, in E.164 format (e.g. +15555555555). | [optional] [default to undefined]
+**referCallStatus** | [**ReferCallStatusEnum**](ReferCallStatusEnum.md) |  | [optional] [default to undefined]
+**referSipResponseCode** | **number** | (optional) The SIP response code returned for the REFER request itself (e.g. 202, 405, 603). Present when a SIP response was received for the REFER. | [optional] [default to undefined]
+**notifySipResponseCode** | **number** | (optional) The final SIP response code reported via NOTIFY (message/sipfrag body). Present only when the caller\&#39;s endpoint sent a final NOTIFY (e.g. 200, 404, 486, 503). Not present on NOTIFY timeout or when the REFER was rejected before a subscription was established. | [optional] [default to undefined]
 
 ## Example
 
 ```typescript
-import { RedirectCallback } from 'bandwidth-sdk';
+import { ReferCompleteCallback } from 'bandwidth-sdk';
 
-const instance: RedirectCallback = {
+const instance: ReferCompleteCallback = {
     eventType,
     eventTime,
     accountId,
@@ -38,13 +37,12 @@ const instance: RedirectCallback = {
     direction,
     callId,
     callUrl,
-    parentCallId,
-    enqueuedTime,
     startTime,
     answerTime,
     tag,
-    transferCallerId,
-    transferTo,
+    referCallStatus,
+    referSipResponseCode,
+    notifySipResponseCode,
 };
 ```
 
