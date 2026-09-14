@@ -10,6 +10,8 @@ export interface StartTranscriptionAttributes {
     password?: string
     destination?: string;
     stabilized?: boolean;
+    detectLanguage?: boolean;
+    preferredLanguages?: string;
 }
 
 /**

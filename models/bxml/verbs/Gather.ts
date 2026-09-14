@@ -21,6 +21,14 @@ export interface GatherAttributes {
     interDigitTimeout?: number;
     firstDigitTimeout?: number;
     repeatCount?: number;
+    input?: string;
+    hints?: string;
+    language?: string;
+    partialResultCallback?: string;
+    partialResultCallbackMethod?: string;
+    profanityFilter?: boolean;
+    speechModel?: string;
+    speechTimeout?: number;
 }
 
 /**

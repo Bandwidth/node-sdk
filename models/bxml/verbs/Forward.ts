@@ -7,6 +7,8 @@ export interface ForwardAttributes {
     diversionTreatment?: string;
     diversionReason?: string;
     uui?: string;
+    privacy?: boolean;
+    callerDisplayName?: string;
 }
 
 /**

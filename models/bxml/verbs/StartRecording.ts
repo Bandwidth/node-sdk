@@ -11,6 +11,8 @@ export interface StartRecordingAttributes {
     tag?: string;
     fileFormat?: string;
     multiChannel?: boolean;
+    detectLanguage?: boolean;
+    recordingName?: string;
 }
 
 /**

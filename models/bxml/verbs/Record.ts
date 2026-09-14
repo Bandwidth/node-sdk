@@ -19,6 +19,8 @@ export interface RecordAttributes {
     maxDuration?: number;
     silenceTimeout?: number;
     fileFormat?: string;
+    detectLanguage?: boolean;
+    recordingName?: string;
 }
 
 /**

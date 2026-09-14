@@ -8,10 +8,12 @@ describe('Forward', () => {
         callTimeout: 5,
         diversionTreatment: 'propagate',
         diversionReason: 'user-busy',
-        uui: '93d6f3c0be5845960b744fa28015d8ede84bd1a4;encoding=base64,asdf;encoding=jwt'
+        uui: '93d6f3c0be5845960b744fa28015d8ede84bd1a4;encoding=base64,asdf;encoding=jwt',
+        privacy: true,
+        callerDisplayName: 'Anonymous'
     };
 
-    const expected = '<Forward to="+19195551234" from="+19195554321" callTimeout="5" diversionTreatment="propagate" diversionReason="user-busy" uui="93d6f3c0be5845960b744fa28015d8ede84bd1a4;encoding=base64,asdf;encoding=jwt"/>';
+    const expected = '<Forward to="+19195551234" from="+19195554321" callTimeout="5" diversionTreatment="propagate" diversionReason="user-busy" uui="93d6f3c0be5845960b744fa28015d8ede84bd1a4;encoding=base64,asdf;encoding=jwt" privacy="true" callerDisplayName="Anonymous"/>';
 
     test('should create a Forward Verb', () => {
         const forward = new Forward(attributes);

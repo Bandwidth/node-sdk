@@ -11,7 +11,9 @@ describe('StartTranscription', () => {
         username: 'initialUsername',
         password: 'initialPassword',
         destination: 'https://initial.com',
-        stabilized: true
+        stabilized: true,
+        detectLanguage: true,
+        preferredLanguages: 'en-US,es-US'
     };
 
     const customParam1 = new CustomParam({ name: 'customParamName1', value: 'customParamValue1' });
@@ -19,7 +21,7 @@ describe('StartTranscription', () => {
     
     test('should create a StartTranscription Verb', () => {
         const startTranscription = new StartTranscription(attributes);
-        const expected = '<StartTranscription name="initialName" tracks="inbound" transcriptionEventUrl="https://initial.com" transcriptionEventMethod="POST" username="initialUsername" password="initialPassword" destination="https://initial.com" stabilized="true"/>';
+        const expected = '<StartTranscription name="initialName" tracks="inbound" transcriptionEventUrl="https://initial.com" transcriptionEventMethod="POST" username="initialUsername" password="initialPassword" destination="https://initial.com" stabilized="true" detectLanguage="true" preferredLanguages="en-US,es-US"/>';
 
         expect(startTranscription).toBeInstanceOf(StartTranscription);
         expect(startTranscription).toBeInstanceOf(Verb);
@@ -28,9 +30,9 @@ describe('StartTranscription', () => {
 
     test('should create a StartTranscription Verb with nested CustomParam', () => {
         let startTranscription = new StartTranscription(attributes, customParam1);
-        const expected = '<StartTranscription name="initialName" tracks="inbound" transcriptionEventUrl="https://initial.com" transcriptionEventMethod="POST" username="initialUsername" password="initialPassword" destination="https://initial.com" stabilized="true"><CustomParam name="customParamName1" value="customParamValue1"/></StartTranscription>';
-        const expectedSingle = '<StartTranscription name="initialName" tracks="inbound" transcriptionEventUrl="https://initial.com" transcriptionEventMethod="POST" username="initialUsername" password="initialPassword" destination="https://initial.com" stabilized="true"><CustomParam name="customParamName1" value="customParamValue1"/><CustomParam name="customParamName2" value="customParamValue2"/></StartTranscription>';
-        const expectedMultiple = '<StartTranscription name="initialName" tracks="inbound" transcriptionEventUrl="https://initial.com" transcriptionEventMethod="POST" username="initialUsername" password="initialPassword" destination="https://initial.com" stabilized="true"><CustomParam name="customParamName1" value="customParamValue1"/><CustomParam name="customParamName2" value="customParamValue2"/><CustomParam name="customParamName1" value="customParamValue1"/><CustomParam name="customParamName2" value="customParamValue2"/></StartTranscription>';
+        const expected = '<StartTranscription name="initialName" tracks="inbound" transcriptionEventUrl="https://initial.com" transcriptionEventMethod="POST" username="initialUsername" password="initialPassword" destination="https://initial.com" stabilized="true" detectLanguage="true" preferredLanguages="en-US,es-US"><CustomParam name="customParamName1" value="customParamValue1"/></StartTranscription>';
+        const expectedSingle = '<StartTranscription name="initialName" tracks="inbound" transcriptionEventUrl="https://initial.com" transcriptionEventMethod="POST" username="initialUsername" password="initialPassword" destination="https://initial.com" stabilized="true" detectLanguage="true" preferredLanguages="en-US,es-US"><CustomParam name="customParamName1" value="customParamValue1"/><CustomParam name="customParamName2" value="customParamValue2"/></StartTranscription>';
+        const expectedMultiple = '<StartTranscription name="initialName" tracks="inbound" transcriptionEventUrl="https://initial.com" transcriptionEventMethod="POST" username="initialUsername" password="initialPassword" destination="https://initial.com" stabilized="true" detectLanguage="true" preferredLanguages="en-US,es-US"><CustomParam name="customParamName1" value="customParamValue1"/><CustomParam name="customParamName2" value="customParamValue2"/><CustomParam name="customParamName1" value="customParamValue1"/><CustomParam name="customParamName2" value="customParamValue2"/></StartTranscription>';
 
         expect(startTranscription).toBeInstanceOf(StartTranscription);
         expect(startTranscription).toBeInstanceOf(Verb);
@@ -45,7 +47,7 @@ describe('StartTranscription', () => {
 
     test('should test the addCustomParams method method when no verbs are initially nested', () => {
         const startTranscription = new StartTranscription(attributes);
-        const expected = '<StartTranscription name="initialName" tracks="inbound" transcriptionEventUrl="https://initial.com" transcriptionEventMethod="POST" username="initialUsername" password="initialPassword" destination="https://initial.com" stabilized="true"><CustomParam name="customParamName1" value="customParamValue1"/></StartTranscription>';
+        const expected = '<StartTranscription name="initialName" tracks="inbound" transcriptionEventUrl="https://initial.com" transcriptionEventMethod="POST" username="initialUsername" password="initialPassword" destination="https://initial.com" stabilized="true" detectLanguage="true" preferredLanguages="en-US,es-US"><CustomParam name="customParamName1" value="customParamValue1"/></StartTranscription>';
 
         startTranscription.addCustomParams(customParam1);
         expect(startTranscription.toBxml()).toBe(expected);

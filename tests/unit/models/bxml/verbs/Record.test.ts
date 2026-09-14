@@ -20,10 +20,12 @@ describe('Record', () => {
         terminatingDigits: '5',
         maxDuration: 5,
         silenceTimeout: 5,
-        fileFormat: 'wav'
+        fileFormat: 'wav',
+        detectLanguage: true,
+        recordingName: 'initialRecordingName'
     };
 
-    const expected = '<Record recordCompleteUrl="https://initial.com" recordCompleteMethod="POST" recordCompleteFallbackUrl="https://initial.com" recordCompleteFallbackMethod="POST" recordingAvailableUrl="https://initial.com" recordingAvailableMethod="POST" transcribe="true" transcriptionAvailableUrl="https://initial.com" transcriptionAvailableMethod="POST" username="initialUsername" password="initialPassword" fallbackUsername="initialFallbackUsername" fallbackPassword="initialFallbackPassword" tag="initialTag" terminatingDigits="5" maxDuration="5" silenceTimeout="5" fileFormat="wav"/>';
+    const expected = '<Record recordCompleteUrl="https://initial.com" recordCompleteMethod="POST" recordCompleteFallbackUrl="https://initial.com" recordCompleteFallbackMethod="POST" recordingAvailableUrl="https://initial.com" recordingAvailableMethod="POST" transcribe="true" transcriptionAvailableUrl="https://initial.com" transcriptionAvailableMethod="POST" username="initialUsername" password="initialPassword" fallbackUsername="initialFallbackUsername" fallbackPassword="initialFallbackPassword" tag="initialTag" terminatingDigits="5" maxDuration="5" silenceTimeout="5" fileFormat="wav" detectLanguage="true" recordingName="initialRecordingName"/>';
 
     test('should create a Record Verb', () => {
         const record = new Record(attributes);
