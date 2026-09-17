@@ -72,7 +72,15 @@ describe('BXML Integration Tests', () => {
             maxDigits: 1,
             interDigitTimeout: 1.1,
             firstDigitTimeout: 1.1,
-            repeatCount: 1
+            repeatCount: 1,
+            input: 'dtmf_speech',
+            hints: 'yes, no',
+            language: 'en-US',
+            partialResultCallback: 'https://initial.com',
+            partialResultCallbackMethod: 'POST',
+            profanityFilter: true,
+            speechModel: 'default',
+            speechTimeout: 2
         };
 
         const speakSentenceAttributes: SpeakSentenceAttributes = {
@@ -99,7 +107,9 @@ describe('BXML Integration Tests', () => {
             terminatingDigits: '#',
             maxDuration: 2,
             silenceTimeout: 2,
-            fileFormat: 'wav'
+            fileFormat: 'wav',
+            detectLanguage: true,
+            recordingName: 'initialRecordingName'
         };
 
         const sendDtmfAttributes: SendDtmfAttributes = {
@@ -130,7 +140,7 @@ describe('BXML Integration Tests', () => {
 
         const transferAttributes: TransferAttributes = {
             transferCallerId: '+19195551234',
-            transferCallerDisplayName: 'initialDisplayName',
+            transferCallerDisplayName: 'Anonymous',
             callTimeout: 5,
             transferCompleteUrl: 'https://initial.com',
             transferCompleteMethod: 'POST',
@@ -142,7 +152,8 @@ describe('BXML Integration Tests', () => {
             fallbackPassword: 'initialFallbackPassword',
             tag: 'initialTag',
             diversionTreatment: 'propagate',
-            diversionReason: 'user-busy'
+            diversionReason: 'user-busy',
+            privacy: true
         };
     
         const phoneNumber = new Bxml.PhoneNumber('+19195551234');
@@ -197,7 +208,9 @@ describe('BXML Integration Tests', () => {
             password: 'initialPassword',
             tag: 'initialTag',
             fileFormat: 'wav',
-            multiChannel: true
+            multiChannel: true,
+            detectLanguage: true,
+            recordingName: 'initialRecordingName'
         };
 
         const startStreamAttributes: StartStreamAttributes = {
@@ -218,7 +231,9 @@ describe('BXML Integration Tests', () => {
             username: 'initialUsername',
             password: 'initialPassword',
             destination: 'wss://initial.com',
-            stabilized: true
+            stabilized: true,
+            detectLanguage: false,
+            preferredLanguages: 'en-US,fr-FR'
         };
 
         const stopStreamAttributes: StopStreamAttributes = {
@@ -267,7 +282,9 @@ describe('BXML Integration Tests', () => {
             callTimeout: 5,
             diversionTreatment: 'propagate',
             diversionReason: 'user-busy',
-            uui: '93d6f3c0be5845960b744fa28015d8ede84bd1a4;encoding=base64,asdf;encoding=jwt'
+            uui: '93d6f3c0be5845960b744fa28015d8ede84bd1a4;encoding=base64,asdf;encoding=jwt',
+            privacy: true,
+            callerDisplayName: 'Anonymous'
         };
 
         const forward = new Bxml.Forward(forwardAttributes);

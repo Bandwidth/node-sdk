@@ -3,6 +3,7 @@ import { Endpoint } from './Endpoint';
 
 export interface ConnectAttributes {
     eventCallbackUrl?: string;
+    eventFallbackUrl?: string;
 }
 
 /**

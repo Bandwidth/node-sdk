@@ -19,6 +19,7 @@ export interface TransferAttributes {
     tag?: string;
     diversionTreatment?: string;
     diversionReason?: string;
+    privacy?: boolean;
 }
 
 /**
