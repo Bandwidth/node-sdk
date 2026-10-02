@@ -51,18 +51,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
-      - name: Set OpenAPI Generator Version
-        run: |
-          OPENAPI_VERSION=$(jq .[\"generator-cli\"].version openapitools.json)
-          echo "OPENAPI_GENERATOR_VERSION=$OPENAPI_VERSION" >> $GITHUB_ENV
-        shell: bash
-
       - name: Generate SDK with Updated Version
-        uses: Bandwidth/generate-sdk-action@v4.1.0
-        with:
-          openapi-generator-version: ${{ env.OPENAPI_GENERATOR_VERSION }}
-          language: typescript-axios
-          additional-properties: --additional-properties=npmVersion=$PACKAGE_VERSION
+        run: bash generate.sh --additional-properties=npmVersion=$PACKAGE_VERSION
 
       - name: Setup Node
         uses: actions/setup-node@v7
