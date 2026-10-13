@@ -169,13 +169,13 @@ export const MediaApiAxiosParamCreator = function (configuration?: Configuration
             };
         },
         /**
-         * Upload a file. You may add headers to the request in order to provide some control to your media file.  If a file is uploaded with the same name as a file that already exists under this account, the previous file will be overwritten.  A list of supported media types can be found at [Bandwidth Support](https://www.bandwidth.com/support/en/articles/12823220-what-mms-file-types-are-supported).
+         * Upload a file.  Filename should always be unique. Reusing filenames may result in the wrong media being sent.  A list of supported media types can be found at [Bandwidth Support](https://www.bandwidth.com/support/en/articles/12823220-what-mms-file-types-are-supported).
          * @summary Upload Media
          * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} mediaId The ID of the media file.
          * @param {File} body 
          * @param {string} [contentType] The media type of the entity-body.
-         * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain.
+         * @param {string} [cacheControl] Pass-through header stored with the media and returned when the media is retrieved by the user. Does not affect internal server caching behavior.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -279,13 +279,13 @@ export const MediaApiFp = function(configuration?: Configuration) {
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Upload a file. You may add headers to the request in order to provide some control to your media file.  If a file is uploaded with the same name as a file that already exists under this account, the previous file will be overwritten.  A list of supported media types can be found at [Bandwidth Support](https://www.bandwidth.com/support/en/articles/12823220-what-mms-file-types-are-supported).
+         * Upload a file.  Filename should always be unique. Reusing filenames may result in the wrong media being sent.  A list of supported media types can be found at [Bandwidth Support](https://www.bandwidth.com/support/en/articles/12823220-what-mms-file-types-are-supported).
          * @summary Upload Media
          * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} mediaId The ID of the media file.
          * @param {File} body 
          * @param {string} [contentType] The media type of the entity-body.
-         * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain.
+         * @param {string} [cacheControl] Pass-through header stored with the media and returned when the media is retrieved by the user. Does not affect internal server caching behavior.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -338,13 +338,13 @@ export const MediaApiFactory = function (configuration?: Configuration, basePath
             return localVarFp.listMedia(accountId, continuationToken, options).then((request) => request(axios, basePath));
         },
         /**
-         * Upload a file. You may add headers to the request in order to provide some control to your media file.  If a file is uploaded with the same name as a file that already exists under this account, the previous file will be overwritten.  A list of supported media types can be found at [Bandwidth Support](https://www.bandwidth.com/support/en/articles/12823220-what-mms-file-types-are-supported).
+         * Upload a file.  Filename should always be unique. Reusing filenames may result in the wrong media being sent.  A list of supported media types can be found at [Bandwidth Support](https://www.bandwidth.com/support/en/articles/12823220-what-mms-file-types-are-supported).
          * @summary Upload Media
          * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
          * @param {string} mediaId The ID of the media file.
          * @param {File} body 
          * @param {string} [contentType] The media type of the entity-body.
-         * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain.
+         * @param {string} [cacheControl] Pass-through header stored with the media and returned when the media is retrieved by the user. Does not affect internal server caching behavior.
          * @param {*} [options] Override http request option.
          * @throws {RequiredError}
          */
@@ -395,13 +395,13 @@ export class MediaApi extends BaseAPI {
     }
 
     /**
-     * Upload a file. You may add headers to the request in order to provide some control to your media file.  If a file is uploaded with the same name as a file that already exists under this account, the previous file will be overwritten.  A list of supported media types can be found at [Bandwidth Support](https://www.bandwidth.com/support/en/articles/12823220-what-mms-file-types-are-supported).
+     * Upload a file.  Filename should always be unique. Reusing filenames may result in the wrong media being sent.  A list of supported media types can be found at [Bandwidth Support](https://www.bandwidth.com/support/en/articles/12823220-what-mms-file-types-are-supported).
      * @summary Upload Media
      * @param {string} accountId This is your 7-digit Bandwidth Account ID, as shown in the Bandwidth App. The older ID format (&#x60;u-be8dvafwrs63rwpm7pfil4b&#x60;) is deprecated.  **When migrating to OAuth authentication, you must use the 7-digit Account ID.** 
      * @param {string} mediaId The ID of the media file.
      * @param {File} body 
      * @param {string} [contentType] The media type of the entity-body.
-     * @param {string} [cacheControl] General-header field is used to specify directives that MUST be obeyed by all caching mechanisms along the request/response chain.
+     * @param {string} [cacheControl] Pass-through header stored with the media and returned when the media is retrieved by the user. Does not affect internal server caching behavior.
      * @param {*} [options] Override http request option.
      * @throws {RequiredError}
      */
