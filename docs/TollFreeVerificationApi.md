@@ -80,7 +80,7 @@ const { status, data } = await apiInstance.createWebhookSubscription(
 # **deleteVerificationRequest**
 > deleteVerificationRequest()
 
-Delete a toll-free verification submission for a toll-free number.
+Delete a toll-free verification submission for a toll-free number.  **Upcoming change (effective January 2027):** If a verification for the phone number is in progress, it will be cancelled and the submission will then be deleted asynchronously.
 
 ### Example
 
@@ -376,7 +376,7 @@ const { status, data } = await apiInstance.listWebhookSubscriptions(
 # **requestTollFreeVerification**
 > requestTollFreeVerification(verificationRequest)
 
-Submit a request for verification of a toll-free phone number.
+Submit a request for verification of a toll-free phone number.  **Upcoming change (effective January 2027):** If any phone number in the request already has a verification in progress, the request will be rejected with a `409 Conflict`. This check is all-or-nothing: if a single phone number conflicts, the entire request is rejected and **none** of the phone numbers in the request are submitted. Today, these requests are accepted with a `202`.
 
 ### Example
 
@@ -429,6 +429,7 @@ void (empty response body)
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
 |**405** | Method Not Allowed |  -  |
+|**409** | Conflict. A toll-free verification for the phone number is already in progress. |  -  |
 |**429** | Too Many Requests |  -  |
 |**500** | Internal Server Error |  -  |
 |**503** | Service Unavailable |  -  |
@@ -438,7 +439,7 @@ void (empty response body)
 # **updateTollFreeVerificationRequest**
 > updateTollFreeVerificationRequest(tfvSubmissionWrapper)
 
-Updates a toll-free verification request. Submissions are only eligible for resubmission for 7 days within being processed and if resubmission is allowed (resubmitAllowed field is true).
+Updates a toll-free verification request. Submissions are only eligible for resubmission for 7 days within being processed and if resubmission is allowed (resubmitAllowed field is true). Returns a `404` if no verification request exists for the phone number, and a `400` if the existing request is not eligible for resubmission.  **Upcoming change (effective January 2027):** If a verification for the phone number is in progress, the update will be rejected with a `409 Conflict`.
 
 ### Example
 
@@ -493,7 +494,9 @@ void (empty response body)
 |**400** | Bad Request |  -  |
 |**401** | Unauthorized |  -  |
 |**403** | Forbidden |  -  |
+|**404** | Cannot find the requested resource. |  -  |
 |**405** | Method Not Allowed |  -  |
+|**409** | Conflict. A toll-free verification for the phone number is already in progress. |  -  |
 |**429** | Too Many Requests |  -  |
 |**500** | Internal Server Error |  -  |
 |**503** | Service Unavailable |  -  |

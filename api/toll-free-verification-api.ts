@@ -88,7 +88,7 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * Delete a toll-free verification submission for a toll-free number.
+         * Delete a toll-free verification submission for a toll-free number.  **Upcoming change (effective January 2027):** If a verification for the phone number is in progress, it will be cancelled and the submission will then be deleted asynchronously.
          * @summary Delete a Toll-Free Verification Submission
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
@@ -306,7 +306,7 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * Submit a request for verification of a toll-free phone number.
+         * Submit a request for verification of a toll-free phone number.  **Upcoming change (effective January 2027):** If any phone number in the request already has a verification in progress, the request will be rejected with a `409 Conflict`. This check is all-or-nothing: if a single phone number conflicts, the entire request is rejected and **none** of the phone numbers in the request are submitted. Today, these requests are accepted with a `202`.
          * @summary Request Toll-Free Verification
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {VerificationRequest} verificationRequest Request for verification of a toll-free phone number.
@@ -353,7 +353,7 @@ export const TollFreeVerificationApiAxiosParamCreator = function (configuration?
             };
         },
         /**
-         * Updates a toll-free verification request. Submissions are only eligible for resubmission for 7 days within being processed and if resubmission is allowed (resubmitAllowed field is true).
+         * Updates a toll-free verification request. Submissions are only eligible for resubmission for 7 days within being processed and if resubmission is allowed (resubmitAllowed field is true). Returns a `404` if no verification request exists for the phone number, and a `400` if the existing request is not eligible for resubmission.  **Upcoming change (effective January 2027):** If a verification for the phone number is in progress, the update will be rejected with a `409 Conflict`.
          * @summary Update Toll-Free Verification Request
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
@@ -478,7 +478,7 @@ export const TollFreeVerificationApiFp = function(configuration?: Configuration)
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Delete a toll-free verification submission for a toll-free number.
+         * Delete a toll-free verification submission for a toll-free number.  **Upcoming change (effective January 2027):** If a verification for the phone number is in progress, it will be cancelled and the submission will then be deleted asynchronously.
          * @summary Delete a Toll-Free Verification Submission
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
@@ -545,7 +545,7 @@ export const TollFreeVerificationApiFp = function(configuration?: Configuration)
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Submit a request for verification of a toll-free phone number.
+         * Submit a request for verification of a toll-free phone number.  **Upcoming change (effective January 2027):** If any phone number in the request already has a verification in progress, the request will be rejected with a `409 Conflict`. This check is all-or-nothing: if a single phone number conflicts, the entire request is rejected and **none** of the phone numbers in the request are submitted. Today, these requests are accepted with a `202`.
          * @summary Request Toll-Free Verification
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {VerificationRequest} verificationRequest Request for verification of a toll-free phone number.
@@ -559,7 +559,7 @@ export const TollFreeVerificationApiFp = function(configuration?: Configuration)
             return (axios, basePath) => createRequestFunction(localVarAxiosArgs, globalAxios, BASE_PATH, configuration)(axios, localVarOperationServerBasePath || basePath);
         },
         /**
-         * Updates a toll-free verification request. Submissions are only eligible for resubmission for 7 days within being processed and if resubmission is allowed (resubmitAllowed field is true).
+         * Updates a toll-free verification request. Submissions are only eligible for resubmission for 7 days within being processed and if resubmission is allowed (resubmitAllowed field is true). Returns a `404` if no verification request exists for the phone number, and a `400` if the existing request is not eligible for resubmission.  **Upcoming change (effective January 2027):** If a verification for the phone number is in progress, the update will be rejected with a `409 Conflict`.
          * @summary Update Toll-Free Verification Request
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
@@ -609,7 +609,7 @@ export const TollFreeVerificationApiFactory = function (configuration?: Configur
             return localVarFp.createWebhookSubscription(accountId, webhookSubscriptionRequestSchema, options).then((request) => request(axios, basePath));
         },
         /**
-         * Delete a toll-free verification submission for a toll-free number.
+         * Delete a toll-free verification submission for a toll-free number.  **Upcoming change (effective January 2027):** If a verification for the phone number is in progress, it will be cancelled and the submission will then be deleted asynchronously.
          * @summary Delete a Toll-Free Verification Submission
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
@@ -661,7 +661,7 @@ export const TollFreeVerificationApiFactory = function (configuration?: Configur
             return localVarFp.listWebhookSubscriptions(accountId, options).then((request) => request(axios, basePath));
         },
         /**
-         * Submit a request for verification of a toll-free phone number.
+         * Submit a request for verification of a toll-free phone number.  **Upcoming change (effective January 2027):** If any phone number in the request already has a verification in progress, the request will be rejected with a `409 Conflict`. This check is all-or-nothing: if a single phone number conflicts, the entire request is rejected and **none** of the phone numbers in the request are submitted. Today, these requests are accepted with a `202`.
          * @summary Request Toll-Free Verification
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {VerificationRequest} verificationRequest Request for verification of a toll-free phone number.
@@ -672,7 +672,7 @@ export const TollFreeVerificationApiFactory = function (configuration?: Configur
             return localVarFp.requestTollFreeVerification(accountId, verificationRequest, options).then((request) => request(axios, basePath));
         },
         /**
-         * Updates a toll-free verification request. Submissions are only eligible for resubmission for 7 days within being processed and if resubmission is allowed (resubmitAllowed field is true).
+         * Updates a toll-free verification request. Submissions are only eligible for resubmission for 7 days within being processed and if resubmission is allowed (resubmitAllowed field is true). Returns a `404` if no verification request exists for the phone number, and a `400` if the existing request is not eligible for resubmission.  **Upcoming change (effective January 2027):** If a verification for the phone number is in progress, the update will be rejected with a `409 Conflict`.
          * @summary Update Toll-Free Verification Request
          * @param {string} accountId Your Bandwidth Account ID.
          * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
@@ -715,7 +715,7 @@ export class TollFreeVerificationApi extends BaseAPI {
     }
 
     /**
-     * Delete a toll-free verification submission for a toll-free number.
+     * Delete a toll-free verification submission for a toll-free number.  **Upcoming change (effective January 2027):** If a verification for the phone number is in progress, it will be cancelled and the submission will then be deleted asynchronously.
      * @summary Delete a Toll-Free Verification Submission
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
@@ -772,7 +772,7 @@ export class TollFreeVerificationApi extends BaseAPI {
     }
 
     /**
-     * Submit a request for verification of a toll-free phone number.
+     * Submit a request for verification of a toll-free phone number.  **Upcoming change (effective January 2027):** If any phone number in the request already has a verification in progress, the request will be rejected with a `409 Conflict`. This check is all-or-nothing: if a single phone number conflicts, the entire request is rejected and **none** of the phone numbers in the request are submitted. Today, these requests are accepted with a `202`.
      * @summary Request Toll-Free Verification
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {VerificationRequest} verificationRequest Request for verification of a toll-free phone number.
@@ -784,7 +784,7 @@ export class TollFreeVerificationApi extends BaseAPI {
     }
 
     /**
-     * Updates a toll-free verification request. Submissions are only eligible for resubmission for 7 days within being processed and if resubmission is allowed (resubmitAllowed field is true).
+     * Updates a toll-free verification request. Submissions are only eligible for resubmission for 7 days within being processed and if resubmission is allowed (resubmitAllowed field is true). Returns a `404` if no verification request exists for the phone number, and a `400` if the existing request is not eligible for resubmission.  **Upcoming change (effective January 2027):** If a verification for the phone number is in progress, the update will be rejected with a `409 Conflict`.
      * @summary Update Toll-Free Verification Request
      * @param {string} accountId Your Bandwidth Account ID.
      * @param {string} phoneNumber Valid Toll-Free telephone number in E.164 format.
