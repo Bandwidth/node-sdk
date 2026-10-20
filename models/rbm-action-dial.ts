@@ -30,7 +30,7 @@ export interface RbmActionDial {
      */
     'text': string;
     /**
-     * Base64 payload the customer receives when the reply is clicked.
+     * Payload the customer receives when the reply is clicked.
      */
     'postbackData': string;
     /**

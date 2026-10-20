@@ -30,6 +30,9 @@ import type { PriorityEnum } from './priority-enum';
 import type { RbmLocationResponse } from './rbm-location-response';
 // May contain unused imports in some cases
 // @ts-ignore
+import type { RbmSession } from './rbm-session';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { RbmSuggestionResponse } from './rbm-suggestion-response';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -76,6 +79,7 @@ export interface InboundCallbackMessage {
     'media'?: Array<string>;
     'priority'?: PriorityEnum;
     'channel'?: MultiChannelMessageChannelEnum;
+    'session'?: RbmSession;
     'content'?: MultiChannelMessageContent;
     'suggestionResponse'?: RbmSuggestionResponse;
     'locationResponse'?: RbmLocationResponse;

@@ -170,6 +170,7 @@ docs/RbmMessageContentRichCard.md
 docs/RbmMessageContentText.md
 docs/RbmMessageMedia.md
 docs/RbmOpenUrlEnum.md
+docs/RbmSession.md
 docs/RbmStandaloneCard.md
 docs/RbmSuggestionResponse.md
 docs/RbmWebViewEnum.md
@@ -378,6 +379,7 @@ models/rbm-message-content-rich-card.ts
 models/rbm-message-content-text.ts
 models/rbm-message-media.ts
 models/rbm-open-url-enum.ts
+models/rbm-session.ts
 models/rbm-standalone-card.ts
 models/rbm-suggestion-response.ts
 models/rbm-web-view-enum.ts

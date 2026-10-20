@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**text** | **string** | The text associated with the suggestion response. | [optional] [default to undefined]
-**postbackData** | **string** | Base64 payload the customer receives when the reply is clicked. | [optional] [default to undefined]
+**text** | **string** | The text of the suggestion the user tapped. | [optional] [default to undefined]
+**postbackData** | **string** | Payload the customer receives when the reply is clicked. | [optional] [default to undefined]
 **pairedMessageId** | **string** | Corresponding parent message ID (MT). | [optional] [default to undefined]
 
 ## Example

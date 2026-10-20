@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **media** | **Array&lt;string&gt;** | Optional media, not applicable for sms | [optional] [default to undefined]
 **priority** | [**PriorityEnum**](PriorityEnum.md) |  | [optional] [default to undefined]
 **channel** | [**MultiChannelMessageChannelEnum**](MultiChannelMessageChannelEnum.md) |  | [optional] [default to undefined]
+**session** | [**RbmSession**](RbmSession.md) |  | [optional] [default to undefined]
 
 ## Example
 
@@ -39,6 +40,7 @@ const instance: StatusCallbackMessage = {
     media,
     priority,
     channel,
+    session,
 };
 ```
 
