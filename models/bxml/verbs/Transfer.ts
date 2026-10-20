@@ -20,6 +20,8 @@ export interface TransferAttributes {
     diversionTreatment?: string;
     diversionReason?: string;
     privacy?: boolean;
+    attestationLevel?: string;
+    identity?: string;
 }
 
 /**

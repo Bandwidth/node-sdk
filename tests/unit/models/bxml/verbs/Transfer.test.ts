@@ -58,4 +58,19 @@ describe('Transfer', () => {
         transfer.addTransferRecipients(phoneNumber);
         expect(transfer.toBxml()).toBe(expected);
     });
+
+    test('should create a Transfer Verb with attestationLevel', () => {
+        const transfer = new Transfer({ transferCallerId: '+19195551234', attestationLevel: 'B' }, phoneNumber);
+        const expected = '<Transfer transferCallerId="+19195551234" attestationLevel="B"><PhoneNumber>+19195551234</PhoneNumber></Transfer>';
+
+        expect(transfer.toBxml()).toBe(expected);
+    });
+
+    test('should create a Transfer Verb with identity', () => {
+        const identity = 'eyJhbGciOiJFUzI1NiJ9.eyJhdHRlc3QiOiJBIn0.c2ln;info=<https://cert.example.com/cert.pem>;ppt="shaken"';
+        const transfer = new Transfer({ transferCallerId: '+19195551234', identity }, phoneNumber);
+        const expected = '<Transfer transferCallerId="+19195551234" identity="eyJhbGciOiJFUzI1NiJ9.eyJhdHRlc3QiOiJBIn0.c2ln;info=&lt;https://cert.example.com/cert.pem&gt;;ppt=&quot;shaken&quot;"><PhoneNumber>+19195551234</PhoneNumber></Transfer>';
+
+        expect(transfer.toBxml()).toBe(expected);
+    });
 });
