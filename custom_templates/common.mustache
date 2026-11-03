@@ -34,11 +34,8 @@ export const setApiKeyToObject = async function (object: any, keyParamName: stri
     }
 }
 
-export const setBasicAuthToObject = function (object: any, configuration?: Configuration) {
-    if (configuration && (configuration.username || configuration.password)) {
-        object["auth"] = { username: configuration.username, password: configuration.password };
-    }
-}
+// No-op: kept because the generated API files import it unconditionally.
+export const setBasicAuthToObject = function (object: any, configuration?: Configuration) {}
 
 export const setBearerAuthToObject = async function (object: any, configuration?: Configuration) {
     if (configuration && configuration.accessToken) {
