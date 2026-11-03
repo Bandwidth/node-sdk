@@ -104,7 +104,7 @@ describe('CallsApi', () => {
     
     describe('listCalls', () => {
         test('should return an array of calls', async () => {
-            const { status, data } = await callsApi.listCalls(BW_ACCOUNT_ID);
+            const { status, data } = await callsApi.listCalls(BW_ACCOUNT_ID, USER_NUMBER, BW_NUMBER);
 
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
