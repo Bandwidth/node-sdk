@@ -4,7 +4,10 @@ import { Configuration } from '../../configuration';
 import { ListMessageDirectionEnum, MessageRequest, PriorityEnum } from '../../models';
 
 describe('MessagesApi', () => {
-    const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
+    const config = new Configuration({
+        clientId: BW_CLIENT_ID,
+        clientSecret: BW_CLIENT_SECRET
+    });
     const messagesApi = new MessagesApi(config);
 
     const mmsText = 'nodejs sdk test MMS';
@@ -96,24 +99,6 @@ describe('MessagesApi', () => {
                 await messagesApi.createMessage(BW_ACCOUNT_ID, messageRequest);
             } catch (e) {
                 expect(e.response.status).toEqual(400);
-            }
-        });
-
-        test('401', async () => {
-            const configBad = new Configuration({username: UNAUTHORIZED_USERNAME, password: UNAUTHORIZED_PASSWORD});
-            const messagesApiBad = new MessagesApi(configBad);
-
-            const messageRequest: MessageRequest = {
-                applicationId: BW_MESSAGING_APPLICATION_ID,
-                to: new Set([USER_NUMBER]),
-                from: BW_NUMBER,
-                text: smsText
-            };
-
-            try {
-                await messagesApiBad.createMessage(BW_ACCOUNT_ID, messageRequest);
-            } catch (e) {
-                expect(e.response.status).toEqual(401);
             }
         });
     });

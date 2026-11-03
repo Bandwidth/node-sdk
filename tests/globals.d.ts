@@ -1,7 +1,5 @@
 /// <reference types="jest-extended" />
 
-declare const BW_USERNAME: string;
-declare const BW_PASSWORD: string;
 declare const BW_CLIENT_ID: string;
 declare const BW_CLIENT_SECRET: string;
 declare const BW_ACCOUNT_ID: string;
@@ -15,9 +13,5 @@ declare const MANTECA_APPLICATION_ID: string;
 declare const MANTECA_IDLE_NUMBER: string;
 declare const MANTECA_ACTIVE_NUMBER: string;
 declare const MANTECA_BASE_URL: string;
-declare const FORBIDDEN_USERNAME: string;
-declare const FORBIDDEN_PASSWORD: string;
-declare const UNAUTHORIZED_USERNAME: string;
-declare const UNAUTHORIZED_PASSWORD: string;
 declare const MAX_RETRIES: number;
 declare const SLEEP_TIME_S: number;

@@ -5,7 +5,10 @@ import { BinaryLike, createHash, randomUUID } from 'crypto';
 import * as fs from 'fs';
 
 describe('MediaApi', () => {
-    const config = new Configuration({ username: BW_USERNAME, password: BW_PASSWORD });
+    const config = new Configuration({
+        clientId: BW_CLIENT_ID,
+        clientSecret: BW_CLIENT_SECRET
+    });
     const mediaApi = new MediaApi(config);
 
     const binaryMediaData = '123456';

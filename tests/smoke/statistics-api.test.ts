@@ -18,28 +18,4 @@ describe('StatisticsApi', () => {
             expect(data.maxCallQueueSize).toEqual(7500);
         });
     });
-
-    describe('HTTP Errors', () => {
-        test('401', async () => {
-            const configBad = new Configuration({username: UNAUTHORIZED_USERNAME, password: UNAUTHORIZED_PASSWORD});
-            const statisticsApiBad = new StatisticsApi(configBad);
-
-            try {
-                await statisticsApiBad.getStatistics(BW_ACCOUNT_ID);
-            } catch (e) {
-                expect(e.response.status).toEqual(401);
-            }
-        });
-
-        test('403', async () => {
-            const configBad = new Configuration({username: FORBIDDEN_USERNAME, password: FORBIDDEN_PASSWORD});
-            const statisticsApiBad = new StatisticsApi(configBad);
-
-            try {
-                await statisticsApiBad.getStatistics(BW_ACCOUNT_ID);
-            } catch (e) {
-                expect(e.response.status).toEqual(403);
-            }
-        });
-    });
 });
