@@ -24,6 +24,9 @@ describe('TransferDisconnectCallback', () => {
             cause: 'test-cause',
             errorMessage: 'test-errorMessage',
             errorId: 'test-errorId',
+            sipResponseCode: 200,
+            sipStatusLine: 'test-sipStatusLine',
+            sipHeaders: { reason: 'test-reason' },
         };
 
         expect(fixture.eventType).toBe('test-eventType');
@@ -46,5 +49,8 @@ describe('TransferDisconnectCallback', () => {
         expect(fixture.cause).toBe('test-cause');
         expect(fixture.errorMessage).toBe('test-errorMessage');
         expect(fixture.errorId).toBe('test-errorId');
+        expect(fixture.sipResponseCode).toBe(200);
+        expect(fixture.sipStatusLine).toBe('test-sipStatusLine');
+        expect(fixture.sipHeaders).toEqual({ reason: 'test-reason' });
     });
 });

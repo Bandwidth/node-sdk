@@ -23,6 +23,8 @@ describe('DisconnectCallback', () => {
             tag: 'test-tag',
             sipCallId: 'test-sipCallId',
             sipResponseCode: 200,
+            sipStatusLine: 'test-sipStatusLine',
+            sipHeaders: { reason: 'test-reason' },
         };
 
         expect(fixture.eventType).toBe('test-eventType');
@@ -44,5 +46,7 @@ describe('DisconnectCallback', () => {
         expect(fixture.tag).toBe('test-tag');
         expect(fixture.sipCallId).toBe('test-sipCallId');
         expect(fixture.sipResponseCode).toBe(200);
+        expect(fixture.sipStatusLine).toBe('test-sipStatusLine');
+        expect(fixture.sipHeaders).toEqual({ reason: 'test-reason' });
     });
 });

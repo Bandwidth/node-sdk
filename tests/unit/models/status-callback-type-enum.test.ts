@@ -7,12 +7,14 @@ describe('StatusCallbackTypeEnum', () => {
         expect(StatusCallbackTypeEnum.MessageDelivered).toBe('message-delivered');
         expect(StatusCallbackTypeEnum.MessageFailed).toBe('message-failed');
         expect(StatusCallbackTypeEnum.MessageRead).toBe('message-read');
+        expect(StatusCallbackTypeEnum.SessionStarted).toBe('session-started');
         expect(Object.values(StatusCallbackTypeEnum)).toEqual([
             'message-sending',
             'message-sent',
             'message-delivered',
             'message-failed',
-            'message-read'
+            'message-read',
+            'session-started'
         ]);
     });
 });
