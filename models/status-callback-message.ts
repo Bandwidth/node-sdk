@@ -22,6 +22,9 @@ import type { MultiChannelMessageChannelEnum } from './multi-channel-message-cha
 // May contain unused imports in some cases
 // @ts-ignore
 import type { PriorityEnum } from './priority-enum';
+// May contain unused imports in some cases
+// @ts-ignore
+import type { RbmSession } from './rbm-session';
 
 /**
  * Message payload schema within a callback
@@ -64,6 +67,7 @@ export interface StatusCallbackMessage {
     'media'?: Array<string>;
     'priority'?: PriorityEnum;
     'channel'?: MultiChannelMessageChannelEnum;
+    'session'?: RbmSession;
 }
 
 

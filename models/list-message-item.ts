@@ -66,7 +66,7 @@ export interface ListMessageItem {
     /**
      * The length of the message content.
      */
-    'messageLength'?: number;
+    'messageLength'?: number | null;
     /**
      * The number of attachments the message has.
      */
