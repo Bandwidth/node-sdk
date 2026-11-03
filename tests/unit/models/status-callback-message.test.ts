@@ -2,6 +2,7 @@ import { StatusCallbackMessage } from '../../../models/status-callback-message';
 import { MessageDirectionEnum } from '../../../models/message-direction-enum';
 import { PriorityEnum } from '../../../models/priority-enum';
 import { MultiChannelMessageChannelEnum } from '../../../models/multi-channel-message-channel-enum';
+import { RbmSession } from '../../../models/rbm-session';
 
 describe('StatusCallbackMessage', () => {
     test('should accept the expected shape', () => {
@@ -20,6 +21,7 @@ describe('StatusCallbackMessage', () => {
             media: [],
             priority: PriorityEnum.Default,
             channel: MultiChannelMessageChannelEnum.Rbm,
+            session: {} as unknown as RbmSession,
         };
 
         expect(fixture.id).toBe('test-id');
@@ -35,5 +37,6 @@ describe('StatusCallbackMessage', () => {
         expect(fixture.media).toEqual([]);
         expect(fixture.priority).toBe(PriorityEnum.Default);
         expect(fixture.channel).toBe(MultiChannelMessageChannelEnum.Rbm);
+        expect(fixture.session).toBeDefined();
     });
 });

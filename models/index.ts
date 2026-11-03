@@ -144,6 +144,7 @@ export * from './rbm-message-content-rich-card';
 export * from './rbm-message-content-text';
 export * from './rbm-message-media';
 export * from './rbm-open-url-enum';
+export * from './rbm-session';
 export * from './rbm-standalone-card';
 export * from './rbm-suggestion-response';
 export * from './rbm-web-view-enum';
