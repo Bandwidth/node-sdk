@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { CallsApi } from '../../../api';
 import { Configuration } from '../../../configuration';
+import { BW_ACCOUNT_ID, BW_NUMBER, USER_NUMBER, BW_VOICE_APPLICATION_ID, BASE_CALLBACK_URL } from '../constants';
 import {
     CallbackMethodEnum,
     CallDirectionEnum,
@@ -138,7 +139,7 @@ describe('CallsApi', () => {
         test('should update a call', async () => {
             const updateCallBody: UpdateCall = {
                 state: CallStateEnum.Active,
-                redirectUrl: `${MANTECA_BASE_URL}/bxml/pause`
+                redirectUrl: `${BASE_CALLBACK_URL}/bxml/pause`
             };
 
             const { status } = await callsApi.updateCall(BW_ACCOUNT_ID, callId, updateCallBody);

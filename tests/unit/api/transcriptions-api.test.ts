@@ -1,5 +1,6 @@
 import { TranscriptionsApi } from "../../../api";
 import { Configuration } from "../../../configuration";
+import { BW_ACCOUNT_ID } from "../constants";
 import { CallTranscriptionDetectedLanguageEnum, CallTranscriptionTrackEnum } from "../../../models";
 
 describe('TranscriptionsApi', () => {
