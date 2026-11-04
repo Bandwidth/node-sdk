@@ -1,5 +1,6 @@
 import { RecordingsApi } from "../../../api";
 import { Configuration } from "../../../configuration";
+import { BW_ACCOUNT_ID, BASE_CALLBACK_URL } from "../constants";
 import {
     CallDirectionEnum,
     FileFormatEnum,
@@ -135,7 +136,7 @@ describe('RecordingsApi', () => {
     describe('transcribeCallRecording', () => {
         test('should create a transcription request', async () => {
             const transcribeRecording: TranscribeRecording = {
-                callbackUrl: `${MANTECA_BASE_URL}/transcriptions`,
+                callbackUrl: `${BASE_CALLBACK_URL}/transcriptions`,
                 tag: callId
             };
             const { status } =

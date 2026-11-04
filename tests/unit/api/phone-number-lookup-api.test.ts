@@ -1,5 +1,6 @@
 import { PhoneNumberLookupApi } from "../../../api";
 import { Configuration } from "../../../configuration";
+import { BW_ACCOUNT_ID, BW_NUMBER, USER_NUMBER } from "../constants";
 import {
     AsyncLookupRequest,
     CompletedLookupStatusEnum,

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { StatisticsApi } from '../../../api';
 import { Configuration } from '../../../configuration';
+import { BW_ACCOUNT_ID } from '../constants';
 
 describe('StatisticsApi', () => {
     const config = new Configuration({

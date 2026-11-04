@@ -1,5 +1,6 @@
 import { MediaApi } from '../../../api';
 import { Configuration } from '../../../configuration';
+import { BW_ACCOUNT_ID } from '../constants';
 
 describe('MediaApi', () => {
     const config = new Configuration({
