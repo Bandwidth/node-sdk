@@ -32,6 +32,4 @@ jobs:
           yarn
           npm install -g @stoplight/prism-cli
           prism mock ./bandwidth.yml & yarn test-unit
-        env:
-          OPERATING_SYSTEM: ${{ matrix.os }}
         shell: bash
