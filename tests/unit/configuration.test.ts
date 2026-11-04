@@ -82,3 +82,22 @@ describe('Configuration OAuth', () => {
         expect(mockedAxios.request).not.toHaveBeenCalled();
     });
 });
+
+describe('Configuration Basic auth', () => {
+    const expectedError = 'Basic authentication is no longer supported. Use `clientId` and `clientSecret` instead.';
+
+    test('throws when username and password are provided', () => {
+        // @ts-expect-error username and password are no longer valid parameters
+        expect(() => new Configuration({ username: 'user', password: 'pass' })).toThrow(expectedError);
+    });
+
+    test('throws when only username is provided', () => {
+        // @ts-expect-error username is no longer a valid parameter
+        expect(() => new Configuration({ username: 'user' })).toThrow(expectedError);
+    });
+
+    test('throws when only password is provided', () => {
+        // @ts-expect-error password is no longer a valid parameter
+        expect(() => new Configuration({ password: 'pass' })).toThrow(expectedError);
+    });
+});

@@ -374,11 +374,6 @@ Class | Method | HTTP request | Description
 
 
 Authentication schemes defined for the API:
-<a id="Basic"></a>
-### Basic
-
-- **Type**: HTTP basic authentication
-
 <a id="OAuth2"></a>
 ### OAuth2
 

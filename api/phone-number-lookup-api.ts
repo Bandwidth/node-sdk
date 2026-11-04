@@ -64,10 +64,6 @@ export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: C
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication Basic required
-            // http basic authentication required
-            setBasicAuthToObject(localVarRequestOptions, configuration)
-
             // authentication OAuth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
@@ -110,10 +106,6 @@ export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: C
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            // authentication Basic required
-            // http basic authentication required
-            setBasicAuthToObject(localVarRequestOptions, configuration)
 
             // authentication OAuth2 required
             // oauth required
@@ -158,10 +150,6 @@ export const PhoneNumberLookupApiAxiosParamCreator = function (configuration?: C
             const localVarRequestOptions = { method: 'GET', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            // authentication Basic required
-            // http basic authentication required
-            setBasicAuthToObject(localVarRequestOptions, configuration)
 
             // authentication OAuth2 required
             // oauth required

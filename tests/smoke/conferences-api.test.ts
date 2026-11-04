@@ -7,8 +7,8 @@ import { setupManteca, createMantecaCall, cleanupCalls, getMantecaTestStatus, sl
 describe('ConferencesApi', () => {
     jest.setTimeout(125000);
     const config = new Configuration({
-        username: BW_USERNAME,
-        password: BW_PASSWORD
+        clientId: BW_CLIENT_ID,
+        clientSecret: BW_CLIENT_SECRET
     });
     const callsApi = new CallsApi(config);
     const conferencesApi = new ConferencesApi(config);

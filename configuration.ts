@@ -27,8 +27,6 @@ interface AWSv4Configuration {
 
 export interface ConfigurationParameters {
     apiKey?: string | Promise<string> | ((name: string) => string) | ((name: string) => Promise<string>);
-    username?: string;
-    password?: string;
     clientId?: string;
     clientSecret?: string;
     accessToken?: string | Promise<string> | ((name?: string, scopes?: string[]) => string) | ((name?: string, scopes?: string[]) => Promise<string>);
@@ -46,14 +44,6 @@ export class Configuration {
      * @param name security name
      */
     apiKey?: string | Promise<string> | ((name: string) => string) | ((name: string) => Promise<string>);
-    /**
-     * parameter for basic security
-     */
-    username?: string;
-    /**
-     * parameter for basic security
-     */
-    password?: string;
     /**
      * parameter for client ID
      */
@@ -113,9 +103,10 @@ export class Configuration {
     formDataCtor?: new () => any;
 
     constructor(param: ConfigurationParameters = {}) {
+        if ('username' in param || 'password' in param) {
+            throw new Error('Basic authentication is no longer supported. Use `clientId` and `clientSecret` instead.');
+        }
         this.apiKey = param.apiKey;
-        this.username = param.username;
-        this.password = param.password;
         this.clientId = param.clientId;
         this.clientSecret = param.clientSecret;
         this.tempAccessToken;

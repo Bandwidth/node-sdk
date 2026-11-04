@@ -4,7 +4,10 @@ import { Configuration } from '../../configuration';
 import { CodeRequest, VerifyCodeRequest } from '../../models';
 
 describe('MFAApi', () => {
-    const config = new Configuration({username: BW_USERNAME, password: BW_PASSWORD});
+    const config = new Configuration({
+        clientId: BW_CLIENT_ID,
+        clientSecret: BW_CLIENT_SECRET
+    });
     const mfaApi = new MFAApi(config);
 
     const message = 'Your temporary {NAME} {SCOPE} code is {CODE}';
@@ -74,25 +77,6 @@ describe('MFAApi', () => {
                 await mfaApi.generateMessagingCode(BW_ACCOUNT_ID, codeRequest);
             } catch (e) {
                 expect(e.response.status).toEqual(400);
-            }
-        });
-
-        test('403', async () => {
-            const configBad = new Configuration({username: UNAUTHORIZED_USERNAME, password: UNAUTHORIZED_PASSWORD});
-            const mfaApiBad = new MFAApi(configBad);
-
-            const codeRequest: CodeRequest = {
-                to: USER_NUMBER,
-                from: BW_NUMBER,
-                applicationId: BW_MESSAGING_APPLICATION_ID,
-                message: message,
-                digits: digits
-            };
-
-            try {
-                await mfaApiBad.generateMessagingCode(BW_ACCOUNT_ID, codeRequest);
-            } catch (e) {
-                expect(e.response.status).toEqual(403);
             }
         });
     });

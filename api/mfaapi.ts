@@ -68,10 +68,6 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication Basic required
-            // http basic authentication required
-            setBasicAuthToObject(localVarRequestOptions, configuration)
-
             // authentication OAuth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
@@ -115,10 +111,6 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
 
-            // authentication Basic required
-            // http basic authentication required
-            setBasicAuthToObject(localVarRequestOptions, configuration)
-
             // authentication OAuth2 required
             // oauth required
             await setOAuthToObject(localVarHeaderParameter, "OAuth2", [], configuration)
@@ -161,10 +153,6 @@ export const MFAApiAxiosParamCreator = function (configuration?: Configuration) 
             const localVarRequestOptions = { method: 'POST', ...baseOptions, ...options};
             const localVarHeaderParameter = {} as any;
             const localVarQueryParameter = {} as any;
-
-            // authentication Basic required
-            // http basic authentication required
-            setBasicAuthToObject(localVarRequestOptions, configuration)
 
             // authentication OAuth2 required
             // oauth required
