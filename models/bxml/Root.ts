@@ -3,6 +3,14 @@ import { XMLBuilder, XMLWriterOptions } from 'xmlbuilder2/lib/interfaces';
 import { Verb } from './Verb';
 
 export const SSML_REGEX = /&lt;([a-zA-Z\/\/].*?)&gt;/g;
+const SPEAK_SENTENCE_REGEX = /(<SpeakSentence\b[^>]*(?<!\/)>)([\s\S]*?)(<\/SpeakSentence>)/g;
+
+/**
+ * Restore SSML tags inside SpeakSentence text content only.
+ * Attribute values and all other elements keep their XML escaping.
+ */
+export const unescapeSsml = (bxml: string): string =>
+    bxml.replace(SPEAK_SENTENCE_REGEX, (_m, open, text, close) => open + text.replace(SSML_REGEX, '<$1>') + close);
 
 /**
  * @export
@@ -54,6 +62,6 @@ export class Root {
      * @param options XML Serialization options
      */
     toBxml(options?: XMLWriterOptions): string {
-        return this.generateXml().end(options).replace(SSML_REGEX, '<$1>');
+        return unescapeSsml(this.generateXml().end(options));
     }
 }
