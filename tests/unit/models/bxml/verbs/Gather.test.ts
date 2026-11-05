@@ -65,4 +65,11 @@ describe('Gather', () => {
         gather.addAudioVerbs(playAudio);
         expect(gather.toBxml()).toBe(expected);
     });
+
+    test('should un-escape SSML in a Gather SpeakSentence but not in Gather attributes', () => {
+        const gather = new Gather({ gatherUrl: 'https://example.com/?a=<b>' }, [new SpeakSentence('say <emphasis>this</emphasis>')]);
+        const expected = '<Gather gatherUrl="https://example.com/?a=&lt;b&gt;"><SpeakSentence>say <emphasis>this</emphasis></SpeakSentence></Gather>';
+
+        expect(gather.toBxml()).toBe(expected);
+    });
 });

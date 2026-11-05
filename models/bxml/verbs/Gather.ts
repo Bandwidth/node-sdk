@@ -1,7 +1,7 @@
 import { NestableVerb } from '../NestableVerb';
 import { PlayAudio } from './PlayAudio';
 import { SpeakSentence } from './SpeakSentence';
-import { SSML_REGEX } from '../Root';
+import { unescapeSsml } from '../Root';
 import { XMLWriterOptions } from 'xmlbuilder2/lib/interfaces';
 
 type AudioVerbs = Array<PlayAudio | SpeakSentence>;
@@ -54,7 +54,7 @@ export class Gather extends NestableVerb {
      * @param options XML Serialization options
      */
     toBxml(options?: XMLWriterOptions): string {
-        return this.generateXml().toString(options).replace(SSML_REGEX, '<$1>');
+        return unescapeSsml(this.generateXml().toString(options));
     }
 
     /**
