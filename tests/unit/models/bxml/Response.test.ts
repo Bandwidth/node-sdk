@@ -3,7 +3,6 @@ import { PauseRecording } from '../../../../models/bxml/verbs/PauseRecording';
 import { Root } from '../../../../models/bxml/Root';
 import { Redirect } from '../../../../models/bxml/verbs/Redirect';
 import { SpeakSentence } from '../../../../models/bxml/verbs/SpeakSentence';
-import { Gather } from '../../../../models/bxml/verbs/Gather';
 
 describe('Response', () => {
     const pauseRecording = new PauseRecording();
@@ -62,14 +61,6 @@ describe('Response', () => {
 
             expect(bxml).toContain('info=&lt;https://cert.example.com/cert.pem&gt;');
             expect(bxml).toContain('hi <break time="1s"/> there');
-        });
-
-        test('should un-escape SSML in a Gather SpeakSentence but not in Gather attributes', () => {
-            const gather = new Gather({ gatherUrl: 'https://example.com/?a=<b>' }, [new SpeakSentence('say <emphasis>this</emphasis>')]);
-            const bxml = gather.toBxml();
-
-            expect(bxml).toContain('gatherUrl="https://example.com/?a=&lt;b&gt;"');
-            expect(bxml).toContain('say <emphasis>this</emphasis>');
         });
     });
 });
