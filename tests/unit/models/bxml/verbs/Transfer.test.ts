@@ -59,9 +59,9 @@ describe('Transfer', () => {
         expect(transfer.toBxml()).toBe(expected);
     });
 
-    test('should create a Transfer Verb with attestationLevel', () => {
-        const transfer = new Transfer({ transferCallerId: '+19195551234', attestationLevel: 'B' }, phoneNumber);
-        const expected = '<Transfer transferCallerId="+19195551234" attestationLevel="B"><PhoneNumber>+19195551234</PhoneNumber></Transfer>';
+    test('should create a Transfer Verb with requestedAttestationLevel', () => {
+        const transfer = new Transfer({ transferCallerId: '+19195551234', requestedAttestationLevel: 'B' }, phoneNumber);
+        const expected = '<Transfer transferCallerId="+19195551234" requestedAttestationLevel="B"><PhoneNumber>+19195551234</PhoneNumber></Transfer>';
 
         expect(transfer.toBxml()).toBe(expected);
     });
