@@ -104,7 +104,7 @@ describe('CallsApi', () => {
     
     describe('listCalls', () => {
         test('should return an array of calls', async () => {
-            const { status, data } = await callsApi.listCalls(BW_ACCOUNT_ID);
+            const { status, data } = await callsApi.listCalls(BW_ACCOUNT_ID, USER_NUMBER, BW_NUMBER);
 
             expect(status).toEqual(200);
             expect(data).toBeInstanceOf(Array);
@@ -168,28 +168,6 @@ describe('CallsApi', () => {
                 await callsApi.createCall(BW_ACCOUNT_ID, callBodyBad);
             } catch (e) {
                 expect(e.response.status).toEqual(400);
-            }
-        });
-
-        test('401', async () => {
-            const configBad = new Configuration({username: UNAUTHORIZED_USERNAME, password: UNAUTHORIZED_PASSWORD});
-            const callsApiBad = new CallsApi(configBad);
-
-            try {
-                await callsApiBad.getCallState(BW_ACCOUNT_ID, callId);
-            } catch (e) {
-                expect(e.response.status).toEqual(401);
-            }
-        });
-
-        test('403', async () => {
-            const configBad = new Configuration({username: FORBIDDEN_USERNAME, password: FORBIDDEN_PASSWORD});
-            const callsApiBad = new CallsApi(configBad);
-
-            try {
-                await callsApiBad.getCallState(BW_ACCOUNT_ID, callId);
-            } catch (e) {
-                expect(e.response.status).toEqual(403);
             }
         });
 

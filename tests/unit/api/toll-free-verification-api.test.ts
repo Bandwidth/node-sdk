@@ -1,5 +1,6 @@
 import { TollFreeVerificationApi } from '../../../api';
 import { Configuration } from '../../../configuration';
+import { BW_ACCOUNT_ID } from '../constants';
 import {
     BusinessEntityTypeEnum,
     BusinessRegistrationTypeEnum,

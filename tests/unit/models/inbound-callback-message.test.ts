@@ -2,6 +2,7 @@ import { InboundCallbackMessage } from '../../../models/inbound-callback-message
 import { MessageDirectionEnum } from '../../../models/message-direction-enum';
 import { PriorityEnum } from '../../../models/priority-enum';
 import { MultiChannelMessageChannelEnum } from '../../../models/multi-channel-message-channel-enum';
+import { RbmSession } from '../../../models/rbm-session';
 import { MultiChannelMessageContent } from '../../../models/multi-channel-message-content';
 import { RbmSuggestionResponse } from '../../../models/rbm-suggestion-response';
 import { RbmLocationResponse } from '../../../models/rbm-location-response';
@@ -23,6 +24,7 @@ describe('InboundCallbackMessage', () => {
             media: [],
             priority: PriorityEnum.Default,
             channel: MultiChannelMessageChannelEnum.Rbm,
+            session: {} as unknown as RbmSession,
             content: {} as unknown as MultiChannelMessageContent,
             suggestionResponse: {} as unknown as RbmSuggestionResponse,
             locationResponse: {} as unknown as RbmLocationResponse,
@@ -41,6 +43,7 @@ describe('InboundCallbackMessage', () => {
         expect(fixture.media).toEqual([]);
         expect(fixture.priority).toBe(PriorityEnum.Default);
         expect(fixture.channel).toBe(MultiChannelMessageChannelEnum.Rbm);
+        expect(fixture.session).toBeDefined();
         expect(fixture.content).toBeDefined();
         expect(fixture.suggestionResponse).toBeDefined();
         expect(fixture.locationResponse).toBeDefined();

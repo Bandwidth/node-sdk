@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **media** | **Array&lt;string&gt;** | Optional media, not applicable for sms | [optional] [default to undefined]
 **priority** | [**PriorityEnum**](PriorityEnum.md) |  | [optional] [default to undefined]
 **channel** | [**MultiChannelMessageChannelEnum**](MultiChannelMessageChannelEnum.md) |  | [optional] [default to undefined]
+**session** | [**RbmSession**](RbmSession.md) |  | [optional] [default to undefined]
 **content** | [**MultiChannelMessageContent**](MultiChannelMessageContent.md) |  | [optional] [default to undefined]
 **suggestionResponse** | [**RbmSuggestionResponse**](RbmSuggestionResponse.md) |  | [optional] [default to undefined]
 **locationResponse** | [**RbmLocationResponse**](RbmLocationResponse.md) |  | [optional] [default to undefined]
@@ -41,6 +42,7 @@ const instance: InboundCallbackMessage = {
     media,
     priority,
     channel,
+    session,
     content,
     suggestionResponse,
     locationResponse,

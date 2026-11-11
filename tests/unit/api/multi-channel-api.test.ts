@@ -1,6 +1,7 @@
 //@ts-nocheck
 import { MultiChannelApi } from '../../../api';
 import { Configuration } from '../../../configuration';
+import { BW_ACCOUNT_ID, BW_NUMBER, USER_NUMBER, BW_MESSAGING_APPLICATION_ID } from '../constants';
 import {
     MultiChannelChannelListRBMObject,
     MultiChannelMessageChannelEnum,

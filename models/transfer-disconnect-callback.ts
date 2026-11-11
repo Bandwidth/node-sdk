@@ -98,6 +98,18 @@ export interface TransferDisconnectCallback {
      * Bandwidth\'s internal id that references the error event.
      */
     'errorId'?: string | null;
+    /**
+     * (optional) The SIP status code of the final response that rejected an outbound call\'s (or transferred leg\'s) INVITE (e.g. 486 for busy, 603 for decline). Present only when the call was rejected with a SIP response.
+     */
+    'sipResponseCode'?: number;
+    /**
+     * (optional) The full SIP status line, exactly as received, of the final response that rejected an outbound call\'s INVITE. The reason phrase can help distinguish outcomes that share a status code, such as `603 Network Blocked` and `603 Decline`. Present only when an outbound call was rejected with a SIP response.
+     */
+    'sipStatusLine'?: string;
+    /**
+     * (optional) Map of SIP headers, with lowercase keys (SIP headers are case-insensitive). On the Initiate callback, contains the customer-supplied X-* headers from the original INVITE; present only for inbound SIP URI calls with custom headers. On the Disconnect and Transfer Disconnect callbacks, contains a single `reason` key holding the raw, unmodified `Reason` header value from the final SIP response that rejected an outbound call (or transferred leg); present only when that response included a `Reason` header (for example, `v=analytics1` call-analytics block information from a terminating carrier). If the response carries more than one `Reason` header, all values are returned in the order received, separated by `, `. Note - on the Initiate callback, keys preserve the original SIP header name in lowercase rather than Bandwidth\'s usual camelCase JSON convention, since these are passthrough values from the caller\'s SIP INVITE, not Bandwidth-defined fields. If the same header name is sent more than once in the INVITE, only the last value is kept. The example shown is for the Initiate callback; on the Disconnect and Transfer Disconnect callbacks the only key is `reason`.
+     */
+    'sipHeaders'?: { [key: string]: string; };
 }
 
 

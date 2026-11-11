@@ -16,11 +16,11 @@
 
 export interface RbmSuggestionResponse {
     /**
-     * The text associated with the suggestion response.
+     * The text of the suggestion the user tapped.
      */
     'text'?: string;
     /**
-     * Base64 payload the customer receives when the reply is clicked.
+     * Payload the customer receives when the reply is clicked.
      */
     'postbackData'?: string;
     /**

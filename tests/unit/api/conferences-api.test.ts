@@ -1,5 +1,6 @@
 import { ConferencesApi } from '../../../api';
 import { Configuration } from '../../../configuration';
+import { BW_ACCOUNT_ID, BASE_CALLBACK_URL } from '../constants';
 import {
     ConferenceStateEnum,
     RedirectMethodEnum,
@@ -79,11 +80,11 @@ describe('ConferencesApi', () => {
         test('should update conference', async () => {
             const updateConferenceBody: UpdateConference = {
                 status: ConferenceStateEnum.Active,
-                redirectUrl: `${MANTECA_BASE_URL}/bxml/pause`,
+                redirectUrl: `${BASE_CALLBACK_URL}/bxml/pause`,
                 redirectMethod: RedirectMethodEnum.Post,
                 username: 'username',
                 password: 'password',
-                redirectFallbackUrl: `${MANTECA_BASE_URL}/bxml/pause`,
+                redirectFallbackUrl: `${BASE_CALLBACK_URL}/bxml/pause`,
                 redirectFallbackMethod: RedirectMethodEnum.Post,
                 fallbackUsername: 'username',
                 fallbackPassword: 'password'

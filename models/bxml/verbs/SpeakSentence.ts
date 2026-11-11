@@ -1,6 +1,6 @@
 import { Verb } from '../Verb';
 import { XMLWriterOptions } from 'xmlbuilder2/lib/interfaces';
-import { SSML_REGEX } from '../Root';
+import { unescapeSsml } from '../Root';
 
 export interface SpeakSentenceAttributes {
     voice?: string;
@@ -32,6 +32,6 @@ export class SpeakSentence extends Verb {
      * @param options XML Serialization options
      */
     toBxml(options?: XMLWriterOptions): string {
-        return this.generateXml().toString(options).replace(SSML_REGEX, '<$1>');
+        return unescapeSsml(this.generateXml().toString(options));
     }
 }
