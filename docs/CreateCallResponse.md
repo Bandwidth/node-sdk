@@ -26,6 +26,8 @@ Name | Type | Description | Notes
 **fallbackUsername** | **string** | Basic auth username. | [optional] [default to undefined]
 **fallbackPassword** | **string** | Basic auth password. | [optional] [default to undefined]
 **priority** | **number** | The priority of this call over other calls from your account. | [optional] [default to undefined]
+**requestedAttestationLevel** | [**AttestationLevelEnum**](AttestationLevelEnum.md) | The &#x60;requestedAttestationLevel&#x60; provided in the Create Call request, if any. This is the level you requested, which can differ from the level the call is ultimately signed with. | [optional] [default to undefined]
+**identity** | **string** | The &#x60;identity&#x60; value provided in the Create Call request, if any. | [optional] [default to undefined]
 
 ## Example
 
@@ -54,6 +56,8 @@ const instance: CreateCallResponse = {
     fallbackUsername,
     fallbackPassword,
     priority,
+    requestedAttestationLevel,
+    identity,
 };
 ```
 

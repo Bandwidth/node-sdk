@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { AttestationLevelEnum } from './attestation-level-enum';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { CallbackMethodEnum } from './callback-method-enum';
 
 export interface CreateCallResponse {
@@ -93,6 +96,14 @@ export interface CreateCallResponse {
      * The priority of this call over other calls from your account.
      */
     'priority'?: number | null;
+    /**
+     * The `requestedAttestationLevel` provided in the Create Call request, if any. This is the level you requested, which can differ from the level the call is ultimately signed with.
+     */
+    'requestedAttestationLevel'?: AttestationLevelEnum | null;
+    /**
+     * The `identity` value provided in the Create Call request, if any.
+     */
+    'identity'?: string | null;
 }
 
 
