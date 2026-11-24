@@ -1,4 +1,5 @@
 import { CreateCall } from '../../../models/create-call';
+import { AttestationLevelEnum } from '../../../models/attestation-level-enum';
 import { CallbackMethodEnum } from '../../../models/callback-method-enum';
 import { MachineDetectionConfiguration } from '../../../models/machine-detection-configuration';
 
@@ -10,6 +11,8 @@ describe('CreateCall', () => {
             privacy: true,
             displayName: 'test-displayName',
             uui: 'test-uui',
+            requestedAttestationLevel: AttestationLevelEnum.A,
+            identity: 'test-identity',
             applicationId: 'test-applicationId',
             answerUrl: 'test-answerUrl',
             answerMethod: CallbackMethodEnum.Get,
@@ -33,6 +36,8 @@ describe('CreateCall', () => {
         expect(fixture.privacy).toBe(true);
         expect(fixture.displayName).toBe('test-displayName');
         expect(fixture.uui).toBe('test-uui');
+        expect(fixture.requestedAttestationLevel).toBe(AttestationLevelEnum.A);
+        expect(fixture.identity).toBe('test-identity');
         expect(fixture.applicationId).toBe('test-applicationId');
         expect(fixture.answerUrl).toBe('test-answerUrl');
         expect(fixture.answerMethod).toBe(CallbackMethodEnum.Get);
