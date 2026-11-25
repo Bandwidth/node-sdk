@@ -1,4 +1,5 @@
 import { CreateCallResponse } from '../../../models/create-call-response';
+import { AttestationLevelEnum } from '../../../models/attestation-level-enum';
 import { CallbackMethodEnum } from '../../../models/callback-method-enum';
 
 describe('CreateCallResponse', () => {
@@ -25,6 +26,8 @@ describe('CreateCallResponse', () => {
             fallbackUsername: 'test-fallbackUsername',
             fallbackPassword: 'test-fallbackPassword',
             priority: 1.5,
+            requestedAttestationLevel: AttestationLevelEnum.A,
+            identity: 'test-identity',
         };
 
         expect(fixture.applicationId).toBe('test-applicationId');
@@ -48,5 +51,7 @@ describe('CreateCallResponse', () => {
         expect(fixture.fallbackUsername).toBe('test-fallbackUsername');
         expect(fixture.fallbackPassword).toBe('test-fallbackPassword');
         expect(fixture.priority).toBe(1.5);
+        expect(fixture.requestedAttestationLevel).toBe(AttestationLevelEnum.A);
+        expect(fixture.identity).toBe('test-identity');
     });
 });

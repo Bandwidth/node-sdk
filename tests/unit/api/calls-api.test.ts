@@ -3,6 +3,7 @@ import { CallsApi } from '../../../api';
 import { Configuration } from '../../../configuration';
 import { BW_ACCOUNT_ID, BW_NUMBER, USER_NUMBER, BW_VOICE_APPLICATION_ID, BASE_CALLBACK_URL } from '../constants';
 import {
+    AttestationLevelEnum,
     CallbackMethodEnum,
     CallDirectionEnum,
     CallStateEnum,
@@ -26,6 +27,7 @@ describe('CallsApi', () => {
     const disconnectUrl = `${BASE_CALLBACK_URL}/callbacks/disconnect`;
     const callTimeout = 30.0;
     const callbackTimeout = 15.0;
+    const identity = 'eyJhbGciOiJFUzI1NiJ9.eyJhdHRlc3QiOiJBIn0.c2ln;info=<https://cert.example/cert.pem>;alg=ES256;ppt="shaken"';
 
     describe('createCall', () => {
         test('should create a call', async () => {
@@ -52,7 +54,9 @@ describe('CallsApi', () => {
                 disconnectMethod: disconnectMethod,
                 machineDetection: amdConfig,
                 callTimeout: callTimeout,
-                callbackTimeout: callbackTimeout
+                callbackTimeout: callbackTimeout,
+                requestedAttestationLevel: AttestationLevelEnum.B,
+                identity: identity
             };
 
             const { status, data } = await callsApi.createCall(BW_ACCOUNT_ID, callBody);

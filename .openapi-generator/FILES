@@ -21,6 +21,7 @@ docs/AdditionalDenialReason.md
 docs/Address.md
 docs/AnswerCallback.md
 docs/AsyncLookupRequest.md
+docs/AttestationLevelEnum.md
 docs/BlockedWebhook.md
 docs/BridgeCompleteCallback.md
 docs/BridgeTargetCompleteCallback.md
@@ -237,6 +238,7 @@ models/additional-denial-reason.ts
 models/address.ts
 models/answer-callback.ts
 models/async-lookup-request.ts
+models/attestation-level-enum.ts
 models/blocked-webhook.ts
 models/bridge-complete-callback.ts
 models/bridge-target-complete-callback.ts

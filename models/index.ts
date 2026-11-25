@@ -3,6 +3,7 @@ export * from './additional-denial-reason';
 export * from './address';
 export * from './answer-callback';
 export * from './async-lookup-request';
+export * from './attestation-level-enum';
 export * from './blocked-webhook';
 export * from './bridge-complete-callback';
 export * from './bridge-target-complete-callback';

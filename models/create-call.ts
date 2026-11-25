@@ -15,6 +15,9 @@
 
 // May contain unused imports in some cases
 // @ts-ignore
+import type { AttestationLevelEnum } from './attestation-level-enum';
+// May contain unused imports in some cases
+// @ts-ignore
 import type { CallbackMethodEnum } from './callback-method-enum';
 // May contain unused imports in some cases
 // @ts-ignore
@@ -41,6 +44,14 @@ export interface CreateCall {
      * A comma-separated list of \'User-To-User\' headers to be sent in the INVITE when calling a SIP URI. Each value must end with an \'encoding\' parameter as described in <a href=\'https://tools.ietf.org/html/rfc7433\'>RFC 7433</a>. Only \'jwt\', \'base64\' and \'hex\' encodings are allowed. The entire value cannot exceed 350 characters, including parameters and separators.
      */
     'uui'?: string | null;
+    /**
+     * The STIR/SHAKEN attestation level (`A`, `B`, or `C`) you request Bandwidth sign this call with. Applies to outbound calls to US destinations only, and only to accounts that use the <a href=\'/docs/voice/stir-shaken/hosted-signing-service\'>Hosted Signing Service</a>; it is ignored for all other accounts. If omitted, the attestation policy configured on your account is used.  Cannot be combined with `identity`. A request that includes both is rejected with a `400`, as is any value other than `A`, `B`, or `C`.
+     */
+    'requestedAttestationLevel'?: AttestationLevelEnum | null;
+    /**
+     * A complete SIP `Identity` header value that you signed yourself. It must be a valid STIR/SHAKEN PASSporT and may not exceed 2000 characters. Bandwidth sends it unmodified on the outbound call and does not sign the call. Bandwidth checks only the format and size of the value, not the signature. Applies to outbound calls to US destinations only.  Cannot be combined with `requestedAttestationLevel`. A request that includes both, or a value that is too long or not in the expected format, is rejected with a `400`.
+     */
+    'identity'?: string | null;
     /**
      * The id of the application associated with the `from` number.
      */
